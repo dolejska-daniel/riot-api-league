@@ -25,9 +25,11 @@ use Exception;
 use ReflectionClass;
 use ReflectionException;
 
+use RiotAPI\Base\Objects\IApiObject;
+
 use RiotAPI\LeagueAPI\Exceptions\GeneralException;
 use RiotAPI\LeagueAPI\Exceptions\SettingsException;
-use RiotAPI\LeagueAPI\Objects\StaticData\StaticChampionListDto;
+
 use RiotAPI\LeagueAPI\LeagueAPI;
 
 

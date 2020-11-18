@@ -12,9 +12,6 @@
          beStrictAboutOutputDuringTests="true"
 >
 	<testsuites>
-		<testsuite name="LeagueAPI:Library_Tests">
-			<directory>tests/LeagueAPI/Library/</directory>
-		</testsuite>
 		<testsuite name="LeagueAPI:Definition_Tests">
 			<directory>tests/LeagueAPI/Definition/</directory>
 		</testsuite>

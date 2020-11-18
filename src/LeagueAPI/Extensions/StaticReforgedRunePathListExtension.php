@@ -19,12 +19,14 @@
 
 namespace RiotAPI\LeagueAPI\Extensions;
 
-use RiotAPI\LeagueAPI\Objects\IApiObject;
-use RiotAPI\LeagueAPI\Objects\IApiObjectExtension;
+use RiotAPI\Base\Objects\IApiObject;
+use RiotAPI\Base\Objects\IApiObjectExtension;
+
 use RiotAPI\LeagueAPI\Objects\StaticData\StaticReforgedRuneDto;
 use RiotAPI\LeagueAPI\Objects\StaticData\StaticReforgedRunePathDto;
 use RiotAPI\LeagueAPI\Objects\StaticData\StaticReforgedRunePathList;
 use RiotAPI\LeagueAPI\Objects\StaticData\StaticReforgedRuneSlotDto;
+
 use RiotAPI\LeagueAPI\LeagueAPI;
 
 

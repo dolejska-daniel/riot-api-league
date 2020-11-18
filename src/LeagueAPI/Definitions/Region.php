@@ -19,6 +19,8 @@
 
 namespace RiotAPI\LeagueAPI\Definitions;
 
+use RiotAPI\Base\Definitions\IRegion;
+
 use RiotAPI\LeagueAPI\Exceptions\GeneralException;
 
 
