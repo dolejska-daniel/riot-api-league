@@ -25,10 +25,8 @@ namespace RiotAPI\LeagueAPI\Objects;
  *
  * Used in:
  *   match (v4)
- *     @link https://developer.riotgames.com/apis#match-v4/GET_getMatch
+ *     @link https://developer.riotgames.com/apis#match-v4/GET_getMatchIdsByTournamentCode
  *     @link https://developer.riotgames.com/apis#match-v4/GET_getMatchByTournamentCode
- *   tft-match (v1)
- *     @link https://developer.riotgames.com/apis#tft-match-v1/GET_getMatchIdsByPUUID
  *
  * @package RiotAPI\LeagueAPI\Objects
  */
@@ -123,18 +121,4 @@ class MatchDto extends ApiObject
 	 * @var ParticipantDto[] $participants
 	 */
 	public $participants;
-
-	/**
-	 *   Match metadata.
-	 *
-	 * @var MetadataDto $metadata
-	 */
-	public $metadata;
-
-	/**
-	 *   Match info.
-	 *
-	 * @var InfoDto $info
-	 */
-	public $info;
 }

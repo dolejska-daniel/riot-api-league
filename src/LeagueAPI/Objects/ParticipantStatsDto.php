@@ -25,7 +25,7 @@ namespace RiotAPI\LeagueAPI\Objects;
  *
  * Used in:
  *   match (v4)
- *     @link https://developer.riotgames.com/apis#match-v4/GET_getMatch
+ *     @link https://developer.riotgames.com/apis#match-v4/GET_getMatchIdsByTournamentCode
  *     @link https://developer.riotgames.com/apis#match-v4/GET_getMatchByTournamentCode
  *
  * @package RiotAPI\LeagueAPI\Objects
@@ -459,4 +459,25 @@ class ParticipantStatsDto extends ApiObject
 	 * @var int $perkSubStyle
 	 */
 	public $perkSubStyle;
+
+	/**
+	 *   Stat rune.
+	 *
+	 * @var int $statPerk0
+	 */
+	public $statPerk0;
+
+	/**
+	 *   Stat rune.
+	 *
+	 * @var int $statPerk1
+	 */
+	public $statPerk1;
+
+	/**
+	 *   Stat rune.
+	 *
+	 * @var int $statPerk2
+	 */
+	public $statPerk2;
 }

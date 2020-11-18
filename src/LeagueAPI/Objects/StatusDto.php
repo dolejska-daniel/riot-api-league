@@ -21,49 +21,52 @@ namespace RiotAPI\LeagueAPI\Objects;
 
 
 /**
- *   Class UnitDto
+ *   Class StatusDto
  *
  * Used in:
- *   tft-match (v1)
- *     @link https://developer.riotgames.com/apis#tft-match-v1/GET_getMatchIdsByPUUID
+ *   lol-status (v4)
+ *     @link https://developer.riotgames.com/apis#lol-status-v4/GET_getPlatformData
  *
  * @package RiotAPI\LeagueAPI\Objects
  */
-class UnitDto extends ApiObject
+class StatusDto extends ApiObject
 {
-	/**
-	 *   A list of the unit's items. Please refer to the Teamfight Tactics 
-	 * documentation for item ids.
-	 *
-	 * @var int[] $items
-	 */
-	public $items;
+	/** @var int $id */
+	public $id;
 
 	/**
-	 *   This field was introduced in patch 9.22 with data_version 2.
+	 *   (Legal values: scheduled, in_progress, complete).
 	 *
-	 * @var string $character_id
+	 * @var string $maintenance_status
 	 */
-	public $character_id;
+	public $maintenance_status;
 
 	/**
-	 *   Unit name.
+	 *   (Legal values: info, warning, critical).
 	 *
-	 * @var string $name
+	 * @var string $incident_severity
 	 */
-	public $name;
+	public $incident_severity;
+
+	/** @var ContentDto[] $titles */
+	public $titles;
+
+	/** @var UpdateDto[] $updates */
+	public $updates;
+
+	/** @var string $created_at */
+	public $created_at;
+
+	/** @var string $archive_at */
+	public $archive_at;
+
+	/** @var string $updated_at */
+	public $updated_at;
 
 	/**
-	 *   Unit rarity. This doesn't equate to the unit cost.
+	 *   (Legal values: windows, macos, android, ios, ps4, xbone, switch).
 	 *
-	 * @var int $rarity
+	 * @var string[] $platforms
 	 */
-	public $rarity;
-
-	/**
-	 *   Unit tier.
-	 *
-	 * @var int $tier
-	 */
-	public $tier;
+	public $platforms;
 }

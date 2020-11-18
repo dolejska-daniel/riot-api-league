@@ -30,11 +30,6 @@ namespace RiotAPI\LeagueAPI\Objects;
  *     @link https://developer.riotgames.com/apis#summoner-v4/GET_getBySummonerName
  *     @link https://developer.riotgames.com/apis#summoner-v4/GET_getByPUUID
  *     @link https://developer.riotgames.com/apis#summoner-v4/GET_getBySummonerId
- *   tft-summoner (v1)
- *     @link https://developer.riotgames.com/apis#tft-summoner-v1/GET_getByAccountId
- *     @link https://developer.riotgames.com/apis#tft-summoner-v1/GET_getBySummonerName
- *     @link https://developer.riotgames.com/apis#tft-summoner-v1/GET_getByPUUID
- *     @link https://developer.riotgames.com/apis#tft-summoner-v1/GET_getBySummonerId
  *
  * @package RiotAPI\LeagueAPI\Objects
  */

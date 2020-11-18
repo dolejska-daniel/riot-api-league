@@ -21,27 +21,19 @@ namespace RiotAPI\LeagueAPI\Objects;
 
 
 /**
- *   Class Incident
+ *   Class ContentDto
  *
  * Used in:
- *   lol-status (v3)
- *     @link https://developer.riotgames.com/apis#lol-status-v3/GET_getShardData
- *
- * @iterable $updates
+ *   lol-status (v4)
+ *     @link https://developer.riotgames.com/apis#lol-status-v4/GET_getPlatformData
  *
  * @package RiotAPI\LeagueAPI\Objects
  */
-class Incident extends ApiObjectIterable
+class ContentDto extends ApiObject
 {
-	/** @var bool $active */
-	public $active;
+	/** @var string $locale */
+	public $locale;
 
-	/** @var string $created_at */
-	public $created_at;
-
-	/** @var int $id */
-	public $id;
-
-	/** @var Message[] $updates */
-	public $updates;
+	/** @var string $content */
+	public $content;
 }

@@ -19,21 +19,40 @@
 
 namespace RiotAPI\LeagueAPI\Objects;
 
-use RiotAPI\LeagueAPI\LeagueAPI;
-
 
 /**
- *   Interface IApiObjectExtension
+ *   Class UpdateDto
+ *
+ * Used in:
+ *   lol-status (v4)
+ *     @link https://developer.riotgames.com/apis#lol-status-v4/GET_getPlatformData
  *
  * @package RiotAPI\LeagueAPI\Objects
  */
-interface IApiObjectExtension
+class UpdateDto extends ApiObject
 {
+	/** @var int $id */
+	public $id;
+
+	/** @var string $author */
+	public $author;
+
+	/** @var bool $publish */
+	public $publish;
+
 	/**
-	 *   IApiObjectExtension constructor. Initializes the object extension.
+	 *   (Legal values: riotclient, riotstatus, game).
 	 *
-	 * @param IApiObject $apiObject The extended object (eg. SummonerDto, etc.)
-	 * @param LeagueAPI  $api       The library instance
+	 * @var string[] $publish_locations
 	 */
-	public function __construct( IApiObject &$apiObject, LeagueAPI &$api );
+	public $publish_locations;
+
+	/** @var ContentDto[] $translations */
+	public $translations;
+
+	/** @var string $created_at */
+	public $created_at;
+
+	/** @var string $updated_at */
+	public $updated_at;
 }

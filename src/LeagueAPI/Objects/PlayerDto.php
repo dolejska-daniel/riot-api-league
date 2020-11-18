@@ -28,7 +28,7 @@ namespace RiotAPI\LeagueAPI\Objects;
  *     @link https://developer.riotgames.com/apis#clash-v1/GET_getPlayersBySummoner
  *     @link https://developer.riotgames.com/apis#clash-v1/GET_getTeamById
  *   match (v4)
- *     @link https://developer.riotgames.com/apis#match-v4/GET_getMatch
+ *     @link https://developer.riotgames.com/apis#match-v4/GET_getMatchIdsByTournamentCode
  *     @link https://developer.riotgames.com/apis#match-v4/GET_getMatchByTournamentCode
  *
  * @package RiotAPI\LeagueAPI\Objects

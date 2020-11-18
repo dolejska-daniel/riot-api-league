@@ -21,27 +21,28 @@ namespace RiotAPI\LeagueAPI\Objects;
 
 
 /**
- *   Class Service
+ *   Class PlatformDataDto
  *
  * Used in:
- *   lol-status (v3)
- *     @link https://developer.riotgames.com/apis#lol-status-v3/GET_getShardData
- *
- * @iterable $incidents
+ *   lol-status (v4)
+ *     @link https://developer.riotgames.com/apis#lol-status-v4/GET_getPlatformData
  *
  * @package RiotAPI\LeagueAPI\Objects
  */
-class Service extends ApiObjectIterable
+class PlatformDataDto extends ApiObject
 {
-	/** @var Incident[] $incidents */
-	public $incidents;
+	/** @var string $id */
+	public $id;
 
 	/** @var string $name */
 	public $name;
 
-	/** @var string $slug */
-	public $slug;
+	/** @var string[] $locales */
+	public $locales;
 
-	/** @var string $status */
-	public $status;
+	/** @var StatusDto[] $maintenances */
+	public $maintenances;
+
+	/** @var StatusDto[] $incidents */
+	public $incidents;
 }
