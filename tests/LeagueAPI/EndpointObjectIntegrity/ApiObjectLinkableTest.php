@@ -19,7 +19,8 @@
 
 declare(strict_types=1);
 
-use RiotAPI\LeagueAPI\Definitions\Region;
+use RiotAPI\Tests\RiotAPITestCase;
+use RiotAPI\Base\Definitions\Region;
 use RiotAPI\LeagueAPI\Objects\ApiObjectLinkable;
 use RiotAPI\LeagueAPI\Objects\ChampionMasteryDto;
 use RiotAPI\LeagueAPI\LeagueAPI;
@@ -29,6 +30,9 @@ class ApiObjectLinkableTest extends RiotAPITestCase
 {
 	public function testInit()
 	{
+		if (!class_exists("RiotAPI\DataDragonAPI\DataDragonAPI"))
+			$this->markTestSkipped("DataDragonAPI library package has not been found!");
+			
 		$api = new LeagueAPI([
 			LeagueAPI::SET_KEY                => RiotAPITestCase::getApiKey(),
 			LeagueAPI::SET_REGION             => Region::EUROPE_EAST,

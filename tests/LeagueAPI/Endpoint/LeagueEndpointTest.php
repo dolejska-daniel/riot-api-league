@@ -19,11 +19,12 @@
 
 declare(strict_types=1);
 
+use RiotAPI\Tests\RiotAPITestCase;
+use RiotAPI\Base\Definitions\Region;
 use RiotAPI\LeagueAPI\LeagueAPI;
 use RiotAPI\LeagueAPI\Objects;
-use RiotAPI\LeagueAPI\Definitions\Region;
 
-use RiotAPI\LeagueAPI\Exceptions\RequestParameterException;
+use RiotAPI\Base\Exceptions\RequestParameterException;
 
 
 class LeagueEndpointTest extends RiotAPITestCase
@@ -40,21 +41,6 @@ class LeagueEndpointTest extends RiotAPITestCase
 		$this->assertInstanceOf(LeagueAPI::class, $api);
 
 		return $api;
-	}
-
-	/**
-	 * @depends testInit
-	 *
-	 * @param LeagueAPI $api
-	 */
-	public function testGetLeaguePositionsForSummoner(LeagueAPI $api )
-	{
-		$summonerId = "KnNZNuEVZ5rZry3IyWwYSVuikRe0y3qTWSkr1wxcmV5CLJ8";
-		//  Get library processed results
-		/** @var Objects\LeaguePositionDto[] $result */
-		$result = $api->getLeaguePositionsForSummoner($summonerId);
-
-		$this->assertTrue(true);
 	}
 
 	/**

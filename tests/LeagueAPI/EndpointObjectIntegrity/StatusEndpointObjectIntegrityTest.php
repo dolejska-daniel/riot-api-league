@@ -19,9 +19,10 @@
 
 declare(strict_types=1);
 
+use RiotAPI\Tests\RiotAPITestCase;
+use RiotAPI\Base\Definitions\Region;
 use RiotAPI\LeagueAPI\LeagueAPI;
 use RiotAPI\LeagueAPI\Objects;
-use RiotAPI\LeagueAPI\Definitions\Region;
 
 
 class StatusEndpointObjectIntegrityTest extends RiotAPITestCase
@@ -48,11 +49,11 @@ class StatusEndpointObjectIntegrityTest extends RiotAPITestCase
 	public function testGetStatusData(LeagueAPI $api )
 	{
 		//  Get library processed results
-		/** @var Objects\ShardStatus $result */
-		$result = $api->getStatusData();
+		/** @var Objects\PlatformDataDto $result */
+		$result = $api->getPlatformData();
 		//  Get raw result
 		$rawResult = $api->getResult();
 
-		$this->checkObjectPropertiesAndDataValidity($result, $rawResult, Objects\ShardStatus::class);
+		$this->checkObjectPropertiesAndDataValidity($result, $rawResult, Objects\PlatformDataDto::class);
 	}
 }

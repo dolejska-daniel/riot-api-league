@@ -5,10 +5,8 @@ vendor/
 composer.phar
 composer.lock
 
-# Testing data
-tests/Coverage/
-tests/LeagueAPI/Definition/cache-fcp/
-
 # Cache
-src/LeagueAPI/cache/
-src/DataDragonAPI/cache/
+tests/LeagueAPI/Definition/cache-fcp/
+src/Base/cache/
+build
+.phpunit.result.cache

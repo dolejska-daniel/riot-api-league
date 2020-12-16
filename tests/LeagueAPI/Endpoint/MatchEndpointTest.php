@@ -19,9 +19,10 @@
 
 declare(strict_types=1);
 
+use RiotAPI\Tests\RiotAPITestCase;
+use RiotAPI\Base\Definitions\Region;
 use RiotAPI\LeagueAPI\LeagueAPI;
 use RiotAPI\LeagueAPI\Objects;
-use RiotAPI\LeagueAPI\Definitions\Region;
 
 
 class MatchEndpointTest extends RiotAPITestCase

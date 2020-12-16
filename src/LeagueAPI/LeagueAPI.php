@@ -450,38 +450,6 @@ class LeagueAPI extends BaseAPI
 	}
 
 	/**
-	 *   Get leagues mapped by summoner ID for a given list of summoner IDs.
-	 *
-	 * @cli-name get-positions-for-summoner
-	 * @cli-namespace league
-	 *
-	 * @param string $encrypted_summoner_id
-	 *
-	 * @return Objects\LeaguePositionDto[]
-	 *
-	 * @throws SettingsException
-	 * @throws RequestException
-	 * @throws ServerException
-	 * @throws ServerLimitException
-	 * @throws GeneralException
-	 *
-	 * @link https://developer.riotgames.com/apis#league-v4/GET_getAllLeaguePositionsForSummoner
-	 */
-	public function getLeaguePositionsForSummoner( string $encrypted_summoner_id )
-	{
-		$resultPromise = $this->setEndpoint("/lol/league/" . self::RESOURCE_LEAGUE_VERSION . "/entries/by-summoner/{$encrypted_summoner_id}")
-			->setResource(self::RESOURCE_LEAGUE, "/entries/by-summoner/%s")
-			->makeCall();
-
-		return $this->resolveOrEnqueuePromise($resultPromise, function(array $result) {
-			foreach ($result as $leagueListDtoData)
-				$r[] = new Objects\LeaguePositionDto($leagueListDtoData, $this);
-
-			return $r ?? [];
-		});
-	}
-
-	/**
 	 *   Get league entries in all queues for a given summoner ID.
 	 *
 	 * @cli-name get-league-entries-for-summoner
@@ -1183,11 +1151,15 @@ class LeagueAPI extends BaseAPI
 	 */
 	public function getPlatformData( string $override_region = null )
 	{
-		$this->setTemporaryRegion($override_region);
+		if ($override_region)
+			$this->setTemporaryRegion($override_region);
+
 		$resultPromise = $this->setEndpoint("/lol/status/" . self::RESOURCE_STATUS_VERSION . "/platform-data")
 			->setResource(self::RESOURCE_STATICDATA, "/platform-data")
 			->makeCall();
-		$this->unsetTemporaryRegion();
+
+		if ($override_region)
+			$this->unsetTemporaryRegion();
 
 		return $this->resolveOrEnqueuePromise($resultPromise, function(array $result) {
 			return new Objects\PlatformDataDto($result, $this);

@@ -6,7 +6,7 @@
 //  Include init file
 require __DIR__ . "/../_init.php";
 
-use RiotAPI\LeagueAPI\Exceptions\RequestException;
+use RiotAPI\Base\Exceptions\RequestException;
 
 try
 {

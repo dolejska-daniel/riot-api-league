@@ -7,7 +7,7 @@
 require __DIR__ . "/../../vendor/autoload.php";
 
 use RiotAPI\LeagueAPI\LeagueAPI;
-use RiotAPI\LeagueAPI\Definitions\Region;
+use RiotAPI\Base\Definitions\Region;
 
 
 //==============================dd==
@@ -15,10 +15,10 @@ use RiotAPI\LeagueAPI\Definitions\Region;
 //==============================dd==
 
 //  Your normal API key
-const CFG_API_KEY    = "YOUR_API_KEY";
+const CFG_API_KEY    = "RGAPI-fd5e4e90-5041-46ca-a59e-3759aa5bd675";
 
 //  Your Tournament enabled API key, if you've got one
-const CFG_TAPI_KEY   = "YOUR_TOURNAMENT_API_KEY";
+const CFG_TAPI_KEY   = "RGAPI-fd5e4e90-5041-46ca-a59e-3759aa5bd675";
 
 //  Default region
 const CFG_REGION     = Region::EUROPE_EAST;

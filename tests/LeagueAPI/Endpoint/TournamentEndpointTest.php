@@ -19,11 +19,12 @@
 
 declare(strict_types=1);
 
+use RiotAPI\Tests\RiotAPITestCase;
+use RiotAPI\Base\Definitions\Region;
+use RiotAPI\Base\Exceptions\RequestParameterException;
 use RiotAPI\LeagueAPI\LeagueAPI;
 use RiotAPI\LeagueAPI\Objects;
-use RiotAPI\LeagueAPI\Definitions\Region;
 
-use RiotAPI\LeagueAPI\Exceptions\RequestParameterException;
 
 
 class TournamentEndpointTest extends RiotAPITestCase
@@ -32,7 +33,7 @@ class TournamentEndpointTest extends RiotAPITestCase
 	{
 		$api = new LeagueAPI([
 			LeagueAPI::SET_KEY             => RiotAPITestCase::getApiKey(),
-			LeagueAPI::SET_TOURNAMENT_KEY  => RiotAPITestCase::getApiTournamentKey(),
+			LeagueAPI::SET_TOURNAMENT_KEY  => RiotAPITestCase::getApiCustomKey("TOURNAMENT"),
 			LeagueAPI::SET_INTERIM         => false,
 			LeagueAPI::SET_REGION          => Region::EUROPE_EAST,
 			LeagueAPI::SET_USE_DUMMY_DATA  => true,
@@ -60,7 +61,7 @@ class TournamentEndpointTest extends RiotAPITestCase
 			'pickType'      => 'ALL_RANDOM',
 			'spectatorType' => 'ALL',
 			'teamSize'      => 0
-		]);
+		], $api);
 
 		//  Get library processed results
 		$api->createTournamentCodes(1, 10, $params);
@@ -82,7 +83,7 @@ class TournamentEndpointTest extends RiotAPITestCase
 			'pickType'      => 'ALL_RANDOM',
 			'spectatorType' => 'ALL',
 			'teamSize'      => 10
-		]);
+		], $api);
 
 		//  Get library processed results
 		$api->createTournamentCodes(1, 10, $params);
@@ -104,7 +105,7 @@ class TournamentEndpointTest extends RiotAPITestCase
 			'pickType'      => 'ALL_RANDOM',
 			'spectatorType' => 'ALL',
 			'teamSize'      => 5
-		]);
+		], $api);
 
 		//  Get library processed results
 		$api->createTournamentCodes(1, 10, $params);
@@ -126,7 +127,7 @@ class TournamentEndpointTest extends RiotAPITestCase
 			'pickType'      => 'THIS_IS_INVALID_PICK_TYPE',
 			'spectatorType' => 'ALL',
 			'teamSize'      => 5
-		]);
+		], $api);
 
 		//  Get library processed results
 		$api->createTournamentCodes(1, 10, $params);
@@ -148,7 +149,7 @@ class TournamentEndpointTest extends RiotAPITestCase
 			'pickType'      => 'ALL_RANDOM',
 			'spectatorType' => 'ALL',
 			'teamSize'      => 5
-		]);
+		], $api);
 
 		//  Get library processed results
 		$api->createTournamentCodes(1, 10, $params);
@@ -170,7 +171,7 @@ class TournamentEndpointTest extends RiotAPITestCase
 			'pickType'      => 'ALL_RANDOM',
 			'spectatorType' => 'THIS_IS_INVALID_SPECTATOR_TYPE',
 			'teamSize'      => 5
-		]);
+		], $api);
 
 		//  Get library processed results
 		$api->createTournamentCodes(1, 10, $params);
@@ -192,7 +193,7 @@ class TournamentEndpointTest extends RiotAPITestCase
 			'pickType'            => 'THIS_IS_INVALID_PICK_TYPE',
 			'spectatorType'       => 'ALL',
 			'teamSize'            => 5
-		]);
+		], $api);
 
 		//  Get library processed results
 		$api->editTournamentCode('239d180f-fb8a-439e-85d9-95142e10b4f5', $codeParams);
@@ -214,7 +215,7 @@ class TournamentEndpointTest extends RiotAPITestCase
 			'pickType'            => 'ALL_RANDOM',
 			'spectatorType'       => 'ALL',
 			'teamSize'            => 5
-		]);
+		], $api);
 
 		//  Get library processed results
 		$api->editTournamentCode('239d180f-fb8a-439e-85d9-95142e10b4f5', $codeParams);
@@ -236,7 +237,7 @@ class TournamentEndpointTest extends RiotAPITestCase
 			'pickType'            => 'ALL_RANDOM',
 			'spectatorType'       => 'THIS_IS_INVALID_SPECTATOR_TYPE',
 			'teamSize'            => 5
-		]);
+		], $api);
 
 		//  Get library processed results
 		$api->editTournamentCode('239d180f-fb8a-439e-85d9-95142e10b4f5', $codeParams);
@@ -255,7 +256,7 @@ class TournamentEndpointTest extends RiotAPITestCase
 		$tournamentParams = new Objects\TournamentRegistrationParameters([
 			'providerId' => 672,
 			'name'       => '',
-		]);
+		], $api);
 
 		//  Get library processed results
 		$api->createTournament($tournamentParams);
@@ -274,7 +275,7 @@ class TournamentEndpointTest extends RiotAPITestCase
 		$tournamentParams = new Objects\TournamentRegistrationParameters([
 			'providerId' => 0,
 			'name'       => 'TestTournament',
-		]);
+		], $api);
 
 		//  Get library processed results
 		$api->createTournament($tournamentParams);
@@ -293,7 +294,7 @@ class TournamentEndpointTest extends RiotAPITestCase
 		$providerParams = new Objects\ProviderRegistrationParameters([
 			'region' => Region::EUROPE_EAST,
 			'url'    => ''
-		]);
+		], $api);
 
 		//  Get library processed results
 		$api->createTournamentProvider($providerParams);
@@ -312,7 +313,7 @@ class TournamentEndpointTest extends RiotAPITestCase
 		$providerParams = new Objects\ProviderRegistrationParameters([
 			'region' => 'THIS_IS_INVALID_REGION',
 			'url'    => 'http://callbackurl.com'
-		]);
+		], $api);
 
 		//  Get library processed results
 		$api->createTournamentProvider($providerParams);

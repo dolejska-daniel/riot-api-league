@@ -19,10 +19,11 @@
 
 declare(strict_types=1);
 
-use RiotAPI\LeagueAPI\Exceptions\RequestParameterException;
+use RiotAPI\Tests\RiotAPITestCase;
+use RiotAPI\Base\Definitions\Region;
+use RiotAPI\Base\Exceptions\RequestParameterException;
 use RiotAPI\LeagueAPI\LeagueAPI;
 use RiotAPI\LeagueAPI\Objects;
-use RiotAPI\LeagueAPI\Definitions\Region;
 
 
 class SummonerEndpointTest extends RiotAPITestCase
@@ -69,9 +70,9 @@ class SummonerEndpointTest extends RiotAPITestCase
 		$this->assertSame($accountId, $result->accountId);
 		$this->assertSame("rNmb6Rq8CQUqOHzMsFihMCUy4Pd201vDaRW9djAoJ9se7myXrDprvng9neCanq7yGNmz7B3Wri4Elw", $result->puuid);
 		$this->assertSame('I am TheKronnY', $result->name);
-		$this->assertInternalType('integer', $result->summonerLevel);
-		$this->assertInternalType('integer', $result->profileIconId);
-		$this->assertInternalType('integer', $result->revisionDate);
+		$this->assertIsInt($result->summonerLevel);
+		$this->assertIsInt($result->profileIconId);
+		$this->assertIsInt($result->revisionDate);
 	}
 
 	/**
@@ -91,9 +92,9 @@ class SummonerEndpointTest extends RiotAPITestCase
 		$this->assertSame("tGSPHbasiCOgRM_MuovMKfXw7oh6pfXmGiPDnXcxJDohrQ", $result->accountId);
 		$this->assertSame("rNmb6Rq8CQUqOHzMsFihMCUy4Pd201vDaRW9djAoJ9se7myXrDprvng9neCanq7yGNmz7B3Wri4Elw", $result->puuid);
 		$this->assertSame($summonerName, $result->name);
-		$this->assertInternalType('integer', $result->summonerLevel);
-		$this->assertInternalType('integer', $result->profileIconId);
-		$this->assertInternalType('integer', $result->revisionDate);
+		$this->assertIsInt($result->summonerLevel);
+		$this->assertIsInt($result->profileIconId);
+		$this->assertIsInt($result->revisionDate);
 	}
 
 	public function emptySummonerNameProvider(): array
@@ -145,8 +146,8 @@ class SummonerEndpointTest extends RiotAPITestCase
 		$this->assertSame("tGSPHbasiCOgRM_MuovMKfXw7oh6pfXmGiPDnXcxJDohrQ", $result->accountId);
 		$this->assertSame("rNmb6Rq8CQUqOHzMsFihMCUy4Pd201vDaRW9djAoJ9se7myXrDprvng9neCanq7yGNmz7B3Wri4Elw", $result->puuid);
 		$this->assertSame('I am TheKronnY', $result->name);
-		$this->assertInternalType('integer', $result->summonerLevel);
-		$this->assertInternalType('integer', $result->profileIconId);
-		$this->assertInternalType('integer', $result->revisionDate);
+		$this->assertIsInt($result->summonerLevel);
+		$this->assertIsInt($result->profileIconId);
+		$this->assertIsInt($result->revisionDate);
 	}
 }

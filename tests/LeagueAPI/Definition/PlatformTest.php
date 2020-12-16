@@ -19,10 +19,11 @@
 
 declare(strict_types=1);
 
-use RiotAPI\LeagueAPI\Definitions\Platform;
-use RiotAPI\LeagueAPI\Definitions\Region;
+use RiotAPI\Tests\RiotAPITestCase;
+use RiotAPI\Base\Definitions\Platform;
+use RiotAPI\Base\Definitions\Region;
 
-use RiotAPI\LeagueAPI\Exceptions\GeneralException;
+use RiotAPI\Base\Exceptions\GeneralException;
 
 
 class PlatformTest extends RiotAPITestCase

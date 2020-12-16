@@ -19,6 +19,7 @@
 
 declare(strict_types=1);
 
+use RiotAPI\Tests\RiotAPITestCase;
 use RiotAPI\LeagueAPI\Objects;
 
 class BaseObject extends Objects\ApiObject {}
@@ -41,15 +42,15 @@ class ApiObjectTest extends RiotAPITestCase
 	public function testGetPropertyDataType()
 	{
 		$dataType = Objects\ApiObject::getPropertyDataType('/** @var SpecialClass $property */');
-		$this->assertAttributeSame('SpecialClass', 'class', $dataType);
-		$this->assertAttributeSame(false, 'isArray', $dataType);
+		$this->assertEquals('SpecialClass', $dataType->class);
+		$this->assertEquals(false, $dataType->isArray);
 	}
 
 	public function testGetPropertyDataType_Array()
 	{
 		$dataType = Objects\ApiObject::getPropertyDataType('/** @var SpecialClass[] $property */');
-		$this->assertAttributeSame('SpecialClass', 'class', $dataType);
-		$this->assertAttributeSame(true, 'isArray', $dataType);
+		$this->assertEquals('SpecialClass', $dataType->class);
+		$this->assertEquals(true, $dataType->isArray);
 	}
 
 	public function testGetPropertyDataType_False()
@@ -61,7 +62,7 @@ class ApiObjectTest extends RiotAPITestCase
 	public function testGetData()
 	{
 		$array = [ 'd', 'u', 'm', 'm', 'y', '_', 'd', 'a', 't', 'a' ];
-		$obj = new BaseObject($array);
+		$obj = new BaseObject($array, null);
 		$this->assertSame($array, $obj->getData());
 	}
 }

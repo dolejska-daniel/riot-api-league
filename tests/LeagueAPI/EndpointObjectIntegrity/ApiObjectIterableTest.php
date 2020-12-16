@@ -19,6 +19,7 @@
 
 declare(strict_types=1);
 
+use RiotAPI\Tests\RiotAPITestCase;
 use RiotAPI\LeagueAPI\Objects;
 
 
@@ -43,7 +44,7 @@ class ApiObjectIterableTest extends RiotAPITestCase
 
 	public function testRewind()
 	{
-		$obj = new BaseObjectIterable(self::$data);
+		$obj = new BaseObjectIterable(self::$data, null);
 
 		$this->assertSame('u', $obj->next());
 		$obj->rewind();
@@ -52,7 +53,7 @@ class ApiObjectIterableTest extends RiotAPITestCase
 
 	public function testCurrent()
 	{
-		$obj = new BaseObjectIterable(self::$data);
+		$obj = new BaseObjectIterable(self::$data, null);
 
 		$this->assertSame('d', $obj->current());
 		$obj->next();
@@ -61,7 +62,7 @@ class ApiObjectIterableTest extends RiotAPITestCase
 
 	public function testKey()
 	{
-		$obj = new BaseObjectIterable(self::$data);
+		$obj = new BaseObjectIterable(self::$data, null);
 
 		$this->assertSame(0, $obj->key());
 		$obj->next();
@@ -70,7 +71,7 @@ class ApiObjectIterableTest extends RiotAPITestCase
 
 	public function testNext()
 	{
-		$obj = new BaseObjectIterable(self::$data);
+		$obj = new BaseObjectIterable(self::$data, null);
 
 		$this->assertSame('u', $obj->next());
 		$this->assertSame('m', $obj->next());
@@ -78,7 +79,7 @@ class ApiObjectIterableTest extends RiotAPITestCase
 
 	public function testValid()
 	{
-		$obj = new BaseObjectIterable(self::$data);
+		$obj = new BaseObjectIterable(self::$data, null);
 
 		$this->assertTrue($obj->valid());
 		while ($obj->next() !== false);

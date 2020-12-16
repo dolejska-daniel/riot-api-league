@@ -19,11 +19,10 @@
 
 declare(strict_types=1);
 
+use RiotAPI\Tests\RiotAPITestCase;
+use RiotAPI\Base\Definitions\Region;
 use RiotAPI\LeagueAPI\LeagueAPI;
 use RiotAPI\LeagueAPI\Objects;
-use RiotAPI\LeagueAPI\Definitions\Region;
-
-use RiotAPI\LeagueAPI\Exceptions\RequestException;
 
 
 class TournamentStubEndpointObjectIntegrityTest extends RiotAPITestCase
@@ -32,7 +31,7 @@ class TournamentStubEndpointObjectIntegrityTest extends RiotAPITestCase
 	{
 		$api = new LeagueAPI([
 			LeagueAPI::SET_KEY             => RiotAPITestCase::getApiKey(),
-			LeagueAPI::SET_TOURNAMENT_KEY  => RiotAPITestCase::getApiTournamentKey(),
+			LeagueAPI::SET_TOURNAMENT_KEY  => RiotAPITestCase::getApiCustomKey("TOURNAMENT"),
 			LeagueAPI::SET_INTERIM         => true,
 			LeagueAPI::SET_REGION          => Region::EUROPE_EAST,
 			LeagueAPI::SET_USE_DUMMY_DATA  => true,
@@ -68,7 +67,7 @@ class TournamentStubEndpointObjectIntegrityTest extends RiotAPITestCase
 			'pickType'           => 'ALL_RANDOM',
 			'spectatorType'      => 'ALL',
 			'teamSize'           => 5
-		]);
+		], $api);
 
 		//  Get library processed results
 		/** @var array $result */
@@ -89,7 +88,7 @@ class TournamentStubEndpointObjectIntegrityTest extends RiotAPITestCase
 		$providerParams = new Objects\ProviderRegistrationParameters([
 			'region' => Region::EUROPE_EAST,
 			'url'    => 'http://callbackurl.com'
-		]);
+		], $api);
 
 		//  Get library processed results
 		/** @var int $result */
@@ -110,7 +109,7 @@ class TournamentStubEndpointObjectIntegrityTest extends RiotAPITestCase
 		$tournamentParams = new Objects\TournamentRegistrationParameters([
 			'providerId' => 672,
 			'name'       => 'TestTournament',
-		]);
+		], $api);
 
 		//  Get library processed results
 		/** @var int $result */

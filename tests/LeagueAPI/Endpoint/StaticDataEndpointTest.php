@@ -19,15 +19,19 @@
 
 declare(strict_types=1);
 
+use RiotAPI\Tests\RiotAPITestCase;
+use RiotAPI\Base\Definitions\Region;
 use RiotAPI\LeagueAPI\LeagueAPI;
 use RiotAPI\LeagueAPI\Objects\StaticData;
-use RiotAPI\LeagueAPI\Definitions\Region;
 
 
 class StaticDataEndpointTest extends RiotAPITestCase
 {
 	public function testInit()
 	{
+		if (!class_exists("RiotAPI\DataDragonAPI\DataDragonAPI"))
+			$this->markTestSkipped("DataDragonAPI library package has not been found!");
+			
 		$api = new LeagueAPI([
 			LeagueAPI::SET_KEY             => RiotAPITestCase::getApiKey(),
 			LeagueAPI::SET_REGION          => Region::EUROPE_EAST,

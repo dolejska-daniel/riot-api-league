@@ -19,41 +19,12 @@
 
 namespace RiotAPI\LeagueAPI\Objects;
 
+use RiotAPI\Base\Objects\ApiObjectIterable as ApiObjectIterableBase;
+
+
 /**
  *   Class ApiObjectIterable
  *
  * @package RiotAPI\LeagueAPI\Objects
  */
-abstract class ApiObjectIterable extends ApiObject implements \Iterator
-{
-	/**
-	 * @var array
-	 * @internal
-	 */
-	protected $_iterable = [];
-
-	public function rewind()
-	{
-		reset($this->_iterable);
-	}
-
-	public function current()
-	{
-		return current($this->_iterable);
-	}
-
-	public function key()
-	{
-		return key($this->_iterable);
-	}
-
-	public function next()
-	{
-		return next($this->_iterable);
-	}
-
-	public function valid()
-	{
-		return ($this->key() !== null && $this->key() !== false);
-	}
-}
+abstract class ApiObjectIterable extends ApiObjectIterableBase {}

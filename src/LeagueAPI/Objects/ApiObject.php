@@ -52,19 +52,12 @@ abstract class ApiObject extends BaseApiObject
 
 		// Tries to assigns data to class properties
 		$selfRef = new ReflectionClass($this);
-		$namespace = $selfRef->getNamespaceName();
-		$iterableProp = $selfRef->hasProperty('_iterable')
-			? self::getIterablePropertyName($selfRef->getDocComment())
-			: false;
 		$linkableProp = $selfRef->hasProperty('staticData')
 			? self::getLinkablePropertyData($selfRef->getDocComment())
 			: [ 'function' => false, 'parameter' => false ];
 
 		foreach ($data as $property => $value)
 		{
-			if ($iterableProp == $property)
-				$this->_iterable = $this->$property;
-
 			try
 			{
 				//  Is API reference passed?
