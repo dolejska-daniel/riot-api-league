@@ -24,6 +24,7 @@ cache:
 
 # Install dependencies
 install:
+    - pecl install memcached
     - phpenv config-add travis.php.ini
     - composer install
 
