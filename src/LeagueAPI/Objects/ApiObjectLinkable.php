@@ -19,6 +19,7 @@
 
 namespace RiotAPI\LeagueAPI\Objects;
 
+use RiotAPI\Base\Exceptions\GeneralException;
 
 /**
  *   Class ApiObjectLinkable
@@ -32,8 +33,13 @@ abstract class ApiObjectLinkable extends ApiObject
 	 */
 	public $staticData = null;
 
-	public function __get( $name )
+	public function __get($prop)
 	{
-		return $this->staticData->$name;
+		if (!$this->staticData || !property_exists($this->staticData, $prop)) {
+			$classname = get_class($this);
+			throw new GeneralException("Trying to access undefined property '$prop' on object '$classname'.");
+		}
+
+		return $this->staticData->$prop;
 	}
 }

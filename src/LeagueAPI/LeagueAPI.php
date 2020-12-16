@@ -20,50 +20,19 @@
 namespace RiotAPI\LeagueAPI;
 
 use RiotAPI\Base\BaseAPI;
-use RiotAPI\Base\Definitions\ICallCacheControl;
-use RiotAPI\Base\Definitions\IPlatform;
-use RiotAPI\Base\Definitions\IRegion;
-use RiotAPI\Base\Definitions\IRateLimitControl;
-
-use RiotAPI\Base\Objects\IApiObjectExtension;
-
-use RiotAPI\LeagueAPI\Definitions\CallCacheControl;
-use RiotAPI\LeagueAPI\Definitions\Platform;
-use RiotAPI\LeagueAPI\Definitions\Region;
-use RiotAPI\LeagueAPI\Definitions\RateLimitControl;
-use RiotAPI\LeagueAPI\Definitions\Cache;
-
+use RiotAPI\Base\Definitions\Region;
 use RiotAPI\LeagueAPI\Objects;
 use RiotAPI\LeagueAPI\Objects\StaticData;
 use RiotAPI\LeagueAPI\Objects\ProviderRegistrationParameters;
 use RiotAPI\LeagueAPI\Objects\TournamentCodeParameters;
 use RiotAPI\LeagueAPI\Objects\TournamentCodeUpdateParameters;
 use RiotAPI\LeagueAPI\Objects\TournamentRegistrationParameters;
-
-use RiotAPI\LeagueAPI\Exceptions\GeneralException;
-use RiotAPI\LeagueAPI\Exceptions\RequestException;
-use RiotAPI\LeagueAPI\Exceptions\RequestParameterException;
-use RiotAPI\LeagueAPI\Exceptions\ServerException;
-use RiotAPI\LeagueAPI\Exceptions\ServerLimitException;
-use RiotAPI\LeagueAPI\Exceptions\SettingsException;
-use RiotAPI\LeagueAPI\Exceptions\DataNotFoundException;
-use RiotAPI\LeagueAPI\Exceptions\ForbiddenException;
-use RiotAPI\LeagueAPI\Exceptions\UnauthorizedException;
-use RiotAPI\LeagueAPI\Exceptions\UnsupportedMediaTypeException;
-
-use RiotAPI\DataDragonAPI\DataDragonAPI;
-use RiotAPI\DataDragonAPI\Exceptions as DataDragonExceptions;
-
-use GuzzleHttp\Client;
-use GuzzleHttp\RequestOptions;
-use GuzzleHttp\Exception as GuzzleHttpExceptions;
-use GuzzleHttp\Promise\PromiseInterface;
-use GuzzleHttp\Promise\FulfilledPromise;
-use function GuzzleHttp\Promise\settle;
-
-use Psr\Cache\CacheItemPoolInterface;
-use Psr\Http\Message\ResponseInterface;
-use Symfony\Component\Cache\Adapter\FilesystemAdapter;
+use RiotAPI\Base\Exceptions\GeneralException;
+use RiotAPI\Base\Exceptions\RequestException;
+use RiotAPI\Base\Exceptions\RequestParameterException;
+use RiotAPI\Base\Exceptions\ServerException;
+use RiotAPI\Base\Exceptions\ServerLimitException;
+use RiotAPI\Base\Exceptions\SettingsException;
 
 /**
  *   Class LeagueAPI.
@@ -154,46 +123,21 @@ class LeagueAPI extends BaseAPI
 
 	const
 		//  List of required setting keys
-		SETTINGS_REQUIRED = [
-			self::SET_KEY,
-			self::SET_REGION,
-		],
+		SETTINGS_REQUIRED = [],
 		//  List of allowed setting keys
 		SETTINGS_ALLOWED = [
-			self::SET_KEY,
-			self::SET_TFT_KEY,
-			self::SET_REGION,
-			self::SET_VERIFY_SSL,
-			self::SET_KEY_INCLUDE_TYPE,
 			self::SET_TOURNAMENT_KEY,
 			self::SET_INTERIM,
-			self::SET_CACHE_PROVIDER,
-			self::SET_CACHE_PROVIDER_PARAMS,
 			self::SET_DD_CACHE_PROVIDER_PARAMS,
-			self::SET_CACHE_RATELIMIT,
-			self::SET_CACHE_CALLS,
-			self::SET_CACHE_CALLS_LENGTH,
-			self::SET_USE_DUMMY_DATA,
-			self::SET_SAVE_DUMMY_DATA,
-			self::SET_EXTENSIONS,
 			self::SET_DATADRAGON_INIT,
 			self::SET_DATADRAGON_PARAMS,
-			self::SET_GUZZLE_CLIENT_CFG,
-			self::SET_GUZZLE_REQ_CFG,
 			self::SET_STATICDATA_LINKING,
 			self::SET_STATICDATA_LOCALE,
 			self::SET_STATICDATA_VERSION,
-			self::SET_CALLBACKS_BEFORE,
-			self::SET_CALLBACKS_AFTER,
-			self::SET_API_BASEURL,
-			self::SET_DEBUG,
 		],
 		SETTINGS_INIT_ONLY = [
-			self::SET_API_BASEURL,
 			self::SET_DATADRAGON_INIT,
 			self::SET_DATADRAGON_PARAMS,
-			self::SET_CACHE_PROVIDER,
-			self::SET_CACHE_PROVIDER_PARAMS,
 			self::SET_DD_CACHE_PROVIDER_PARAMS,
 		];
 
@@ -216,6 +160,49 @@ class LeagueAPI extends BaseAPI
 		self::RESOURCE_TOURNAMENT,
 		self::RESOURCE_TOURNAMENT_STUB,
 	];
+
+	public function _setupCacheCalls() {
+		if ($this->isSettingSet($this::SET_CACHE_CALLS_LENGTH) == false)
+		{
+			//  Value is not set, setting default values
+			$this->setSetting($this::SET_CACHE_CALLS_LENGTH, [
+				self::RESOURCE_CHAMPION         => 60 * 10,
+				self::RESOURCE_CHAMPIONMASTERY  => 60 * 60,
+				self::RESOURCE_LEAGUE           => 60 * 10,
+				self::RESOURCE_MATCH            => 0,
+				self::RESOURCE_SPECTATOR        => 0,
+				self::RESOURCE_STATICDATA       => 60 * 60 * 24,
+				self::RESOURCE_STATUS           => 60,
+				self::RESOURCE_SUMMONER         => 60 * 60,
+				self::RESOURCE_THIRD_PARTY_CODE => 0,
+				self::RESOURCE_TOURNAMENT       => 0,
+				self::RESOURCE_TOURNAMENT_STUB  => 0,
+			]);
+		}
+		else
+		{
+			parent::_setupCacheCalls();
+		}
+	}
+	
+	/**
+	 * @internal
+	 *
+	 *   Returns dummy response filename based on current settings.
+	 *
+	 * @return string
+	 */
+	public function _getDummyDataFileName(): string
+	{
+		$method = $this->used_method;
+		$endp = str_replace([ '/', '.' ], [ '-', '' ], substr($this->endpoint, 1));
+		$quer = str_replace([ '&', '%26', '=', '%3D' ], [ '_', '_', '-', '-' ], http_build_query($this->query_data));
+		$data = !empty($this->post_data) ? '_' . md5(http_build_query($this->query_data)) : '';
+		if (strlen($quer))
+			$quer = "_" . $quer;
+
+		return __DIR__ . "/../../tests/DummyData/{$method}_$endp$quer$data.json";
+	}
 
 
 	/**
@@ -978,7 +965,7 @@ class LeagueAPI extends BaseAPI
 	 */
     public function getStaticRealm(): StaticData\StaticRealmDto
     {
-	    $result = $this->_makeStaticCall("RiotAPI\\DataDragonAPI\\DataDragonAPI::getStaticRealms", $this->getSetting(self::SET_REGION));
+	    $result = $this->_makeStaticCall("RiotAPI\\DataDragonAPI\\DataDragonAPI::getStaticRealms", $this->getSetting($this::SET_REGION));
 	    return new StaticData\StaticRealmDto($result, $this);
     }
 
@@ -1170,11 +1157,11 @@ class LeagueAPI extends BaseAPI
 	/**
 	 * ==================================================================dd=
 	 *     Status Endpoint Methods
-	 *     @link https://developer.riotgames.com/apis#lol-status-v3
+	 *     @link https://developer.riotgames.com/apis#lol-status-v4
 	 * ==================================================================dd=
 	 **/
-	const RESOURCE_STATUS = '1246:lol-status';
-	const RESOURCE_STATUS_VERSION = 'v3';
+	const RESOURCE_STATUS = '1514:lol-status';
+	const RESOURCE_STATUS_VERSION = 'v4';
 
 	/**
 	 *   Get status data - shard list.
@@ -1184,7 +1171,7 @@ class LeagueAPI extends BaseAPI
 	 *
 	 * @param string|null $override_region
 	 *
-	 * @return Objects\ShardStatus
+	 * @return Objects\PlatformDataDto
 	 *
 	 * @throws SettingsException
 	 * @throws RequestException
@@ -1192,16 +1179,18 @@ class LeagueAPI extends BaseAPI
 	 * @throws ServerLimitException
 	 * @throws GeneralException
 	 *
-	 * @link https://developer.riotgames.com/apis#lol-status-v3/GET_getShardData
+	 * @link https://developer.riotgames.com/apis#lol-status-v4/GET_getPlatformData
 	 */
-	public function getStatusData( string $override_region = null )
+	public function getPlatformData( string $override_region = null )
 	{
-		$resultPromise = $this->setEndpoint("/lol/status/" . self::RESOURCE_STATUS_VERSION . "/shard-data")
-			->setResource(self::RESOURCE_STATICDATA, "/shard-data")
-			->makeCall($override_region);
+		$this->setTemporaryRegion($override_region);
+		$resultPromise = $this->setEndpoint("/lol/status/" . self::RESOURCE_STATUS_VERSION . "/platform-data")
+			->setResource(self::RESOURCE_STATICDATA, "/platform-data")
+			->makeCall();
+		$this->unsetTemporaryRegion();
 
 		return $this->resolveOrEnqueuePromise($resultPromise, function(array $result) {
-			return new Objects\ShardStatus($result, $this);
+			return new Objects\PlatformDataDto($result, $this);
 		});
 	}
 

@@ -1,5 +1,5 @@
-# RiotAPI PHP7 wrapper
-> Version v5.0.0
+# RiotAPI PHP7 wrapper for League of Legends API
+> Version v1.0.0
 
 [![Build Status](https://img.shields.io/travis/dolejska-daniel/riot-api-league/master)](https://travis-ci.org/dolejska-daniel/riot-api-league)
 [![Test Coverage](https://img.shields.io/codeclimate/coverage/dolejska-daniel/riot-api-league?logo=code-climate)](https://codeclimate.com/github/dolejska-daniel/riot-api-league/coverage)
@@ -81,7 +81,7 @@ Please refer to [wiki pages](https://github.com/dolejska-daniel/riot-api-league/
 | [Spectator](https://github.com/dolejska-daniel/riot-api-league/wiki/Resources-and-endpoints#spectator-) | ![Spectator resource implemented version](https://img.shields.io/badge/implemented_version-v4-brightgreen.svg) |
 | [Static Data](https://github.com/dolejska-daniel/riot-api-league/wiki/Resources-and-endpoints#static-data-) | ![Static Data resource implemented version](https://img.shields.io/badge/implemented_version-_working-brightgreen.svg) |
 | Stats | ![Stats endpoint implemented version](https://img.shields.io/badge/implemented_version-deprecated-gray.svg) |
-| [Status](https://github.com/dolejska-daniel/riot-api-league/wiki/Resources-and-endpoints#status-) | ![Status resource implemented version](https://img.shields.io/badge/implemented_version-v3-yellow.svg) |
+| [Status](https://github.com/dolejska-daniel/riot-api-league/wiki/Resources-and-endpoints#status-) | ![Status resource implemented version](https://img.shields.io/badge/implemented_version-v4-brightgreen.svg) |
 | [Summoner](https://github.com/dolejska-daniel/riot-api-league/wiki/Resources-and-endpoints#summoner-) | ![Summoner resource implemented version](https://img.shields.io/badge/implemented_version-v4-brightgreen.svg) |
 | [Third Party Code](https://github.com/dolejska-daniel/riot-api-league/wiki/LeagueAPI%3A-Resources-and-endpoints#third-party-code-) | ![Third Party Code endpoint implemented version](https://img.shields.io/badge/implemented_version-v4-brightgreen.svg) |
 | [Tournament](https://github.com/dolejska-daniel/riot-api-league/wiki/Resources-and-endpoints#tournament---tournament-stub-) | ![Tournament resource implemented version](https://img.shields.io/badge/implemented_version-v4-brightgreen.svg) |
@@ -96,7 +96,7 @@ How to begin?
 require_once __DIR__  . "/vendor/autoload.php";
 
 use RiotAPI\LeagueAPI\LeagueAPI;
-use RiotAPI\LeagueAPI\Definitions\Region;
+use RiotAPI\Base\Definitions\Region;
 
 //  Initialize the library
 $api = new LeagueAPI([
@@ -107,7 +107,11 @@ $api = new LeagueAPI([
 ]);
 
 //  And now you are ready to rock!
-$ch = $api->getStaticChampion(61); // Orianna <3
+$summoner = $api->getSummonerByName("I am TheKronnY");
+$matchlist = $api->getMatchlistByAccount($summoner->accountId);
+foreach ($matchlist as $match) {
+	//  ...
+}
 ```
 
 And there is a lot more settings that you can set when initializing the library - mainly to enable special features or to amend default behaviour of the library.
@@ -138,28 +142,6 @@ print_r($summoner->getData());  //  Or array of all the data
  *     [profileIconId] => 3180
  *     [revisionDate] => 1543438015000
  *     [summonerLevel] => 69
- * )
- */
-```
-
-..or how to fetch a static champion data:
-
-```php
-//  ...initialization...
-
-//  this fetches the champion data and returns StaticChampionDto object
-$champion = $api->getStaticChampion(61);
-
-echo $champion->name;  //  Orianna
-echo $champion->title; //  the Lady of Clockwork
-
-print_r($champion->getData());  //  Or array of all the data
-/* Array
- * (
- *    [id] => 61
- *    [name] => "Orianna"
- *    [key] => "Orianna"
- *    [title] => "the Lady of Clockwork"
  * )
  */
 ```
@@ -232,10 +214,10 @@ For additional information about callback functions, please see [the wiki pages]
 
 # Other Riot APIs
 
-| Resource                                                                          | Status |
-| --------------------------------------------------------------------------------- | ------ |
-| [All APIs](https://github.com/dolejska-daniel/riot-api) (metapackage)             | ![GitHub Release](https://img.shields.io/github/v/release/dolejska-daniel/riot-api)            ![PHP Version](https://img.shields.io/packagist/php-v/dolejska-daniel/riot-api) |
-| [DataDragon API](https://github.com/dolejska-daniel/riot-api-datadragon)          | ![GitHub Release](https://img.shields.io/github/v/release/dolejska-daniel/riot-api-datadragon) ![PHP Version](https://img.shields.io/packagist/php-v/dolejska-daniel/riot-api-datadragon) |
-| [Teamfight Tactics API](https://github.com/dolejska-daniel/riot-api-tft)          | ![GitHub Release](https://img.shields.io/github/v/release/dolejska-daniel/riot-api-tft)        ![PHP Version](https://img.shields.io/packagist/php-v/dolejska-daniel/riot-api-tft) |
-| [Legends of Runeterra API](https://github.com/dolejska-daniel/riot-api-runeterra) | ![GitHub Release](https://img.shields.io/github/v/release/dolejska-daniel/riot-api-runeterra)   ![PHP Version](https://img.shields.io/packagist/php-v/dolejska-daniel/riot-api-runeterra) |
-| [Valorant API](https://github.com/dolejska-daniel/riot-api-valorant)              | ![GitHub Release](https://img.shields.io/github/v/release/dolejska-daniel/riot-api-valorant)   ![PHP Version](https://img.shields.io/packagist/php-v/dolejska-daniel/riot-api-valorant) |
+| Library Description                                                               | Latest Version | Stable Version |
+| --------------------------------------------------------------------------------- | -------------- | -------------- |
+| [All APIs](https://github.com/dolejska-daniel/riot-api) (metapackage)             | ![GitHub Latest Release](https://img.shields.io/github/v/release/dolejska-daniel/riot-api?include_prereleases) | ![GitHub Release](https://img.shields.io/github/v/release/dolejska-daniel/riot-api) ![PHP Version](https://img.shields.io/packagist/php-v/dolejska-daniel/riot-api) |
+| [DataDragon API](https://github.com/dolejska-daniel/riot-api-datadragon)          | ![GitHub Latest Release](https://img.shields.io/github/v/release/dolejska-daniel/riot-api-datadragon?include_prereleases) | ![GitHub Release](https://img.shields.io/github/v/release/dolejska-daniel/riot-api-datadragon) ![PHP Version](https://img.shields.io/packagist/php-v/dolejska-daniel/riot-api-datadragon) |
+| [Teamfight Tactics API](https://github.com/dolejska-daniel/riot-api-tft)          | ![GitHub Latest Release](https://img.shields.io/github/v/release/dolejska-daniel/riot-api-tft?include_prereleases) | ![GitHub Release](https://img.shields.io/github/v/release/dolejska-daniel/riot-api-tft) ![PHP Version](https://img.shields.io/packagist/php-v/dolejska-daniel/riot-api-tft) |
+| [Legends of Runeterra API](https://github.com/dolejska-daniel/riot-api-runeterra) | ![GitHub Latest Release](https://img.shields.io/github/v/release/dolejska-daniel/riot-api-runeterra?include_prereleases) | ![GitHub Release](https://img.shields.io/github/v/release/dolejska-daniel/riot-api-runeterra) ![PHP Version](https://img.shields.io/packagist/php-v/dolejska-daniel/riot-api-runeterra) |
+| [Valorant API](https://github.com/dolejska-daniel/riot-api-valorant)              | ![GitHub Latest Release](https://img.shields.io/github/v/release/dolejska-daniel/riot-api-valorant?include_prereleases) | ![GitHub Release](https://img.shields.io/github/v/release/dolejska-daniel/riot-api-valorant) ![PHP Version](https://img.shields.io/packagist/php-v/dolejska-daniel/riot-api-valorant) |
