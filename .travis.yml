@@ -1,23 +1,15 @@
 # Project language
 language: php
-
-sudo: required
-
-dist: trusty
+dist: focal
 
 # Language versions to test agains
 php:
-    - '7.1'
-    - '7.2'
-    - '7.3'
-    - '7.4'
-    - nightly
-#    - hhvm
+    - 7.3
+    - 7.4
+    - 8.0
 
 matrix:
     fast_finish: true
-    allow_failures:
-        - php: nightly
 
 # Allow addons
 addons:

@@ -16,7 +16,8 @@
 		"test": "vendor/bin/phpunit -v --bootstrap phpunit.php --configuration phpunit.xml --coverage-text --coverage-html build/coverage"
 	},
 	"require": {
-		"dolejska-daniel/riot-api-base": "^1"
+		"dolejska-daniel/riot-api-base": "^1",
+		"php": ">=7.3"
 	},
 	"require-dev": {
 		"phpunit/phpunit": "^9"
