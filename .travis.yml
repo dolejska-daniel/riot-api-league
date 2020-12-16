@@ -22,10 +22,12 @@ cache:
     directories:
         - vendor/
 
+before_install:
+    - yes "" | pecl install -f memcached
+    - phpenv config-add travis.php.ini
+
 # Install dependencies
 install:
-    - pecl install memcached
-    - phpenv config-add travis.php.ini
     - composer install
 
 before_script:
