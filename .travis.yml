@@ -1,6 +1,6 @@
 # Project language
 language: php
-dist: focal
+dist: bionic
 
 # Language versions to test agains
 php:
