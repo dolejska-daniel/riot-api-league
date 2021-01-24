@@ -12,13 +12,13 @@
 >
 	<testsuites>
 		<testsuite name="LeagueAPI:Definition_Tests">
-			<directory>tests/LeagueAPI/Definition/</directory>
-		</testsuite>
-		<testsuite name="LeagueAPI:Endpoint_Object_Integrity_Tests">
-			<directory>tests/LeagueAPI/EndpointObjectIntegrity/</directory>
+			<directory>tests/Base/Definitions/</directory>
 		</testsuite>
 		<testsuite name="LeagueAPI:Endpoint_Tests">
-			<directory>tests/LeagueAPI/Endpoint/</directory>
+			<directory>tests/Base/Endpoint/</directory>
+		</testsuite>
+		<testsuite name="LeagueAPI:EndpointIntegrity_Tests">
+			<directory>tests/Base/EndpointObjectIntegrity/</directory>
 		</testsuite>
 	</testsuites>
 
@@ -30,7 +30,7 @@
 			  disableCodeCoverageIgnore="true"
 	>
 		<include>
-			<directory suffix=".php">src/Base</directory>
+			<directory suffix=".php">src/LeagueAPI</directory>
 		</include>
 
 		<exclude>

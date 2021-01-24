@@ -1,7 +1,7 @@
-# RiotAPI PHP7 wrapper for League of Legends API
+# RiotAPI PHP wrapper for League of Legends
 > Version v1.0.0
 
-[![Build Status](https://img.shields.io/travis/dolejska-daniel/riot-api-league/master)](https://travis-ci.org/dolejska-daniel/riot-api-league)
+[![Build Status](https://img.shields.io/travis/dolejska-daniel/riot-api-league/master)](https://travis-ci.com/dolejska-daniel/riot-api-league)
 [![Test Coverage](https://img.shields.io/codeclimate/coverage/dolejska-daniel/riot-api-league?logo=code-climate)](https://codeclimate.com/github/dolejska-daniel/riot-api-league/coverage)
 [![Packagist](https://img.shields.io/packagist/dm/dolejska-daniel/riot-api-league)](https://packagist.org/packages/dolejska-daniel/riot-api-league)
 [![Packagist](https://img.shields.io/packagist/l/dolejska-daniel/riot-api-league)](https://packagist.org/packages/dolejska-daniel/riot-api-league)
@@ -28,13 +28,11 @@
 
 
 # [Introduction](https://github.com/dolejska-daniel/riot-api-league/wiki/Home#introduction)
-Welcome to the RiotAPI PHP7 library repo!
+Welcome to the League of Legends PHP library repo!
 The goal of this library is to create easy-to-use library for anyone who might need one.
-This is fully object oriented API wrapper for League of Legends' API.
-A small DataDragon API wrapper is also included.
+This is a fully object oriented API wrapper for League of Legends API.
 
 Here are some handy features:
-
 - **[Rate limit caching](https://github.com/dolejska-daniel/riot-api-league/wiki/Rate-limiting)** and limit exceeding prevention - fully automatic.
 - **[Call caching](https://github.com/dolejska-daniel/riot-api-league/wiki/Call-caching)** - enables the library to re-use already fetched data within given timespan - saves time and key's rate limit.
 - **[StaticData endpoints](https://github.com/dolejska-daniel/riot-api-league/wiki/StaticData-endpoints)** - you can work with StaticData endpoints as if they were never deprecated.
@@ -57,7 +55,7 @@ This file contains only general introduction to library features.
 The easiest way to download and use this library is via [Composer](https://getcomposer.org/).
 If you are not using Composer yet, you should start **right now**!
 
-While having Composer installed on your machine it takes only `composer require "dolejska-daniel/riot-api-league:^4"` command to get the library ready to roll!
+While having Composer installed on your machine it takes only `composer require "dolejska-daniel/riot-api-league:^1"` command to get the library ready to roll!
 
 For additional information about downloading and initial setup, please see [the wiki pages](https://github.com/dolejska-daniel/riot-api-league/wiki/Home#downloading).
 
