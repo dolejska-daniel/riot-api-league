@@ -19,6 +19,7 @@
 
 namespace RiotAPI\LeagueAPI\Extensions;
 
+use RiotAPI\Base\BaseAPI;
 use RiotAPI\Base\Objects\IApiObject;
 use RiotAPI\Base\Objects\IApiObjectExtension;
 
@@ -49,7 +50,7 @@ class StaticReforgedRunePathListExtension implements IApiObjectExtension
 	 * @param IApiObject|StaticReforgedRunePathList $apiObject
 	 * @param LeagueAPI                               $api
 	 */
-	public function __construct(IApiObject &$apiObject, LeagueAPI &$api )
+	public function __construct(IApiObject $apiObject, BaseAPI $api)
 	{
 		$this->object = $apiObject;
 
