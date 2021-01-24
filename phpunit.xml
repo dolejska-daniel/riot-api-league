@@ -12,7 +12,7 @@
 >
 	<testsuites>
 		<testsuite name="LeagueAPI:Definition_Tests">
-			<directory>tests/LeagueAPI/Definitions/</directory>
+			<directory>tests/LeagueAPI/Definition/</directory>
 		</testsuite>
 		<testsuite name="LeagueAPI:Endpoint_Tests">
 			<directory>tests/LeagueAPI/Endpoint/</directory>
