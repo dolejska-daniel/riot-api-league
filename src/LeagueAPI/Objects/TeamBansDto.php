@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright (C) 2016-2020  Daniel Dolejška
+ * Copyright (C) 2016-2021  Daniel Dolejška
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -25,8 +25,10 @@ namespace RiotAPI\LeagueAPI\Objects;
  *
  * Used in:
  *   match (v4)
- *     @link https://developer.riotgames.com/apis#match-v4/GET_getMatchIdsByTournamentCode
- *     @link https://developer.riotgames.com/apis#match-v4/GET_getMatchByTournamentCode
+ *     - @see LeagueAPI::getMatch
+ *       @link https://developer.riotgames.com/apis#match-v4/GET_getMatch
+ *     - @see LeagueAPI::getMatchByTournamentCode
+ *       @link https://developer.riotgames.com/apis#match-v4/GET_getMatchByTournamentCode
  *
  * @linkable getStaticChampion($championId)
  *
@@ -35,14 +37,22 @@ namespace RiotAPI\LeagueAPI\Objects;
 class TeamBansDto extends ApiObjectLinkable
 {
 	/**
-	 *   Banned championId.
+	 * Banned championId.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
 	 *
 	 * @var int $championId
 	 */
 	public $championId;
 
 	/**
-	 *   Turn during which the champion was banned.
+	 * Turn during which the champion was banned.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
 	 *
 	 * @var int $pickTurn
 	 */

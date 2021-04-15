@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright (C) 2016-2020  Daniel Dolejška
+ * Copyright (C) 2016-2021  Daniel Dolejška
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -22,12 +22,13 @@ namespace RiotAPI\LeagueAPI\Objects;
 
 /**
  *   Class ChampionMasteryDto
- * This object contains single Champion Mastery information for player and champion combination.
  *
  * Used in:
  *   champion-mastery (v4)
- *     @link https://developer.riotgames.com/apis#champion-mastery-v4/GET_getAllChampionMasteries
- *     @link https://developer.riotgames.com/apis#champion-mastery-v4/GET_getChampionMastery
+ *     - @see LeagueAPI::getChampionMastery
+ *       @link https://developer.riotgames.com/apis#champion-mastery-v4/GET_getChampionMastery
+ *     - @see LeagueAPI::getAllChampionMasteries
+ *       @link https://developer.riotgames.com/apis#champion-mastery-v4/GET_getAllChampionMasteries
  *
  * @linkable getStaticChampion($championId)
  *
@@ -36,66 +37,103 @@ namespace RiotAPI\LeagueAPI\Objects;
 class ChampionMasteryDto extends ApiObjectLinkable
 {
 	/**
-	 *   Number of points needed to achieve next level. Zero if player reached 
+	 * Number of points needed to achieve next level. Zero if player reached
 	 * maximum champion level for this champion.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getChampionMastery
+	 *   - @see LeagueAPI::getAllChampionMasteries
 	 *
 	 * @var int $championPointsUntilNextLevel
 	 */
 	public $championPointsUntilNextLevel;
 
 	/**
-	 *   Is chest granted for this champion or not in current season.
+	 * Is chest granted for this champion or not in current season.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getChampionMastery
+	 *   - @see LeagueAPI::getAllChampionMasteries
 	 *
 	 * @var bool $chestGranted
 	 */
 	public $chestGranted;
 
 	/**
-	 *   Champion ID for this entry.
+	 * Champion ID for this entry.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getChampionMastery
+	 *   - @see LeagueAPI::getAllChampionMasteries
 	 *
 	 * @var int $championId
 	 */
 	public $championId;
 
 	/**
-	 *   Last time this champion was played by this player - in Unix milliseconds 
-	 * time format.
+	 * Last time this champion was played by this player - in Unix
+	 * milliseconds time format.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getChampionMastery
+	 *   - @see LeagueAPI::getAllChampionMasteries
 	 *
 	 * @var int $lastPlayTime
 	 */
 	public $lastPlayTime;
 
 	/**
-	 *   Champion level for specified player and champion combination.
+	 * Champion level for specified player and champion combination.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getChampionMastery
+	 *   - @see LeagueAPI::getAllChampionMasteries
 	 *
 	 * @var int $championLevel
 	 */
 	public $championLevel;
 
 	/**
-	 *   Summoner ID for this entry. (Encrypted).
+	 * Summoner ID for this entry. (Encrypted).
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getChampionMastery
+	 *   - @see LeagueAPI::getAllChampionMasteries
 	 *
 	 * @var string $summonerId
 	 */
 	public $summonerId;
 
 	/**
-	 *   Total number of champion points for this player and champion combination - 
-	 * they are used to determine championLevel.
+	 * Total number of champion points for this player and champion
+	 * combination - they are used to determine championLevel.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getChampionMastery
+	 *   - @see LeagueAPI::getAllChampionMasteries
 	 *
 	 * @var int $championPoints
 	 */
 	public $championPoints;
 
 	/**
-	 *   Number of points earned since current level has been achieved.
+	 * Number of points earned since current level has been achieved.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getChampionMastery
+	 *   - @see LeagueAPI::getAllChampionMasteries
 	 *
 	 * @var int $championPointsSinceLastLevel
 	 */
 	public $championPointsSinceLastLevel;
 
 	/**
-	 *   The token earned for this champion to levelup.
+	 * The token earned for this champion at the current championLevel. When
+	 * the championLevel is advanced the tokensEarned resets to 0.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getChampionMastery
+	 *   - @see LeagueAPI::getAllChampionMasteries
 	 *
 	 * @var int $tokensEarned
 	 */

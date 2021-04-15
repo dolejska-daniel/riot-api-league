@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright (C) 2016-2020  Daniel Dolejška
+ * Copyright (C) 2016-2021  Daniel Dolejška
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -25,68 +25,127 @@ namespace RiotAPI\LeagueAPI\Objects;
  *
  * Used in:
  *   clash (v1)
- *     @link https://developer.riotgames.com/apis#clash-v1/GET_getPlayersBySummoner
- *     @link https://developer.riotgames.com/apis#clash-v1/GET_getTeamById
+ *     - @see LeagueAPI::getTeamById
+ *       @link https://developer.riotgames.com/apis#clash-v1/GET_getTeamById
+ *     - @see LeagueAPI::getPlayersBySummoner
+ *       @link https://developer.riotgames.com/apis#clash-v1/GET_getPlayersBySummoner
  *   match (v4)
- *     @link https://developer.riotgames.com/apis#match-v4/GET_getMatchIdsByTournamentCode
- *     @link https://developer.riotgames.com/apis#match-v4/GET_getMatchByTournamentCode
+ *     - @see LeagueAPI::getMatch
+ *       @link https://developer.riotgames.com/apis#match-v4/GET_getMatch
+ *     - @see LeagueAPI::getMatchByTournamentCode
+ *       @link https://developer.riotgames.com/apis#match-v4/GET_getMatchByTournamentCode
  *
  * @package RiotAPI\LeagueAPI\Objects
  */
 class PlayerDto extends ApiObject
 {
-	/** @var string $summonerId */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getTeamById
+	 *   - @see LeagueAPI::getPlayersBySummoner
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *
+	 * @var string $summonerId
+	 */
 	public $summonerId;
 
-	/** @var string $teamId */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getPlayersBySummoner
+	 *
+	 * @var string $teamId
+	 */
 	public $teamId;
 
 	/**
-	 *   (Legal values: UNSELECTED, FILL, TOP, JUNGLE, MIDDLE, BOTTOM, UTILITY).
+	 * (Legal values: UNSELECTED, FILL, TOP, JUNGLE, MIDDLE, BOTTOM, UTILITY).
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getTeamById
+	 *   - @see LeagueAPI::getPlayersBySummoner
 	 *
 	 * @var string $position
 	 */
 	public $position;
 
 	/**
-	 *   (Legal values: CAPTAIN, MEMBER).
+	 * (Legal values: CAPTAIN, MEMBER).
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getTeamById
+	 *   - @see LeagueAPI::getPlayersBySummoner
 	 *
 	 * @var string $role
 	 */
 	public $role;
 
-	/** @var int $profileIcon */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *
+	 * @var int $profileIcon
+	 */
 	public $profileIcon;
 
 	/**
-	 *   Player's original accountId.
+	 * Player's original accountId.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
 	 *
 	 * @var string $accountId
 	 */
 	public $accountId;
 
-	/** @var string $matchHistoryUri */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *
+	 * @var string $matchHistoryUri
+	 */
 	public $matchHistoryUri;
 
 	/**
-	 *   Player's current accountId when the match was played.
+	 * Player's current accountId when the match was played.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
 	 *
 	 * @var string $currentAccountId
 	 */
 	public $currentAccountId;
 
 	/**
-	 *   Player's current platformId when the match was played.
+	 * Player's current platformId when the match was played.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
 	 *
 	 * @var string $currentPlatformId
 	 */
 	public $currentPlatformId;
 
-	/** @var string $summonerName */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *
+	 * @var string $summonerName
+	 */
 	public $summonerName;
 
 	/**
-	 *   Player's original platformId.
+	 * Player's original platformId.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
 	 *
 	 * @var string $platformId
 	 */

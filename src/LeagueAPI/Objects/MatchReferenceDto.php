@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright (C) 2016-2020  Daniel Dolejška
+ * Copyright (C) 2016-2021  Daniel Dolejška
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -25,7 +25,8 @@ namespace RiotAPI\LeagueAPI\Objects;
  *
  * Used in:
  *   match (v4)
- *     @link https://developer.riotgames.com/apis#match-v4/GET_getMatchlist
+ *     - @see LeagueAPI::getMatchlist
+ *       @link https://developer.riotgames.com/apis#match-v4/GET_getMatchlist
  *
  * @linkable getStaticChampion($champion)
  *
@@ -33,27 +34,67 @@ namespace RiotAPI\LeagueAPI\Objects;
  */
 class MatchReferenceDto extends ApiObjectLinkable
 {
-	/** @var int $gameId */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatchlist
+	 *
+	 * @var int $gameId
+	 */
 	public $gameId;
 
-	/** @var string $role */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatchlist
+	 *
+	 * @var string $role
+	 */
 	public $role;
 
-	/** @var int $season */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatchlist
+	 *
+	 * @var int $season
+	 */
 	public $season;
 
-	/** @var string $platformId */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatchlist
+	 *
+	 * @var string $platformId
+	 */
 	public $platformId;
 
-	/** @var int $champion */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatchlist
+	 *
+	 * @var int $champion
+	 */
 	public $champion;
 
-	/** @var int $queue */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatchlist
+	 *
+	 * @var int $queue
+	 */
 	public $queue;
 
-	/** @var string $lane */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatchlist
+	 *
+	 * @var string $lane
+	 */
 	public $lane;
 
-	/** @var int $timestamp */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatchlist
+	 *
+	 * @var int $timestamp
+	 */
 	public $timestamp;
 }

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright (C) 2016-2020  Daniel Dolejška
+ * Copyright (C) 2016-2021  Daniel Dolejška
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -25,7 +25,8 @@ namespace RiotAPI\LeagueAPI\Objects;
  *
  * Used in:
  *   match (v4)
- *     @link https://developer.riotgames.com/apis#match-v4/GET_getMatchTimeline
+ *     - @see LeagueAPI::getMatchTimeline
+ *       @link https://developer.riotgames.com/apis#match-v4/GET_getMatchTimeline
  *
  * @iterable $frames
  *
@@ -33,9 +34,19 @@ namespace RiotAPI\LeagueAPI\Objects;
  */
 class MatchTimelineDto extends ApiObjectIterable
 {
-	/** @var MatchFrameDto[] $frames */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatchTimeline
+	 *
+	 * @var MatchFrameDto[] $frames
+	 */
 	public $frames;
 
-	/** @var int $frameInterval */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatchTimeline
+	 *
+	 * @var int $frameInterval
+	 */
 	public $frameInterval;
 }

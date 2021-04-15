@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright (C) 2016-2020  Daniel Dolejška
+ * Copyright (C) 2016-2021  Daniel Dolejška
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -25,7 +25,8 @@ namespace RiotAPI\LeagueAPI\Objects;
  *
  * Used in:
  *   spectator (v4)
- *     @link https://developer.riotgames.com/apis#spectator-v4/GET_getCurrentGameInfoBySummoner
+ *     - @see LeagueAPI::getCurrentGameInfoBySummoner
+ *       @link https://developer.riotgames.com/apis#spectator-v4/GET_getCurrentGameInfoBySummoner
  *
  * @iterable $participants
  *
@@ -34,77 +35,110 @@ namespace RiotAPI\LeagueAPI\Objects;
 class CurrentGameInfo extends ApiObjectIterable
 {
 	/**
-	 *   The ID of the game.
+	 * The ID of the game.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getCurrentGameInfoBySummoner
 	 *
 	 * @var int $gameId
 	 */
 	public $gameId;
 
 	/**
-	 *   The game type.
+	 * The game type.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getCurrentGameInfoBySummoner
 	 *
 	 * @var string $gameType
 	 */
 	public $gameType;
 
 	/**
-	 *   The game start time represented in epoch milliseconds.
+	 * The game start time represented in epoch milliseconds.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getCurrentGameInfoBySummoner
 	 *
 	 * @var int $gameStartTime
 	 */
 	public $gameStartTime;
 
 	/**
-	 *   The ID of the map.
+	 * The ID of the map.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getCurrentGameInfoBySummoner
 	 *
 	 * @var int $mapId
 	 */
 	public $mapId;
 
 	/**
-	 *   The amount of time in seconds that has passed since the game started.
+	 * The amount of time in seconds that has passed since the game started.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getCurrentGameInfoBySummoner
 	 *
 	 * @var int $gameLength
 	 */
 	public $gameLength;
 
 	/**
-	 *   The ID of the platform on which the game is being played.
+	 * The ID of the platform on which the game is being played.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getCurrentGameInfoBySummoner
 	 *
 	 * @var string $platformId
 	 */
 	public $platformId;
 
 	/**
-	 *   The game mode.
+	 * The game mode.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getCurrentGameInfoBySummoner
 	 *
 	 * @var string $gameMode
 	 */
 	public $gameMode;
 
 	/**
-	 *   Banned champion information.
+	 * Banned champion information.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getCurrentGameInfoBySummoner
 	 *
 	 * @var BannedChampion[] $bannedChampions
 	 */
 	public $bannedChampions;
 
 	/**
-	 *   The queue type (queue types are documented on the Game Constants page).
+	 * The queue type (queue types are documented on the Game Constants page).
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getCurrentGameInfoBySummoner
 	 *
 	 * @var int $gameQueueConfigId
 	 */
 	public $gameQueueConfigId;
 
 	/**
-	 *   The observer information.
+	 * The observer information.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getCurrentGameInfoBySummoner
 	 *
 	 * @var Observer $observers
 	 */
 	public $observers;
 
 	/**
-	 *   The participant information.
+	 * The participant information.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getCurrentGameInfoBySummoner
 	 *
 	 * @var CurrentGameParticipant[] $participants
 	 */

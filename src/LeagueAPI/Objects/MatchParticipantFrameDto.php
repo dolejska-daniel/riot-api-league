@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright (C) 2016-2020  Daniel Dolejška
+ * Copyright (C) 2016-2021  Daniel Dolejška
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -25,39 +25,90 @@ namespace RiotAPI\LeagueAPI\Objects;
  *
  * Used in:
  *   match (v4)
- *     @link https://developer.riotgames.com/apis#match-v4/GET_getMatchTimeline
+ *     - @see LeagueAPI::getMatchTimeline
+ *       @link https://developer.riotgames.com/apis#match-v4/GET_getMatchTimeline
  *
  * @package RiotAPI\LeagueAPI\Objects
  */
 class MatchParticipantFrameDto extends ApiObject
 {
-	/** @var int $participantId */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatchTimeline
+	 *
+	 * @var int $participantId
+	 */
 	public $participantId;
 
-	/** @var int $minionsKilled */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatchTimeline
+	 *
+	 * @var int $minionsKilled
+	 */
 	public $minionsKilled;
 
-	/** @var int $teamScore */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatchTimeline
+	 *
+	 * @var int $teamScore
+	 */
 	public $teamScore;
 
-	/** @var int $dominionScore */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatchTimeline
+	 *
+	 * @var int $dominionScore
+	 */
 	public $dominionScore;
 
-	/** @var int $totalGold */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatchTimeline
+	 *
+	 * @var int $totalGold
+	 */
 	public $totalGold;
 
-	/** @var int $level */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatchTimeline
+	 *
+	 * @var int $level
+	 */
 	public $level;
 
-	/** @var int $xp */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatchTimeline
+	 *
+	 * @var int $xp
+	 */
 	public $xp;
 
-	/** @var int $currentGold */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatchTimeline
+	 *
+	 * @var int $currentGold
+	 */
 	public $currentGold;
 
-	/** @var MatchPositionDto $position */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatchTimeline
+	 *
+	 * @var MatchPositionDto $position
+	 */
 	public $position;
 
-	/** @var int $jungleMinionsKilled */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatchTimeline
+	 *
+	 * @var int $jungleMinionsKilled
+	 */
 	public $jungleMinionsKilled;
 }

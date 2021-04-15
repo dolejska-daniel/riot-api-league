@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright (C) 2016-2020  Daniel Dolejška
+ * Copyright (C) 2016-2021  Daniel Dolejška
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -25,98 +25,154 @@ namespace RiotAPI\LeagueAPI\Objects;
  *
  * Used in:
  *   match (v4)
- *     @link https://developer.riotgames.com/apis#match-v4/GET_getMatchIdsByTournamentCode
- *     @link https://developer.riotgames.com/apis#match-v4/GET_getMatchByTournamentCode
+ *     - @see LeagueAPI::getMatch
+ *       @link https://developer.riotgames.com/apis#match-v4/GET_getMatch
+ *     - @see LeagueAPI::getMatchByTournamentCode
+ *       @link https://developer.riotgames.com/apis#match-v4/GET_getMatchByTournamentCode
  *
  * @package RiotAPI\LeagueAPI\Objects
  */
 class MatchDto extends ApiObject
 {
-	/** @var int $gameId */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *
+	 * @var int $gameId
+	 */
 	public $gameId;
 
 	/**
-	 *   Participant identity information. Participant identity information is 
+	 * Participant identity information. Participant identity information is
 	 * purposefully excluded for custom games.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
 	 *
 	 * @var ParticipantIdentityDto[] $participantIdentities
 	 */
 	public $participantIdentities;
 
 	/**
-	 *   Please refer to the Game Constants documentation.
+	 * Please refer to the Game Constants documentation.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
 	 *
 	 * @var int $queueId
 	 */
 	public $queueId;
 
 	/**
-	 *   Please refer to the Game Constants documentation.
+	 * Please refer to the Game Constants documentation.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
 	 *
 	 * @var string $gameType
 	 */
 	public $gameType;
 
 	/**
-	 *   Match duration in seconds.
+	 * Match duration in seconds.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
 	 *
 	 * @var int $gameDuration
 	 */
 	public $gameDuration;
 
 	/**
-	 *   Team information.
+	 * Team information.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
 	 *
 	 * @var TeamStatsDto[] $teams
 	 */
 	public $teams;
 
 	/**
-	 *   Platform where the match was played.
+	 * Platform where the match was played.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
 	 *
 	 * @var string $platformId
 	 */
 	public $platformId;
 
 	/**
-	 *   Designates the timestamp when champion select ended and the loading screen 
-	 * appeared, NOT when the game timer was at 0:00.
+	 * Designates the timestamp when champion select ended and the loading
+	 * screen appeared, NOT when the game timer was at 0:00.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
 	 *
 	 * @var int $gameCreation
 	 */
 	public $gameCreation;
 
 	/**
-	 *   Please refer to the Game Constants documentation.
+	 * Please refer to the Game Constants documentation.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
 	 *
 	 * @var int $seasonId
 	 */
 	public $seasonId;
 
 	/**
-	 *   The major.minor version typically indicates the patch the match was played 
-	 * on.
+	 * The major.minor version typically indicates the patch the match was
+	 * played on.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
 	 *
 	 * @var string $gameVersion
 	 */
 	public $gameVersion;
 
 	/**
-	 *   Please refer to the Game Constants documentation.
+	 * Please refer to the Game Constants documentation.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
 	 *
 	 * @var int $mapId
 	 */
 	public $mapId;
 
 	/**
-	 *   Please refer to the Game Constants documentation.
+	 * Please refer to the Game Constants documentation.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
 	 *
 	 * @var string $gameMode
 	 */
 	public $gameMode;
 
 	/**
-	 *   Participant information.
+	 * Participant information.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
 	 *
 	 * @var ParticipantDto[] $participants
 	 */

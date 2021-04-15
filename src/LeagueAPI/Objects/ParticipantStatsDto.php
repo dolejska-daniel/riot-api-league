@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright (C) 2016-2020  Daniel Dolejška
+ * Copyright (C) 2016-2021  Daniel Dolejška
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -25,457 +25,1067 @@ namespace RiotAPI\LeagueAPI\Objects;
  *
  * Used in:
  *   match (v4)
- *     @link https://developer.riotgames.com/apis#match-v4/GET_getMatchIdsByTournamentCode
- *     @link https://developer.riotgames.com/apis#match-v4/GET_getMatchByTournamentCode
+ *     - @see LeagueAPI::getMatch
+ *       @link https://developer.riotgames.com/apis#match-v4/GET_getMatch
+ *     - @see LeagueAPI::getMatchByTournamentCode
+ *       @link https://developer.riotgames.com/apis#match-v4/GET_getMatchByTournamentCode
  *
  * @package RiotAPI\LeagueAPI\Objects
  */
 class ParticipantStatsDto extends ApiObject
 {
-	/** @var int $item0 */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *
+	 * @var int $item0
+	 */
 	public $item0;
 
-	/** @var int $item2 */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *
+	 * @var int $item2
+	 */
 	public $item2;
 
-	/** @var int $totalUnitsHealed */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *
+	 * @var int $totalUnitsHealed
+	 */
 	public $totalUnitsHealed;
 
-	/** @var int $item1 */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *
+	 * @var int $item1
+	 */
 	public $item1;
 
-	/** @var int $largestMultiKill */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *
+	 * @var int $largestMultiKill
+	 */
 	public $largestMultiKill;
 
-	/** @var int $goldEarned */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *
+	 * @var int $goldEarned
+	 */
 	public $goldEarned;
 
-	/** @var bool $firstInhibitorKill */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *
+	 * @var bool $firstInhibitorKill
+	 */
 	public $firstInhibitorKill;
 
-	/** @var int $physicalDamageTaken */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *
+	 * @var int $physicalDamageTaken
+	 */
 	public $physicalDamageTaken;
 
-	/** @var int $nodeNeutralizeAssist */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *
+	 * @var int $nodeNeutralizeAssist
+	 */
 	public $nodeNeutralizeAssist;
 
-	/** @var int $totalPlayerScore */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *
+	 * @var int $totalPlayerScore
+	 */
 	public $totalPlayerScore;
 
-	/** @var int $champLevel */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *
+	 * @var int $champLevel
+	 */
 	public $champLevel;
 
-	/** @var int $damageDealtToObjectives */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *
+	 * @var int $damageDealtToObjectives
+	 */
 	public $damageDealtToObjectives;
 
-	/** @var int $totalDamageTaken */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *
+	 * @var int $totalDamageTaken
+	 */
 	public $totalDamageTaken;
 
-	/** @var int $neutralMinionsKilled */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *
+	 * @var int $neutralMinionsKilled
+	 */
 	public $neutralMinionsKilled;
 
-	/** @var int $deaths */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *
+	 * @var int $deaths
+	 */
 	public $deaths;
 
-	/** @var int $tripleKills */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *
+	 * @var int $tripleKills
+	 */
 	public $tripleKills;
 
-	/** @var int $magicDamageDealtToChampions */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *
+	 * @var int $magicDamageDealtToChampions
+	 */
 	public $magicDamageDealtToChampions;
 
-	/** @var int $wardsKilled */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *
+	 * @var int $wardsKilled
+	 */
 	public $wardsKilled;
 
-	/** @var int $pentaKills */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *
+	 * @var int $pentaKills
+	 */
 	public $pentaKills;
 
-	/** @var int $damageSelfMitigated */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *
+	 * @var int $damageSelfMitigated
+	 */
 	public $damageSelfMitigated;
 
-	/** @var int $largestCriticalStrike */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *
+	 * @var int $largestCriticalStrike
+	 */
 	public $largestCriticalStrike;
 
-	/** @var int $nodeNeutralize */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *
+	 * @var int $nodeNeutralize
+	 */
 	public $nodeNeutralize;
 
-	/** @var int $totalTimeCrowdControlDealt */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *
+	 * @var int $totalTimeCrowdControlDealt
+	 */
 	public $totalTimeCrowdControlDealt;
 
-	/** @var bool $firstTowerKill */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *
+	 * @var bool $firstTowerKill
+	 */
 	public $firstTowerKill;
 
-	/** @var int $magicDamageDealt */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *
+	 * @var int $magicDamageDealt
+	 */
 	public $magicDamageDealt;
 
-	/** @var int $totalScoreRank */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *
+	 * @var int $totalScoreRank
+	 */
 	public $totalScoreRank;
 
-	/** @var int $nodeCapture */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *
+	 * @var int $nodeCapture
+	 */
 	public $nodeCapture;
 
-	/** @var int $wardsPlaced */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *
+	 * @var int $wardsPlaced
+	 */
 	public $wardsPlaced;
 
-	/** @var int $totalDamageDealt */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *
+	 * @var int $totalDamageDealt
+	 */
 	public $totalDamageDealt;
 
-	/** @var int $timeCCingOthers */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *
+	 * @var int $timeCCingOthers
+	 */
 	public $timeCCingOthers;
 
-	/** @var int $magicalDamageTaken */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *
+	 * @var int $magicalDamageTaken
+	 */
 	public $magicalDamageTaken;
 
-	/** @var int $largestKillingSpree */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *
+	 * @var int $largestKillingSpree
+	 */
 	public $largestKillingSpree;
 
-	/** @var int $totalDamageDealtToChampions */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *
+	 * @var int $totalDamageDealtToChampions
+	 */
 	public $totalDamageDealtToChampions;
 
-	/** @var int $physicalDamageDealtToChampions */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *
+	 * @var int $physicalDamageDealtToChampions
+	 */
 	public $physicalDamageDealtToChampions;
 
-	/** @var int $neutralMinionsKilledTeamJungle */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *
+	 * @var int $neutralMinionsKilledTeamJungle
+	 */
 	public $neutralMinionsKilledTeamJungle;
 
-	/** @var int $totalMinionsKilled */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *
+	 * @var int $totalMinionsKilled
+	 */
 	public $totalMinionsKilled;
 
-	/** @var bool $firstInhibitorAssist */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *
+	 * @var bool $firstInhibitorAssist
+	 */
 	public $firstInhibitorAssist;
 
-	/** @var int $visionWardsBoughtInGame */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *
+	 * @var int $visionWardsBoughtInGame
+	 */
 	public $visionWardsBoughtInGame;
 
-	/** @var int $objectivePlayerScore */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *
+	 * @var int $objectivePlayerScore
+	 */
 	public $objectivePlayerScore;
 
-	/** @var int $kills */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *
+	 * @var int $kills
+	 */
 	public $kills;
 
-	/** @var bool $firstTowerAssist */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *
+	 * @var bool $firstTowerAssist
+	 */
 	public $firstTowerAssist;
 
-	/** @var int $combatPlayerScore */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *
+	 * @var int $combatPlayerScore
+	 */
 	public $combatPlayerScore;
 
-	/** @var int $inhibitorKills */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *
+	 * @var int $inhibitorKills
+	 */
 	public $inhibitorKills;
 
-	/** @var int $turretKills */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *
+	 * @var int $turretKills
+	 */
 	public $turretKills;
 
-	/** @var int $participantId */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *
+	 * @var int $participantId
+	 */
 	public $participantId;
 
-	/** @var int $trueDamageTaken */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *
+	 * @var int $trueDamageTaken
+	 */
 	public $trueDamageTaken;
 
-	/** @var bool $firstBloodAssist */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *
+	 * @var bool $firstBloodAssist
+	 */
 	public $firstBloodAssist;
 
-	/** @var int $nodeCaptureAssist */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *
+	 * @var int $nodeCaptureAssist
+	 */
 	public $nodeCaptureAssist;
 
-	/** @var int $assists */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *
+	 * @var int $assists
+	 */
 	public $assists;
 
-	/** @var int $teamObjective */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *
+	 * @var int $teamObjective
+	 */
 	public $teamObjective;
 
-	/** @var int $altarsNeutralized */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *
+	 * @var int $altarsNeutralized
+	 */
 	public $altarsNeutralized;
 
-	/** @var int $goldSpent */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *
+	 * @var int $goldSpent
+	 */
 	public $goldSpent;
 
-	/** @var int $damageDealtToTurrets */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *
+	 * @var int $damageDealtToTurrets
+	 */
 	public $damageDealtToTurrets;
 
-	/** @var int $altarsCaptured */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *
+	 * @var int $altarsCaptured
+	 */
 	public $altarsCaptured;
 
-	/** @var bool $win */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *
+	 * @var bool $win
+	 */
 	public $win;
 
-	/** @var int $totalHeal */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *
+	 * @var int $totalHeal
+	 */
 	public $totalHeal;
 
-	/** @var int $unrealKills */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *
+	 * @var int $unrealKills
+	 */
 	public $unrealKills;
 
-	/** @var int $visionScore */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *
+	 * @var int $visionScore
+	 */
 	public $visionScore;
 
-	/** @var int $physicalDamageDealt */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *
+	 * @var int $physicalDamageDealt
+	 */
 	public $physicalDamageDealt;
 
-	/** @var bool $firstBloodKill */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *
+	 * @var bool $firstBloodKill
+	 */
 	public $firstBloodKill;
 
-	/** @var int $longestTimeSpentLiving */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *
+	 * @var int $longestTimeSpentLiving
+	 */
 	public $longestTimeSpentLiving;
 
-	/** @var int $killingSprees */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *
+	 * @var int $killingSprees
+	 */
 	public $killingSprees;
 
-	/** @var int $sightWardsBoughtInGame */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *
+	 * @var int $sightWardsBoughtInGame
+	 */
 	public $sightWardsBoughtInGame;
 
-	/** @var int $trueDamageDealtToChampions */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *
+	 * @var int $trueDamageDealtToChampions
+	 */
 	public $trueDamageDealtToChampions;
 
-	/** @var int $neutralMinionsKilledEnemyJungle */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *
+	 * @var int $neutralMinionsKilledEnemyJungle
+	 */
 	public $neutralMinionsKilledEnemyJungle;
 
-	/** @var int $doubleKills */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *
+	 * @var int $doubleKills
+	 */
 	public $doubleKills;
 
-	/** @var int $trueDamageDealt */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *
+	 * @var int $trueDamageDealt
+	 */
 	public $trueDamageDealt;
 
-	/** @var int $quadraKills */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *
+	 * @var int $quadraKills
+	 */
 	public $quadraKills;
 
-	/** @var int $item4 */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *
+	 * @var int $item4
+	 */
 	public $item4;
 
-	/** @var int $item3 */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *
+	 * @var int $item3
+	 */
 	public $item3;
 
-	/** @var int $item6 */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *
+	 * @var int $item6
+	 */
 	public $item6;
 
-	/** @var int $item5 */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *
+	 * @var int $item5
+	 */
 	public $item5;
 
-	/** @var int $playerScore0 */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *
+	 * @var int $playerScore0
+	 */
 	public $playerScore0;
 
-	/** @var int $playerScore1 */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *
+	 * @var int $playerScore1
+	 */
 	public $playerScore1;
 
-	/** @var int $playerScore2 */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *
+	 * @var int $playerScore2
+	 */
 	public $playerScore2;
 
-	/** @var int $playerScore3 */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *
+	 * @var int $playerScore3
+	 */
 	public $playerScore3;
 
-	/** @var int $playerScore4 */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *
+	 * @var int $playerScore4
+	 */
 	public $playerScore4;
 
-	/** @var int $playerScore5 */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *
+	 * @var int $playerScore5
+	 */
 	public $playerScore5;
 
-	/** @var int $playerScore6 */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *
+	 * @var int $playerScore6
+	 */
 	public $playerScore6;
 
-	/** @var int $playerScore7 */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *
+	 * @var int $playerScore7
+	 */
 	public $playerScore7;
 
-	/** @var int $playerScore8 */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *
+	 * @var int $playerScore8
+	 */
 	public $playerScore8;
 
-	/** @var int $playerScore9 */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *
+	 * @var int $playerScore9
+	 */
 	public $playerScore9;
 
 	/**
-	 *   Primary path keystone rune.
+	 * Primary path keystone rune.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
 	 *
 	 * @var int $perk0
 	 */
 	public $perk0;
 
 	/**
-	 *   Post game rune stats.
+	 * Post game rune stats.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
 	 *
 	 * @var int $perk0Var1
 	 */
 	public $perk0Var1;
 
 	/**
-	 *   Post game rune stats.
+	 * Post game rune stats.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
 	 *
 	 * @var int $perk0Var2
 	 */
 	public $perk0Var2;
 
 	/**
-	 *   Post game rune stats.
+	 * Post game rune stats.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
 	 *
 	 * @var int $perk0Var3
 	 */
 	public $perk0Var3;
 
 	/**
-	 *   Primary path rune.
+	 * Primary path rune.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
 	 *
 	 * @var int $perk1
 	 */
 	public $perk1;
 
 	/**
-	 *   Post game rune stats.
+	 * Post game rune stats.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
 	 *
 	 * @var int $perk1Var1
 	 */
 	public $perk1Var1;
 
 	/**
-	 *   Post game rune stats.
+	 * Post game rune stats.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
 	 *
 	 * @var int $perk1Var2
 	 */
 	public $perk1Var2;
 
 	/**
-	 *   Post game rune stats.
+	 * Post game rune stats.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
 	 *
 	 * @var int $perk1Var3
 	 */
 	public $perk1Var3;
 
 	/**
-	 *   Primary path rune.
+	 * Primary path rune.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
 	 *
 	 * @var int $perk2
 	 */
 	public $perk2;
 
 	/**
-	 *   Post game rune stats.
+	 * Post game rune stats.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
 	 *
 	 * @var int $perk2Var1
 	 */
 	public $perk2Var1;
 
 	/**
-	 *   Post game rune stats.
+	 * Post game rune stats.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
 	 *
 	 * @var int $perk2Var2
 	 */
 	public $perk2Var2;
 
 	/**
-	 *   Post game rune stats.
+	 * Post game rune stats.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
 	 *
 	 * @var int $perk2Var3
 	 */
 	public $perk2Var3;
 
 	/**
-	 *   Primary path rune.
+	 * Primary path rune.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
 	 *
 	 * @var int $perk3
 	 */
 	public $perk3;
 
 	/**
-	 *   Post game rune stats.
+	 * Post game rune stats.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
 	 *
 	 * @var int $perk3Var1
 	 */
 	public $perk3Var1;
 
 	/**
-	 *   Post game rune stats.
+	 * Post game rune stats.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
 	 *
 	 * @var int $perk3Var2
 	 */
 	public $perk3Var2;
 
 	/**
-	 *   Post game rune stats.
+	 * Post game rune stats.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
 	 *
 	 * @var int $perk3Var3
 	 */
 	public $perk3Var3;
 
 	/**
-	 *   Secondary path rune.
+	 * Secondary path rune.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
 	 *
 	 * @var int $perk4
 	 */
 	public $perk4;
 
 	/**
-	 *   Post game rune stats.
+	 * Post game rune stats.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
 	 *
 	 * @var int $perk4Var1
 	 */
 	public $perk4Var1;
 
 	/**
-	 *   Post game rune stats.
+	 * Post game rune stats.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
 	 *
 	 * @var int $perk4Var2
 	 */
 	public $perk4Var2;
 
 	/**
-	 *   Post game rune stats.
+	 * Post game rune stats.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
 	 *
 	 * @var int $perk4Var3
 	 */
 	public $perk4Var3;
 
 	/**
-	 *   Secondary path rune.
+	 * Secondary path rune.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
 	 *
 	 * @var int $perk5
 	 */
 	public $perk5;
 
 	/**
-	 *   Post game rune stats.
+	 * Post game rune stats.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
 	 *
 	 * @var int $perk5Var1
 	 */
 	public $perk5Var1;
 
 	/**
-	 *   Post game rune stats.
+	 * Post game rune stats.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
 	 *
 	 * @var int $perk5Var2
 	 */
 	public $perk5Var2;
 
 	/**
-	 *   Post game rune stats.
+	 * Post game rune stats.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
 	 *
 	 * @var int $perk5Var3
 	 */
 	public $perk5Var3;
 
 	/**
-	 *   Primary rune path.
+	 * Primary rune path.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
 	 *
 	 * @var int $perkPrimaryStyle
 	 */
 	public $perkPrimaryStyle;
 
 	/**
-	 *   Secondary rune path.
+	 * Secondary rune path.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
 	 *
 	 * @var int $perkSubStyle
 	 */
 	public $perkSubStyle;
 
 	/**
-	 *   Stat rune.
+	 * Stat rune.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
 	 *
 	 * @var int $statPerk0
 	 */
 	public $statPerk0;
 
 	/**
-	 *   Stat rune.
+	 * Stat rune.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
 	 *
 	 * @var int $statPerk1
 	 */
 	public $statPerk1;
 
 	/**
-	 *   Stat rune.
+	 * Stat rune.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
 	 *
 	 * @var int $statPerk2
 	 */

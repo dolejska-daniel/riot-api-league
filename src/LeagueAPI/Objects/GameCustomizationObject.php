@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright (C) 2016-2020  Daniel Dolejška
+ * Copyright (C) 2016-2021  Daniel Dolejška
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -25,21 +25,28 @@ namespace RiotAPI\LeagueAPI\Objects;
  *
  * Used in:
  *   spectator (v4)
- *     @link https://developer.riotgames.com/apis#spectator-v4/GET_getCurrentGameInfoBySummoner
+ *     - @see LeagueAPI::getCurrentGameInfoBySummoner
+ *       @link https://developer.riotgames.com/apis#spectator-v4/GET_getCurrentGameInfoBySummoner
  *
  * @package RiotAPI\LeagueAPI\Objects
  */
 class GameCustomizationObject extends ApiObject
 {
 	/**
-	 *   Category identifier for Game Customization.
+	 * Category identifier for Game Customization.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getCurrentGameInfoBySummoner
 	 *
 	 * @var string $category
 	 */
 	public $category;
 
 	/**
-	 *   Game Customization content.
+	 * Game Customization content.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getCurrentGameInfoBySummoner
 	 *
 	 * @var string $content
 	 */

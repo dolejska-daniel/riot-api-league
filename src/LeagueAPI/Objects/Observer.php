@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright (C) 2016-2020  Daniel Dolejška
+ * Copyright (C) 2016-2021  Daniel Dolejška
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -25,15 +25,21 @@ namespace RiotAPI\LeagueAPI\Objects;
  *
  * Used in:
  *   spectator (v4)
- *     @link https://developer.riotgames.com/apis#spectator-v4/GET_getCurrentGameInfoBySummoner
- *     @link https://developer.riotgames.com/apis#spectator-v4/GET_getFeaturedGames
+ *     - @see LeagueAPI::getCurrentGameInfoBySummoner
+ *       @link https://developer.riotgames.com/apis#spectator-v4/GET_getCurrentGameInfoBySummoner
+ *     - @see LeagueAPI::getFeaturedGames
+ *       @link https://developer.riotgames.com/apis#spectator-v4/GET_getFeaturedGames
  *
  * @package RiotAPI\LeagueAPI\Objects
  */
 class Observer extends ApiObject
 {
 	/**
-	 *   Key used to decrypt the spectator grid game data for playback.
+	 * Key used to decrypt the spectator grid game data for playback.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getCurrentGameInfoBySummoner
+	 *   - @see LeagueAPI::getFeaturedGames
 	 *
 	 * @var string $encryptionKey
 	 */

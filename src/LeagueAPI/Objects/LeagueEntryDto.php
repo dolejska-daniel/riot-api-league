@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright (C) 2016-2020  Daniel Dolejška
+ * Copyright (C) 2016-2021  Daniel Dolejška
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -25,67 +25,162 @@ namespace RiotAPI\LeagueAPI\Objects;
  *
  * Used in:
  *   league-exp (v4)
- *     @link https://developer.riotgames.com/apis#league-exp-v4/GET_getLeagueEntries
+ *     - @see LeagueAPI::getLeagueEntries
+ *       @link https://developer.riotgames.com/apis#league-exp-v4/GET_getLeagueEntries
  *   league (v4)
- *     @link https://developer.riotgames.com/apis#league-v4/GET_getLeagueEntriesForSummoner
- *     @link https://developer.riotgames.com/apis#league-v4/GET_getLeagueEntriesForSummoner
+ *     - @see LeagueAPI::getLeagueEntries
+ *       @link https://developer.riotgames.com/apis#league-v4/GET_getLeagueEntries
+ *     - @see LeagueAPI::getLeagueEntriesForSummoner
+ *       @link https://developer.riotgames.com/apis#league-v4/GET_getLeagueEntriesForSummoner
  *
  * @package RiotAPI\LeagueAPI\Objects
  */
 class LeagueEntryDto extends ApiObject
 {
-	/** @var string $leagueId */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getLeagueEntries
+	 *   - @see LeagueAPI::getLeagueEntries
+	 *   - @see LeagueAPI::getLeagueEntriesForSummoner
+	 *
+	 * @var string $leagueId
+	 */
 	public $leagueId;
 
 	/**
-	 *   Player's summonerId (Encrypted).
+	 * Player's summonerId (Encrypted).
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getLeagueEntries
+	 *   - @see LeagueAPI::getLeagueEntries
+	 *   - @see LeagueAPI::getLeagueEntriesForSummoner
 	 *
 	 * @var string $summonerId
 	 */
 	public $summonerId;
 
-	/** @var string $summonerName */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getLeagueEntries
+	 *   - @see LeagueAPI::getLeagueEntries
+	 *   - @see LeagueAPI::getLeagueEntriesForSummoner
+	 *
+	 * @var string $summonerName
+	 */
 	public $summonerName;
 
-	/** @var string $queueType */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getLeagueEntries
+	 *   - @see LeagueAPI::getLeagueEntries
+	 *   - @see LeagueAPI::getLeagueEntriesForSummoner
+	 *
+	 * @var string $queueType
+	 */
 	public $queueType;
 
-	/** @var string $tier */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getLeagueEntries
+	 *   - @see LeagueAPI::getLeagueEntries
+	 *   - @see LeagueAPI::getLeagueEntriesForSummoner
+	 *
+	 * @var string $tier
+	 */
 	public $tier;
 
-	/** @var string $rank */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getLeagueEntries
+	 *   - @see LeagueAPI::getLeagueEntries
+	 *   - @see LeagueAPI::getLeagueEntriesForSummoner
+	 *
+	 * @var string $rank
+	 */
 	public $rank;
 
-	/** @var int $leaguePoints */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getLeagueEntries
+	 *   - @see LeagueAPI::getLeagueEntries
+	 *   - @see LeagueAPI::getLeagueEntriesForSummoner
+	 *
+	 * @var int $leaguePoints
+	 */
 	public $leaguePoints;
 
 	/**
-	 *   Winning team on Summoners Rift. First placement in Teamfight Tactics.
+	 * Winning team on Summoners Rift. First placement in Teamfight Tactics.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getLeagueEntries
+	 *   - @see LeagueAPI::getLeagueEntries
+	 *   - @see LeagueAPI::getLeagueEntriesForSummoner
 	 *
 	 * @var int $wins
 	 */
 	public $wins;
 
 	/**
-	 *   Losing team on Summoners Rift. Second through eighth placement in 
+	 * Losing team on Summoners Rift. Second through eighth placement in
 	 * Teamfight Tactics.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getLeagueEntries
+	 *   - @see LeagueAPI::getLeagueEntries
+	 *   - @see LeagueAPI::getLeagueEntriesForSummoner
 	 *
 	 * @var int $losses
 	 */
 	public $losses;
 
-	/** @var bool $hotStreak */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getLeagueEntries
+	 *   - @see LeagueAPI::getLeagueEntries
+	 *   - @see LeagueAPI::getLeagueEntriesForSummoner
+	 *
+	 * @var bool $hotStreak
+	 */
 	public $hotStreak;
 
-	/** @var bool $veteran */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getLeagueEntries
+	 *   - @see LeagueAPI::getLeagueEntries
+	 *   - @see LeagueAPI::getLeagueEntriesForSummoner
+	 *
+	 * @var bool $veteran
+	 */
 	public $veteran;
 
-	/** @var bool $freshBlood */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getLeagueEntries
+	 *   - @see LeagueAPI::getLeagueEntries
+	 *   - @see LeagueAPI::getLeagueEntriesForSummoner
+	 *
+	 * @var bool $freshBlood
+	 */
 	public $freshBlood;
 
-	/** @var bool $inactive */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getLeagueEntries
+	 *   - @see LeagueAPI::getLeagueEntries
+	 *   - @see LeagueAPI::getLeagueEntriesForSummoner
+	 *
+	 * @var bool $inactive
+	 */
 	public $inactive;
 
-	/** @var MiniSeriesDto $miniSeries */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getLeagueEntries
+	 *   - @see LeagueAPI::getLeagueEntries
+	 *   - @see LeagueAPI::getLeagueEntriesForSummoner
+	 *
+	 * @var MiniSeriesDTO $miniSeries
+	 */
 	public $miniSeries;
 }

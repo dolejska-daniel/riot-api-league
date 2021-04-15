@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright (C) 2016-2020  Daniel Dolejška
+ * Copyright (C) 2016-2021  Daniel Dolejška
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -25,8 +25,10 @@ namespace RiotAPI\LeagueAPI\Objects;
  *
  * Used in:
  *   match (v4)
- *     @link https://developer.riotgames.com/apis#match-v4/GET_getMatchIdsByTournamentCode
- *     @link https://developer.riotgames.com/apis#match-v4/GET_getMatchByTournamentCode
+ *     - @see LeagueAPI::getMatch
+ *       @link https://developer.riotgames.com/apis#match-v4/GET_getMatch
+ *     - @see LeagueAPI::getMatchByTournamentCode
+ *       @link https://developer.riotgames.com/apis#match-v4/GET_getMatchByTournamentCode
  *
  * @linkable getStaticChampion($championId)
  *
@@ -34,68 +36,113 @@ namespace RiotAPI\LeagueAPI\Objects;
  */
 class ParticipantDto extends ApiObjectLinkable
 {
-	/** @var int $participantId */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *
+	 * @var int $participantId
+	 */
 	public $participantId;
 
-	/** @var int $championId */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *
+	 * @var int $championId
+	 */
 	public $championId;
 
 	/**
-	 *   List of legacy Rune information. Not included for matches played with 
+	 * List of legacy Rune information. Not included for matches played with
 	 * Runes Reforged.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
 	 *
 	 * @var RuneDto[] $runes
 	 */
 	public $runes;
 
 	/**
-	 *   Participant statistics.
+	 * Participant statistics.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
 	 *
 	 * @var ParticipantStatsDto $stats
 	 */
 	public $stats;
 
 	/**
-	 *   100 for blue side. 200 for red side.
+	 * 100 for blue side. 200 for red side.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
 	 *
 	 * @var int $teamId
 	 */
 	public $teamId;
 
 	/**
-	 *   Participant timeline data.
+	 * Participant timeline data.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
 	 *
 	 * @var ParticipantTimelineDto $timeline
 	 */
 	public $timeline;
 
 	/**
-	 *   First Summoner Spell id.
+	 * First Summoner Spell id.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
 	 *
 	 * @var int $spell1Id
 	 */
 	public $spell1Id;
 
 	/**
-	 *   Second Summoner Spell id.
+	 * Second Summoner Spell id.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
 	 *
 	 * @var int $spell2Id
 	 */
 	public $spell2Id;
 
 	/**
-	 *   Highest ranked tier achieved for the previous season in a specific subset 
-	 * of queueIds, if any, otherwise null. Used to display border in game loading 
-	 * screen. Please refer to the Ranked Info documentation. (Legal values: CHALLENGER, 
-	 * MASTER, DIAMOND, PLATINUM, GOLD, SILVER, BRONZE, UNRANKED).
+	 * Highest ranked tier achieved for the previous season in a specific
+	 * subset of queueIds, if any, otherwise null. Used to display border in
+	 * game loading screen. Please refer to the Ranked Info documentation.
+	 * (Legal values: CHALLENGER, MASTER, DIAMOND, PLATINUM, GOLD, SILVER,
+	 * BRONZE, UNRANKED).
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
 	 *
 	 * @var string $highestAchievedSeasonTier
 	 */
 	public $highestAchievedSeasonTier;
 
 	/**
-	 *   List of legacy Mastery information. Not included for matches played with 
-	 * Runes Reforged.
+	 * List of legacy Mastery information. Not included for matches played
+	 * with Runes Reforged.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
 	 *
 	 * @var MasteryDto[] $masteries
 	 */

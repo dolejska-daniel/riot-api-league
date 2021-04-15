@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright (C) 2016-2020  Daniel Dolejška
+ * Copyright (C) 2016-2021  Daniel Dolejška
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -25,7 +25,8 @@ namespace RiotAPI\LeagueAPI\Objects;
  *
  * Used in:
  *   match (v4)
- *     @link https://developer.riotgames.com/apis#match-v4/GET_getMatchlist
+ *     - @see LeagueAPI::getMatchlist
+ *       @link https://developer.riotgames.com/apis#match-v4/GET_getMatchlist
  *
  * @iterable $matches
  *
@@ -33,21 +34,40 @@ namespace RiotAPI\LeagueAPI\Objects;
  */
 class MatchlistDto extends ApiObjectIterable
 {
-	/** @var int $startIndex */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatchlist
+	 *
+	 * @var int $startIndex
+	 */
 	public $startIndex;
 
 	/**
-	 *   There is a known issue that this field doesn't correctly return the total 
-	 * number of games that match the parameters of the request. Please paginate using 
-	 * beginIndex until you reach the end of a player's matchlist.
+	 * There is a known issue that this field doesn't correctly return the
+	 * total number of games that match the parameters of the request. Please
+	 * paginate using beginIndex until you reach the end of a player's
+	 * matchlist.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatchlist
 	 *
 	 * @var int $totalGames
 	 */
 	public $totalGames;
 
-	/** @var int $endIndex */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatchlist
+	 *
+	 * @var int $endIndex
+	 */
 	public $endIndex;
 
-	/** @var MatchReferenceDto[] $matches */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatchlist
+	 *
+	 * @var MatchReferenceDto[] $matches
+	 */
 	public $matches;
 }

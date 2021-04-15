@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright (C) 2016-2020  Daniel Dolejška
+ * Copyright (C) 2016-2021  Daniel Dolejška
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -25,7 +25,8 @@ namespace RiotAPI\LeagueAPI\Objects;
  *
  * Used in:
  *   spectator (v4)
- *     @link https://developer.riotgames.com/apis#spectator-v4/GET_getCurrentGameInfoBySummoner
+ *     - @see LeagueAPI::getCurrentGameInfoBySummoner
+ *       @link https://developer.riotgames.com/apis#spectator-v4/GET_getCurrentGameInfoBySummoner
  *
  * @linkable getStaticChampion($championId)
  *
@@ -34,70 +35,100 @@ namespace RiotAPI\LeagueAPI\Objects;
 class CurrentGameParticipant extends ApiObjectLinkable
 {
 	/**
-	 *   The ID of the champion played by this participant.
+	 * The ID of the champion played by this participant.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getCurrentGameInfoBySummoner
 	 *
 	 * @var int $championId
 	 */
 	public $championId;
 
 	/**
-	 *   Perks/Runes Reforged Information.
+	 * Perks/Runes Reforged Information.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getCurrentGameInfoBySummoner
 	 *
 	 * @var Perks $perks
 	 */
 	public $perks;
 
 	/**
-	 *   The ID of the profile icon used by this participant.
+	 * The ID of the profile icon used by this participant.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getCurrentGameInfoBySummoner
 	 *
 	 * @var int $profileIconId
 	 */
 	public $profileIconId;
 
 	/**
-	 *   Flag indicating whether or not this participant is a bot.
+	 * Flag indicating whether or not this participant is a bot.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getCurrentGameInfoBySummoner
 	 *
 	 * @var bool $bot
 	 */
 	public $bot;
 
 	/**
-	 *   The team ID of this participant, indicating the participant's team.
+	 * The team ID of this participant, indicating the participant's team.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getCurrentGameInfoBySummoner
 	 *
 	 * @var int $teamId
 	 */
 	public $teamId;
 
 	/**
-	 *   The summoner name of this participant.
+	 * The summoner name of this participant.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getCurrentGameInfoBySummoner
 	 *
 	 * @var string $summonerName
 	 */
 	public $summonerName;
 
 	/**
-	 *   The encrypted summoner ID of this participant.
+	 * The encrypted summoner ID of this participant.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getCurrentGameInfoBySummoner
 	 *
 	 * @var string $summonerId
 	 */
 	public $summonerId;
 
 	/**
-	 *   The ID of the first summoner spell used by this participant.
+	 * The ID of the first summoner spell used by this participant.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getCurrentGameInfoBySummoner
 	 *
 	 * @var int $spell1Id
 	 */
 	public $spell1Id;
 
 	/**
-	 *   The ID of the second summoner spell used by this participant.
+	 * The ID of the second summoner spell used by this participant.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getCurrentGameInfoBySummoner
 	 *
 	 * @var int $spell2Id
 	 */
 	public $spell2Id;
 
 	/**
-	 *   List of Game Customizations.
+	 * List of Game Customizations.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getCurrentGameInfoBySummoner
 	 *
 	 * @var GameCustomizationObject[] $gameCustomizationObjects
 	 */

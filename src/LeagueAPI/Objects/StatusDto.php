@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright (C) 2016-2020  Daniel Dolejška
+ * Copyright (C) 2016-2021  Daniel Dolejška
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -25,46 +25,86 @@ namespace RiotAPI\LeagueAPI\Objects;
  *
  * Used in:
  *   lol-status (v4)
- *     @link https://developer.riotgames.com/apis#lol-status-v4/GET_getPlatformData
+ *     - @see LeagueAPI::getPlatformData
+ *       @link https://developer.riotgames.com/apis#lol-status-v4/GET_getPlatformData
  *
  * @package RiotAPI\LeagueAPI\Objects
  */
 class StatusDto extends ApiObject
 {
-	/** @var int $id */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getPlatformData
+	 *
+	 * @var int $id
+	 */
 	public $id;
 
 	/**
-	 *   (Legal values: scheduled, in_progress, complete).
+	 * (Legal values: scheduled, in_progress, complete).
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getPlatformData
 	 *
 	 * @var string $maintenance_status
 	 */
 	public $maintenance_status;
 
 	/**
-	 *   (Legal values: info, warning, critical).
+	 * (Legal values: info, warning, critical).
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getPlatformData
 	 *
 	 * @var string $incident_severity
 	 */
 	public $incident_severity;
 
-	/** @var ContentDto[] $titles */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getPlatformData
+	 *
+	 * @var ContentDto[] $titles
+	 */
 	public $titles;
 
-	/** @var UpdateDto[] $updates */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getPlatformData
+	 *
+	 * @var UpdateDto[] $updates
+	 */
 	public $updates;
 
-	/** @var string $created_at */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getPlatformData
+	 *
+	 * @var string $created_at
+	 */
 	public $created_at;
 
-	/** @var string $archive_at */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getPlatformData
+	 *
+	 * @var string $archive_at
+	 */
 	public $archive_at;
 
-	/** @var string $updated_at */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getPlatformData
+	 *
+	 * @var string $updated_at
+	 */
 	public $updated_at;
 
 	/**
-	 *   (Legal values: windows, macos, android, ios, ps4, xbone, switch).
+	 * (Legal values: windows, macos, android, ios, ps4, xbone, switch).
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getPlatformData
 	 *
 	 * @var string[] $platforms
 	 */

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright (C) 2016-2020  Daniel Dolejška
+ * Copyright (C) 2016-2021  Daniel Dolejška
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -25,15 +25,26 @@ namespace RiotAPI\LeagueAPI\Objects;
  *
  * Used in:
  *   match (v4)
- *     @link https://developer.riotgames.com/apis#match-v4/GET_getMatchTimeline
+ *     - @see LeagueAPI::getMatchTimeline
+ *       @link https://developer.riotgames.com/apis#match-v4/GET_getMatchTimeline
  *
  * @package RiotAPI\LeagueAPI\Objects
  */
 class MatchPositionDto extends ApiObject
 {
-	/** @var int $x */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatchTimeline
+	 *
+	 * @var int $x
+	 */
 	public $x;
 
-	/** @var int $y */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatchTimeline
+	 *
+	 * @var int $y
+	 */
 	public $y;
 }

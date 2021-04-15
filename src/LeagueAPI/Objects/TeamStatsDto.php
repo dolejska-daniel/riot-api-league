@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright (C) 2016-2020  Daniel Dolejška
+ * Copyright (C) 2016-2021  Daniel Dolejška
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -25,122 +25,189 @@ namespace RiotAPI\LeagueAPI\Objects;
  *
  * Used in:
  *   match (v4)
- *     @link https://developer.riotgames.com/apis#match-v4/GET_getMatchIdsByTournamentCode
- *     @link https://developer.riotgames.com/apis#match-v4/GET_getMatchByTournamentCode
+ *     - @see LeagueAPI::getMatch
+ *       @link https://developer.riotgames.com/apis#match-v4/GET_getMatch
+ *     - @see LeagueAPI::getMatchByTournamentCode
+ *       @link https://developer.riotgames.com/apis#match-v4/GET_getMatchByTournamentCode
  *
  * @package RiotAPI\LeagueAPI\Objects
  */
 class TeamStatsDto extends ApiObject
 {
 	/**
-	 *   Number of towers the team destroyed.
+	 * Number of towers the team destroyed.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
 	 *
 	 * @var int $towerKills
 	 */
 	public $towerKills;
 
 	/**
-	 *   Number of times the team killed Rift Herald.
+	 * Number of times the team killed Rift Herald.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
 	 *
 	 * @var int $riftHeraldKills
 	 */
 	public $riftHeraldKills;
 
 	/**
-	 *   Flag indicating whether or not the team scored the first blood.
+	 * Flag indicating whether or not the team scored the first blood.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
 	 *
 	 * @var bool $firstBlood
 	 */
 	public $firstBlood;
 
 	/**
-	 *   Number of inhibitors the team destroyed.
+	 * Number of inhibitors the team destroyed.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
 	 *
 	 * @var int $inhibitorKills
 	 */
 	public $inhibitorKills;
 
 	/**
-	 *   If match queueId has a draft, contains banned champion data, otherwise 
+	 * If match queueId has a draft, contains banned champion data, otherwise
 	 * empty.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
 	 *
 	 * @var TeamBansDto[] $bans
 	 */
 	public $bans;
 
 	/**
-	 *   Flag indicating whether or not the team scored the first Baron kill.
+	 * Flag indicating whether or not the team scored the first Baron kill.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
 	 *
 	 * @var bool $firstBaron
 	 */
 	public $firstBaron;
 
 	/**
-	 *   Flag indicating whether or not the team scored the first Dragon kill.
+	 * Flag indicating whether or not the team scored the first Dragon kill.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
 	 *
 	 * @var bool $firstDragon
 	 */
 	public $firstDragon;
 
 	/**
-	 *   For Dominion matches, specifies the points the team had at game end.
+	 * For Dominion matches, specifies the points the team had at game end.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
 	 *
 	 * @var int $dominionVictoryScore
 	 */
 	public $dominionVictoryScore;
 
 	/**
-	 *   Number of times the team killed Dragon.
+	 * Number of times the team killed Dragon.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
 	 *
 	 * @var int $dragonKills
 	 */
 	public $dragonKills;
 
 	/**
-	 *   Number of times the team killed Baron.
+	 * Number of times the team killed Baron.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
 	 *
 	 * @var int $baronKills
 	 */
 	public $baronKills;
 
 	/**
-	 *   Flag indicating whether or not the team destroyed the first inhibitor.
+	 * Flag indicating whether or not the team destroyed the first inhibitor.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
 	 *
 	 * @var bool $firstInhibitor
 	 */
 	public $firstInhibitor;
 
 	/**
-	 *   Flag indicating whether or not the team destroyed the first tower.
+	 * Flag indicating whether or not the team destroyed the first tower.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
 	 *
 	 * @var bool $firstTower
 	 */
 	public $firstTower;
 
 	/**
-	 *   Number of times the team killed Vilemaw.
+	 * Number of times the team killed Vilemaw.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
 	 *
 	 * @var int $vilemawKills
 	 */
 	public $vilemawKills;
 
 	/**
-	 *   Flag indicating whether or not the team scored the first Rift Herald kill.
+	 * Flag indicating whether or not the team scored the first Rift Herald
+	 * kill.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
 	 *
 	 * @var bool $firstRiftHerald
 	 */
 	public $firstRiftHerald;
 
 	/**
-	 *   100 for blue side. 200 for red side.
+	 * 100 for blue side. 200 for red side.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
 	 *
 	 * @var int $teamId
 	 */
 	public $teamId;
 
 	/**
-	 *   String indicating whether or not the team won. There are only two values 
-	 * visibile in public match history. (Legal values: Fail, Win).
+	 * String indicating whether or not the team won. There are only two
+	 * values visibile in public match history. (Legal values: Fail, Win).
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
 	 *
 	 * @var string $win
 	 */

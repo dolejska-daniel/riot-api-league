@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright (C) 2016-2020  Daniel Dolejška
+ * Copyright (C) 2016-2021  Daniel Dolejška
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -25,84 +25,199 @@ namespace RiotAPI\LeagueAPI\Objects;
  *
  * Used in:
  *   match (v4)
- *     @link https://developer.riotgames.com/apis#match-v4/GET_getMatchTimeline
+ *     - @see LeagueAPI::getMatchTimeline
+ *       @link https://developer.riotgames.com/apis#match-v4/GET_getMatchTimeline
  *
  * @package RiotAPI\LeagueAPI\Objects
  */
 class MatchEventDto extends ApiObject
 {
-	/** @var string $laneType */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatchTimeline
+	 *
+	 * @var string $laneType
+	 */
 	public $laneType;
 
-	/** @var int $skillSlot */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatchTimeline
+	 *
+	 * @var int $skillSlot
+	 */
 	public $skillSlot;
 
-	/** @var string $ascendedType */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatchTimeline
+	 *
+	 * @var string $ascendedType
+	 */
 	public $ascendedType;
 
-	/** @var int $creatorId */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatchTimeline
+	 *
+	 * @var int $creatorId
+	 */
 	public $creatorId;
 
-	/** @var int $afterId */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatchTimeline
+	 *
+	 * @var int $afterId
+	 */
 	public $afterId;
 
-	/** @var string $eventType */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatchTimeline
+	 *
+	 * @var string $eventType
+	 */
 	public $eventType;
 
 	/**
-	 *   (Legal values: CHAMPION_KILL, WARD_PLACED, WARD_KILL, BUILDING_KILL, 
-	 * ELITE_MONSTER_KILL, ITEM_PURCHASED, ITEM_SOLD, ITEM_DESTROYED, ITEM_UNDO, SKILL_LEVEL_UP, 
-	 * ASCENDED_EVENT, CAPTURE_POINT, PORO_KING_SUMMON).
+	 * (Legal values: CHAMPION_KILL, WARD_PLACED, WARD_KILL, BUILDING_KILL,
+	 * ELITE_MONSTER_KILL, ITEM_PURCHASED, ITEM_SOLD, ITEM_DESTROYED,
+	 * ITEM_UNDO, SKILL_LEVEL_UP, ASCENDED_EVENT, CAPTURE_POINT,
+	 * PORO_KING_SUMMON).
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatchTimeline
 	 *
 	 * @var string $type
 	 */
 	public $type;
 
-	/** @var string $levelUpType */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatchTimeline
+	 *
+	 * @var string $levelUpType
+	 */
 	public $levelUpType;
 
-	/** @var string $wardType */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatchTimeline
+	 *
+	 * @var string $wardType
+	 */
 	public $wardType;
 
-	/** @var int $participantId */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatchTimeline
+	 *
+	 * @var int $participantId
+	 */
 	public $participantId;
 
-	/** @var string $towerType */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatchTimeline
+	 *
+	 * @var string $towerType
+	 */
 	public $towerType;
 
-	/** @var int $itemId */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatchTimeline
+	 *
+	 * @var int $itemId
+	 */
 	public $itemId;
 
-	/** @var int $beforeId */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatchTimeline
+	 *
+	 * @var int $beforeId
+	 */
 	public $beforeId;
 
-	/** @var string $pointCaptured */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatchTimeline
+	 *
+	 * @var string $pointCaptured
+	 */
 	public $pointCaptured;
 
-	/** @var string $monsterType */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatchTimeline
+	 *
+	 * @var string $monsterType
+	 */
 	public $monsterType;
 
-	/** @var string $monsterSubType */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatchTimeline
+	 *
+	 * @var string $monsterSubType
+	 */
 	public $monsterSubType;
 
-	/** @var int $teamId */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatchTimeline
+	 *
+	 * @var int $teamId
+	 */
 	public $teamId;
 
-	/** @var MatchPositionDto $position */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatchTimeline
+	 *
+	 * @var MatchPositionDto $position
+	 */
 	public $position;
 
-	/** @var int $killerId */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatchTimeline
+	 *
+	 * @var int $killerId
+	 */
 	public $killerId;
 
-	/** @var int $timestamp */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatchTimeline
+	 *
+	 * @var int $timestamp
+	 */
 	public $timestamp;
 
-	/** @var int[] $assistingParticipantIds */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatchTimeline
+	 *
+	 * @var int[] $assistingParticipantIds
+	 */
 	public $assistingParticipantIds;
 
-	/** @var string $buildingType */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatchTimeline
+	 *
+	 * @var string $buildingType
+	 */
 	public $buildingType;
 
-	/** @var int $victimId */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatchTimeline
+	 *
+	 * @var int $victimId
+	 */
 	public $victimId;
 }

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright (C) 2016-2020  Daniel Dolejška
+ * Copyright (C) 2016-2021  Daniel Dolejška
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -25,81 +25,125 @@ namespace RiotAPI\LeagueAPI\Objects;
  *
  * Used in:
  *   match (v4)
- *     @link https://developer.riotgames.com/apis#match-v4/GET_getMatchIdsByTournamentCode
- *     @link https://developer.riotgames.com/apis#match-v4/GET_getMatchByTournamentCode
+ *     - @see LeagueAPI::getMatch
+ *       @link https://developer.riotgames.com/apis#match-v4/GET_getMatch
+ *     - @see LeagueAPI::getMatchByTournamentCode
+ *       @link https://developer.riotgames.com/apis#match-v4/GET_getMatchByTournamentCode
  *
  * @package RiotAPI\LeagueAPI\Objects
  */
 class ParticipantTimelineDto extends ApiObject
 {
-	/** @var int $participantId */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *
+	 * @var int $participantId
+	 */
 	public $participantId;
 
 	/**
-	 *   Creep score difference versus the calculated lane opponent(s) for a 
+	 * Creep score difference versus the calculated lane opponent(s) for a
 	 * specified period.
 	 *
-	 * @var float[] $csDiffPerMinDeltas
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *
+	 * @var String, double[] $csDiffPerMinDeltas
 	 */
 	public $csDiffPerMinDeltas;
 
 	/**
-	 *   Damage taken for a specified period.
+	 * Damage taken for a specified period.
 	 *
-	 * @var float[] $damageTakenPerMinDeltas
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *
+	 * @var String, double[] $damageTakenPerMinDeltas
 	 */
 	public $damageTakenPerMinDeltas;
 
 	/**
-	 *   Participant's calculated role. (Legal values: DUO, NONE, SOLO, DUO_CARRY, 
-	 * DUO_SUPPORT).
+	 * Participant's calculated role. (Legal values: DUO, NONE, SOLO,
+	 * DUO_CARRY, DUO_SUPPORT).
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
 	 *
 	 * @var string $role
 	 */
 	public $role;
 
 	/**
-	 *   Damage taken difference versus the calculated lane opponent(s) for a 
+	 * Damage taken difference versus the calculated lane opponent(s) for a
 	 * specified period.
 	 *
-	 * @var float[] $damageTakenDiffPerMinDeltas
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *
+	 * @var String, double[] $damageTakenDiffPerMinDeltas
 	 */
 	public $damageTakenDiffPerMinDeltas;
 
 	/**
-	 *   Experience change for a specified period.
+	 * Experience change for a specified period.
 	 *
-	 * @var float[] $xpPerMinDeltas
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *
+	 * @var String, double[] $xpPerMinDeltas
 	 */
 	public $xpPerMinDeltas;
 
 	/**
-	 *   Experience difference versus the calculated lane opponent(s) for a 
+	 * Experience difference versus the calculated lane opponent(s) for a
 	 * specified period.
 	 *
-	 * @var float[] $xpDiffPerMinDeltas
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *
+	 * @var String, double[] $xpDiffPerMinDeltas
 	 */
 	public $xpDiffPerMinDeltas;
 
 	/**
-	 *   Participant's calculated lane. MID and BOT are legacy values. (Legal 
+	 * Participant's calculated lane. MID and BOT are legacy values. (Legal
 	 * values: MID, MIDDLE, TOP, JUNGLE, BOT, BOTTOM).
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
 	 *
 	 * @var string $lane
 	 */
 	public $lane;
 
 	/**
-	 *   Creeps for a specified period.
+	 * Creeps for a specified period.
 	 *
-	 * @var float[] $creepsPerMinDeltas
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *
+	 * @var String, double[] $creepsPerMinDeltas
 	 */
 	public $creepsPerMinDeltas;
 
 	/**
-	 *   Gold for a specified period.
+	 * Gold for a specified period.
 	 *
-	 * @var float[] $goldPerMinDeltas
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *
+	 * @var String, double[] $goldPerMinDeltas
 	 */
 	public $goldPerMinDeltas;
 }

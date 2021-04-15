@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright (C) 2016-2020  Daniel Dolejška
+ * Copyright (C) 2016-2021  Daniel Dolejška
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -25,28 +25,64 @@ namespace RiotAPI\LeagueAPI\Objects;
  *
  * Used in:
  *   clash (v1)
- *     @link https://developer.riotgames.com/apis#clash-v1/GET_getTournaments
- *     @link https://developer.riotgames.com/apis#clash-v1/GET_getTournamentByTeam
- *     @link https://developer.riotgames.com/apis#clash-v1/GET_getTournamentById
+ *     - @see LeagueAPI::getTournamentByTeam
+ *       @link https://developer.riotgames.com/apis#clash-v1/GET_getTournamentByTeam
+ *     - @see LeagueAPI::getTournamentById
+ *       @link https://developer.riotgames.com/apis#clash-v1/GET_getTournamentById
+ *     - @see LeagueAPI::getTournaments
+ *       @link https://developer.riotgames.com/apis#clash-v1/GET_getTournaments
  *
  * @package RiotAPI\LeagueAPI\Objects
  */
 class TournamentDto extends ApiObject
 {
-	/** @var int $id */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getTournamentByTeam
+	 *   - @see LeagueAPI::getTournamentById
+	 *   - @see LeagueAPI::getTournaments
+	 *
+	 * @var int $id
+	 */
 	public $id;
 
-	/** @var int $themeId */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getTournamentByTeam
+	 *   - @see LeagueAPI::getTournamentById
+	 *   - @see LeagueAPI::getTournaments
+	 *
+	 * @var int $themeId
+	 */
 	public $themeId;
 
-	/** @var string $nameKey */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getTournamentByTeam
+	 *   - @see LeagueAPI::getTournamentById
+	 *   - @see LeagueAPI::getTournaments
+	 *
+	 * @var string $nameKey
+	 */
 	public $nameKey;
 
-	/** @var string $nameKeySecondary */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getTournamentByTeam
+	 *   - @see LeagueAPI::getTournamentById
+	 *   - @see LeagueAPI::getTournaments
+	 *
+	 * @var string $nameKeySecondary
+	 */
 	public $nameKeySecondary;
 
 	/**
-	 *   Tournament phase.
+	 * Tournament phase.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getTournamentByTeam
+	 *   - @see LeagueAPI::getTournamentById
+	 *   - @see LeagueAPI::getTournaments
 	 *
 	 * @var TournamentPhaseDto[] $schedule
 	 */

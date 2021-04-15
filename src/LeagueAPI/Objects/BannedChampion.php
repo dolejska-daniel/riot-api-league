@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright (C) 2016-2020  Daniel Dolejška
+ * Copyright (C) 2016-2021  Daniel Dolejška
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -25,8 +25,10 @@ namespace RiotAPI\LeagueAPI\Objects;
  *
  * Used in:
  *   spectator (v4)
- *     @link https://developer.riotgames.com/apis#spectator-v4/GET_getCurrentGameInfoBySummoner
- *     @link https://developer.riotgames.com/apis#spectator-v4/GET_getFeaturedGames
+ *     - @see LeagueAPI::getCurrentGameInfoBySummoner
+ *       @link https://developer.riotgames.com/apis#spectator-v4/GET_getCurrentGameInfoBySummoner
+ *     - @see LeagueAPI::getFeaturedGames
+ *       @link https://developer.riotgames.com/apis#spectator-v4/GET_getFeaturedGames
  *
  * @linkable getStaticChampion($championId)
  *
@@ -35,21 +37,33 @@ namespace RiotAPI\LeagueAPI\Objects;
 class BannedChampion extends ApiObjectLinkable
 {
 	/**
-	 *   The turn during which the champion was banned.
+	 * The turn during which the champion was banned.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getCurrentGameInfoBySummoner
+	 *   - @see LeagueAPI::getFeaturedGames
 	 *
 	 * @var int $pickTurn
 	 */
 	public $pickTurn;
 
 	/**
-	 *   The ID of the banned champion.
+	 * The ID of the banned champion.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getCurrentGameInfoBySummoner
+	 *   - @see LeagueAPI::getFeaturedGames
 	 *
 	 * @var int $championId
 	 */
 	public $championId;
 
 	/**
-	 *   The ID of the team that banned the champion.
+	 * The ID of the team that banned the champion.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getCurrentGameInfoBySummoner
+	 *   - @see LeagueAPI::getFeaturedGames
 	 *
 	 * @var int $teamId
 	 */

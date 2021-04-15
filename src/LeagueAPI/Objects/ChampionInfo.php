@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright (C) 2016-2020  Daniel Dolejška
+ * Copyright (C) 2016-2021  Daniel Dolejška
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -25,18 +25,34 @@ namespace RiotAPI\LeagueAPI\Objects;
  *
  * Used in:
  *   champion (v3)
- *     @link https://developer.riotgames.com/apis#champion-v3/GET_getChampionInfo
+ *     - @see LeagueAPI::getChampionInfo
+ *       @link https://developer.riotgames.com/apis#champion-v3/GET_getChampionInfo
  *
  * @package RiotAPI\LeagueAPI\Objects
  */
 class ChampionInfo extends ApiObject
 {
-	/** @var int $maxNewPlayerLevel */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getChampionInfo
+	 *
+	 * @var int $maxNewPlayerLevel
+	 */
 	public $maxNewPlayerLevel;
 
-	/** @var int[] $freeChampionIdsForNewPlayers */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getChampionInfo
+	 *
+	 * @var int[] $freeChampionIdsForNewPlayers
+	 */
 	public $freeChampionIdsForNewPlayers;
 
-	/** @var int[] $freeChampionIds */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getChampionInfo
+	 *
+	 * @var int[] $freeChampionIds
+	 */
 	public $freeChampionIds;
 }

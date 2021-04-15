@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright (C) 2016-2020  Daniel Dolejška
+ * Copyright (C) 2016-2021  Daniel Dolejška
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -25,7 +25,8 @@ namespace RiotAPI\LeagueAPI\Objects;
  *
  * Used in:
  *   spectator (v4)
- *     @link https://developer.riotgames.com/apis#spectator-v4/GET_getFeaturedGames
+ *     - @see LeagueAPI::getFeaturedGames
+ *       @link https://developer.riotgames.com/apis#spectator-v4/GET_getFeaturedGames
  *
  * @linkable getStaticChampion($championId)
  *
@@ -34,49 +35,70 @@ namespace RiotAPI\LeagueAPI\Objects;
 class Participant extends ApiObjectLinkable
 {
 	/**
-	 *   Flag indicating whether or not this participant is a bot.
+	 * Flag indicating whether or not this participant is a bot.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getFeaturedGames
 	 *
 	 * @var bool $bot
 	 */
 	public $bot;
 
 	/**
-	 *   The ID of the second summoner spell used by this participant.
+	 * The ID of the second summoner spell used by this participant.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getFeaturedGames
 	 *
 	 * @var int $spell2Id
 	 */
 	public $spell2Id;
 
 	/**
-	 *   The ID of the profile icon used by this participant.
+	 * The ID of the profile icon used by this participant.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getFeaturedGames
 	 *
 	 * @var int $profileIconId
 	 */
 	public $profileIconId;
 
 	/**
-	 *   The summoner name of this participant.
+	 * The summoner name of this participant.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getFeaturedGames
 	 *
 	 * @var string $summonerName
 	 */
 	public $summonerName;
 
 	/**
-	 *   The ID of the champion played by this participant.
+	 * The ID of the champion played by this participant.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getFeaturedGames
 	 *
 	 * @var int $championId
 	 */
 	public $championId;
 
 	/**
-	 *   The team ID of this participant, indicating the participant's team.
+	 * The team ID of this participant, indicating the participant's team.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getFeaturedGames
 	 *
 	 * @var int $teamId
 	 */
 	public $teamId;
 
 	/**
-	 *   The ID of the first summoner spell used by this participant.
+	 * The ID of the first summoner spell used by this participant.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getFeaturedGames
 	 *
 	 * @var int $spell1Id
 	 */

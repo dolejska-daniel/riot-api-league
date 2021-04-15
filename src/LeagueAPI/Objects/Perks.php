@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright (C) 2016-2020  Daniel Dolejška
+ * Copyright (C) 2016-2021  Daniel Dolejška
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -25,7 +25,8 @@ namespace RiotAPI\LeagueAPI\Objects;
  *
  * Used in:
  *   spectator (v4)
- *     @link https://developer.riotgames.com/apis#spectator-v4/GET_getCurrentGameInfoBySummoner
+ *     - @see LeagueAPI::getCurrentGameInfoBySummoner
+ *       @link https://developer.riotgames.com/apis#spectator-v4/GET_getCurrentGameInfoBySummoner
  *
  * @iterable $perkIds
  *
@@ -34,21 +35,30 @@ namespace RiotAPI\LeagueAPI\Objects;
 class Perks extends ApiObjectIterable
 {
 	/**
-	 *   IDs of the perks/runes assigned.
+	 * IDs of the perks/runes assigned.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getCurrentGameInfoBySummoner
 	 *
 	 * @var int[] $perkIds
 	 */
 	public $perkIds;
 
 	/**
-	 *   Primary runes path.
+	 * Primary runes path.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getCurrentGameInfoBySummoner
 	 *
 	 * @var int $perkStyle
 	 */
 	public $perkStyle;
 
 	/**
-	 *   Secondary runes path.
+	 * Secondary runes path.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getCurrentGameInfoBySummoner
 	 *
 	 * @var int $perkSubStyle
 	 */

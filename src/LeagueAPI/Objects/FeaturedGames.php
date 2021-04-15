@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright (C) 2016-2020  Daniel Dolejška
+ * Copyright (C) 2016-2021  Daniel Dolejška
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -25,7 +25,8 @@ namespace RiotAPI\LeagueAPI\Objects;
  *
  * Used in:
  *   spectator (v4)
- *     @link https://developer.riotgames.com/apis#spectator-v4/GET_getFeaturedGames
+ *     - @see LeagueAPI::getFeaturedGames
+ *       @link https://developer.riotgames.com/apis#spectator-v4/GET_getFeaturedGames
  *
  * @iterable $gameList
  *
@@ -34,14 +35,20 @@ namespace RiotAPI\LeagueAPI\Objects;
 class FeaturedGames extends ApiObjectIterable
 {
 	/**
-	 *   The list of featured games.
+	 * The list of featured games.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getFeaturedGames
 	 *
 	 * @var FeaturedGameInfo[] $gameList
 	 */
 	public $gameList;
 
 	/**
-	 *   The suggested interval to wait before requesting FeaturedGames again.
+	 * The suggested interval to wait before requesting FeaturedGames again.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getFeaturedGames
 	 *
 	 * @var int $clientRefreshInterval
 	 */

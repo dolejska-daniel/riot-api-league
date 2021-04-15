@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright (C) 2016-2020  Daniel Dolejška
+ * Copyright (C) 2016-2021  Daniel Dolejška
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -25,34 +25,68 @@ namespace RiotAPI\LeagueAPI\Objects;
  *
  * Used in:
  *   lol-status (v4)
- *     @link https://developer.riotgames.com/apis#lol-status-v4/GET_getPlatformData
+ *     - @see LeagueAPI::getPlatformData
+ *       @link https://developer.riotgames.com/apis#lol-status-v4/GET_getPlatformData
  *
  * @package RiotAPI\LeagueAPI\Objects
  */
 class UpdateDto extends ApiObject
 {
-	/** @var int $id */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getPlatformData
+	 *
+	 * @var int $id
+	 */
 	public $id;
 
-	/** @var string $author */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getPlatformData
+	 *
+	 * @var string $author
+	 */
 	public $author;
 
-	/** @var bool $publish */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getPlatformData
+	 *
+	 * @var bool $publish
+	 */
 	public $publish;
 
 	/**
-	 *   (Legal values: riotclient, riotstatus, game).
+	 * (Legal values: riotclient, riotstatus, game).
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getPlatformData
 	 *
 	 * @var string[] $publish_locations
 	 */
 	public $publish_locations;
 
-	/** @var ContentDto[] $translations */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getPlatformData
+	 *
+	 * @var ContentDto[] $translations
+	 */
 	public $translations;
 
-	/** @var string $created_at */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getPlatformData
+	 *
+	 * @var string $created_at
+	 */
 	public $created_at;
 
-	/** @var string $updated_at */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getPlatformData
+	 *
+	 * @var string $updated_at
+	 */
 	public $updated_at;
 }

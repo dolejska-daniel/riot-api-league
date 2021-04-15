@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright (C) 2016-2020  Daniel Dolejška
+ * Copyright (C) 2016-2021  Daniel Dolejška
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -25,39 +25,76 @@ namespace RiotAPI\LeagueAPI\Objects;
  *
  * Used in:
  *   clash (v1)
- *     @link https://developer.riotgames.com/apis#clash-v1/GET_getTeamById
+ *     - @see LeagueAPI::getTeamById
+ *       @link https://developer.riotgames.com/apis#clash-v1/GET_getTeamById
  *
  * @package RiotAPI\LeagueAPI\Objects
  */
 class TeamDto extends ApiObject
 {
-	/** @var string $id */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getTeamById
+	 *
+	 * @var string $id
+	 */
 	public $id;
 
-	/** @var int $tournamentId */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getTeamById
+	 *
+	 * @var int $tournamentId
+	 */
 	public $tournamentId;
 
-	/** @var string $name */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getTeamById
+	 *
+	 * @var string $name
+	 */
 	public $name;
 
-	/** @var int $iconId */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getTeamById
+	 *
+	 * @var int $iconId
+	 */
 	public $iconId;
 
-	/** @var int $tier */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getTeamById
+	 *
+	 * @var int $tier
+	 */
 	public $tier;
 
 	/**
-	 *   Summoner ID of the team captain.
+	 * Summoner ID of the team captain.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getTeamById
 	 *
 	 * @var string $captain
 	 */
 	public $captain;
 
-	/** @var string $abbreviation */
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getTeamById
+	 *
+	 * @var string $abbreviation
+	 */
 	public $abbreviation;
 
 	/**
-	 *   Team members.
+	 * Team members.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getTeamById
 	 *
 	 * @var PlayerDto[] $players
 	 */
