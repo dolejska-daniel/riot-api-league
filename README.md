@@ -74,7 +74,7 @@ Please refer to [wiki pages](https://github.com/dolejska-daniel/riot-api-league/
 | [League](https://github.com/dolejska-daniel/riot-api-league/wiki/Resources-and-endpoints#league-) | ![League resource implemented version](https://img.shields.io/badge/implemented_version-v4-brightgreen.svg) |
 | [League Exp](https://github.com/dolejska-daniel/riot-api-league/wiki/Resources-and-endpoints#league-exp-) | ![League Exp resource implemented version](https://img.shields.io/badge/implemented_version-v4-brightgreen.svg) |
 | Masteries | ![Masteries resource implemented version](https://img.shields.io/badge/implemented_version-deprecated-gray.svg) |
-| [Match](https://github.com/dolejska-daniel/riot-api-league/wiki/Resources-and-endpoints#match-) | ![Match resource implemented version](https://img.shields.io/badge/implemented_version-v4-brightgreen.svg) |
+| [Match](https://github.com/dolejska-daniel/riot-api-league/wiki/Resources-and-endpoints#match-) | ![Match resource implemented version](https://img.shields.io/badge/implemented_version-v4-yellow.svg) |
 | Runes | ![Runes resource implemented version](https://img.shields.io/badge/implemented_version-deprecated-gray.svg) |
 | [Spectator](https://github.com/dolejska-daniel/riot-api-league/wiki/Resources-and-endpoints#spectator-) | ![Spectator resource implemented version](https://img.shields.io/badge/implemented_version-v4-brightgreen.svg) |
 | [Static Data](https://github.com/dolejska-daniel/riot-api-league/wiki/Resources-and-endpoints#static-data-) | ![Static Data resource implemented version](https://img.shields.io/badge/implemented_version-_working-brightgreen.svg) |
