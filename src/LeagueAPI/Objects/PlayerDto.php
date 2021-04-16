@@ -30,10 +30,10 @@ namespace RiotAPI\LeagueAPI\Objects;
  *     - @see LeagueAPI::getPlayersBySummoner
  *       @link https://developer.riotgames.com/apis#clash-v1/GET_getPlayersBySummoner
  *   match (v4)
- *     - @see LeagueAPI::getMatch
- *       @link https://developer.riotgames.com/apis#match-v4/GET_getMatch
  *     - @see LeagueAPI::getMatchByTournamentCode
  *       @link https://developer.riotgames.com/apis#match-v4/GET_getMatchByTournamentCode
+ *     - @see LeagueAPI::getMatch
+ *       @link https://developer.riotgames.com/apis#match-v4/GET_getMatch
  *
  * @package RiotAPI\LeagueAPI\Objects
  */
@@ -43,8 +43,8 @@ class PlayerDto extends ApiObject
 	 * Available when received from:
 	 *   - @see LeagueAPI::getTeamById
 	 *   - @see LeagueAPI::getPlayersBySummoner
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var string $summonerId
 	 */
@@ -82,8 +82,8 @@ class PlayerDto extends ApiObject
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $profileIcon
 	 */
@@ -93,8 +93,8 @@ class PlayerDto extends ApiObject
 	 * Player's original accountId.
 	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var string $accountId
 	 */
@@ -102,8 +102,8 @@ class PlayerDto extends ApiObject
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var string $matchHistoryUri
 	 */
@@ -113,8 +113,8 @@ class PlayerDto extends ApiObject
 	 * Player's current accountId when the match was played.
 	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var string $currentAccountId
 	 */
@@ -124,8 +124,8 @@ class PlayerDto extends ApiObject
 	 * Player's current platformId when the match was played.
 	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var string $currentPlatformId
 	 */
@@ -133,8 +133,8 @@ class PlayerDto extends ApiObject
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var string $summonerName
 	 */
@@ -144,8 +144,8 @@ class PlayerDto extends ApiObject
 	 * Player's original platformId.
 	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var string $platformId
 	 */

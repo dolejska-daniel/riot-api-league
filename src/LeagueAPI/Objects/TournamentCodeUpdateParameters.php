@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright (C) 2016-2020  Daniel Dolejška
+ * Copyright (C) 2016-2021  Daniel Dolejška
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -25,40 +25,54 @@ namespace RiotAPI\LeagueAPI\Objects;
  *
  * Used in:
  *   tournament (v4)
- *     @link https://developer.riotgames.com/apis#tournament-v4/PUT_updateCode
+ *     - @see LeagueAPI::updateCode
+ *       @link https://developer.riotgames.com/apis#tournament-v4/PUT_updateCode
  *
  * @package RiotAPI\LeagueAPI\Objects
  */
 class TournamentCodeUpdateParameters extends ApiObject
 {
 	/**
-	 *   Optional list of encrypted summonerIds in order to validate the players 
-	 * eligible to join the lobby. NOTE: We currently do not enforce participants at the 
-	 * team level, but rather the aggregate of teamOne and teamTwo. We may add the 
-	 * ability to enforce at the team level in the future.
+	 * Optional list of encrypted summonerIds in order to validate the players
+	 * eligible to join the lobby. NOTE: We currently do not enforce
+	 * participants at the team level, but rather the aggregate of teamOne and
+	 * teamTwo. We may add the ability to enforce at the team level in the
+	 * future.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::updateCode
 	 *
 	 * @var string[] $allowedSummonerIds
 	 */
 	public $allowedSummonerIds;
 
 	/**
-	 *   The pick type (Legal values: BLIND_PICK, DRAFT_MODE, ALL_RANDOM, 
+	 * The pick type (Legal values: BLIND_PICK, DRAFT_MODE, ALL_RANDOM,
 	 * TOURNAMENT_DRAFT).
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::updateCode
 	 *
 	 * @var string $pickType
 	 */
 	public $pickType;
 
 	/**
-	 *   The map type (Legal values: SUMMONERS_RIFT, TWISTED_TREELINE, 
+	 * The map type (Legal values: SUMMONERS_RIFT, TWISTED_TREELINE,
 	 * HOWLING_ABYSS).
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::updateCode
 	 *
 	 * @var string $mapType
 	 */
 	public $mapType;
 
 	/**
-	 *   The spectator type (Legal values: NONE, LOBBYONLY, ALL).
+	 * The spectator type (Legal values: NONE, LOBBYONLY, ALL).
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::updateCode
 	 *
 	 * @var string $spectatorType
 	 */

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright (C) 2016-2020  Daniel Dolejška
+ * Copyright (C) 2016-2021  Daniel Dolejška
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -25,24 +25,34 @@ namespace RiotAPI\LeagueAPI\Objects;
  *
  * Used in:
  *   tournament-stub (v4)
- *     @link https://developer.riotgames.com/apis#tournament-stub-v4/POST_registerTournament
+ *     - @see LeagueAPI::registerTournament
+ *       @link https://developer.riotgames.com/apis#tournament-stub-v4/POST_registerTournament
  *   tournament (v4)
- *     @link https://developer.riotgames.com/apis#tournament-v4/POST_registerTournament
+ *     - @see LeagueAPI::registerTournament
+ *       @link https://developer.riotgames.com/apis#tournament-v4/POST_registerTournament
  *
  * @package RiotAPI\LeagueAPI\Objects
  */
 class TournamentRegistrationParameters extends ApiObject
 {
 	/**
-	 *   The provider ID to specify the regional registered provider data to 
+	 * The provider ID to specify the regional registered provider data to
 	 * associate this tournament.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::registerTournament
+	 *   - @see LeagueAPI::registerTournament
 	 *
 	 * @var int $providerId
 	 */
 	public $providerId;
 
 	/**
-	 *   The optional name of the tournament.
+	 * The optional name of the tournament.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::registerTournament
+	 *   - @see LeagueAPI::registerTournament
 	 *
 	 * @var string $name
 	 */

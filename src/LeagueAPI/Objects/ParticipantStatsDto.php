@@ -25,10 +25,10 @@ namespace RiotAPI\LeagueAPI\Objects;
  *
  * Used in:
  *   match (v4)
- *     - @see LeagueAPI::getMatch
- *       @link https://developer.riotgames.com/apis#match-v4/GET_getMatch
  *     - @see LeagueAPI::getMatchByTournamentCode
  *       @link https://developer.riotgames.com/apis#match-v4/GET_getMatchByTournamentCode
+ *     - @see LeagueAPI::getMatch
+ *       @link https://developer.riotgames.com/apis#match-v4/GET_getMatch
  *
  * @package RiotAPI\LeagueAPI\Objects
  */
@@ -36,8 +36,8 @@ class ParticipantStatsDto extends ApiObject
 {
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $item0
 	 */
@@ -45,8 +45,8 @@ class ParticipantStatsDto extends ApiObject
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $item2
 	 */
@@ -54,8 +54,8 @@ class ParticipantStatsDto extends ApiObject
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $totalUnitsHealed
 	 */
@@ -63,8 +63,8 @@ class ParticipantStatsDto extends ApiObject
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $item1
 	 */
@@ -72,8 +72,8 @@ class ParticipantStatsDto extends ApiObject
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $largestMultiKill
 	 */
@@ -81,8 +81,8 @@ class ParticipantStatsDto extends ApiObject
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $goldEarned
 	 */
@@ -90,8 +90,8 @@ class ParticipantStatsDto extends ApiObject
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var bool $firstInhibitorKill
 	 */
@@ -99,8 +99,8 @@ class ParticipantStatsDto extends ApiObject
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $physicalDamageTaken
 	 */
@@ -108,8 +108,8 @@ class ParticipantStatsDto extends ApiObject
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $nodeNeutralizeAssist
 	 */
@@ -117,8 +117,8 @@ class ParticipantStatsDto extends ApiObject
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $totalPlayerScore
 	 */
@@ -126,8 +126,8 @@ class ParticipantStatsDto extends ApiObject
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $champLevel
 	 */
@@ -135,8 +135,8 @@ class ParticipantStatsDto extends ApiObject
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $damageDealtToObjectives
 	 */
@@ -144,8 +144,8 @@ class ParticipantStatsDto extends ApiObject
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $totalDamageTaken
 	 */
@@ -153,8 +153,8 @@ class ParticipantStatsDto extends ApiObject
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $neutralMinionsKilled
 	 */
@@ -162,8 +162,8 @@ class ParticipantStatsDto extends ApiObject
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $deaths
 	 */
@@ -171,8 +171,8 @@ class ParticipantStatsDto extends ApiObject
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $tripleKills
 	 */
@@ -180,8 +180,8 @@ class ParticipantStatsDto extends ApiObject
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $magicDamageDealtToChampions
 	 */
@@ -189,8 +189,8 @@ class ParticipantStatsDto extends ApiObject
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $wardsKilled
 	 */
@@ -198,8 +198,8 @@ class ParticipantStatsDto extends ApiObject
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $pentaKills
 	 */
@@ -207,8 +207,8 @@ class ParticipantStatsDto extends ApiObject
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $damageSelfMitigated
 	 */
@@ -216,8 +216,8 @@ class ParticipantStatsDto extends ApiObject
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $largestCriticalStrike
 	 */
@@ -225,8 +225,8 @@ class ParticipantStatsDto extends ApiObject
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $nodeNeutralize
 	 */
@@ -234,8 +234,8 @@ class ParticipantStatsDto extends ApiObject
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $totalTimeCrowdControlDealt
 	 */
@@ -243,8 +243,8 @@ class ParticipantStatsDto extends ApiObject
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var bool $firstTowerKill
 	 */
@@ -252,8 +252,8 @@ class ParticipantStatsDto extends ApiObject
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $magicDamageDealt
 	 */
@@ -261,8 +261,8 @@ class ParticipantStatsDto extends ApiObject
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $totalScoreRank
 	 */
@@ -270,8 +270,8 @@ class ParticipantStatsDto extends ApiObject
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $nodeCapture
 	 */
@@ -279,8 +279,8 @@ class ParticipantStatsDto extends ApiObject
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $wardsPlaced
 	 */
@@ -288,8 +288,8 @@ class ParticipantStatsDto extends ApiObject
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $totalDamageDealt
 	 */
@@ -297,8 +297,8 @@ class ParticipantStatsDto extends ApiObject
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $timeCCingOthers
 	 */
@@ -306,8 +306,8 @@ class ParticipantStatsDto extends ApiObject
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $magicalDamageTaken
 	 */
@@ -315,8 +315,8 @@ class ParticipantStatsDto extends ApiObject
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $largestKillingSpree
 	 */
@@ -324,8 +324,8 @@ class ParticipantStatsDto extends ApiObject
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $totalDamageDealtToChampions
 	 */
@@ -333,8 +333,8 @@ class ParticipantStatsDto extends ApiObject
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $physicalDamageDealtToChampions
 	 */
@@ -342,8 +342,8 @@ class ParticipantStatsDto extends ApiObject
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $neutralMinionsKilledTeamJungle
 	 */
@@ -351,8 +351,8 @@ class ParticipantStatsDto extends ApiObject
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $totalMinionsKilled
 	 */
@@ -360,8 +360,8 @@ class ParticipantStatsDto extends ApiObject
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var bool $firstInhibitorAssist
 	 */
@@ -369,8 +369,8 @@ class ParticipantStatsDto extends ApiObject
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $visionWardsBoughtInGame
 	 */
@@ -378,8 +378,8 @@ class ParticipantStatsDto extends ApiObject
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $objectivePlayerScore
 	 */
@@ -387,8 +387,8 @@ class ParticipantStatsDto extends ApiObject
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $kills
 	 */
@@ -396,8 +396,8 @@ class ParticipantStatsDto extends ApiObject
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var bool $firstTowerAssist
 	 */
@@ -405,8 +405,8 @@ class ParticipantStatsDto extends ApiObject
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $combatPlayerScore
 	 */
@@ -414,8 +414,8 @@ class ParticipantStatsDto extends ApiObject
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $inhibitorKills
 	 */
@@ -423,8 +423,8 @@ class ParticipantStatsDto extends ApiObject
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $turretKills
 	 */
@@ -432,8 +432,8 @@ class ParticipantStatsDto extends ApiObject
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $participantId
 	 */
@@ -441,8 +441,8 @@ class ParticipantStatsDto extends ApiObject
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $trueDamageTaken
 	 */
@@ -450,8 +450,8 @@ class ParticipantStatsDto extends ApiObject
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var bool $firstBloodAssist
 	 */
@@ -459,8 +459,8 @@ class ParticipantStatsDto extends ApiObject
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $nodeCaptureAssist
 	 */
@@ -468,8 +468,8 @@ class ParticipantStatsDto extends ApiObject
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $assists
 	 */
@@ -477,8 +477,8 @@ class ParticipantStatsDto extends ApiObject
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $teamObjective
 	 */
@@ -486,8 +486,8 @@ class ParticipantStatsDto extends ApiObject
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $altarsNeutralized
 	 */
@@ -495,8 +495,8 @@ class ParticipantStatsDto extends ApiObject
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $goldSpent
 	 */
@@ -504,8 +504,8 @@ class ParticipantStatsDto extends ApiObject
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $damageDealtToTurrets
 	 */
@@ -513,8 +513,8 @@ class ParticipantStatsDto extends ApiObject
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $altarsCaptured
 	 */
@@ -522,8 +522,8 @@ class ParticipantStatsDto extends ApiObject
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var bool $win
 	 */
@@ -531,8 +531,8 @@ class ParticipantStatsDto extends ApiObject
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $totalHeal
 	 */
@@ -540,8 +540,8 @@ class ParticipantStatsDto extends ApiObject
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $unrealKills
 	 */
@@ -549,8 +549,8 @@ class ParticipantStatsDto extends ApiObject
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $visionScore
 	 */
@@ -558,8 +558,8 @@ class ParticipantStatsDto extends ApiObject
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $physicalDamageDealt
 	 */
@@ -567,8 +567,8 @@ class ParticipantStatsDto extends ApiObject
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var bool $firstBloodKill
 	 */
@@ -576,8 +576,8 @@ class ParticipantStatsDto extends ApiObject
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $longestTimeSpentLiving
 	 */
@@ -585,8 +585,8 @@ class ParticipantStatsDto extends ApiObject
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $killingSprees
 	 */
@@ -594,8 +594,8 @@ class ParticipantStatsDto extends ApiObject
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $sightWardsBoughtInGame
 	 */
@@ -603,8 +603,8 @@ class ParticipantStatsDto extends ApiObject
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $trueDamageDealtToChampions
 	 */
@@ -612,8 +612,8 @@ class ParticipantStatsDto extends ApiObject
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $neutralMinionsKilledEnemyJungle
 	 */
@@ -621,8 +621,8 @@ class ParticipantStatsDto extends ApiObject
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $doubleKills
 	 */
@@ -630,8 +630,8 @@ class ParticipantStatsDto extends ApiObject
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $trueDamageDealt
 	 */
@@ -639,8 +639,8 @@ class ParticipantStatsDto extends ApiObject
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $quadraKills
 	 */
@@ -648,8 +648,8 @@ class ParticipantStatsDto extends ApiObject
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $item4
 	 */
@@ -657,8 +657,8 @@ class ParticipantStatsDto extends ApiObject
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $item3
 	 */
@@ -666,8 +666,8 @@ class ParticipantStatsDto extends ApiObject
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $item6
 	 */
@@ -675,8 +675,8 @@ class ParticipantStatsDto extends ApiObject
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $item5
 	 */
@@ -684,8 +684,8 @@ class ParticipantStatsDto extends ApiObject
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $playerScore0
 	 */
@@ -693,8 +693,8 @@ class ParticipantStatsDto extends ApiObject
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $playerScore1
 	 */
@@ -702,8 +702,8 @@ class ParticipantStatsDto extends ApiObject
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $playerScore2
 	 */
@@ -711,8 +711,8 @@ class ParticipantStatsDto extends ApiObject
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $playerScore3
 	 */
@@ -720,8 +720,8 @@ class ParticipantStatsDto extends ApiObject
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $playerScore4
 	 */
@@ -729,8 +729,8 @@ class ParticipantStatsDto extends ApiObject
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $playerScore5
 	 */
@@ -738,8 +738,8 @@ class ParticipantStatsDto extends ApiObject
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $playerScore6
 	 */
@@ -747,8 +747,8 @@ class ParticipantStatsDto extends ApiObject
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $playerScore7
 	 */
@@ -756,8 +756,8 @@ class ParticipantStatsDto extends ApiObject
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $playerScore8
 	 */
@@ -765,8 +765,8 @@ class ParticipantStatsDto extends ApiObject
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $playerScore9
 	 */
@@ -776,8 +776,8 @@ class ParticipantStatsDto extends ApiObject
 	 * Primary path keystone rune.
 	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $perk0
 	 */
@@ -787,8 +787,8 @@ class ParticipantStatsDto extends ApiObject
 	 * Post game rune stats.
 	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $perk0Var1
 	 */
@@ -798,8 +798,8 @@ class ParticipantStatsDto extends ApiObject
 	 * Post game rune stats.
 	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $perk0Var2
 	 */
@@ -809,8 +809,8 @@ class ParticipantStatsDto extends ApiObject
 	 * Post game rune stats.
 	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $perk0Var3
 	 */
@@ -820,8 +820,8 @@ class ParticipantStatsDto extends ApiObject
 	 * Primary path rune.
 	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $perk1
 	 */
@@ -831,8 +831,8 @@ class ParticipantStatsDto extends ApiObject
 	 * Post game rune stats.
 	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $perk1Var1
 	 */
@@ -842,8 +842,8 @@ class ParticipantStatsDto extends ApiObject
 	 * Post game rune stats.
 	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $perk1Var2
 	 */
@@ -853,8 +853,8 @@ class ParticipantStatsDto extends ApiObject
 	 * Post game rune stats.
 	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $perk1Var3
 	 */
@@ -864,8 +864,8 @@ class ParticipantStatsDto extends ApiObject
 	 * Primary path rune.
 	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $perk2
 	 */
@@ -875,8 +875,8 @@ class ParticipantStatsDto extends ApiObject
 	 * Post game rune stats.
 	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $perk2Var1
 	 */
@@ -886,8 +886,8 @@ class ParticipantStatsDto extends ApiObject
 	 * Post game rune stats.
 	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $perk2Var2
 	 */
@@ -897,8 +897,8 @@ class ParticipantStatsDto extends ApiObject
 	 * Post game rune stats.
 	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $perk2Var3
 	 */
@@ -908,8 +908,8 @@ class ParticipantStatsDto extends ApiObject
 	 * Primary path rune.
 	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $perk3
 	 */
@@ -919,8 +919,8 @@ class ParticipantStatsDto extends ApiObject
 	 * Post game rune stats.
 	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $perk3Var1
 	 */
@@ -930,8 +930,8 @@ class ParticipantStatsDto extends ApiObject
 	 * Post game rune stats.
 	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $perk3Var2
 	 */
@@ -941,8 +941,8 @@ class ParticipantStatsDto extends ApiObject
 	 * Post game rune stats.
 	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $perk3Var3
 	 */
@@ -952,8 +952,8 @@ class ParticipantStatsDto extends ApiObject
 	 * Secondary path rune.
 	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $perk4
 	 */
@@ -963,8 +963,8 @@ class ParticipantStatsDto extends ApiObject
 	 * Post game rune stats.
 	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $perk4Var1
 	 */
@@ -974,8 +974,8 @@ class ParticipantStatsDto extends ApiObject
 	 * Post game rune stats.
 	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $perk4Var2
 	 */
@@ -985,8 +985,8 @@ class ParticipantStatsDto extends ApiObject
 	 * Post game rune stats.
 	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $perk4Var3
 	 */
@@ -996,8 +996,8 @@ class ParticipantStatsDto extends ApiObject
 	 * Secondary path rune.
 	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $perk5
 	 */
@@ -1007,8 +1007,8 @@ class ParticipantStatsDto extends ApiObject
 	 * Post game rune stats.
 	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $perk5Var1
 	 */
@@ -1018,8 +1018,8 @@ class ParticipantStatsDto extends ApiObject
 	 * Post game rune stats.
 	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $perk5Var2
 	 */
@@ -1029,8 +1029,8 @@ class ParticipantStatsDto extends ApiObject
 	 * Post game rune stats.
 	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $perk5Var3
 	 */
@@ -1040,8 +1040,8 @@ class ParticipantStatsDto extends ApiObject
 	 * Primary rune path.
 	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $perkPrimaryStyle
 	 */
@@ -1051,8 +1051,8 @@ class ParticipantStatsDto extends ApiObject
 	 * Secondary rune path.
 	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $perkSubStyle
 	 */
@@ -1062,8 +1062,8 @@ class ParticipantStatsDto extends ApiObject
 	 * Stat rune.
 	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $statPerk0
 	 */
@@ -1073,8 +1073,8 @@ class ParticipantStatsDto extends ApiObject
 	 * Stat rune.
 	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $statPerk1
 	 */
@@ -1084,8 +1084,8 @@ class ParticipantStatsDto extends ApiObject
 	 * Stat rune.
 	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $statPerk2
 	 */

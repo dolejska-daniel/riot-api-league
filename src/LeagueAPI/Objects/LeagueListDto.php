@@ -25,14 +25,14 @@ namespace RiotAPI\LeagueAPI\Objects;
  *
  * Used in:
  *   league (v4)
+ *     - @see LeagueAPI::getLeagueById
+ *       @link https://developer.riotgames.com/apis#league-v4/GET_getLeagueById
  *     - @see LeagueAPI::getGrandmasterLeague
  *       @link https://developer.riotgames.com/apis#league-v4/GET_getGrandmasterLeague
  *     - @see LeagueAPI::getMasterLeague
  *       @link https://developer.riotgames.com/apis#league-v4/GET_getMasterLeague
  *     - @see LeagueAPI::getChallengerLeague
  *       @link https://developer.riotgames.com/apis#league-v4/GET_getChallengerLeague
- *     - @see LeagueAPI::getLeagueById
- *       @link https://developer.riotgames.com/apis#league-v4/GET_getLeagueById
  *
  * @package RiotAPI\LeagueAPI\Objects
  */
@@ -40,10 +40,10 @@ class LeagueListDto extends ApiObject
 {
 	/**
 	 * Available when received from:
+	 *   - @see LeagueAPI::getLeagueById
 	 *   - @see LeagueAPI::getGrandmasterLeague
 	 *   - @see LeagueAPI::getMasterLeague
 	 *   - @see LeagueAPI::getChallengerLeague
-	 *   - @see LeagueAPI::getLeagueById
 	 *
 	 * @var string $leagueId
 	 */
@@ -51,10 +51,10 @@ class LeagueListDto extends ApiObject
 
 	/**
 	 * Available when received from:
+	 *   - @see LeagueAPI::getLeagueById
 	 *   - @see LeagueAPI::getGrandmasterLeague
 	 *   - @see LeagueAPI::getMasterLeague
 	 *   - @see LeagueAPI::getChallengerLeague
-	 *   - @see LeagueAPI::getLeagueById
 	 *
 	 * @var LeagueItemDTO[] $entries
 	 */
@@ -62,10 +62,10 @@ class LeagueListDto extends ApiObject
 
 	/**
 	 * Available when received from:
+	 *   - @see LeagueAPI::getLeagueById
 	 *   - @see LeagueAPI::getGrandmasterLeague
 	 *   - @see LeagueAPI::getMasterLeague
 	 *   - @see LeagueAPI::getChallengerLeague
-	 *   - @see LeagueAPI::getLeagueById
 	 *
 	 * @var string $tier
 	 */
@@ -73,10 +73,10 @@ class LeagueListDto extends ApiObject
 
 	/**
 	 * Available when received from:
+	 *   - @see LeagueAPI::getLeagueById
 	 *   - @see LeagueAPI::getGrandmasterLeague
 	 *   - @see LeagueAPI::getMasterLeague
 	 *   - @see LeagueAPI::getChallengerLeague
-	 *   - @see LeagueAPI::getLeagueById
 	 *
 	 * @var string $name
 	 */
@@ -84,10 +84,10 @@ class LeagueListDto extends ApiObject
 
 	/**
 	 * Available when received from:
+	 *   - @see LeagueAPI::getLeagueById
 	 *   - @see LeagueAPI::getGrandmasterLeague
 	 *   - @see LeagueAPI::getMasterLeague
 	 *   - @see LeagueAPI::getChallengerLeague
-	 *   - @see LeagueAPI::getLeagueById
 	 *
 	 * @var string $queue
 	 */

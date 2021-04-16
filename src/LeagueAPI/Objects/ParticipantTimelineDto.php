@@ -25,10 +25,10 @@ namespace RiotAPI\LeagueAPI\Objects;
  *
  * Used in:
  *   match (v4)
- *     - @see LeagueAPI::getMatch
- *       @link https://developer.riotgames.com/apis#match-v4/GET_getMatch
  *     - @see LeagueAPI::getMatchByTournamentCode
  *       @link https://developer.riotgames.com/apis#match-v4/GET_getMatchByTournamentCode
+ *     - @see LeagueAPI::getMatch
+ *       @link https://developer.riotgames.com/apis#match-v4/GET_getMatch
  *
  * @package RiotAPI\LeagueAPI\Objects
  */
@@ -36,8 +36,8 @@ class ParticipantTimelineDto extends ApiObject
 {
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $participantId
 	 */
@@ -48,8 +48,8 @@ class ParticipantTimelineDto extends ApiObject
 	 * specified period.
 	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var String, double[] $csDiffPerMinDeltas
 	 */
@@ -59,8 +59,8 @@ class ParticipantTimelineDto extends ApiObject
 	 * Damage taken for a specified period.
 	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var String, double[] $damageTakenPerMinDeltas
 	 */
@@ -71,8 +71,8 @@ class ParticipantTimelineDto extends ApiObject
 	 * DUO_CARRY, DUO_SUPPORT).
 	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var string $role
 	 */
@@ -83,8 +83,8 @@ class ParticipantTimelineDto extends ApiObject
 	 * specified period.
 	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var String, double[] $damageTakenDiffPerMinDeltas
 	 */
@@ -94,8 +94,8 @@ class ParticipantTimelineDto extends ApiObject
 	 * Experience change for a specified period.
 	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var String, double[] $xpPerMinDeltas
 	 */
@@ -106,8 +106,8 @@ class ParticipantTimelineDto extends ApiObject
 	 * specified period.
 	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var String, double[] $xpDiffPerMinDeltas
 	 */
@@ -118,8 +118,8 @@ class ParticipantTimelineDto extends ApiObject
 	 * values: MID, MIDDLE, TOP, JUNGLE, BOT, BOTTOM).
 	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var string $lane
 	 */
@@ -129,8 +129,8 @@ class ParticipantTimelineDto extends ApiObject
 	 * Creeps for a specified period.
 	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var String, double[] $creepsPerMinDeltas
 	 */
@@ -140,8 +140,8 @@ class ParticipantTimelineDto extends ApiObject
 	 * Gold for a specified period.
 	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var String, double[] $goldPerMinDeltas
 	 */

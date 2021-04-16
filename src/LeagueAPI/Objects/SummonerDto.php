@@ -25,14 +25,14 @@ namespace RiotAPI\LeagueAPI\Objects;
  *
  * Used in:
  *   summoner (v4)
- *     - @see LeagueAPI::getBySummonerName
- *       @link https://developer.riotgames.com/apis#summoner-v4/GET_getBySummonerName
- *     - @see LeagueAPI::getByAccountId
- *       @link https://developer.riotgames.com/apis#summoner-v4/GET_getByAccountId
- *     - @see LeagueAPI::getByPUUID
- *       @link https://developer.riotgames.com/apis#summoner-v4/GET_getByPUUID
  *     - @see LeagueAPI::getBySummonerId
  *       @link https://developer.riotgames.com/apis#summoner-v4/GET_getBySummonerId
+ *     - @see LeagueAPI::getByPUUID
+ *       @link https://developer.riotgames.com/apis#summoner-v4/GET_getByPUUID
+ *     - @see LeagueAPI::getByAccountId
+ *       @link https://developer.riotgames.com/apis#summoner-v4/GET_getByAccountId
+ *     - @see LeagueAPI::getBySummonerName
+ *       @link https://developer.riotgames.com/apis#summoner-v4/GET_getBySummonerName
  *
  * @package RiotAPI\LeagueAPI\Objects
  */
@@ -42,10 +42,10 @@ class SummonerDto extends ApiObject
 	 * Encrypted account ID. Max length 56 characters.
 	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getBySummonerName
-	 *   - @see LeagueAPI::getByAccountId
-	 *   - @see LeagueAPI::getByPUUID
 	 *   - @see LeagueAPI::getBySummonerId
+	 *   - @see LeagueAPI::getByPUUID
+	 *   - @see LeagueAPI::getByAccountId
+	 *   - @see LeagueAPI::getBySummonerName
 	 *
 	 * @var string $accountId
 	 */
@@ -55,10 +55,10 @@ class SummonerDto extends ApiObject
 	 * ID of the summoner icon associated with the summoner.
 	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getBySummonerName
-	 *   - @see LeagueAPI::getByAccountId
-	 *   - @see LeagueAPI::getByPUUID
 	 *   - @see LeagueAPI::getBySummonerId
+	 *   - @see LeagueAPI::getByPUUID
+	 *   - @see LeagueAPI::getByAccountId
+	 *   - @see LeagueAPI::getBySummonerName
 	 *
 	 * @var int $profileIconId
 	 */
@@ -70,10 +70,10 @@ class SummonerDto extends ApiObject
 	 * summoner level change, or profile icon change.
 	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getBySummonerName
-	 *   - @see LeagueAPI::getByAccountId
-	 *   - @see LeagueAPI::getByPUUID
 	 *   - @see LeagueAPI::getBySummonerId
+	 *   - @see LeagueAPI::getByPUUID
+	 *   - @see LeagueAPI::getByAccountId
+	 *   - @see LeagueAPI::getBySummonerName
 	 *
 	 * @var int $revisionDate
 	 */
@@ -83,10 +83,10 @@ class SummonerDto extends ApiObject
 	 * Summoner name.
 	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getBySummonerName
-	 *   - @see LeagueAPI::getByAccountId
-	 *   - @see LeagueAPI::getByPUUID
 	 *   - @see LeagueAPI::getBySummonerId
+	 *   - @see LeagueAPI::getByPUUID
+	 *   - @see LeagueAPI::getByAccountId
+	 *   - @see LeagueAPI::getBySummonerName
 	 *
 	 * @var string $name
 	 */
@@ -96,10 +96,10 @@ class SummonerDto extends ApiObject
 	 * Encrypted summoner ID. Max length 63 characters.
 	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getBySummonerName
-	 *   - @see LeagueAPI::getByAccountId
-	 *   - @see LeagueAPI::getByPUUID
 	 *   - @see LeagueAPI::getBySummonerId
+	 *   - @see LeagueAPI::getByPUUID
+	 *   - @see LeagueAPI::getByAccountId
+	 *   - @see LeagueAPI::getBySummonerName
 	 *
 	 * @var string $id
 	 */
@@ -109,10 +109,10 @@ class SummonerDto extends ApiObject
 	 * Encrypted PUUID. Exact length of 78 characters.
 	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getBySummonerName
-	 *   - @see LeagueAPI::getByAccountId
-	 *   - @see LeagueAPI::getByPUUID
 	 *   - @see LeagueAPI::getBySummonerId
+	 *   - @see LeagueAPI::getByPUUID
+	 *   - @see LeagueAPI::getByAccountId
+	 *   - @see LeagueAPI::getBySummonerName
 	 *
 	 * @var string $puuid
 	 */
@@ -122,10 +122,10 @@ class SummonerDto extends ApiObject
 	 * Summoner level associated with the summoner.
 	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getBySummonerName
-	 *   - @see LeagueAPI::getByAccountId
-	 *   - @see LeagueAPI::getByPUUID
 	 *   - @see LeagueAPI::getBySummonerId
+	 *   - @see LeagueAPI::getByPUUID
+	 *   - @see LeagueAPI::getByAccountId
+	 *   - @see LeagueAPI::getBySummonerName
 	 *
 	 * @var int $summonerLevel
 	 */

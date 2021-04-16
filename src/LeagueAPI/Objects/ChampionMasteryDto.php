@@ -25,10 +25,10 @@ namespace RiotAPI\LeagueAPI\Objects;
  *
  * Used in:
  *   champion-mastery (v4)
- *     - @see LeagueAPI::getChampionMastery
- *       @link https://developer.riotgames.com/apis#champion-mastery-v4/GET_getChampionMastery
  *     - @see LeagueAPI::getAllChampionMasteries
  *       @link https://developer.riotgames.com/apis#champion-mastery-v4/GET_getAllChampionMasteries
+ *     - @see LeagueAPI::getChampionMastery
+ *       @link https://developer.riotgames.com/apis#champion-mastery-v4/GET_getChampionMastery
  *
  * @linkable getStaticChampion($championId)
  *
@@ -41,8 +41,8 @@ class ChampionMasteryDto extends ApiObjectLinkable
 	 * maximum champion level for this champion.
 	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getChampionMastery
 	 *   - @see LeagueAPI::getAllChampionMasteries
+	 *   - @see LeagueAPI::getChampionMastery
 	 *
 	 * @var int $championPointsUntilNextLevel
 	 */
@@ -52,8 +52,8 @@ class ChampionMasteryDto extends ApiObjectLinkable
 	 * Is chest granted for this champion or not in current season.
 	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getChampionMastery
 	 *   - @see LeagueAPI::getAllChampionMasteries
+	 *   - @see LeagueAPI::getChampionMastery
 	 *
 	 * @var bool $chestGranted
 	 */
@@ -63,8 +63,8 @@ class ChampionMasteryDto extends ApiObjectLinkable
 	 * Champion ID for this entry.
 	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getChampionMastery
 	 *   - @see LeagueAPI::getAllChampionMasteries
+	 *   - @see LeagueAPI::getChampionMastery
 	 *
 	 * @var int $championId
 	 */
@@ -75,8 +75,8 @@ class ChampionMasteryDto extends ApiObjectLinkable
 	 * milliseconds time format.
 	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getChampionMastery
 	 *   - @see LeagueAPI::getAllChampionMasteries
+	 *   - @see LeagueAPI::getChampionMastery
 	 *
 	 * @var int $lastPlayTime
 	 */
@@ -86,8 +86,8 @@ class ChampionMasteryDto extends ApiObjectLinkable
 	 * Champion level for specified player and champion combination.
 	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getChampionMastery
 	 *   - @see LeagueAPI::getAllChampionMasteries
+	 *   - @see LeagueAPI::getChampionMastery
 	 *
 	 * @var int $championLevel
 	 */
@@ -97,8 +97,8 @@ class ChampionMasteryDto extends ApiObjectLinkable
 	 * Summoner ID for this entry. (Encrypted).
 	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getChampionMastery
 	 *   - @see LeagueAPI::getAllChampionMasteries
+	 *   - @see LeagueAPI::getChampionMastery
 	 *
 	 * @var string $summonerId
 	 */
@@ -109,8 +109,8 @@ class ChampionMasteryDto extends ApiObjectLinkable
 	 * combination - they are used to determine championLevel.
 	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getChampionMastery
 	 *   - @see LeagueAPI::getAllChampionMasteries
+	 *   - @see LeagueAPI::getChampionMastery
 	 *
 	 * @var int $championPoints
 	 */
@@ -120,8 +120,8 @@ class ChampionMasteryDto extends ApiObjectLinkable
 	 * Number of points earned since current level has been achieved.
 	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getChampionMastery
 	 *   - @see LeagueAPI::getAllChampionMasteries
+	 *   - @see LeagueAPI::getChampionMastery
 	 *
 	 * @var int $championPointsSinceLastLevel
 	 */
@@ -132,8 +132,8 @@ class ChampionMasteryDto extends ApiObjectLinkable
 	 * the championLevel is advanced the tokensEarned resets to 0.
 	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getChampionMastery
 	 *   - @see LeagueAPI::getAllChampionMasteries
+	 *   - @see LeagueAPI::getChampionMastery
 	 *
 	 * @var int $tokensEarned
 	 */

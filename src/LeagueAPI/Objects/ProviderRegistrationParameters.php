@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright (C) 2016-2020  Daniel Dolejška
+ * Copyright (C) 2016-2021  Daniel Dolejška
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -25,27 +25,37 @@ namespace RiotAPI\LeagueAPI\Objects;
  *
  * Used in:
  *   tournament-stub (v4)
- *     @link https://developer.riotgames.com/apis#tournament-stub-v4/POST_registerProviderData
+ *     - @see LeagueAPI::registerProviderData
+ *       @link https://developer.riotgames.com/apis#tournament-stub-v4/POST_registerProviderData
  *   tournament (v4)
- *     @link https://developer.riotgames.com/apis#tournament-v4/POST_registerProviderData
+ *     - @see LeagueAPI::registerProviderData
+ *       @link https://developer.riotgames.com/apis#tournament-v4/POST_registerProviderData
  *
  * @package RiotAPI\LeagueAPI\Objects
  */
 class ProviderRegistrationParameters extends ApiObject
 {
 	/**
-	 *   The region in which the provider will be running tournaments. (Legal 
+	 * The region in which the provider will be running tournaments. (Legal
 	 * values: BR, EUNE, EUW, JP, LAN, LAS, NA, OCE, PBE, RU, TR).
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::registerProviderData
+	 *   - @see LeagueAPI::registerProviderData
 	 *
 	 * @var string $region
 	 */
 	public $region;
 
 	/**
-	 *   The provider's callback URL to which tournament game results in this 
-	 * region should be posted. The URL must be well-formed, use the http or https 
-	 * protocol, and use the default port for the protocol (http URLs must use port 80, 
-	 * https URLs must use port 443).
+	 * The provider's callback URL to which tournament game results in this
+	 * region should be posted. The URL must be well-formed, use the http or
+	 * https protocol, and use the default port for the protocol (http URLs
+	 * must use port 80, https URLs must use port 443).
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::registerProviderData
+	 *   - @see LeagueAPI::registerProviderData
 	 *
 	 * @var string $url
 	 */

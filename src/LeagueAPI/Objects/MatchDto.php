@@ -25,10 +25,10 @@ namespace RiotAPI\LeagueAPI\Objects;
  *
  * Used in:
  *   match (v4)
- *     - @see LeagueAPI::getMatch
- *       @link https://developer.riotgames.com/apis#match-v4/GET_getMatch
  *     - @see LeagueAPI::getMatchByTournamentCode
  *       @link https://developer.riotgames.com/apis#match-v4/GET_getMatchByTournamentCode
+ *     - @see LeagueAPI::getMatch
+ *       @link https://developer.riotgames.com/apis#match-v4/GET_getMatch
  *
  * @package RiotAPI\LeagueAPI\Objects
  */
@@ -36,8 +36,8 @@ class MatchDto extends ApiObject
 {
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $gameId
 	 */
@@ -48,8 +48,8 @@ class MatchDto extends ApiObject
 	 * purposefully excluded for custom games.
 	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var ParticipantIdentityDto[] $participantIdentities
 	 */
@@ -59,8 +59,8 @@ class MatchDto extends ApiObject
 	 * Please refer to the Game Constants documentation.
 	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $queueId
 	 */
@@ -70,8 +70,8 @@ class MatchDto extends ApiObject
 	 * Please refer to the Game Constants documentation.
 	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var string $gameType
 	 */
@@ -81,8 +81,8 @@ class MatchDto extends ApiObject
 	 * Match duration in seconds.
 	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $gameDuration
 	 */
@@ -92,8 +92,8 @@ class MatchDto extends ApiObject
 	 * Team information.
 	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var TeamStatsDto[] $teams
 	 */
@@ -103,8 +103,8 @@ class MatchDto extends ApiObject
 	 * Platform where the match was played.
 	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var string $platformId
 	 */
@@ -115,8 +115,8 @@ class MatchDto extends ApiObject
 	 * screen appeared, NOT when the game timer was at 0:00.
 	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $gameCreation
 	 */
@@ -126,8 +126,8 @@ class MatchDto extends ApiObject
 	 * Please refer to the Game Constants documentation.
 	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $seasonId
 	 */
@@ -138,8 +138,8 @@ class MatchDto extends ApiObject
 	 * played on.
 	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var string $gameVersion
 	 */
@@ -149,8 +149,8 @@ class MatchDto extends ApiObject
 	 * Please refer to the Game Constants documentation.
 	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $mapId
 	 */
@@ -160,8 +160,8 @@ class MatchDto extends ApiObject
 	 * Please refer to the Game Constants documentation.
 	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var string $gameMode
 	 */
@@ -171,8 +171,8 @@ class MatchDto extends ApiObject
 	 * Participant information.
 	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var ParticipantDto[] $participants
 	 */

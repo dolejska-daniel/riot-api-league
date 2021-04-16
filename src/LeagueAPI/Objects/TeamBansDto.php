@@ -25,10 +25,10 @@ namespace RiotAPI\LeagueAPI\Objects;
  *
  * Used in:
  *   match (v4)
- *     - @see LeagueAPI::getMatch
- *       @link https://developer.riotgames.com/apis#match-v4/GET_getMatch
  *     - @see LeagueAPI::getMatchByTournamentCode
  *       @link https://developer.riotgames.com/apis#match-v4/GET_getMatchByTournamentCode
+ *     - @see LeagueAPI::getMatch
+ *       @link https://developer.riotgames.com/apis#match-v4/GET_getMatch
  *
  * @linkable getStaticChampion($championId)
  *
@@ -40,8 +40,8 @@ class TeamBansDto extends ApiObjectLinkable
 	 * Banned championId.
 	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $championId
 	 */
@@ -51,8 +51,8 @@ class TeamBansDto extends ApiObjectLinkable
 	 * Turn during which the champion was banned.
 	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $pickTurn
 	 */

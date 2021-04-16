@@ -25,12 +25,12 @@ namespace RiotAPI\LeagueAPI\Objects;
  *
  * Used in:
  *   clash (v1)
+ *     - @see LeagueAPI::getTournaments
+ *       @link https://developer.riotgames.com/apis#clash-v1/GET_getTournaments
  *     - @see LeagueAPI::getTournamentByTeam
  *       @link https://developer.riotgames.com/apis#clash-v1/GET_getTournamentByTeam
  *     - @see LeagueAPI::getTournamentById
  *       @link https://developer.riotgames.com/apis#clash-v1/GET_getTournamentById
- *     - @see LeagueAPI::getTournaments
- *       @link https://developer.riotgames.com/apis#clash-v1/GET_getTournaments
  *
  * @package RiotAPI\LeagueAPI\Objects
  */
@@ -38,9 +38,9 @@ class TournamentPhaseDto extends ApiObject
 {
 	/**
 	 * Available when received from:
+	 *   - @see LeagueAPI::getTournaments
 	 *   - @see LeagueAPI::getTournamentByTeam
 	 *   - @see LeagueAPI::getTournamentById
-	 *   - @see LeagueAPI::getTournaments
 	 *
 	 * @var int $id
 	 */
@@ -48,9 +48,9 @@ class TournamentPhaseDto extends ApiObject
 
 	/**
 	 * Available when received from:
+	 *   - @see LeagueAPI::getTournaments
 	 *   - @see LeagueAPI::getTournamentByTeam
 	 *   - @see LeagueAPI::getTournamentById
-	 *   - @see LeagueAPI::getTournaments
 	 *
 	 * @var int $registrationTime
 	 */
@@ -58,9 +58,9 @@ class TournamentPhaseDto extends ApiObject
 
 	/**
 	 * Available when received from:
+	 *   - @see LeagueAPI::getTournaments
 	 *   - @see LeagueAPI::getTournamentByTeam
 	 *   - @see LeagueAPI::getTournamentById
-	 *   - @see LeagueAPI::getTournaments
 	 *
 	 * @var int $startTime
 	 */
@@ -68,9 +68,9 @@ class TournamentPhaseDto extends ApiObject
 
 	/**
 	 * Available when received from:
+	 *   - @see LeagueAPI::getTournaments
 	 *   - @see LeagueAPI::getTournamentByTeam
 	 *   - @see LeagueAPI::getTournamentById
-	 *   - @see LeagueAPI::getTournaments
 	 *
 	 * @var bool $cancelled
 	 */

@@ -25,10 +25,10 @@ namespace RiotAPI\LeagueAPI\Objects;
  *
  * Used in:
  *   match (v4)
- *     - @see LeagueAPI::getMatch
- *       @link https://developer.riotgames.com/apis#match-v4/GET_getMatch
  *     - @see LeagueAPI::getMatchByTournamentCode
  *       @link https://developer.riotgames.com/apis#match-v4/GET_getMatchByTournamentCode
+ *     - @see LeagueAPI::getMatch
+ *       @link https://developer.riotgames.com/apis#match-v4/GET_getMatch
  *
  * @package RiotAPI\LeagueAPI\Objects
  */
@@ -38,8 +38,8 @@ class TeamStatsDto extends ApiObject
 	 * Number of towers the team destroyed.
 	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $towerKills
 	 */
@@ -49,8 +49,8 @@ class TeamStatsDto extends ApiObject
 	 * Number of times the team killed Rift Herald.
 	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $riftHeraldKills
 	 */
@@ -60,8 +60,8 @@ class TeamStatsDto extends ApiObject
 	 * Flag indicating whether or not the team scored the first blood.
 	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var bool $firstBlood
 	 */
@@ -71,8 +71,8 @@ class TeamStatsDto extends ApiObject
 	 * Number of inhibitors the team destroyed.
 	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $inhibitorKills
 	 */
@@ -83,8 +83,8 @@ class TeamStatsDto extends ApiObject
 	 * empty.
 	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var TeamBansDto[] $bans
 	 */
@@ -94,8 +94,8 @@ class TeamStatsDto extends ApiObject
 	 * Flag indicating whether or not the team scored the first Baron kill.
 	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var bool $firstBaron
 	 */
@@ -105,8 +105,8 @@ class TeamStatsDto extends ApiObject
 	 * Flag indicating whether or not the team scored the first Dragon kill.
 	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var bool $firstDragon
 	 */
@@ -116,8 +116,8 @@ class TeamStatsDto extends ApiObject
 	 * For Dominion matches, specifies the points the team had at game end.
 	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $dominionVictoryScore
 	 */
@@ -127,8 +127,8 @@ class TeamStatsDto extends ApiObject
 	 * Number of times the team killed Dragon.
 	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $dragonKills
 	 */
@@ -138,8 +138,8 @@ class TeamStatsDto extends ApiObject
 	 * Number of times the team killed Baron.
 	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $baronKills
 	 */
@@ -149,8 +149,8 @@ class TeamStatsDto extends ApiObject
 	 * Flag indicating whether or not the team destroyed the first inhibitor.
 	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var bool $firstInhibitor
 	 */
@@ -160,8 +160,8 @@ class TeamStatsDto extends ApiObject
 	 * Flag indicating whether or not the team destroyed the first tower.
 	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var bool $firstTower
 	 */
@@ -171,8 +171,8 @@ class TeamStatsDto extends ApiObject
 	 * Number of times the team killed Vilemaw.
 	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $vilemawKills
 	 */
@@ -183,8 +183,8 @@ class TeamStatsDto extends ApiObject
 	 * kill.
 	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var bool $firstRiftHerald
 	 */
@@ -194,8 +194,8 @@ class TeamStatsDto extends ApiObject
 	 * 100 for blue side. 200 for red side.
 	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $teamId
 	 */
@@ -206,8 +206,8 @@ class TeamStatsDto extends ApiObject
 	 * values visibile in public match history. (Legal values: Fail, Win).
 	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var string $win
 	 */

@@ -25,10 +25,10 @@ namespace RiotAPI\LeagueAPI\Objects;
  *
  * Used in:
  *   match (v4)
- *     - @see LeagueAPI::getMatch
- *       @link https://developer.riotgames.com/apis#match-v4/GET_getMatch
  *     - @see LeagueAPI::getMatchByTournamentCode
  *       @link https://developer.riotgames.com/apis#match-v4/GET_getMatchByTournamentCode
+ *     - @see LeagueAPI::getMatch
+ *       @link https://developer.riotgames.com/apis#match-v4/GET_getMatch
  *
  * @linkable getStaticChampion($championId)
  *
@@ -38,8 +38,8 @@ class ParticipantDto extends ApiObjectLinkable
 {
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $participantId
 	 */
@@ -47,8 +47,8 @@ class ParticipantDto extends ApiObjectLinkable
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $championId
 	 */
@@ -59,8 +59,8 @@ class ParticipantDto extends ApiObjectLinkable
 	 * Runes Reforged.
 	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var RuneDto[] $runes
 	 */
@@ -70,8 +70,8 @@ class ParticipantDto extends ApiObjectLinkable
 	 * Participant statistics.
 	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var ParticipantStatsDto $stats
 	 */
@@ -81,8 +81,8 @@ class ParticipantDto extends ApiObjectLinkable
 	 * 100 for blue side. 200 for red side.
 	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $teamId
 	 */
@@ -92,8 +92,8 @@ class ParticipantDto extends ApiObjectLinkable
 	 * Participant timeline data.
 	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var ParticipantTimelineDto $timeline
 	 */
@@ -103,8 +103,8 @@ class ParticipantDto extends ApiObjectLinkable
 	 * First Summoner Spell id.
 	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $spell1Id
 	 */
@@ -114,8 +114,8 @@ class ParticipantDto extends ApiObjectLinkable
 	 * Second Summoner Spell id.
 	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $spell2Id
 	 */
@@ -129,8 +129,8 @@ class ParticipantDto extends ApiObjectLinkable
 	 * BRONZE, UNRANKED).
 	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var string $highestAchievedSeasonTier
 	 */
@@ -141,8 +141,8 @@ class ParticipantDto extends ApiObjectLinkable
 	 * with Runes Reforged.
 	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
 	 *   - @see LeagueAPI::getMatchByTournamentCode
+	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var MasteryDto[] $masteries
 	 */

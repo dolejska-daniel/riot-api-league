@@ -25,10 +25,10 @@ namespace RiotAPI\LeagueAPI\Objects;
  *
  * Used in:
  *   spectator (v4)
- *     - @see LeagueAPI::getCurrentGameInfoBySummoner
- *       @link https://developer.riotgames.com/apis#spectator-v4/GET_getCurrentGameInfoBySummoner
  *     - @see LeagueAPI::getFeaturedGames
  *       @link https://developer.riotgames.com/apis#spectator-v4/GET_getFeaturedGames
+ *     - @see LeagueAPI::getCurrentGameInfoBySummoner
+ *       @link https://developer.riotgames.com/apis#spectator-v4/GET_getCurrentGameInfoBySummoner
  *
  * @linkable getStaticChampion($championId)
  *
@@ -40,8 +40,8 @@ class BannedChampion extends ApiObjectLinkable
 	 * The turn during which the champion was banned.
 	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getCurrentGameInfoBySummoner
 	 *   - @see LeagueAPI::getFeaturedGames
+	 *   - @see LeagueAPI::getCurrentGameInfoBySummoner
 	 *
 	 * @var int $pickTurn
 	 */
@@ -51,8 +51,8 @@ class BannedChampion extends ApiObjectLinkable
 	 * The ID of the banned champion.
 	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getCurrentGameInfoBySummoner
 	 *   - @see LeagueAPI::getFeaturedGames
+	 *   - @see LeagueAPI::getCurrentGameInfoBySummoner
 	 *
 	 * @var int $championId
 	 */
@@ -62,8 +62,8 @@ class BannedChampion extends ApiObjectLinkable
 	 * The ID of the team that banned the champion.
 	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getCurrentGameInfoBySummoner
 	 *   - @see LeagueAPI::getFeaturedGames
+	 *   - @see LeagueAPI::getCurrentGameInfoBySummoner
 	 *
 	 * @var int $teamId
 	 */
