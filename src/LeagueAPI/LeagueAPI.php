@@ -1343,7 +1343,7 @@ class LeagueAPI extends BaseAPI
 		if ($count && ($count < 0 || $count > 100))
 			throw new RequestParameterException('Count of results (count) must be between 0 and 100.');
 
-		$continent_region = $this->platforms->getContinentRegion($this->getSetting(self::SET_PLATFORM));
+		$continent_region = $this->platforms->getContinentRegion($this->getSetting(self::SET_REGION));
 
 		$resultPromise = $this->setEndpoint("/lol/match/" . self::RESOURCE_MATCH_VERSION . "/matches/by-puuid/{$puuid}")
 			->setResource(self::RESOURCE_MATCH, "/matches/by-puuid/%s")
@@ -1378,7 +1378,7 @@ class LeagueAPI extends BaseAPI
 	 */
 	public function getMatch(int $match_id)
 	{
-		$continent_region = $this->platforms->getContinentRegion($this->getSetting(self::SET_PLATFORM));
+		$continent_region = $this->platforms->getContinentRegion($this->getSetting(self::SET_REGION));
 
 		$resultPromise = $this->setEndpoint("/lol/match/" . self::RESOURCE_MATCH_VERSION . "/matches/{$match_id}")
 			->setResource(self::RESOURCE_MATCH, "/matches/%i")
@@ -1409,7 +1409,7 @@ class LeagueAPI extends BaseAPI
 	 */
 	public function getTimeline(int $match_id)
 	{
-		$continent_region = $this->platforms->getContinentRegion($this->getSetting(self::SET_PLATFORM));
+		$continent_region = $this->platforms->getContinentRegion($this->getSetting(self::SET_REGION));
 
 		$resultPromise = $this->setEndpoint("/lol/match/" . self::RESOURCE_MATCH_VERSION . "/matches/{$match_id}/timeline")
 			->setResource(self::RESOURCE_MATCH, "/matches/%i/timeline")
