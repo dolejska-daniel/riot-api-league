@@ -1167,42 +1167,15 @@ class LeagueAPI extends BaseAPI
 	/**
 	 * ==================================================================dd=
 	 *     Match Endpoint Methods
-	 *     @link https://developer.riotgames.com/apis#match-v4
+	 *     @link https://developer.riotgames.com/apis#match-v5
 	 * ==================================================================dd=
 	 **/
-	const RESOURCE_MATCH = '1420:match';
-	const RESOURCE_MATCH_VERSION = 'v4';
+	const RESOURCE_MATCH = '1530:match';
+	const RESOURCE_MATCH_VERSION = 'v5';
 
 	/**
-	 *   Retrieve match by match ID.
+	 * @deprecated
 	 *
-	 * @cli-name get
-	 * @cli-namespace match
-	 *
-	 * @param int $match_id
-	 *
-	 * @return Objects\MatchDto
-	 *
-	 * @throws SettingsException
-	 * @throws RequestException
-	 * @throws ServerException
-	 * @throws ServerLimitException
-	 * @throws GeneralException
-	 *
-	 * @link https://developer.riotgames.com/apis#match-v4/GET_getMatch
-	 */
-	public function getMatch( $match_id )
-	{
-		$resultPromise = $this->setEndpoint("/lol/match/" . self::RESOURCE_MATCH_VERSION . "/matches/{$match_id}")
-			->setResource(self::RESOURCE_MATCH, "/matches/%i")
-			->makeCall();
-
-		return $this->resolveOrEnqueuePromise($resultPromise, function(array $result) {
-			return new Objects\MatchDto($result, $this);
-		});
-	}
-
-	/**
 	 *   Retrieve match by match ID and tournament code.
 	 *
 	 * @cli-name get-by-tournament-code
@@ -1223,8 +1196,9 @@ class LeagueAPI extends BaseAPI
 	 */
 	public function getMatchByTournamentCode( $match_id, string $tournament_code )
 	{
-		$resultPromise = $this->setEndpoint("/lol/match/" . self::RESOURCE_MATCH_VERSION . "/matches/{$match_id}/by-tournament-code/{$tournament_code}")
-			->setResource(self::RESOURCE_MATCH, "/matches/%i/by-tournament-code/%s")
+		user_error("The LeagueAPI::getMatchByTournamentCode will be soon removed. The endpoint will be deprecated by Riot on July 26 2021.", E_USER_DEPRECATED);
+		$resultPromise = $this->setEndpoint("/lol/match/v4/matches/{$match_id}/by-tournament-code/{$tournament_code}")
+			->setResource("1420:match", "/matches/%i/by-tournament-code/%s")
 			->useKey(self::SET_TOURNAMENT_KEY)
 			->makeCall();
 
@@ -1234,6 +1208,8 @@ class LeagueAPI extends BaseAPI
 	}
 
 	/**
+	 * @deprecated
+	 *
 	 *   Retrieve list of match IDs by tournament code.
 	 *
 	 * @cli-name get-ids-by-tournament-code
@@ -1253,8 +1229,9 @@ class LeagueAPI extends BaseAPI
 	 */
 	public function getMatchIdsByTournamentCode( string $tournament_code )
 	{
-		$resultPromise = $this->setEndpoint("/lol/match/" . self::RESOURCE_MATCH_VERSION . "/matches/by-tournament-code/{$tournament_code}/ids")
-			->setResource(self::RESOURCE_MATCH, "/matches/by-tournament-code/%s/ids")
+		user_error("The LeagueAPI::getMatchIdsByTournamentCode will be soon removed. The endpoint will be deprecated by Riot on July 26 2021.", E_USER_DEPRECATED);
+		$resultPromise = $this->setEndpoint("/lol/match/v4/matches/by-tournament-code/{$tournament_code}/ids")
+			->setResource("1420:match", "/matches/by-tournament-code/%s/ids")
 			->useKey(self::SET_TOURNAMENT_KEY)
 			->makeCall();
 
@@ -1264,6 +1241,8 @@ class LeagueAPI extends BaseAPI
 	}
 
 	/**
+	 * @deprecated
+	 *
 	 *   Retrieve matchlist by account ID.
 	 *
 	 * @cli-name get-matchlist-by-account
@@ -1290,8 +1269,9 @@ class LeagueAPI extends BaseAPI
 	 */
 	public function getMatchlistByAccount( string $encrypted_account_id, $queue = null, $season = null, $champion = null, int $beginTime = null, int $endTime = null, int $beginIndex = null, int $endIndex = null )
 	{
-		$resultPromise = $this->setEndpoint("/lol/match/" . self::RESOURCE_MATCH_VERSION . "/matchlists/by-account/{$encrypted_account_id}")
-			->setResource(self::RESOURCE_MATCH, "/matchlists/by-account/%s")
+		user_error("The LeagueAPI::getMatchlistByAccount will be soon removed. The endpoint will be deprecated by Riot on July 26 2021.", E_USER_DEPRECATED);
+		$resultPromise = $this->setEndpoint("/lol/match/v4/matchlists/by-account/{$encrypted_account_id}")
+			->setResource("1420:match", "/matchlists/by-account/%s")
 			->addQuery('queue', $queue)
 			->addQuery('season', $season)
 			->addQuery('champion', $champion)
@@ -1303,6 +1283,109 @@ class LeagueAPI extends BaseAPI
 
 		return $this->resolveOrEnqueuePromise($resultPromise, function(array $result) {
 			return new Objects\MatchlistDto($result, $this);
+		});
+	}
+
+	/**
+	 * @deprecated
+	 *
+	 *   Retrieve matchlsit by account ID.
+	 *
+	 * @param int $match_id
+	 *
+	 * @return Objects\MatchTimelineDto
+	 *
+	 * @throws SettingsException
+	 * @throws RequestException
+	 * @throws ServerException
+	 * @throws ServerLimitException
+	 * @throws GeneralException
+	 *
+	 * @link https://developer.riotgames.com/apis#match-v4/GET_getMatchTimeline
+	 */
+	public function getMatchTimeline( $match_id )
+	{
+		user_error("The LeagueAPI::getMatchTimeline will be soon removed. The endpoint will be deprecated by Riot on July 26 2021.", E_USER_DEPRECATED);
+		$continent_region = $this->platforms->getContinentRegion($this->getSetting(self::SET_PLATFORM));
+
+		$resultPromise = $this->setEndpoint("/lol/match/v4/timelines/by-match/{$match_id}")
+			->setResource("1420:match", "/timelines/by-match/%i")
+			->makeCall($continent_region);
+
+		return $this->resolveOrEnqueuePromise($resultPromise, function(array $result) {
+			return new Objects\MatchTimelineDto($result, $this);
+		});
+	}
+
+	/**
+	 *   Retrieve match IDs by a PUUID.
+	 *
+	 * @cli-name get-ids-by-puuid
+	 * @cli-namespace match
+	 *
+	 * @param int $match_id
+	 *
+	 * @return int[]
+	 *
+	 * @throws SettingsException
+	 * @throws RequestException
+	 * @throws ServerException
+	 * @throws ServerLimitException
+	 * @throws GeneralException
+	 *
+	 * @link https://developer.riotgames.com/apis#match-v5/GET_getMatchIdsByPUUID
+	 */
+	public function getMatchIdsByPUUID(string $puuid, int $start = null, int $count = null)
+	{
+		if ($start && $start < 0)
+			throw new RequestParameterException('Start index (start) must be greater than or equal to 0.');
+
+		if ($count && ($count < 0 || $count > 100))
+			throw new RequestParameterException('Count of results (count) must be between 0 and 100.');
+
+		$continent_region = $this->platforms->getContinentRegion($this->getSetting(self::SET_PLATFORM));
+
+		$resultPromise = $this->setEndpoint("/lol/match/" . self::RESOURCE_MATCH_VERSION . "/matches/by-puuid/{$puuid}")
+			->setResource(self::RESOURCE_MATCH, "/matches/by-puuid/%s")
+			->addQuery("start", $start)
+			->addQuery("count", $count)
+			->makeCall($continent_region);
+
+		return $this->resolveOrEnqueuePromise($resultPromise, function(array $result) {
+			return $result
+				? array_map(function ($i) { return (int)$i; }, $result)
+				: [];
+		});
+	}
+
+	/**
+	 *   Retrieve match by match ID.
+	 *
+	 * @cli-name get
+	 * @cli-namespace match
+	 *
+	 * @param int $match_id
+	 *
+	 * @return Objects\MatchDto
+	 *
+	 * @throws SettingsException
+	 * @throws RequestException
+	 * @throws ServerException
+	 * @throws ServerLimitException
+	 * @throws GeneralException
+	 *
+	 * @link https://developer.riotgames.com/apis#match-v5/GET_getMatch
+	 */
+	public function getMatch(int $match_id)
+	{
+		$continent_region = $this->platforms->getContinentRegion($this->getSetting(self::SET_PLATFORM));
+
+		$resultPromise = $this->setEndpoint("/lol/match/" . self::RESOURCE_MATCH_VERSION . "/matches/{$match_id}")
+			->setResource(self::RESOURCE_MATCH, "/matches/%i")
+			->makeCall($continent_region);
+
+		return $this->resolveOrEnqueuePromise($resultPromise, function(array $result) {
+			return new Objects\MatchDto($result, $this);
 		});
 	}
 
@@ -1322,13 +1405,15 @@ class LeagueAPI extends BaseAPI
 	 * @throws ServerLimitException
 	 * @throws GeneralException
 	 *
-	 * @link https://developer.riotgames.com/apis#match-v4/GET_getMatchTimeline
+	 * @link https://developer.riotgames.com/apis#match-v5/GET_getTimeline
 	 */
-	public function getMatchTimeline( $match_id )
+	public function getTimeline(int $match_id)
 	{
-		$resultPromise = $this->setEndpoint("/lol/match/" . self::RESOURCE_MATCH_VERSION . "/timelines/by-match/{$match_id}")
-			->setResource(self::RESOURCE_MATCH, "/timelines/by-match/%i")
-			->makeCall();
+		$continent_region = $this->platforms->getContinentRegion($this->getSetting(self::SET_PLATFORM));
+
+		$resultPromise = $this->setEndpoint("/lol/match/" . self::RESOURCE_MATCH_VERSION . "/matches/{$match_id}/timeline")
+			->setResource(self::RESOURCE_MATCH, "/matches/%i/timeline")
+			->makeCall($continent_region);
 
 		return $this->resolveOrEnqueuePromise($resultPromise, function(array $result) {
 			return new Objects\MatchTimelineDto($result, $this);
