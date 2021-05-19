@@ -13,7 +13,7 @@ $id = "I am TheKronnY";
 try
 {
 	$summoner = $api->getSummonerByName($id); // summonerIds are unique per API key, getByName first is necessary
-	$g = $api->getCurrentGameInfo($summoner->id);
+	$g = $api->getCurrentGameInfoBySummoner($summoner->id);
 }
 catch (RequestException $ex)
 {

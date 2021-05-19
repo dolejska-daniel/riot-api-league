@@ -42,15 +42,6 @@ use RiotAPI\Base\Exceptions\SettingsException;
 class LeagueAPI extends BaseAPI
 {
 	/**
-	 * Constants for cURL requests.
-	 */
-	const
-		METHOD_GET    = 'GET',
-		METHOD_POST   = 'POST',
-		METHOD_PUT    = 'PUT',
-		METHOD_DELETE = 'DELETE';
-
-	/**
 	 * Settings constants.
 	 */
 	const
@@ -354,6 +345,12 @@ class LeagueAPI extends BaseAPI
 	const RESOURCE_SPECTATOR = '1419:spectator';
 	const RESOURCE_SPECTATOR_VERSION = 'v4';
 
+	public function getCurrentGameInfo(string $encrypted_summoner_id)
+	{
+		user_error("The LeagueAPI::getCurrentGameInfo will be soon removed in favour of LeagueAPI::getCurrentGameInfoBySummoner.", E_USER_DEPRECATED);
+		return $this->getCurrentGameInfoBySummoner($encrypted_summoner_id);
+	}
+
 	/**
 	 *   Get current game information for the given summoner ID.
 	 *
@@ -362,7 +359,7 @@ class LeagueAPI extends BaseAPI
 	 *
 	 * @param string $encrypted_summoner_id
 	 *
-	 * @return Objects\CurrentGameInfo
+	 * @return Objects\CurrentGameInfo|null
 	 *
 	 * @throws SettingsException
 	 * @throws RequestException
@@ -372,7 +369,7 @@ class LeagueAPI extends BaseAPI
 	 *
 	 * @link https://developer.riotgames.com/apis#spectator-v4/GET_getCurrentGameInfoBySummoner
 	 */
-	public function getCurrentGameInfo( string $encrypted_summoner_id )
+	public function getCurrentGameInfoBySummoner(string $encrypted_summoner_id)
 	{
 		$resultPromise = $this->setEndpoint("/lol/spectator/" . self::RESOURCE_SPECTATOR_VERSION . "/active-games/by-summoner/{$encrypted_summoner_id}")
 			->setResource(self::RESOURCE_SPECTATOR, "/active-games/by-summoner/%s")
