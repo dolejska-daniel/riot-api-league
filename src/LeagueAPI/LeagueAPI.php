@@ -1323,9 +1323,11 @@ class LeagueAPI extends BaseAPI
 	 * @cli-name get-ids-by-puuid
 	 * @cli-namespace match
 	 *
-	 * @param int $match_id
+	 * @param string   $puuid
+	 * @param int|null $start
+	 * @param int|null $count
 	 *
-	 * @return int[]
+	 * @return string[]
 	 *
 	 * @throws SettingsException
 	 * @throws RequestException
@@ -1345,16 +1347,14 @@ class LeagueAPI extends BaseAPI
 
 		$continent_region = $this->platforms->getContinentRegion($this->getSetting(self::SET_REGION));
 
-		$resultPromise = $this->setEndpoint("/lol/match/" . self::RESOURCE_MATCH_VERSION . "/matches/by-puuid/{$puuid}")
-			->setResource(self::RESOURCE_MATCH, "/matches/by-puuid/%s")
+		$resultPromise = $this->setEndpoint("/lol/match/" . self::RESOURCE_MATCH_VERSION . "/matches/by-puuid/{$puuid}/ids")
+			->setResource(self::RESOURCE_MATCH, "/matches/by-puuid/%s/ids")
 			->addQuery("start", $start)
 			->addQuery("count", $count)
 			->makeCall($continent_region);
 
 		return $this->resolveOrEnqueuePromise($resultPromise, function(array $result) {
-			return $result
-				? array_map(function ($i) { return (int)$i; }, $result)
-				: [];
+			return $result ?? [];
 		});
 	}
 
@@ -1364,7 +1364,7 @@ class LeagueAPI extends BaseAPI
 	 * @cli-name get
 	 * @cli-namespace match
 	 *
-	 * @param int $match_id
+	 * @param string $match_id
 	 *
 	 * @return Objects\MatchDto
 	 *
@@ -1376,12 +1376,12 @@ class LeagueAPI extends BaseAPI
 	 *
 	 * @link https://developer.riotgames.com/apis#match-v5/GET_getMatch
 	 */
-	public function getMatch(int $match_id)
+	public function getMatch(string $match_id)
 	{
 		$continent_region = $this->platforms->getContinentRegion($this->getSetting(self::SET_REGION));
 
 		$resultPromise = $this->setEndpoint("/lol/match/" . self::RESOURCE_MATCH_VERSION . "/matches/{$match_id}")
-			->setResource(self::RESOURCE_MATCH, "/matches/%i")
+			->setResource(self::RESOURCE_MATCH, "/matches/%s")
 			->makeCall($continent_region);
 
 		return $this->resolveOrEnqueuePromise($resultPromise, function(array $result) {
@@ -1390,12 +1390,12 @@ class LeagueAPI extends BaseAPI
 	}
 
 	/**
-	 *   Retrieve matchlsit by account ID.
+	 *   Retrieve match timeline by match ID.
 	 *
 	 * @cli-name get-timeline
 	 * @cli-namespace match
 	 *
-	 * @param int $match_id
+	 * @param string $match_id
 	 *
 	 * @return Objects\MatchTimelineDto
 	 *
@@ -1407,12 +1407,12 @@ class LeagueAPI extends BaseAPI
 	 *
 	 * @link https://developer.riotgames.com/apis#match-v5/GET_getTimeline
 	 */
-	public function getTimeline(int $match_id)
+	public function getTimeline(string $match_id)
 	{
 		$continent_region = $this->platforms->getContinentRegion($this->getSetting(self::SET_REGION));
 
 		$resultPromise = $this->setEndpoint("/lol/match/" . self::RESOURCE_MATCH_VERSION . "/matches/{$match_id}/timeline")
-			->setResource(self::RESOURCE_MATCH, "/matches/%i/timeline")
+			->setResource(self::RESOURCE_MATCH, "/matches/%s/timeline")
 			->makeCall($continent_region);
 
 		return $this->resolveOrEnqueuePromise($resultPromise, function(array $result) {
