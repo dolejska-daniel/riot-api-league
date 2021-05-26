@@ -1479,7 +1479,6 @@ class LeagueAPI extends BaseAPI
 	 */
 	public function getSummonerByName( string $summoner_name )
 	{
-		$summoner_name = str_replace(' ', '', $summoner_name);
 		if (trim($summoner_name) === '') {
 			throw new RequestParameterException('Provided summoner name must not be empty');
 		}
