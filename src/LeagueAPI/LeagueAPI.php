@@ -79,6 +79,14 @@ class LeagueAPI extends BaseAPI
 		SPECTATOR_LOBBY_ONLY = 'LOBBYONLY',
 		SPECTATOR_ALL        = 'ALL';
 
+	const
+		MATCH_ALLOWED_TYPES = [
+			"ranked",
+			"normal",
+			"tourney",
+			"tutorial",
+		];
+
 	/**
 	 * Constants required for tournament API calls.
 	 */
@@ -1323,9 +1331,11 @@ class LeagueAPI extends BaseAPI
 	 * @cli-name get-ids-by-puuid
 	 * @cli-namespace match
 	 *
-	 * @param string   $puuid
-	 * @param int|null $start
-	 * @param int|null $count
+	 * @param string      $puuid
+	 * @param int|null    $queue Filter the list of match ids by a specific queue id. This filter is mutually inclusive of the type filter meaning any match ids returned must match both the queue and type filters.
+	 * @param string|null $type  Filter the list of match ids by the type of match. This filter is mutually inclusive of the queue filter meaning any match ids returned must match both the queue and type filters.
+	 * @param int|null    $start Start index.
+	 * @param int|null    $count Valid values: 0 to 100. Number of match ids to return.
 	 *
 	 * @return string[]
 	 *
@@ -1337,8 +1347,11 @@ class LeagueAPI extends BaseAPI
 	 *
 	 * @link https://developer.riotgames.com/apis#match-v5/GET_getMatchIdsByPUUID
 	 */
-	public function getMatchIdsByPUUID(string $puuid, int $start = null, int $count = null)
+	public function getMatchIdsByPUUID(string $puuid, int $queue = null, string $type = null, int $start = null, int $count = null)
 	{
+		if ($type && !in_array($type, self::MATCH_ALLOWED_TYPES))
+			throw new RequestParameterException('Value of match type (type) is invalid. Allowed values: ' . implode(', ', self::MATCH_ALLOWED_TYPES));
+
 		if ($start && $start < 0)
 			throw new RequestParameterException('Start index (start) must be greater than or equal to 0.');
 
@@ -1349,6 +1362,8 @@ class LeagueAPI extends BaseAPI
 
 		$resultPromise = $this->setEndpoint("/lol/match/" . self::RESOURCE_MATCH_VERSION . "/matches/by-puuid/{$puuid}/ids")
 			->setResource(self::RESOURCE_MATCH, "/matches/by-puuid/%s/ids")
+			->addQuery("queue", $queue)
+			->addQuery("type", $type)
 			->addQuery("start", $start)
 			->addQuery("count", $count)
 			->makeCall($continent_region);
