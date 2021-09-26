@@ -21,117 +21,145 @@ namespace RiotAPI\LeagueAPI\Objects;
 
 
 /**
- *   Class TeamDto
+ *   Class InfoDto
  *
  * Used in:
- *   clash (v1)
- *     - @see LeagueAPI::getTeamById
- *       @link https://developer.riotgames.com/apis#clash-v1/GET_getTeamById
  *   match (v5)
  *     - @see LeagueAPI::getMatch
  *       @link https://developer.riotgames.com/apis#match-v5/GET_getMatch
  *
  * @package RiotAPI\LeagueAPI\Objects
  */
-class TeamDto extends ApiObject
+class InfoDto extends ApiObject
 {
 	/**
-	 * Available when received from:
-	 *   - @see LeagueAPI::getTeamById
+	 * Unix timestamp for when the game is created (i.e., the loading screen).
 	 *
-	 * @var string $id
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *
+	 * @var int $gameCreation
 	 */
-	public $id;
+	public $gameCreation;
 
 	/**
-	 * Available when received from:
-	 *   - @see LeagueAPI::getTeamById
-	 *
-	 * @var int $tournamentId
-	 */
-	public $tournamentId;
-
-	/**
-	 * Available when received from:
-	 *   - @see LeagueAPI::getTeamById
-	 *
-	 * @var string $name
-	 */
-	public $name;
-
-	/**
-	 * Available when received from:
-	 *   - @see LeagueAPI::getTeamById
-	 *
-	 * @var int $iconId
-	 */
-	public $iconId;
-
-	/**
-	 * Available when received from:
-	 *   - @see LeagueAPI::getTeamById
-	 *
-	 * @var int $tier
-	 */
-	public $tier;
-
-	/**
-	 * Summoner ID of the team captain.
+	 * Game length in milliseconds.
 	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getTeamById
+	 *   - @see LeagueAPI::getMatch
 	 *
-	 * @var string $captain
+	 * @var int $gameDuration
 	 */
-	public $captain;
-
-	/**
-	 * Available when received from:
-	 *   - @see LeagueAPI::getTeamById
-	 *
-	 * @var string $abbreviation
-	 */
-	public $abbreviation;
-
-	/**
-	 * Team members.
-	 *
-	 * Available when received from:
-	 *   - @see LeagueAPI::getTeamById
-	 *
-	 * @var PlayerDto[] $players
-	 */
-	public $players;
+	public $gameDuration;
 
 	/**
 	 * Available when received from:
 	 *   - @see LeagueAPI::getMatch
 	 *
-	 * @var BanDto[] $bans
+	 * @var int $gameId
 	 */
-	public $bans;
+	public $gameId;
+
+	/**
+	 * Refer to the Game Constants documentation.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *
+	 * @var string $gameMode
+	 */
+	public $gameMode;
 
 	/**
 	 * Available when received from:
 	 *   - @see LeagueAPI::getMatch
 	 *
-	 * @var ObjectivesDto $objectives
+	 * @var string $gameName
 	 */
-	public $objectives;
+	public $gameName;
+
+	/**
+	 * Unix timestamp for when match actually starts.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *
+	 * @var int $gameStartTimestamp
+	 */
+	public $gameStartTimestamp;
 
 	/**
 	 * Available when received from:
 	 *   - @see LeagueAPI::getMatch
 	 *
-	 * @var int $teamId
+	 * @var string $gameType
 	 */
-	public $teamId;
+	public $gameType;
+
+	/**
+	 * The first two parts can be used to determine the patch a game was
+	 * played on.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *
+	 * @var string $gameVersion
+	 */
+	public $gameVersion;
+
+	/**
+	 * Refer to the Game Constants documentation.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *
+	 * @var int $mapId
+	 */
+	public $mapId;
 
 	/**
 	 * Available when received from:
 	 *   - @see LeagueAPI::getMatch
 	 *
-	 * @var bool $win
+	 * @var ParticipantDto[] $participants
 	 */
-	public $win;
+	public $participants;
+
+	/**
+	 * Platform where the match was played.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *
+	 * @var string $platformId
+	 */
+	public $platformId;
+
+	/**
+	 * Refer to the Game Constants documentation.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *
+	 * @var int $queueId
+	 */
+	public $queueId;
+
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *
+	 * @var TeamDto[] $teams
+	 */
+	public $teams;
+
+	/**
+	 * Tournament code used to generate the match.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *
+	 * @var string $tournamentCode
+	 */
+	public $tournamentCode;
 }

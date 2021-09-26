@@ -21,117 +21,62 @@ namespace RiotAPI\LeagueAPI\Objects;
 
 
 /**
- *   Class TeamDto
+ *   Class ObjectivesDto
  *
  * Used in:
- *   clash (v1)
- *     - @see LeagueAPI::getTeamById
- *       @link https://developer.riotgames.com/apis#clash-v1/GET_getTeamById
  *   match (v5)
  *     - @see LeagueAPI::getMatch
  *       @link https://developer.riotgames.com/apis#match-v5/GET_getMatch
  *
  * @package RiotAPI\LeagueAPI\Objects
  */
-class TeamDto extends ApiObject
+class ObjectivesDto extends ApiObject
 {
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getTeamById
+	 *   - @see LeagueAPI::getMatch
 	 *
-	 * @var string $id
+	 * @var ObjectiveDto $baron
 	 */
-	public $id;
-
-	/**
-	 * Available when received from:
-	 *   - @see LeagueAPI::getTeamById
-	 *
-	 * @var int $tournamentId
-	 */
-	public $tournamentId;
-
-	/**
-	 * Available when received from:
-	 *   - @see LeagueAPI::getTeamById
-	 *
-	 * @var string $name
-	 */
-	public $name;
-
-	/**
-	 * Available when received from:
-	 *   - @see LeagueAPI::getTeamById
-	 *
-	 * @var int $iconId
-	 */
-	public $iconId;
-
-	/**
-	 * Available when received from:
-	 *   - @see LeagueAPI::getTeamById
-	 *
-	 * @var int $tier
-	 */
-	public $tier;
-
-	/**
-	 * Summoner ID of the team captain.
-	 *
-	 * Available when received from:
-	 *   - @see LeagueAPI::getTeamById
-	 *
-	 * @var string $captain
-	 */
-	public $captain;
-
-	/**
-	 * Available when received from:
-	 *   - @see LeagueAPI::getTeamById
-	 *
-	 * @var string $abbreviation
-	 */
-	public $abbreviation;
-
-	/**
-	 * Team members.
-	 *
-	 * Available when received from:
-	 *   - @see LeagueAPI::getTeamById
-	 *
-	 * @var PlayerDto[] $players
-	 */
-	public $players;
+	public $baron;
 
 	/**
 	 * Available when received from:
 	 *   - @see LeagueAPI::getMatch
 	 *
-	 * @var BanDto[] $bans
+	 * @var ObjectiveDto $champion
 	 */
-	public $bans;
+	public $champion;
 
 	/**
 	 * Available when received from:
 	 *   - @see LeagueAPI::getMatch
 	 *
-	 * @var ObjectivesDto $objectives
+	 * @var ObjectiveDto $dragon
 	 */
-	public $objectives;
+	public $dragon;
 
 	/**
 	 * Available when received from:
 	 *   - @see LeagueAPI::getMatch
 	 *
-	 * @var int $teamId
+	 * @var ObjectiveDto $inhibitor
 	 */
-	public $teamId;
+	public $inhibitor;
 
 	/**
 	 * Available when received from:
 	 *   - @see LeagueAPI::getMatch
 	 *
-	 * @var bool $win
+	 * @var ObjectiveDto $riftHerald
 	 */
-	public $win;
+	public $riftHerald;
+
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *
+	 * @var ObjectiveDto $tower
+	 */
+	public $tower;
 }

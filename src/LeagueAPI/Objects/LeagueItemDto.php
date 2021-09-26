@@ -29,10 +29,10 @@ namespace RiotAPI\LeagueAPI\Objects;
  *       @link https://developer.riotgames.com/apis#league-v4/GET_getLeagueById
  *     - @see LeagueAPI::getGrandmasterLeague
  *       @link https://developer.riotgames.com/apis#league-v4/GET_getGrandmasterLeague
- *     - @see LeagueAPI::getMasterLeague
- *       @link https://developer.riotgames.com/apis#league-v4/GET_getMasterLeague
  *     - @see LeagueAPI::getChallengerLeague
  *       @link https://developer.riotgames.com/apis#league-v4/GET_getChallengerLeague
+ *     - @see LeagueAPI::getMasterLeague
+ *       @link https://developer.riotgames.com/apis#league-v4/GET_getMasterLeague
  *
  * @package RiotAPI\LeagueAPI\Objects
  */
@@ -42,8 +42,8 @@ class LeagueItemDto extends ApiObject
 	 * Available when received from:
 	 *   - @see LeagueAPI::getLeagueById
 	 *   - @see LeagueAPI::getGrandmasterLeague
-	 *   - @see LeagueAPI::getMasterLeague
 	 *   - @see LeagueAPI::getChallengerLeague
+	 *   - @see LeagueAPI::getMasterLeague
 	 *
 	 * @var bool $freshBlood
 	 */
@@ -55,8 +55,8 @@ class LeagueItemDto extends ApiObject
 	 * Available when received from:
 	 *   - @see LeagueAPI::getLeagueById
 	 *   - @see LeagueAPI::getGrandmasterLeague
-	 *   - @see LeagueAPI::getMasterLeague
 	 *   - @see LeagueAPI::getChallengerLeague
+	 *   - @see LeagueAPI::getMasterLeague
 	 *
 	 * @var int $wins
 	 */
@@ -66,8 +66,8 @@ class LeagueItemDto extends ApiObject
 	 * Available when received from:
 	 *   - @see LeagueAPI::getLeagueById
 	 *   - @see LeagueAPI::getGrandmasterLeague
-	 *   - @see LeagueAPI::getMasterLeague
 	 *   - @see LeagueAPI::getChallengerLeague
+	 *   - @see LeagueAPI::getMasterLeague
 	 *
 	 * @var string $summonerName
 	 */
@@ -77,8 +77,8 @@ class LeagueItemDto extends ApiObject
 	 * Available when received from:
 	 *   - @see LeagueAPI::getLeagueById
 	 *   - @see LeagueAPI::getGrandmasterLeague
-	 *   - @see LeagueAPI::getMasterLeague
 	 *   - @see LeagueAPI::getChallengerLeague
+	 *   - @see LeagueAPI::getMasterLeague
 	 *
 	 * @var MiniSeriesDTO $miniSeries
 	 */
@@ -88,8 +88,8 @@ class LeagueItemDto extends ApiObject
 	 * Available when received from:
 	 *   - @see LeagueAPI::getLeagueById
 	 *   - @see LeagueAPI::getGrandmasterLeague
-	 *   - @see LeagueAPI::getMasterLeague
 	 *   - @see LeagueAPI::getChallengerLeague
+	 *   - @see LeagueAPI::getMasterLeague
 	 *
 	 * @var bool $inactive
 	 */
@@ -99,8 +99,8 @@ class LeagueItemDto extends ApiObject
 	 * Available when received from:
 	 *   - @see LeagueAPI::getLeagueById
 	 *   - @see LeagueAPI::getGrandmasterLeague
-	 *   - @see LeagueAPI::getMasterLeague
 	 *   - @see LeagueAPI::getChallengerLeague
+	 *   - @see LeagueAPI::getMasterLeague
 	 *
 	 * @var bool $veteran
 	 */
@@ -110,8 +110,8 @@ class LeagueItemDto extends ApiObject
 	 * Available when received from:
 	 *   - @see LeagueAPI::getLeagueById
 	 *   - @see LeagueAPI::getGrandmasterLeague
-	 *   - @see LeagueAPI::getMasterLeague
 	 *   - @see LeagueAPI::getChallengerLeague
+	 *   - @see LeagueAPI::getMasterLeague
 	 *
 	 * @var bool $hotStreak
 	 */
@@ -121,8 +121,8 @@ class LeagueItemDto extends ApiObject
 	 * Available when received from:
 	 *   - @see LeagueAPI::getLeagueById
 	 *   - @see LeagueAPI::getGrandmasterLeague
-	 *   - @see LeagueAPI::getMasterLeague
 	 *   - @see LeagueAPI::getChallengerLeague
+	 *   - @see LeagueAPI::getMasterLeague
 	 *
 	 * @var string $rank
 	 */
@@ -132,8 +132,8 @@ class LeagueItemDto extends ApiObject
 	 * Available when received from:
 	 *   - @see LeagueAPI::getLeagueById
 	 *   - @see LeagueAPI::getGrandmasterLeague
-	 *   - @see LeagueAPI::getMasterLeague
 	 *   - @see LeagueAPI::getChallengerLeague
+	 *   - @see LeagueAPI::getMasterLeague
 	 *
 	 * @var int $leaguePoints
 	 */
@@ -145,8 +145,8 @@ class LeagueItemDto extends ApiObject
 	 * Available when received from:
 	 *   - @see LeagueAPI::getLeagueById
 	 *   - @see LeagueAPI::getGrandmasterLeague
-	 *   - @see LeagueAPI::getMasterLeague
 	 *   - @see LeagueAPI::getChallengerLeague
+	 *   - @see LeagueAPI::getMasterLeague
 	 *
 	 * @var int $losses
 	 */
@@ -158,8 +158,8 @@ class LeagueItemDto extends ApiObject
 	 * Available when received from:
 	 *   - @see LeagueAPI::getLeagueById
 	 *   - @see LeagueAPI::getGrandmasterLeague
-	 *   - @see LeagueAPI::getMasterLeague
 	 *   - @see LeagueAPI::getChallengerLeague
+	 *   - @see LeagueAPI::getMasterLeague
 	 *
 	 * @var string $summonerId
 	 */

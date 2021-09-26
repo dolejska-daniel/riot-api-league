@@ -29,11 +29,34 @@ namespace RiotAPI\LeagueAPI\Objects;
  *       @link https://developer.riotgames.com/apis#match-v4/GET_getMatchByTournamentCode
  *     - @see LeagueAPI::getMatch
  *       @link https://developer.riotgames.com/apis#match-v4/GET_getMatch
+ *   match (v5)
+ *     - @see LeagueAPI::getMatch
+ *       @link https://developer.riotgames.com/apis#match-v5/GET_getMatch
  *
  * @package RiotAPI\LeagueAPI\Objects
  */
 class MatchDto extends ApiObject
 {
+	/**
+	 * Match metadata.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *
+	 * @var MetadataDto $metadata
+	 */
+	public $metadata;
+
+	/**
+	 * Match info.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *
+	 * @var InfoDto $info
+	 */
+	public $info;
+
 	/**
 	 * Available when received from:
 	 *   - @see LeagueAPI::getMatchByTournamentCode
@@ -56,7 +79,7 @@ class MatchDto extends ApiObject
 	public $participantIdentities;
 
 	/**
-	 * Please refer to the Game Constants documentation.
+	 * Refer to the Game Constants documentation.
 	 *
 	 * Available when received from:
 	 *   - @see LeagueAPI::getMatchByTournamentCode
@@ -67,7 +90,7 @@ class MatchDto extends ApiObject
 	public $queueId;
 
 	/**
-	 * Please refer to the Game Constants documentation.
+	 * Refer to the Game Constants documentation.
 	 *
 	 * Available when received from:
 	 *   - @see LeagueAPI::getMatchByTournamentCode
@@ -123,7 +146,7 @@ class MatchDto extends ApiObject
 	public $gameCreation;
 
 	/**
-	 * Please refer to the Game Constants documentation.
+	 * Refer to the Game Constants documentation.
 	 *
 	 * Available when received from:
 	 *   - @see LeagueAPI::getMatchByTournamentCode
@@ -146,7 +169,7 @@ class MatchDto extends ApiObject
 	public $gameVersion;
 
 	/**
-	 * Please refer to the Game Constants documentation.
+	 * Refer to the Game Constants documentation.
 	 *
 	 * Available when received from:
 	 *   - @see LeagueAPI::getMatchByTournamentCode
@@ -157,7 +180,7 @@ class MatchDto extends ApiObject
 	public $mapId;
 
 	/**
-	 * Please refer to the Game Constants documentation.
+	 * Refer to the Game Constants documentation.
 	 *
 	 * Available when received from:
 	 *   - @see LeagueAPI::getMatchByTournamentCode

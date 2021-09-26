@@ -1204,7 +1204,7 @@ class LeagueAPI extends BaseAPI
 	 */
 	public function getMatchByTournamentCode( $match_id, string $tournament_code )
 	{
-		user_error("The LeagueAPI::getMatchByTournamentCode will be soon removed. The endpoint will be deprecated by Riot on July 26 2021.", E_USER_DEPRECATED);
+		user_error("The LeagueAPI::getMatchByTournamentCode will be soon removed. The endpoint will soon be deprecated by Riot.", E_USER_DEPRECATED);
 		$resultPromise = $this->setEndpoint("/lol/match/v4/matches/{$match_id}/by-tournament-code/{$tournament_code}")
 			->setResource("1420:match", "/matches/%i/by-tournament-code/%s")
 			->useKey(self::SET_TOURNAMENT_KEY)
@@ -1237,7 +1237,7 @@ class LeagueAPI extends BaseAPI
 	 */
 	public function getMatchIdsByTournamentCode( string $tournament_code )
 	{
-		user_error("The LeagueAPI::getMatchIdsByTournamentCode will be soon removed. The endpoint will be deprecated by Riot on July 26 2021.", E_USER_DEPRECATED);
+		user_error("The LeagueAPI::getMatchIdsByTournamentCode will be soon removed. The endpoint will soon be deprecated by Riot.", E_USER_DEPRECATED);
 		$resultPromise = $this->setEndpoint("/lol/match/v4/matches/by-tournament-code/{$tournament_code}/ids")
 			->setResource("1420:match", "/matches/by-tournament-code/%s/ids")
 			->useKey(self::SET_TOURNAMENT_KEY)
@@ -1277,7 +1277,7 @@ class LeagueAPI extends BaseAPI
 	 */
 	public function getMatchlistByAccount( string $encrypted_account_id, $queue = null, $season = null, $champion = null, int $beginTime = null, int $endTime = null, int $beginIndex = null, int $endIndex = null )
 	{
-		user_error("The LeagueAPI::getMatchlistByAccount will be soon removed. The endpoint will be deprecated by Riot on July 26 2021.", E_USER_DEPRECATED);
+		user_error("The LeagueAPI::getMatchlistByAccount will be soon removed. The endpoint will soon be deprecated by Riot.", E_USER_DEPRECATED);
 		$resultPromise = $this->setEndpoint("/lol/match/v4/matchlists/by-account/{$encrypted_account_id}")
 			->setResource("1420:match", "/matchlists/by-account/%s")
 			->addQuery('queue', $queue)
@@ -1313,7 +1313,7 @@ class LeagueAPI extends BaseAPI
 	 */
 	public function getMatchTimeline( $match_id )
 	{
-		user_error("The LeagueAPI::getMatchTimeline will be soon removed. The endpoint will be deprecated by Riot on July 26 2021.", E_USER_DEPRECATED);
+		user_error("The LeagueAPI::getMatchTimeline will be soon removed. The endpoint will soon be deprecated by Riot.", E_USER_DEPRECATED);
 		$continent_region = $this->platforms->getCorrespondingContinentRegion($this->getSetting(self::SET_PLATFORM));
 
 		$resultPromise = $this->setEndpoint("/lol/match/v4/timelines/by-match/{$match_id}")
