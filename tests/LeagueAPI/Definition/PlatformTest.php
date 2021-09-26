@@ -55,7 +55,7 @@ class PlatformTest extends RiotAPITestCase
 	 */
 	public function testGetPlatform( Platform $region )
 	{
-		$regionName = $region->getPlatformName(Region::EUROPE_EAST);
+		$regionName = $region->getPlatformNameOfRegion(Region::EUROPE_EAST);
 		$this->assertSame(Platform::$list[Region::EUROPE_EAST], $regionName);
 	}
 
@@ -68,6 +68,6 @@ class PlatformTest extends RiotAPITestCase
 	{
 		$this->expectException(GeneralException::class);
 
-		$region->getPlatformName('MORDOR');
+		$region->getPlatformNameOfRegion('MORDOR');
 	}
 }

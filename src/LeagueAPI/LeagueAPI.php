@@ -1314,7 +1314,7 @@ class LeagueAPI extends BaseAPI
 	public function getMatchTimeline( $match_id )
 	{
 		user_error("The LeagueAPI::getMatchTimeline will be soon removed. The endpoint will be deprecated by Riot on July 26 2021.", E_USER_DEPRECATED);
-		$continent_region = $this->platforms->getContinentRegion($this->getSetting(self::SET_PLATFORM));
+		$continent_region = $this->platforms->getCorrespondingContinentRegion($this->getSetting(self::SET_PLATFORM));
 
 		$resultPromise = $this->setEndpoint("/lol/match/v4/timelines/by-match/{$match_id}")
 			->setResource("1420:match", "/timelines/by-match/%i")
@@ -1358,7 +1358,7 @@ class LeagueAPI extends BaseAPI
 		if ($count && ($count < 0 || $count > 100))
 			throw new RequestParameterException('Count of results (count) must be between 0 and 100.');
 
-		$continent_region = $this->platforms->getContinentRegion($this->getSetting(self::SET_REGION));
+		$continent_region = $this->platforms->getCorrespondingContinentRegion($this->getSetting(self::SET_REGION));
 
 		$resultPromise = $this->setEndpoint("/lol/match/" . self::RESOURCE_MATCH_VERSION . "/matches/by-puuid/{$puuid}/ids")
 			->setResource(self::RESOURCE_MATCH, "/matches/by-puuid/%s/ids")
@@ -1393,7 +1393,7 @@ class LeagueAPI extends BaseAPI
 	 */
 	public function getMatch(string $match_id)
 	{
-		$continent_region = $this->platforms->getContinentRegion($this->getSetting(self::SET_REGION));
+		$continent_region = $this->platforms->getCorrespondingContinentRegion($this->getSetting(self::SET_REGION));
 
 		$resultPromise = $this->setEndpoint("/lol/match/" . self::RESOURCE_MATCH_VERSION . "/matches/{$match_id}")
 			->setResource(self::RESOURCE_MATCH, "/matches/%s")
@@ -1424,7 +1424,7 @@ class LeagueAPI extends BaseAPI
 	 */
 	public function getTimeline(string $match_id)
 	{
-		$continent_region = $this->platforms->getContinentRegion($this->getSetting(self::SET_REGION));
+		$continent_region = $this->platforms->getCorrespondingContinentRegion($this->getSetting(self::SET_REGION));
 
 		$resultPromise = $this->setEndpoint("/lol/match/" . self::RESOURCE_MATCH_VERSION . "/matches/{$match_id}/timeline")
 			->setResource(self::RESOURCE_MATCH, "/matches/%s/timeline")
