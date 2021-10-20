@@ -67,7 +67,7 @@ class SummonerEndpointObjectIntegrityTest extends RiotAPITestCase
 	{
 		//  Get library processed results
 		/** @var Objects\SummonerDto $result */
-		$result = $api->getSummonerByName('I am TheKronnY');
+		$result = $api->getSummonerByName('IamTheKronnY');
 		//  Get raw result
 		$rawResult = $api->getResult();
 

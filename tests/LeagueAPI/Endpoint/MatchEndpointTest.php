@@ -27,92 +27,71 @@ use RiotAPI\LeagueAPI\Objects;
 
 class MatchEndpointTest extends RiotAPITestCase
 {
-	public function testInit()
+    /** @var LeagueAPI */
+    private $leagueApi;
+
+	public function setUp(): void
 	{
-		$api = new LeagueAPI([
+		$this->leagueApi = new LeagueAPI([
 			LeagueAPI::SET_KEY             => RiotAPITestCase::getApiKey(),
 			LeagueAPI::SET_REGION          => Region::EUROPE_EAST,
 			LeagueAPI::SET_USE_DUMMY_DATA  => true,
 			LeagueAPI::SET_CACHE_RATELIMIT => true,
 		]);
 
-		$this->assertInstanceOf(LeagueAPI::class, $api);
-
-		return $api;
+		$this->assertInstanceOf(LeagueAPI::class, $this->leagueApi);
 	}
 
-	/**
-	 * @depends testInit
-	 *
-	 * @param LeagueAPI $api
-	 */
-	public function testGetMatch(LeagueAPI $api )
+	public function testGetMatch()
 	{
+        $this->markTestIncomplete('No DummyData for this call yet.');
+
 		$match_id = 1730730260;
 		//  Get library processed results
 		/** @var Objects\MatchDto $result */
-		$result = $api->getMatch($match_id);
+		$result = @$this->leagueApi->getMatch((string)$match_id);
 
 		$this->assertEquals($match_id, $result->gameId);
 	}
 
-	/**
-	 * @depends testInit
-	 *
-	 * @param LeagueAPI $api
-	 */
-	public function testGetTournamentMatch(LeagueAPI $api )
+	public function testGetTournamentMatch()
 	{
 		$this->markTestIncomplete('No DummyData for this call yet.');
 
 		//  Get library processed results
 		/** @var Objects\MatchDto $result */
-		$result = $api->getMatchByTournamentCode(2641970449, '239d180f-fb8a-439e-85d9-95142e10b4f5');
+		$result = $this->leagueApi->getMatchByTournamentCode(2641970449, '239d180f-fb8a-439e-85d9-95142e10b4f5');
 
 		$this->assertTrue(true);
 	}
 
-	/**
-	 * @depends testInit
-	 *
-	 * @param LeagueAPI $api
-	 */
-	public function testGetTournamentMatchIds(LeagueAPI $api )
+	public function testGetTournamentMatchIds()
 	{
 		$this->markTestIncomplete('No DummyData for this call yet.');
 
 		//  Get library processed results
 		/** @var array $result */
-		$result = $api->getMatchIdsByTournamentCode('239d180f-fb8a-439e-85d9-95142e10b4f5');
+		$result = $this->leagueApi->getMatchIdsByTournamentCode('239d180f-fb8a-439e-85d9-95142e10b4f5');
 
 		$this->assertTrue(true);
 	}
 
-	/**
-	 * @depends testInit
-	 *
-	 * @param LeagueAPI $api
-	 */
-	public function testGetMatchlist(LeagueAPI $api )
+	public function testGetMatchlist()
 	{
 		//  Get library processed results
 		/** @var Objects\MatchlistDto $result */
-		$result = $api->getMatchlistByAccount("tGSPHbasiCOgRM_MuovMKfXw7oh6pfXmGiPDnXcxJDohrQ");
+		$result = @$this->leagueApi->getMatchlistByAccount("tGSPHbasiCOgRM_MuovMKfXw7oh6pfXmGiPDnXcxJDohrQ");
 
 		$this->assertTrue(true);
 	}
 
-	/**
-	 * @depends testInit
-	 *
-	 * @param LeagueAPI $api
-	 */
-	public function testGetMatchTimeline(LeagueAPI $api )
+	public function testGetMatchTimeline()
 	{
+        $this->markTestIncomplete('getMatchTimeLine is deprecated.');
 		$match_id = 1730730260;
 		//  Get library processed results
 		/** @var Objects\MatchTimelineDto $result */
-		$result = $api->getMatchTimeline($match_id);
+		$result = @$this->leagueApi->getMatchTimeline($match_id);
 
 		$this->assertTrue(true);
 	}

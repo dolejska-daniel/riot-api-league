@@ -1,40 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<phpunit backupGlobals="false"
-         backupStaticAttributes="false"
-         bootstrap="phpunit.php"
-         colors="true"
-         convertErrorsToExceptions="true"
-         convertNoticesToExceptions="true"
-         convertWarningsToExceptions="true"
-         processIsolation="false"
-         stopOnFailure="false"
-         beStrictAboutOutputDuringTests="true"
+<phpunit
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.3/phpunit.xsd"
+        bootstrap="phpunit.php"
+        colors="true"
+        beStrictAboutOutputDuringTests="true"
 >
-	<testsuites>
-		<testsuite name="LeagueAPI:Definition_Tests">
-			<directory>tests/LeagueAPI/Definition/</directory>
-		</testsuite>
-		<testsuite name="LeagueAPI:Endpoint_Tests">
-			<directory>tests/LeagueAPI/Endpoint/</directory>
-		</testsuite>
-		<testsuite name="LeagueAPI:EndpointIntegrity_Tests">
-			<directory>tests/LeagueAPI/EndpointObjectIntegrity/</directory>
-		</testsuite>
-	</testsuites>
+    <testsuites>
+        <testsuite name="LeagueAPI:Definition_Tests">
+            <directory>tests/LeagueAPI/Definition/</directory>
+        </testsuite>
+        <testsuite name="LeagueAPI:Endpoint_Tests">
+            <directory>tests/LeagueAPI/Endpoint/</directory>
+        </testsuite>
+        <testsuite name="LeagueAPI:EndpointIntegrity_Tests">
+            <directory>tests/LeagueAPI/EndpointObjectIntegrity/</directory>
+        </testsuite>
+    </testsuites>
 
-	<coverage cacheDirectory="build/cache/phpunit_coverage"
-			  includeUncoveredFiles="true"
-			  processUncoveredFiles="true"
-			  pathCoverage="false"
-			  ignoreDeprecatedCodeUnits="true"
-			  disableCodeCoverageIgnore="true"
-	>
-		<include>
-			<directory suffix=".php">src/LeagueAPI</directory>
-		</include>
+    <coverage cacheDirectory="build/cache/phpunit_coverage"
+              processUncoveredFiles="true"
+              ignoreDeprecatedCodeUnits="true"
+              disableCodeCoverageIgnore="true"
+    >
+        <include>
+            <directory suffix=".php">src/LeagueAPI</directory>
+        </include>
 
-		<exclude>
-			<directory suffix=".php">vendor</directory>
-		</exclude>
-	</coverage>
+        <exclude>
+            <directory suffix=".php">vendor</directory>
+        </exclude>
+    </coverage>
 </phpunit>

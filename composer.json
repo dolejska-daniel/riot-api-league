@@ -13,7 +13,7 @@
 		}
 	],
 	"scripts": {
-		"test": "vendor/bin/phpunit -v --bootstrap phpunit.php --configuration phpunit.xml --coverage-text --coverage-html build/coverage"
+		"test": "XDEBUG_MODE=coverage phpunit --configuration phpunit.xml --coverage-text --coverage-clover build/logs/clover.xml"
 	},
 	"require": {
 		"dolejska-daniel/riot-api-base": "^1",

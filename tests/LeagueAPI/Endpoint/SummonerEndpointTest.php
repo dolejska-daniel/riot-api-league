@@ -83,10 +83,11 @@ class SummonerEndpointTest extends RiotAPITestCase
 	public function testGetSummonerByName(LeagueAPI $api )
 	{
 		$summonerName = 'I am TheKronnY';
+        $sanitizedSummonerName = 'IamTheKronnY';
 
 		//  Get library processed results
 		/** @var Objects\SummonerDto $result */
-		$result = $api->getSummonerByName($summonerName);
+		$result = $api->getSummonerByName($sanitizedSummonerName);
 
 		$this->assertSame("KnNZNuEVZ5rZry3IyWwYSVuikRe0y3qTWSkr1wxcmV5CLJ8", $result->id);
 		$this->assertSame("tGSPHbasiCOgRM_MuovMKfXw7oh6pfXmGiPDnXcxJDohrQ", $result->accountId);
