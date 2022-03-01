@@ -1336,6 +1336,8 @@ class LeagueAPI extends BaseAPI
 	 * @param string|null $type  Filter the list of match ids by the type of match. This filter is mutually inclusive of the queue filter meaning any match ids returned must match both the queue and type filters.
 	 * @param int|null    $start Start index.
 	 * @param int|null    $count Valid values: 0 to 100. Number of match ids to return.
+	 * @param int|null    $startTime Epoch timestamp in seconds. The matchlist started storing timestamps on June 16th, 2021. Any matches played before June 16th, 2021 won't be included in the results if the startTime filter is set.
+	 * @param int|null    $endTime Epoch timestamp in seconds.
 	 *
 	 * @return string[]
 	 *
@@ -1347,7 +1349,7 @@ class LeagueAPI extends BaseAPI
 	 *
 	 * @link https://developer.riotgames.com/apis#match-v5/GET_getMatchIdsByPUUID
 	 */
-	public function getMatchIdsByPUUID(string $puuid, int $queue = null, string $type = null, int $start = null, int $count = null)
+	public function getMatchIdsByPUUID(string $puuid, int $queue = null, string $type = null, int $start = null, int $count = null, int $startTime = null, int $endTime = null)
 	{
 		if ($type && !in_array($type, self::MATCH_ALLOWED_TYPES))
 			throw new RequestParameterException('Value of match type (type) is invalid. Allowed values: ' . implode(', ', self::MATCH_ALLOWED_TYPES));
@@ -1366,6 +1368,8 @@ class LeagueAPI extends BaseAPI
 			->addQuery("type", $type)
 			->addQuery("start", $start)
 			->addQuery("count", $count)
+			->addQuery("startTime", $startTime)
+			->addQuery("endTime", $endTime)
 			->makeCall($continent_region);
 
 		return $this->resolveOrEnqueuePromise($resultPromise, function(array $result) {
