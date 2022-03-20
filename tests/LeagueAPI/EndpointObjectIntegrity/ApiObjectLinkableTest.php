@@ -66,6 +66,6 @@ class ApiObjectLinkableTest extends RiotAPITestCase
 
 	public function testInvalidLinkableProperty()
 	{
-		$this->assertFalse(ApiObjectLinkable::getLinkablePropertyData("INVALID_PROPERTY"));
+		$this->assertNull(ApiObjectLinkable::getLinkablePropertyData("INVALID_PROPERTY"));
 	}
 }

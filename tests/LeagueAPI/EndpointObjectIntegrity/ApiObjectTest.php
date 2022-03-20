@@ -36,7 +36,7 @@ class ApiObjectTest extends RiotAPITestCase
 	public function testGetIterablePropertyName_False()
 	{
 		$propName = Objects\ApiObject::getIterablePropertyName('/** @no-iterable-here */');
-		$this->assertFalse($propName);
+		$this->assertNull($propName);
 	}
 
 	public function testGetPropertyDataType()
@@ -56,7 +56,7 @@ class ApiObjectTest extends RiotAPITestCase
 	public function testGetPropertyDataType_False()
 	{
 		$dataType = Objects\ApiObject::getPropertyDataType('/** @var int $property */');
-		$this->assertFalse($dataType);
+		$this->assertNull($dataType);
 	}
 
 	public function testGetData()
