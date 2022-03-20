@@ -1,10 +1,11 @@
 # RiotAPI PHP wrapper for League of Legends
-> Version v1.0.0
+> Version v2.0.0
 
 [![Build Status](https://img.shields.io/travis/dolejska-daniel/riot-api-league/master)](https://travis-ci.com/dolejska-daniel/riot-api-league)
 [![Test Coverage](https://img.shields.io/codeclimate/coverage/dolejska-daniel/riot-api-league?logo=code-climate)](https://codeclimate.com/github/dolejska-daniel/riot-api-league/coverage)
 [![Packagist](https://img.shields.io/packagist/dm/dolejska-daniel/riot-api-league)](https://packagist.org/packages/dolejska-daniel/riot-api-league)
 [![Packagist](https://img.shields.io/packagist/l/dolejska-daniel/riot-api-league)](https://packagist.org/packages/dolejska-daniel/riot-api-league)
+![Packagist PHP Version Support](https://img.shields.io/packagist/php-v/dolejska-daniel/riot-api-league)
 [![Support Project](https://img.shields.io/badge/support_project-PayPal-blue)](https://www.paypal.me/dolejskad)
 
 
