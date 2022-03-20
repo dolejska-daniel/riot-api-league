@@ -16,8 +16,8 @@
 		"test": "XDEBUG_MODE=coverage phpunit --configuration phpunit.xml --coverage-text --coverage-clover build/logs/clover.xml"
 	},
 	"require": {
-		"dolejska-daniel/riot-api-base": "^1",
-		"php": ">=7.3",
+		"dolejska-daniel/riot-api-base": "v2.0.0.x-dev",
+		"php": ">=8.1",
 		"ext-json": "*"
 	},
 	"require-dev": {
