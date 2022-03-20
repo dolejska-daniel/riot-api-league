@@ -1,4 +1,4 @@
-<?php
+<?php /** @noinspection PhpInternalEntityUsedInspection */
 
 /**
  * Copyright (C) 2016-2020  Daniel Dolejška
@@ -19,7 +19,9 @@
 
 namespace RiotAPI\LeagueAPI;
 
+use ReflectionException;
 use RiotAPI\Base\BaseAPI;
+use RiotAPI\Base\Definitions\IRegion;
 use RiotAPI\Base\Definitions\Region;
 use RiotAPI\LeagueAPI\Objects;
 use RiotAPI\LeagueAPI\Objects\StaticData;
@@ -145,7 +147,7 @@ class LeagueAPI extends BaseAPI
 	 *
 	 * @var array $resources
 	 */
-	protected $resources = [
+	protected array $resources = [
 		self::RESOURCE_CHAMPION,
 		self::RESOURCE_CHAMPIONMASTERY,
 		self::RESOURCE_LEAGUE,
@@ -220,7 +222,7 @@ class LeagueAPI extends BaseAPI
 	 * @cli-name get-rotations
 	 * @cli-namespace champion
 	 *
-	 * @return Objects\ChampionInfo
+	 * @return Objects\ChampionInfo|null
 	 *
 	 * @throws GeneralException
 	 * @throws RequestException
@@ -228,7 +230,7 @@ class LeagueAPI extends BaseAPI
 	 * @throws ServerLimitException
 	 * @throws SettingsException
 	 */
-	public function getChampionRotations()
+	public function getChampionRotations(): ?Objects\ChampionInfo
 	{
 		$resultPromise = $this->setEndpoint("/lol/platform/" . self::RESOURCE_CHAMPION_VERSION . "/champion-rotations")
 			->setResource(self::RESOURCE_CHAMPION, "/champion-rotations")
@@ -259,7 +261,7 @@ class LeagueAPI extends BaseAPI
 	 * @param string $encrypted_summoner_id
 	 * @param int $champion_id
 	 *
-	 * @return Objects\ChampionMasteryDto
+	 * @return Objects\ChampionMasteryDto|null
 	 *
 	 * @throws SettingsException
 	 * @throws RequestException
@@ -269,9 +271,9 @@ class LeagueAPI extends BaseAPI
 	 *
 	 * @link https://developer.riotgames.com/apis#champion-mastery-v4/GET_getChampionMastery
 	 */
-	public function getChampionMastery( string $encrypted_summoner_id, int $champion_id )
+	public function getChampionMastery( string $encrypted_summoner_id, int $champion_id ): ?Objects\ChampionMasteryDto
 	{
-		$resultPromise = $this->setEndpoint("/lol/champion-mastery/" . self::RESOURCE_CHAMPIONMASTERY_VERSION . "/champion-masteries/by-summoner/{$encrypted_summoner_id}/by-champion/{$champion_id}")
+		$resultPromise = $this->setEndpoint("/lol/champion-mastery/" . self::RESOURCE_CHAMPIONMASTERY_VERSION . "/champion-masteries/by-summoner/$encrypted_summoner_id/by-champion/$champion_id")
 			->setResource(self::RESOURCE_CHAMPIONMASTERY, "/champion-masteries/by-summoner/%s/by-champion/%s")
 			->makeCall();
 
@@ -289,7 +291,7 @@ class LeagueAPI extends BaseAPI
 	 *
 	 * @param string $encrypted_summoner_id
 	 *
-	 * @return Objects\ChampionMasteryDto[]
+	 * @return Objects\ChampionMasteryDto[]|null
 	 *
 	 * @throws SettingsException
 	 * @throws RequestException
@@ -299,9 +301,9 @@ class LeagueAPI extends BaseAPI
 	 *
 	 * @link https://developer.riotgames.com/apis#champion-mastery-v4/GET_getAllChampionMasteries
 	 */
-	public function getChampionMasteries( string $encrypted_summoner_id )
+	public function getChampionMasteries( string $encrypted_summoner_id ): ?array
 	{
-		$resultPromise = $this->setEndpoint("/lol/champion-mastery/" . self::RESOURCE_CHAMPIONMASTERY_VERSION . "/champion-masteries/by-summoner/{$encrypted_summoner_id}")
+		$resultPromise = $this->setEndpoint("/lol/champion-mastery/" . self::RESOURCE_CHAMPIONMASTERY_VERSION . "/champion-masteries/by-summoner/$encrypted_summoner_id")
 			->setResource(self::RESOURCE_CHAMPIONMASTERY, "/champion-masteries/by-summoner/%s")
 			->makeCall();
 
@@ -322,7 +324,7 @@ class LeagueAPI extends BaseAPI
 	 *
 	 * @param string $encrypted_summoner_id
 	 *
-	 * @return int
+	 * @return int|null
 	 *
 	 * @throws SettingsException
 	 * @throws RequestException
@@ -332,9 +334,9 @@ class LeagueAPI extends BaseAPI
 	 *
 	 * @link https://developer.riotgames.com/apis#champion-mastery-v4/GET_getChampionMasteryScore
 	 */
-	public function getChampionMasteryScore( string $encrypted_summoner_id )
+	public function getChampionMasteryScore( string $encrypted_summoner_id ): ?int
 	{
-		$resultPromise = $this->setEndpoint("/lol/champion-mastery/" . self::RESOURCE_CHAMPIONMASTERY_VERSION . "/scores/by-summoner/{$encrypted_summoner_id}")
+		$resultPromise = $this->setEndpoint("/lol/champion-mastery/" . self::RESOURCE_CHAMPIONMASTERY_VERSION . "/scores/by-summoner/$encrypted_summoner_id")
 			->setResource(self::RESOURCE_CHAMPIONMASTERY, "/scores/by-summoner/%s")
 			->makeCall();
 
@@ -353,7 +355,15 @@ class LeagueAPI extends BaseAPI
 	const RESOURCE_SPECTATOR = '1419:spectator';
 	const RESOURCE_SPECTATOR_VERSION = 'v4';
 
-	public function getCurrentGameInfo(string $encrypted_summoner_id)
+	/**
+	 * @throws ServerException
+	 * @throws ServerLimitException
+	 * @throws SettingsException
+	 * @throws RequestException
+	 * @throws GeneralException
+	 * @throws ReflectionException
+	 */
+	public function getCurrentGameInfo(string $encrypted_summoner_id): ?Objects\CurrentGameInfo
 	{
 		user_error("The LeagueAPI::getCurrentGameInfo will be soon removed in favour of LeagueAPI::getCurrentGameInfoBySummoner.", E_USER_DEPRECATED);
 		return $this->getCurrentGameInfoBySummoner($encrypted_summoner_id);
@@ -374,12 +384,13 @@ class LeagueAPI extends BaseAPI
 	 * @throws ServerException
 	 * @throws ServerLimitException
 	 * @throws GeneralException
+	 * @throws ReflectionException
 	 *
 	 * @link https://developer.riotgames.com/apis#spectator-v4/GET_getCurrentGameInfoBySummoner
 	 */
-	public function getCurrentGameInfoBySummoner(string $encrypted_summoner_id)
+	public function getCurrentGameInfoBySummoner(string $encrypted_summoner_id): ?Objects\CurrentGameInfo
 	{
-		$resultPromise = $this->setEndpoint("/lol/spectator/" . self::RESOURCE_SPECTATOR_VERSION . "/active-games/by-summoner/{$encrypted_summoner_id}")
+		$resultPromise = $this->setEndpoint("/lol/spectator/" . self::RESOURCE_SPECTATOR_VERSION . "/active-games/by-summoner/$encrypted_summoner_id")
 			->setResource(self::RESOURCE_SPECTATOR, "/active-games/by-summoner/%s")
 			->makeCall();
 
@@ -394,17 +405,19 @@ class LeagueAPI extends BaseAPI
 	 * @cli-name get-featured-games
 	 * @cli-namespace spectator
 	 *
-	 * @return Objects\FeaturedGames
+	 * @return Objects\FeaturedGames|null
 	 *
 	 * @throws SettingsException
 	 * @throws RequestException
 	 * @throws ServerException
 	 * @throws ServerLimitException
 	 * @throws GeneralException
+	 * @throws ReflectionException
+	 * @throws ReflectionException
 	 *
 	 * @link https://developer.riotgames.com/apis#spectator-v4/GET_getFeaturedGames
 	 */
-	public function getFeaturedGames()
+	public function getFeaturedGames(): ?Objects\FeaturedGames
 	{
 		$resultPromise = $this->setEndpoint("/lol/spectator/" . self::RESOURCE_SPECTATOR_VERSION . "/featured-games")
 			->setResource(self::RESOURCE_SPECTATOR, "/featured-games")
@@ -433,7 +446,7 @@ class LeagueAPI extends BaseAPI
 	 *
 	 * @param string $league_id
 	 *
-	 * @return Objects\LeagueListDto
+	 * @return Objects\LeagueListDto|null
 	 *
 	 * @throws SettingsException
 	 * @throws RequestException
@@ -443,9 +456,9 @@ class LeagueAPI extends BaseAPI
 	 *
 	 * @link https://developer.riotgames.com/apis#league-v4/GET_getLeagueById
 	 */
-	public function getLeagueById( string $league_id )
+	public function getLeagueById( string $league_id ): ?Objects\LeagueListDto
 	{
-		$resultPromise = $this->setEndpoint("/lol/league/" . self::RESOURCE_LEAGUE_VERSION . "/leagues/{$league_id}")
+		$resultPromise = $this->setEndpoint("/lol/league/" . self::RESOURCE_LEAGUE_VERSION . "/leagues/$league_id")
 			->setResource(self::RESOURCE_LEAGUE, "/leagues/%s")
 			->makeCall();
 
@@ -462,7 +475,7 @@ class LeagueAPI extends BaseAPI
 	 *
 	 * @param string $encrypted_summoner_id
 	 *
-	 * @return Objects\LeagueEntryDto[]
+	 * @return Objects\LeagueEntryDto[]|null
 	 *
 	 * @throws GeneralException
 	 * @throws RequestException
@@ -472,9 +485,9 @@ class LeagueAPI extends BaseAPI
 	 *
 	 * @link https://developer.riotgames.com/apis#league-v4/GET_getLeagueEntriesForSummoner
 	 */
-	public function getLeagueEntriesForSummoner( string $encrypted_summoner_id )
+	public function getLeagueEntriesForSummoner( string $encrypted_summoner_id ): ?array
 	{
-		$resultPromise = $this->setEndpoint("/lol/league/" . self::RESOURCE_LEAGUE_VERSION . "/entries/by-summoner/{$encrypted_summoner_id}")
+		$resultPromise = $this->setEndpoint("/lol/league/" . self::RESOURCE_LEAGUE_VERSION . "/entries/by-summoner/$encrypted_summoner_id")
 			->setResource(self::RESOURCE_LEAGUE, "/entries/by-summoner/%s")
 			->makeCall();
 
@@ -497,7 +510,7 @@ class LeagueAPI extends BaseAPI
 	 * @param string $division
 	 * @param int $page
 	 *
-	 * @return Objects\LeagueEntryDto[]
+	 * @return Objects\LeagueEntryDto[]|null
 	 *
 	 * @throws GeneralException
 	 * @throws RequestException
@@ -506,9 +519,9 @@ class LeagueAPI extends BaseAPI
 	 * @throws SettingsException
 	 * @link https://developer.riotgames.com/apis#league-v4/GET_getLeagueEntries
 	 */
-	public function getLeagueEntries( string $queue, string $tier, string $division, int $page = 1 )
+	public function getLeagueEntries( string $queue, string $tier, string $division, int $page = 1 ): ?array
 	{
-		$resultPromise = $this->setEndpoint("/lol/league/" . self::RESOURCE_LEAGUE_VERSION . "/entries/{$queue}/{$tier}/{$division}")
+		$resultPromise = $this->setEndpoint("/lol/league/" . self::RESOURCE_LEAGUE_VERSION . "/entries/$queue/$tier/$division")
 			->setResource(self::RESOURCE_LEAGUE, "/entries/%s/%s/%s")
 			->addQuery('page', $page)
 			->makeCall();
@@ -529,7 +542,7 @@ class LeagueAPI extends BaseAPI
 	 *
 	 * @param string $game_queue_type
 	 *
-	 * @return Objects\LeagueListDto
+	 * @return Objects\LeagueListDto|null
 	 *
 	 * @throws SettingsException
 	 * @throws RequestException
@@ -539,9 +552,9 @@ class LeagueAPI extends BaseAPI
 	 *
 	 * @link https://developer.riotgames.com/apis#league-v4/GET_getChallengerLeague
 	 */
-	public function getLeagueChallenger( string $game_queue_type )
+	public function getLeagueChallenger( string $game_queue_type ): ?Objects\LeagueListDto
 	{
-		$resultPromise = $this->setEndpoint("/lol/league/" . self::RESOURCE_LEAGUE_VERSION . "/challengerleagues/by-queue/{$game_queue_type}")
+		$resultPromise = $this->setEndpoint("/lol/league/" . self::RESOURCE_LEAGUE_VERSION . "/challengerleagues/by-queue/$game_queue_type")
 			->setResource(self::RESOURCE_LEAGUE, "/challengerleagues/by-queue/%s")
 			->makeCall();
 
@@ -558,7 +571,7 @@ class LeagueAPI extends BaseAPI
 	 *
 	 * @param string $game_queue_type
 	 *
-	 * @return Objects\LeagueListDto
+	 * @return Objects\LeagueListDto|null
 	 *
 	 * @throws SettingsException
 	 * @throws RequestException
@@ -568,9 +581,9 @@ class LeagueAPI extends BaseAPI
 	 *
 	 * @link https://developer.riotgames.com/apis#league-v4/GET_getMasterLeague
 	 */
-	public function getLeagueGrandmaster( string $game_queue_type )
+	public function getLeagueGrandmaster( string $game_queue_type ): ?Objects\LeagueListDto
 	{
-		$resultPromise = $this->setEndpoint("/lol/league/" . self::RESOURCE_LEAGUE_VERSION . "/grandmasterleagues/by-queue/{$game_queue_type}")
+		$resultPromise = $this->setEndpoint("/lol/league/" . self::RESOURCE_LEAGUE_VERSION . "/grandmasterleagues/by-queue/$game_queue_type")
 			->setResource(self::RESOURCE_LEAGUE, "/grandmasterleagues/by-queue/%s")
 			->makeCall();
 
@@ -587,7 +600,7 @@ class LeagueAPI extends BaseAPI
 	 *
 	 * @param string $game_queue_type
 	 *
-	 * @return Objects\LeagueListDto
+	 * @return Objects\LeagueListDto|null
 	 *
 	 * @throws SettingsException
 	 * @throws RequestException
@@ -597,9 +610,9 @@ class LeagueAPI extends BaseAPI
 	 *
 	 * @link https://developer.riotgames.com/apis#league-v4/GET_getMasterLeague
 	 */
-	public function getLeagueMaster( string $game_queue_type )
+	public function getLeagueMaster( string $game_queue_type ): ?Objects\LeagueListDto
 	{
-		$resultPromise = $this->setEndpoint("/lol/league/" . self::RESOURCE_LEAGUE_VERSION . "/masterleagues/by-queue/{$game_queue_type}")
+		$resultPromise = $this->setEndpoint("/lol/league/" . self::RESOURCE_LEAGUE_VERSION . "/masterleagues/by-queue/$game_queue_type")
 			->setResource(self::RESOURCE_LEAGUE, "/masterleagues/by-queue/%s")
 			->makeCall();
 
@@ -629,7 +642,7 @@ class LeagueAPI extends BaseAPI
 	 * @param string $division
 	 * @param int $page
 	 *
-	 * @return Objects\LeagueEntryDto[]
+	 * @return Objects\LeagueEntryDto[]|null
 	 *
 	 * @throws GeneralException
 	 * @throws RequestException
@@ -639,9 +652,9 @@ class LeagueAPI extends BaseAPI
 	 *
 	 * @link https://developer.riotgames.com/apis#league-exp-v4/GET_getLeagueEntries
 	 */
-	public function getLeagueEntriesExp( string $queue, string $tier, string $division, int $page = 1 )
+	public function getLeagueEntriesExp( string $queue, string $tier, string $division, int $page = 1 ): ?array
 	{
-		$resultPromise = $this->setEndpoint("/lol/league-exp/" . self::RESOURCE_LEAGUE_EXP_VERSION . "/entries/{$queue}/{$tier}/{$division}")
+		$resultPromise = $this->setEndpoint("/lol/league-exp/" . self::RESOURCE_LEAGUE_EXP_VERSION . "/entries/$queue/$tier/$division")
 			->setResource(self::RESOURCE_LEAGUE_EXP, "/entries/%s/%s/%s")
 			->addQuery('page', $page)
 			->makeCall();
@@ -670,15 +683,18 @@ class LeagueAPI extends BaseAPI
 	 * @throws RequestException
 	 * @throws ServerException
 	 * @throws SettingsException
+	 *
+	 * @noinspection PhpUndefinedNamespaceInspection
+	 * @noinspection PhpUndefinedClassInspection
 	 */
-	protected function _makeStaticCall($method, ...$arguments)
+	protected function _makeStaticCall($method, ...$arguments): mixed
 	{
 		try
 		{
 			// Fetch StaticData from JSON files
 			$result = call_user_func_array($method, $arguments);
 			$this->result_data = $result;
-			$this->result_data_raw = [];
+			$this->result_data_raw = null;
 			$this->result_headers = [];
 			$this->result_code = 200;
 
@@ -690,7 +706,7 @@ class LeagueAPI extends BaseAPI
 		}
 		catch (DataDragonExceptions\SettingsException $ex)
 		{
-			throw new SettingsException("DataDragon API was not initialized properly! StaticData endpoints cannot be used.");
+			throw new SettingsException("DataDragon API was not initialized properly! StaticData endpoints cannot be used. {$ex->getMessage()}");
 		}
 		catch (DataDragonExceptions\ArgumentException $ex)
 		{
@@ -708,13 +724,14 @@ class LeagueAPI extends BaseAPI
 	 *
 	 * @param bool $data_by_key
 	 * @param string $locale
-	 * @param string $version
+	 * @param string|null $version
 	 *
 	 * @return StaticData\StaticChampionListDto
 	 *
 	 * @throws RequestException
 	 * @throws ServerException
 	 * @throws SettingsException
+	 * @throws ReflectionException
 	 */
 	public function getStaticChampions( bool $data_by_key = false, string $locale = 'en_US', string $version = null ): StaticData\StaticChampionListDto
 	{
@@ -728,15 +745,15 @@ class LeagueAPI extends BaseAPI
 	 * @cli-name get-champion
 	 * @cli-namespace static-data
 	 *
-	 * @param int    $champion_id
-	 * @param bool   $extended
+	 * @param int $champion_id
+	 * @param bool $extended
 	 * @param string $locale
-	 * @param string $version
+	 * @param string|null $version
 	 *
 	 * @return StaticData\StaticChampionDto
 	 * @throws RequestException
-	 * @throws SettingsException
 	 * @throws ServerException
+	 * @throws SettingsException
 	 */
 	public function getStaticChampion( int $champion_id, bool $extended = false, string $locale = 'en_US', string $version = null ): StaticData\StaticChampionDto
 	{
@@ -762,12 +779,14 @@ class LeagueAPI extends BaseAPI
 	 * @cli-namespace static-data
 	 *
 	 * @param string $locale
-	 * @param string $version
+	 * @param string|null $version
 	 *
 	 * @return StaticData\StaticItemListDto
+	 * @throws ReflectionException
 	 * @throws RequestException
 	 * @throws ServerException
 	 * @throws SettingsException
+	 * @throws ReflectionException
 	 */
 	public function getStaticItems( string $locale = 'en_US', string $version = null ): StaticData\StaticItemListDto
 	{
@@ -790,7 +809,7 @@ class LeagueAPI extends BaseAPI
 	 *
 	 * @param int $item_id
 	 * @param string $locale
-	 * @param string $version
+	 * @param string|null $version
 	 *
 	 * @return StaticData\StaticItemDto
 	 * @throws RequestException
@@ -815,12 +834,14 @@ class LeagueAPI extends BaseAPI
 	 * @cli-namespace static-data
 	 *
 	 * @param string $locale
-	 * @param string $version
+	 * @param string|null $version
 	 *
 	 * @return StaticData\StaticLanguageStringsDto
+	 * @throws ReflectionException
 	 * @throws RequestException
 	 * @throws ServerException
 	 * @throws SettingsException
+	 * @throws ReflectionException
 	 */
 	public function getStaticLanguageStrings( string $locale = 'en_US', string $version = null ): StaticData\StaticLanguageStringsDto
 	{
@@ -851,12 +872,14 @@ class LeagueAPI extends BaseAPI
 	 * @cli-namespace static-data
 	 *
 	 * @param string $locale
-	 * @param string $version
+	 * @param string|null $version
 	 *
 	 * @return StaticData\StaticMapDataDto
+	 * @throws ReflectionException
 	 * @throws RequestException
 	 * @throws ServerException
 	 * @throws SettingsException
+	 * @throws ReflectionException
 	 */
 	public function getStaticMaps( string $locale = 'en_US', string $version = null ): StaticData\StaticMapDataDto
 	{
@@ -871,9 +894,10 @@ class LeagueAPI extends BaseAPI
 	 * @cli-namespace static-data
 	 *
 	 * @param string $locale
-	 * @param string $version
+	 * @param string|null $version
 	 *
 	 * @return StaticData\StaticMasteryListDto
+	 * @throws ReflectionException
 	 * @throws RequestException
 	 * @throws ServerException
 	 * @throws SettingsException
@@ -890,9 +914,9 @@ class LeagueAPI extends BaseAPI
 	 * @cli-name get-mastery
 	 * @cli-namespace static-data
 	 *
-	 * @param int    $mastery_id
+	 * @param int $mastery_id
 	 * @param string $locale
-	 * @param string $version
+	 * @param string|null $version
 	 *
 	 * @return StaticData\StaticMasteryDto
 	 * @throws RequestException
@@ -912,9 +936,10 @@ class LeagueAPI extends BaseAPI
 	 * @cli-namespace static-data
 	 *
 	 * @param string $locale
-	 * @param string $version
+	 * @param string|null $version
 	 *
 	 * @return StaticData\StaticProfileIconDataDto
+	 * @throws ReflectionException
 	 * @throws RequestException
 	 * @throws ServerException
 	 * @throws SettingsException
@@ -954,7 +979,7 @@ class LeagueAPI extends BaseAPI
 	 * @return StaticData\StaticReforgedRunePathList
 	 * @throws RequestException
 	 * @throws ServerException
-	 * @throws SettingsException
+	 * @throws SettingsException|ReflectionException
 	 */
     public function getStaticReforgedRunePaths( string $locale = 'en_US', string $version = null ): StaticData\StaticReforgedRunePathList
     {
@@ -983,6 +1008,7 @@ class LeagueAPI extends BaseAPI
 	 * @throws RequestException
 	 * @throws ServerException
 	 * @throws SettingsException
+	 * @throws ReflectionException
 	 */
     public function getStaticReforgedRunes( string $locale = 'en_US', string $version = null ): StaticData\StaticReforgedRuneList
     {
@@ -1013,12 +1039,14 @@ class LeagueAPI extends BaseAPI
 	 * @cli-namespace static-data
 	 *
 	 * @param string $locale
-	 * @param string $version
+	 * @param string|null $version
 	 *
 	 * @return StaticData\StaticRuneListDto
+	 * @throws ReflectionException
 	 * @throws RequestException
 	 * @throws ServerException
 	 * @throws SettingsException
+	 * @throws ReflectionException
 	 */
 	public function getStaticRunes( string $locale = 'en_US', string $version = null ): StaticData\StaticRuneListDto
 	{
@@ -1032,9 +1060,9 @@ class LeagueAPI extends BaseAPI
 	 * @cli-name get-rune
 	 * @cli-namespace static-data
 	 *
-	 * @param int    $rune_id
+	 * @param int $rune_id
 	 * @param string $locale
-	 * @param string $version
+	 * @param string|null $version
 	 *
 	 * @return StaticData\StaticRuneDto
 	 * @throws RequestException
@@ -1053,11 +1081,12 @@ class LeagueAPI extends BaseAPI
 	 * @cli-name get-summoner-spells
 	 * @cli-namespace static-data
 	 *
-	 * @param bool   $data_by_key
+	 * @param bool $data_by_key
 	 * @param string $locale
-	 * @param string $version
+	 * @param string|null $version
 	 *
 	 * @return StaticData\StaticSummonerSpellListDto
+	 * @throws ReflectionException
 	 * @throws RequestException
 	 * @throws ServerException
 	 * @throws SettingsException
@@ -1074,9 +1103,9 @@ class LeagueAPI extends BaseAPI
 	 * @cli-name get-summoner-spell
 	 * @cli-namespace static-data
 	 *
-	 * @param int    $summoner_spell_id
+	 * @param int $summoner_spell_id
 	 * @param string $locale
-	 * @param string $version
+	 * @param string|null $version
 	 *
 	 * @return StaticData\StaticSummonerSpellDto
 	 * @throws RequestException
@@ -1097,7 +1126,7 @@ class LeagueAPI extends BaseAPI
 	 *
 	 * @param string $summoner_spell_key
 	 * @param string $locale
-	 * @param string $version
+	 * @param string|null $version
 	 *
 	 * @return StaticData\StaticSummonerSpellDto
 	 * @throws RequestException
@@ -1144,7 +1173,7 @@ class LeagueAPI extends BaseAPI
 	 *
 	 * @param string|null $override_region
 	 *
-	 * @return Objects\PlatformDataDto
+	 * @return Objects\PlatformDataDto|null
 	 *
 	 * @throws SettingsException
 	 * @throws RequestException
@@ -1154,7 +1183,7 @@ class LeagueAPI extends BaseAPI
 	 *
 	 * @link https://developer.riotgames.com/apis#lol-status-v4/GET_getPlatformData
 	 */
-	public function getPlatformData( string $override_region = null )
+	public function getPlatformData( string $override_region = null ): ?Objects\PlatformDataDto
 	{
 		if ($override_region)
 			$this->setTemporaryRegion($override_region);
@@ -1182,150 +1211,6 @@ class LeagueAPI extends BaseAPI
 	const RESOURCE_MATCH_VERSION = 'v5';
 
 	/**
-	 * @deprecated
-	 *
-	 *   Retrieve match by match ID and tournament code.
-	 *
-	 * @cli-name get-by-tournament-code
-	 * @cli-namespace match
-	 *
-	 * @param int $match_id
-	 * @param string $tournament_code
-	 *
-	 * @return Objects\MatchDto
-	 *
-	 * @throws SettingsException
-	 * @throws RequestException
-	 * @throws ServerException
-	 * @throws ServerLimitException
-	 * @throws GeneralException
-	 *
-	 * @link https://developer.riotgames.com/apis#match-v4/GET_getMatchByTournamentCode
-	 */
-	public function getMatchByTournamentCode( $match_id, string $tournament_code )
-	{
-		user_error("The LeagueAPI::getMatchByTournamentCode will be soon removed. The endpoint will soon be deprecated by Riot.", E_USER_DEPRECATED);
-		$resultPromise = $this->setEndpoint("/lol/match/v4/matches/{$match_id}/by-tournament-code/{$tournament_code}")
-			->setResource("1420:match", "/matches/%i/by-tournament-code/%s")
-			->useKey(self::SET_TOURNAMENT_KEY)
-			->makeCall();
-
-		return $this->resolveOrEnqueuePromise($resultPromise, function(array $result) {
-			return new Objects\MatchDto($result, $this);
-		});
-	}
-
-	/**
-	 * @deprecated
-	 *
-	 *   Retrieve list of match IDs by tournament code.
-	 *
-	 * @cli-name get-ids-by-tournament-code
-	 * @cli-namespace match
-	 *
-	 * @param string $tournament_code
-	 *
-	 * @return array
-	 *
-	 * @throws SettingsException
-	 * @throws RequestException
-	 * @throws ServerException
-	 * @throws ServerLimitException
-	 * @throws GeneralException
-	 *
-	 * @link https://developer.riotgames.com/apis#match-v4/GET_getMatchIdsByTournamentCode
-	 */
-	public function getMatchIdsByTournamentCode( string $tournament_code )
-	{
-		user_error("The LeagueAPI::getMatchIdsByTournamentCode will be soon removed. The endpoint will soon be deprecated by Riot.", E_USER_DEPRECATED);
-		$resultPromise = $this->setEndpoint("/lol/match/v4/matches/by-tournament-code/{$tournament_code}/ids")
-			->setResource("1420:match", "/matches/by-tournament-code/%s/ids")
-			->useKey(self::SET_TOURNAMENT_KEY)
-			->makeCall();
-
-		return $this->resolveOrEnqueuePromise($resultPromise, function(array $result) {
-			return $result;
-		});
-	}
-
-	/**
-	 * @deprecated
-	 *
-	 *   Retrieve matchlist by account ID.
-	 *
-	 * @cli-name get-matchlist-by-account
-	 * @cli-namespace match
-	 *
-	 * @param string $encrypted_account_id
-	 * @param int|array $queue
-	 * @param int|array $season
-	 * @param int|array $champion
-	 * @param int $beginTime
-	 * @param int $endTime
-	 * @param int $beginIndex
-	 * @param int $endIndex
-	 *
-	 * @return Objects\MatchlistDto
-	 *
-	 * @throws RequestException
-	 * @throws ServerException
-	 * @throws ServerLimitException
-	 * @throws SettingsException
-	 * @throws GeneralException
-	 *
-	 * @link https://developer.riotgames.com/apis#match-v4/GET_getMatchlist
-	 */
-	public function getMatchlistByAccount( string $encrypted_account_id, $queue = null, $season = null, $champion = null, int $beginTime = null, int $endTime = null, int $beginIndex = null, int $endIndex = null )
-	{
-		user_error("The LeagueAPI::getMatchlistByAccount will be soon removed. The endpoint will soon be deprecated by Riot.", E_USER_DEPRECATED);
-		$resultPromise = $this->setEndpoint("/lol/match/v4/matchlists/by-account/{$encrypted_account_id}")
-			->setResource("1420:match", "/matchlists/by-account/%s")
-			->addQuery('queue', $queue)
-			->addQuery('season', $season)
-			->addQuery('champion', $champion)
-			->addQuery('beginTime', $beginTime)
-			->addQuery('endTime', $endTime)
-			->addQuery('beginIndex', $beginIndex)
-			->addQuery('endIndex', $endIndex)
-			->makeCall();
-
-		return $this->resolveOrEnqueuePromise($resultPromise, function(array $result) {
-			return new Objects\MatchlistDto($result, $this);
-		});
-	}
-
-	/**
-	 * @deprecated
-	 *
-	 *   Retrieve matchlsit by account ID.
-	 *
-	 * @param int $match_id
-	 *
-	 * @return Objects\MatchTimelineDto
-	 *
-	 * @throws SettingsException
-	 * @throws RequestException
-	 * @throws ServerException
-	 * @throws ServerLimitException
-	 * @throws GeneralException
-	 *
-	 * @link https://developer.riotgames.com/apis#match-v4/GET_getMatchTimeline
-	 */
-	public function getMatchTimeline( $match_id )
-	{
-		user_error("The LeagueAPI::getMatchTimeline will be soon removed. The endpoint will soon be deprecated by Riot.", E_USER_DEPRECATED);
-		$continent_region = $this->platforms->getCorrespondingContinentRegion($this->getSetting(self::SET_PLATFORM));
-
-		$resultPromise = $this->setEndpoint("/lol/match/v4/timelines/by-match/{$match_id}")
-			->setResource("1420:match", "/timelines/by-match/%i")
-			->makeCall($continent_region);
-
-		return $this->resolveOrEnqueuePromise($resultPromise, function(array $result) {
-			return new Objects\MatchTimelineDto($result, $this);
-		});
-	}
-
-	/**
 	 *   Retrieve match IDs by a PUUID.
 	 *
 	 * @cli-name get-ids-by-puuid
@@ -1339,7 +1224,7 @@ class LeagueAPI extends BaseAPI
 	 * @param int|null    $startTime Epoch timestamp in seconds. The matchlist started storing timestamps on June 16th, 2021. Any matches played before June 16th, 2021 won't be included in the results if the startTime filter is set.
 	 * @param int|null    $endTime Epoch timestamp in seconds.
 	 *
-	 * @return string[]
+	 * @return string[]|null
 	 *
 	 * @throws SettingsException
 	 * @throws RequestException
@@ -1349,7 +1234,7 @@ class LeagueAPI extends BaseAPI
 	 *
 	 * @link https://developer.riotgames.com/apis#match-v5/GET_getMatchIdsByPUUID
 	 */
-	public function getMatchIdsByPUUID(string $puuid, int $queue = null, string $type = null, int $start = null, int $count = null, int $startTime = null, int $endTime = null)
+	public function getMatchIdsByPUUID(string $puuid, int $queue = null, string $type = null, int $start = null, int $count = null, int $startTime = null, int $endTime = null): ?array
 	{
 		if ($type && !in_array($type, self::MATCH_ALLOWED_TYPES))
 			throw new RequestParameterException('Value of match type (type) is invalid. Allowed values: ' . implode(', ', self::MATCH_ALLOWED_TYPES));
@@ -1362,7 +1247,7 @@ class LeagueAPI extends BaseAPI
 
 		$continent_region = $this->platforms->getCorrespondingContinentRegion($this->getSetting(self::SET_REGION));
 
-		$resultPromise = $this->setEndpoint("/lol/match/" . self::RESOURCE_MATCH_VERSION . "/matches/by-puuid/{$puuid}/ids")
+		$resultPromise = $this->setEndpoint("/lol/match/" . self::RESOURCE_MATCH_VERSION . "/matches/by-puuid/$puuid/ids")
 			->setResource(self::RESOURCE_MATCH, "/matches/by-puuid/%s/ids")
 			->addQuery("queue", $queue)
 			->addQuery("type", $type)
@@ -1385,7 +1270,7 @@ class LeagueAPI extends BaseAPI
 	 *
 	 * @param string $match_id
 	 *
-	 * @return Objects\MatchDto
+	 * @return Objects\MatchDto|null
 	 *
 	 * @throws SettingsException
 	 * @throws RequestException
@@ -1395,11 +1280,11 @@ class LeagueAPI extends BaseAPI
 	 *
 	 * @link https://developer.riotgames.com/apis#match-v5/GET_getMatch
 	 */
-	public function getMatch(string $match_id)
+	public function getMatch(string $match_id): ?Objects\MatchDto
 	{
 		$continent_region = $this->platforms->getCorrespondingContinentRegion($this->getSetting(self::SET_REGION));
 
-		$resultPromise = $this->setEndpoint("/lol/match/" . self::RESOURCE_MATCH_VERSION . "/matches/{$match_id}")
+		$resultPromise = $this->setEndpoint("/lol/match/" . self::RESOURCE_MATCH_VERSION . "/matches/$match_id")
 			->setResource(self::RESOURCE_MATCH, "/matches/%s")
 			->makeCall($continent_region);
 
@@ -1416,21 +1301,22 @@ class LeagueAPI extends BaseAPI
 	 *
 	 * @param string $match_id
 	 *
-	 * @return Objects\MatchTimelineDto
+	 * @return Objects\MatchTimelineDto|null
 	 *
 	 * @throws SettingsException
 	 * @throws RequestException
 	 * @throws ServerException
 	 * @throws ServerLimitException
 	 * @throws GeneralException
+	 * @throws ReflectionException
 	 *
 	 * @link https://developer.riotgames.com/apis#match-v5/GET_getTimeline
 	 */
-	public function getTimeline(string $match_id)
+	public function getTimeline(string $match_id): ?Objects\MatchTimelineDto
 	{
 		$continent_region = $this->platforms->getCorrespondingContinentRegion($this->getSetting(self::SET_REGION));
 
-		$resultPromise = $this->setEndpoint("/lol/match/" . self::RESOURCE_MATCH_VERSION . "/matches/{$match_id}/timeline")
+		$resultPromise = $this->setEndpoint("/lol/match/" . self::RESOURCE_MATCH_VERSION . "/matches/$match_id/timeline")
 			->setResource(self::RESOURCE_MATCH, "/matches/%s/timeline")
 			->makeCall($continent_region);
 
@@ -1457,7 +1343,7 @@ class LeagueAPI extends BaseAPI
 	 *
 	 * @param string $encrypted_summoner_id
 	 *
-	 * @return Objects\SummonerDto
+	 * @return Objects\SummonerDto|null
 	 *
 	 * @throws SettingsException
 	 * @throws RequestException
@@ -1467,9 +1353,9 @@ class LeagueAPI extends BaseAPI
 	 *
 	 * @link https://developer.riotgames.com/apis#summoner-v4/GET_getBySummonerId
 	 */
-	public function getSummoner( string $encrypted_summoner_id )
+	public function getSummoner( string $encrypted_summoner_id ): ?Objects\SummonerDto
 	{
-		$resultPromise = $this->setEndpoint("/lol/summoner/" . self::RESOURCE_SUMMONER_VERSION . "/summoners/{$encrypted_summoner_id}")
+		$resultPromise = $this->setEndpoint("/lol/summoner/" . self::RESOURCE_SUMMONER_VERSION . "/summoners/$encrypted_summoner_id")
 			->setResource(self::RESOURCE_SUMMONER, "/summoners/%s")
 			->makeCall();
 
@@ -1486,7 +1372,7 @@ class LeagueAPI extends BaseAPI
 	 *
 	 * @param string $summoner_name
 	 *
-	 * @return Objects\SummonerDto
+	 * @return Objects\SummonerDto|null
 	 *
 	 * @throws SettingsException
 	 * @throws RequestException
@@ -1496,13 +1382,13 @@ class LeagueAPI extends BaseAPI
 	 *
 	 * @link https://developer.riotgames.com/apis#summoner-v4/GET_getBySummonerName
 	 */
-	public function getSummonerByName( string $summoner_name )
+	public function getSummonerByName( string $summoner_name ): ?Objects\SummonerDto
 	{
 		if (trim($summoner_name) === '') {
 			throw new RequestParameterException('Provided summoner name must not be empty');
 		}
 
-		$resultPromise = $this->setEndpoint("/lol/summoner/" . self::RESOURCE_SUMMONER_VERSION . "/summoners/by-name/{$summoner_name}")
+		$resultPromise = $this->setEndpoint("/lol/summoner/" . self::RESOURCE_SUMMONER_VERSION . "/summoners/by-name/$summoner_name")
 			->setResource(self::RESOURCE_SUMMONER, "/summoners/by-name/%s")
 			->makeCall();
 
@@ -1519,7 +1405,7 @@ class LeagueAPI extends BaseAPI
 	 *
 	 * @param string $encrypted_account_id
 	 *
-	 * @return Objects\SummonerDto
+	 * @return Objects\SummonerDto|null
 	 *
 	 * @throws SettingsException
 	 * @throws RequestException
@@ -1529,9 +1415,9 @@ class LeagueAPI extends BaseAPI
 	 *
 	 * @link https://developer.riotgames.com/apis#summoner-v4/GET_getByAccountId
 	 */
-	public function getSummonerByAccountId( string $encrypted_account_id )
+	public function getSummonerByAccountId( string $encrypted_account_id ): ?Objects\SummonerDto
 	{
-		$resultPromise = $this->setEndpoint("/lol/summoner/" . self::RESOURCE_SUMMONER_VERSION . "/summoners/by-account/{$encrypted_account_id}")
+		$resultPromise = $this->setEndpoint("/lol/summoner/" . self::RESOURCE_SUMMONER_VERSION . "/summoners/by-account/$encrypted_account_id")
 			->setResource(self::RESOURCE_SUMMONER, "/summoners/by-account/%s")
 			->makeCall();
 
@@ -1548,7 +1434,7 @@ class LeagueAPI extends BaseAPI
 	 *
 	 * @param string $encrypted_puuid
 	 *
-	 * @return Objects\SummonerDto
+	 * @return Objects\SummonerDto|null
 	 *
 	 * @throws SettingsException
 	 * @throws RequestException
@@ -1558,9 +1444,9 @@ class LeagueAPI extends BaseAPI
 	 *
 	 * @link https://developer.riotgames.com/apis#summoner-v4/GET_getByPUUID
 	 */
-	public function getSummonerByPUUID( string $encrypted_puuid )
+	public function getSummonerByPUUID( string $encrypted_puuid ): ?Objects\SummonerDto
 	{
-		$resultPromise = $this->setEndpoint("/lol/summoner/" . self::RESOURCE_SUMMONER_VERSION . "/summoners/by-puuid/{$encrypted_puuid}")
+		$resultPromise = $this->setEndpoint("/lol/summoner/" . self::RESOURCE_SUMMONER_VERSION . "/summoners/by-puuid/$encrypted_puuid")
 			->setResource(self::RESOURCE_SUMMONER, "/summoners/by-puuid/%s")
 			->makeCall();
 
@@ -1586,7 +1472,7 @@ class LeagueAPI extends BaseAPI
 	 *
 	 * @param string $encrypted_summoner_id
 	 *
-	 * @return string
+	 * @return string|null
 	 *
 	 * @throws SettingsException
 	 * @throws RequestException
@@ -1596,9 +1482,9 @@ class LeagueAPI extends BaseAPI
 	 *
 	 * @link https://developer.riotgames.com/apis#third-party-code-v4/GET_getThirdPartyCodeBySummonerId
 	 */
-	public function getThirdPartyCodeBySummonerId( string $encrypted_summoner_id )
+	public function getThirdPartyCodeBySummonerId( string $encrypted_summoner_id ): ?string
 	{
-		$resultPromise = $this->setEndpoint("/lol/platform/" . self::RESOURCE_THIRD_PARTY_CODE_VERSION . "/third-party-code/by-summoner/{$encrypted_summoner_id}")
+		$resultPromise = $this->setEndpoint("/lol/platform/" . self::RESOURCE_THIRD_PARTY_CODE_VERSION . "/third-party-code/by-summoner/$encrypted_summoner_id")
 			->setResource(self::RESOURCE_THIRD_PARTY_CODE, "/third-party-code/by-summoner/%s")
 			->makeCall();
 
@@ -1638,7 +1524,7 @@ class LeagueAPI extends BaseAPI
 	 *
 	 * @link https://developer.riotgames.com/apis#tournament-v4/POST_createTournamentCode
 	 */
-	public function createTournamentCodes( int $tournament_id, int $count, TournamentCodeParameters $parameters )
+	public function createTournamentCodes( int $tournament_id, int $count, TournamentCodeParameters $parameters ): array
 	{
 		if ($this->getSetting(self::SET_INTERIM, false))
 			return $this->createTournamentCodes_STUB($tournament_id, $count, $parameters);
@@ -1676,7 +1562,7 @@ class LeagueAPI extends BaseAPI
 			->addQuery('count', $count)
 			->setData($data)
 			->useKey(self::SET_TOURNAMENT_KEY)
-			->makeCall(Region::AMERICAS, self::METHOD_POST);
+			->makeCall(IRegion::AMERICAS, self::METHOD_POST);
 
 		return $this->resolveOrEnqueuePromise($resultPromise, function(array $result) {
 			return $result;
@@ -1717,11 +1603,11 @@ class LeagueAPI extends BaseAPI
 
 		$data = json_encode($parameters);
 
-		$resultPromise = $this->setEndpoint("/lol/tournament/" . self::RESOURCE_TOURNAMENT_VERSION . "/codes/{$tournament_code}")
+		$resultPromise = $this->setEndpoint("/lol/tournament/" . self::RESOURCE_TOURNAMENT_VERSION . "/codes/$tournament_code")
 			->setResource(self::RESOURCE_TOURNAMENT, "/codes/%s")
 			->setData($data)
 			->useKey(self::SET_TOURNAMENT_KEY)
-			->makeCall(Region::AMERICAS, self::METHOD_PUT);
+			->makeCall(IRegion::AMERICAS, self::METHOD_PUT);
 
 		$this->resolveOrEnqueuePromise($resultPromise);
 	}
@@ -1734,7 +1620,7 @@ class LeagueAPI extends BaseAPI
 	 *
 	 * @param string $tournament_code
 	 *
-	 * @return Objects\TournamentCodeDto
+	 * @return Objects\TournamentCodeDto|null
 	 *
 	 * @throws SettingsException
 	 * @throws RequestException
@@ -1744,15 +1630,15 @@ class LeagueAPI extends BaseAPI
 	 *
 	 * @link https://developer.riotgames.com/apis#tournament-v4/GET_getTournamentCode
 	 */
-	public function getTournamentCodeData( string $tournament_code )
+	public function getTournamentCodeData( string $tournament_code ): ?Objects\TournamentCodeDto
 	{
 		if ($this->getSetting(self::SET_INTERIM, false))
 			throw new RequestException('This endpoint is not available in interim mode.');
 
-		$resultPromise = $this->setEndpoint("/lol/tournament/" . self::RESOURCE_TOURNAMENT_VERSION . "/codes/{$tournament_code}")
+		$resultPromise = $this->setEndpoint("/lol/tournament/" . self::RESOURCE_TOURNAMENT_VERSION . "/codes/$tournament_code")
 			->setResource(self::RESOURCE_TOURNAMENT, "/codes/%s")
 			->useKey(self::SET_TOURNAMENT_KEY)
-			->makeCall(Region::AMERICAS);
+			->makeCall(IRegion::AMERICAS);
 
 		return $this->resolveOrEnqueuePromise($resultPromise, function(array $result) {
 			return new Objects\TournamentCodeDto($result, $this);
@@ -1778,7 +1664,7 @@ class LeagueAPI extends BaseAPI
 	 *
 	 * @link https://developer.riotgames.com/apis#tournament-v4/POST_registerProviderData
 	 */
-	public function createTournamentProvider( ProviderRegistrationParameters $parameters )
+	public function createTournamentProvider( ProviderRegistrationParameters $parameters ): int
 	{
 		if ($this->getSetting(self::SET_INTERIM, false))
 			return $this->createTournamentProvider_STUB($parameters);
@@ -1797,7 +1683,7 @@ class LeagueAPI extends BaseAPI
 			->setResource(self::RESOURCE_TOURNAMENT, "/providers")
 			->setData($data)
 			->useKey(self::SET_TOURNAMENT_KEY)
-			->makeCall(Region::AMERICAS, self::METHOD_POST);
+			->makeCall(IRegion::AMERICAS, self::METHOD_POST);
 
 		return $this->resolveOrEnqueuePromise($resultPromise, function(int $result) {
 			return $result;
@@ -1823,7 +1709,7 @@ class LeagueAPI extends BaseAPI
 	 *
 	 * @link https://developer.riotgames.com/apis#tournament-v4/POST_registerTournament
 	 */
-	public function createTournament( TournamentRegistrationParameters $parameters )
+	public function createTournament( TournamentRegistrationParameters $parameters ): int
 	{
 		if ($this->getSetting(self::SET_INTERIM, false))
 			return $this->createTournament_STUB($parameters);
@@ -1840,7 +1726,7 @@ class LeagueAPI extends BaseAPI
 			->setResource(self::RESOURCE_TOURNAMENT, "/tournaments")
 			->setData($data)
 			->useKey(self::SET_TOURNAMENT_KEY)
-			->makeCall(Region::AMERICAS, self::METHOD_POST);
+			->makeCall(IRegion::AMERICAS, self::METHOD_POST);
 
 		return $this->resolveOrEnqueuePromise($resultPromise, function(int $result) {
 			return $result;
@@ -1865,15 +1751,15 @@ class LeagueAPI extends BaseAPI
 	 *
 	 * @link https://developer.riotgames.com/apis#tournament-v4/GET_getLobbyEventsByCode
 	 */
-	public function getTournamentLobbyEvents( string $tournament_code )
+	public function getTournamentLobbyEvents( string $tournament_code ): Objects\LobbyEventDtoWrapper
 	{
 		if ($this->getSetting(self::SET_INTERIM, false))
 			return $this->getTournamentLobbyEvents_STUB($tournament_code);
 
-		$resultPromise = $this->setEndpoint("/lol/tournament/" . self::RESOURCE_TOURNAMENT_VERSION . "/lobby-events/by-code/{$tournament_code}")
+		$resultPromise = $this->setEndpoint("/lol/tournament/" . self::RESOURCE_TOURNAMENT_VERSION . "/lobby-events/by-code/$tournament_code")
 			->setResource(self::RESOURCE_TOURNAMENT, "/lobby-events/by-code/%s")
 			->useKey(self::SET_TOURNAMENT_KEY)
-			->makeCall(Region::AMERICAS);
+			->makeCall(IRegion::AMERICAS);
 
 		return $this->resolveOrEnqueuePromise($resultPromise, function(array $result) {
 			return new Objects\LobbyEventDtoWrapper($result, $this);
@@ -1897,7 +1783,7 @@ class LeagueAPI extends BaseAPI
 	 * @param int $count
 	 * @param TournamentCodeParameters $parameters
 	 *
-	 * @return array
+	 * @return array|null
 	 *
 	 * @throws SettingsException
 	 * @throws RequestException
@@ -1910,7 +1796,7 @@ class LeagueAPI extends BaseAPI
 	 *
 	 * @internal
 	 */
-	public function createTournamentCodes_STUB( int $tournament_id, int $count, TournamentCodeParameters $parameters )
+	public function createTournamentCodes_STUB( int $tournament_id, int $count, TournamentCodeParameters $parameters ): ?array
 	{
 		if ($parameters->teamSize <= 0)
 			throw new RequestParameterException('Team size (teamSize) must be greater than or equal to 1.');
@@ -1945,7 +1831,7 @@ class LeagueAPI extends BaseAPI
 			->addQuery('count', $count)
 			->setData($data)
 			->useKey(self::SET_TOURNAMENT_KEY)
-			->makeCall(Region::AMERICAS, self::METHOD_POST);
+			->makeCall(IRegion::AMERICAS, self::METHOD_POST);
 
 		return $this->resolveOrEnqueuePromise($resultPromise, function(array $result) {
 			return $result;
@@ -1957,7 +1843,7 @@ class LeagueAPI extends BaseAPI
 	 *
 	 * @param ProviderRegistrationParameters $parameters
 	 *
-	 * @return int
+	 * @return int|null
 	 *
 	 * @throws SettingsException
 	 * @throws RequestException
@@ -1970,7 +1856,7 @@ class LeagueAPI extends BaseAPI
 	 *
 	 * @internal
 	 */
-	public function createTournamentProvider_STUB( ProviderRegistrationParameters $parameters )
+	public function createTournamentProvider_STUB( ProviderRegistrationParameters $parameters ): ?int
 	{
 		if (empty($parameters->url))
 			throw new RequestParameterException('Callback URL (url) may not be empty.');
@@ -1986,7 +1872,7 @@ class LeagueAPI extends BaseAPI
 			->setResource(self::RESOURCE_TOURNAMENT_STUB, "/providers")
 			->setData($data)
 			->useKey(self::SET_TOURNAMENT_KEY)
-			->makeCall(Region::AMERICAS, self::METHOD_POST);
+			->makeCall(IRegion::AMERICAS, self::METHOD_POST);
 
 		return $this->resolveOrEnqueuePromise($resultPromise, function(int $result) {
 			return $result;
@@ -1998,7 +1884,7 @@ class LeagueAPI extends BaseAPI
 	 *
 	 * @param TournamentRegistrationParameters $parameters
 	 *
-	 * @return int
+	 * @return int|null
 	 *
 	 * @throws SettingsException
 	 * @throws RequestException
@@ -2011,7 +1897,7 @@ class LeagueAPI extends BaseAPI
 	 *
 	 * @internal
 	 */
-	public function createTournament_STUB( TournamentRegistrationParameters $parameters )
+	public function createTournament_STUB( TournamentRegistrationParameters $parameters ): ?int
 	{
 		if (empty($parameters->name))
 			throw new RequestParameterException('Tournament name (name) may not be empty.');
@@ -2025,7 +1911,7 @@ class LeagueAPI extends BaseAPI
 			->setResource(self::RESOURCE_TOURNAMENT_STUB, "/tournaments")
 			->setData($data)
 			->useKey(self::SET_TOURNAMENT_KEY)
-			->makeCall(Region::AMERICAS, self::METHOD_POST);
+			->makeCall(IRegion::AMERICAS, self::METHOD_POST);
 
 		return $this->resolveOrEnqueuePromise($resultPromise, function(int $result) {
 			return $result;
@@ -2037,7 +1923,7 @@ class LeagueAPI extends BaseAPI
 	 *
 	 * @param string $tournament_code
 	 *
-	 * @return Objects\LobbyEventDtoWrapper
+	 * @return Objects\LobbyEventDtoWrapper|null
 	 *
 	 * @throws SettingsException
 	 * @throws RequestException
@@ -2049,12 +1935,12 @@ class LeagueAPI extends BaseAPI
 	 *
 	 * @internal
 	 */
-	public function getTournamentLobbyEvents_STUB( string $tournament_code )
+	public function getTournamentLobbyEvents_STUB( string $tournament_code ): ?Objects\LobbyEventDtoWrapper
 	{
-		$resultPromise = $this->setEndpoint("/lol/tournament-stub/" . self::RESOURCE_TOURNAMENT_STUB_VERSION . "/lobby-events/by-code/{$tournament_code}")
+		$resultPromise = $this->setEndpoint("/lol/tournament-stub/" . self::RESOURCE_TOURNAMENT_STUB_VERSION . "/lobby-events/by-code/$tournament_code")
 			->setResource(self::RESOURCE_TOURNAMENT_STUB, "/lobby-events/by-code/%s")
 			->useKey(self::SET_TOURNAMENT_KEY)
-			->makeCall(Region::AMERICAS);
+			->makeCall(IRegion::AMERICAS);
 
 		return $this->resolveOrEnqueuePromise($resultPromise, function(array $result) {
 			return new Objects\LobbyEventDtoWrapper($result, $this);
@@ -2083,9 +1969,9 @@ class LeagueAPI extends BaseAPI
 	 * @throws ServerLimitException
 	 * @throws GeneralException
 	 */
-	public function makeTestEndpointCall( $specs, string $region = null, string $method = null )
+	public function makeTestEndpointCall( $specs, string $region = null, string $method = null ): mixed
 	{
-		$resultPromise = $this->setEndpoint("/lol/test-endpoint/v0/{$specs}")
+		$resultPromise = $this->setEndpoint("/lol/test-endpoint/v0/$specs")
 			->setResource("v0", "/lol/test-endpoint/v0/%s")
 			->makeCall($region ?: null, $method ?: self::METHOD_GET);
 
