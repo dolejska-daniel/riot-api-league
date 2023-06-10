@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright (C) 2016-2021  Daniel Dolejška
+ * Copyright (C) 2016-2023  Daniel Dolejška
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -40,7 +40,7 @@ class TournamentCodeDto extends ApiObject
 	 *
 	 * @var string $code
 	 */
-	public $code;
+	public string $code;
 
 	/**
 	 * The spectator mode for the tournament code game.
@@ -50,7 +50,7 @@ class TournamentCodeDto extends ApiObject
 	 *
 	 * @var string $spectators
 	 */
-	public $spectators;
+	public string $spectators;
 
 	/**
 	 * The lobby name for the tournament code game.
@@ -60,7 +60,7 @@ class TournamentCodeDto extends ApiObject
 	 *
 	 * @var string $lobbyName
 	 */
-	public $lobbyName;
+	public string $lobbyName;
 
 	/**
 	 * The metadata for tournament code.
@@ -68,9 +68,9 @@ class TournamentCodeDto extends ApiObject
 	 * Available when received from:
 	 *   - @see LeagueAPI::getTournamentCode
 	 *
-	 * @var string $metaData
+	 * @var string|null $metaData
 	 */
-	public $metaData;
+	public string|null $metaData = null;
 
 	/**
 	 * The password for the tournament code game.
@@ -80,7 +80,7 @@ class TournamentCodeDto extends ApiObject
 	 *
 	 * @var string $password
 	 */
-	public $password;
+	public string $password;
 
 	/**
 	 * The team size for the tournament code game.
@@ -90,7 +90,7 @@ class TournamentCodeDto extends ApiObject
 	 *
 	 * @var int $teamSize
 	 */
-	public $teamSize;
+	public int $teamSize;
 
 	/**
 	 * The provider's ID.
@@ -100,7 +100,7 @@ class TournamentCodeDto extends ApiObject
 	 *
 	 * @var int $providerId
 	 */
-	public $providerId;
+	public int $providerId;
 
 	/**
 	 * The pick mode for tournament code game.
@@ -110,7 +110,7 @@ class TournamentCodeDto extends ApiObject
 	 *
 	 * @var string $pickType
 	 */
-	public $pickType;
+	public string $pickType;
 
 	/**
 	 * The tournament's ID.
@@ -120,7 +120,7 @@ class TournamentCodeDto extends ApiObject
 	 *
 	 * @var int $tournamentId
 	 */
-	public $tournamentId;
+	public int $tournamentId;
 
 	/**
 	 * The tournament code's ID.
@@ -130,7 +130,7 @@ class TournamentCodeDto extends ApiObject
 	 *
 	 * @var int $id
 	 */
-	public $id;
+	public int $id;
 
 	/**
 	 * The tournament code's region. (Legal values: BR, EUNE, EUW, JP, LAN,
@@ -141,7 +141,7 @@ class TournamentCodeDto extends ApiObject
 	 *
 	 * @var string $region
 	 */
-	public $region;
+	public string $region;
 
 	/**
 	 * The game map for the tournament code game.
@@ -151,7 +151,7 @@ class TournamentCodeDto extends ApiObject
 	 *
 	 * @var string $map
 	 */
-	public $map;
+	public string $map;
 
 	/**
 	 * The summonerIds of the participants (Encrypted).
@@ -161,5 +161,5 @@ class TournamentCodeDto extends ApiObject
 	 *
 	 * @var string[] $participants
 	 */
-	public $participants;
+	public array $participants;
 }

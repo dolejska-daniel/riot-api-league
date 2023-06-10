@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright (C) 2016-2021  Daniel Dolejška
+ * Copyright (C) 2016-2023  Daniel Dolejška
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -42,7 +42,7 @@ class CurrentGameParticipant extends ApiObjectLinkable
 	 *
 	 * @var int $championId
 	 */
-	public $championId;
+	public int $championId;
 
 	/**
 	 * Perks/Runes Reforged Information.
@@ -52,7 +52,7 @@ class CurrentGameParticipant extends ApiObjectLinkable
 	 *
 	 * @var Perks $perks
 	 */
-	public $perks;
+	public Perks $perks;
 
 	/**
 	 * The ID of the profile icon used by this participant.
@@ -62,7 +62,7 @@ class CurrentGameParticipant extends ApiObjectLinkable
 	 *
 	 * @var int $profileIconId
 	 */
-	public $profileIconId;
+	public int $profileIconId;
 
 	/**
 	 * Flag indicating whether or not this participant is a bot.
@@ -72,7 +72,7 @@ class CurrentGameParticipant extends ApiObjectLinkable
 	 *
 	 * @var bool $bot
 	 */
-	public $bot;
+	public bool $bot;
 
 	/**
 	 * The team ID of this participant, indicating the participant's team.
@@ -82,7 +82,7 @@ class CurrentGameParticipant extends ApiObjectLinkable
 	 *
 	 * @var int $teamId
 	 */
-	public $teamId;
+	public int $teamId;
 
 	/**
 	 * The summoner name of this participant.
@@ -92,7 +92,7 @@ class CurrentGameParticipant extends ApiObjectLinkable
 	 *
 	 * @var string $summonerName
 	 */
-	public $summonerName;
+	public string $summonerName;
 
 	/**
 	 * The encrypted summoner ID of this participant.
@@ -102,7 +102,7 @@ class CurrentGameParticipant extends ApiObjectLinkable
 	 *
 	 * @var string $summonerId
 	 */
-	public $summonerId;
+	public string $summonerId;
 
 	/**
 	 * The ID of the first summoner spell used by this participant.
@@ -112,7 +112,7 @@ class CurrentGameParticipant extends ApiObjectLinkable
 	 *
 	 * @var int $spell1Id
 	 */
-	public $spell1Id;
+	public int $spell1Id;
 
 	/**
 	 * The ID of the second summoner spell used by this participant.
@@ -122,7 +122,7 @@ class CurrentGameParticipant extends ApiObjectLinkable
 	 *
 	 * @var int $spell2Id
 	 */
-	public $spell2Id;
+	public int $spell2Id;
 
 	/**
 	 * List of Game Customizations.
@@ -132,5 +132,5 @@ class CurrentGameParticipant extends ApiObjectLinkable
 	 *
 	 * @var GameCustomizationObject[] $gameCustomizationObjects
 	 */
-	public $gameCustomizationObjects;
+	public array $gameCustomizationObjects;
 }

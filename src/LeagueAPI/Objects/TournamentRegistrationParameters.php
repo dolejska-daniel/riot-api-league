@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright (C) 2016-2021  Daniel Dolejška
+ * Copyright (C) 2016-2023  Daniel Dolejška
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -45,7 +45,7 @@ class TournamentRegistrationParameters extends ApiObject
 	 *
 	 * @var int $providerId
 	 */
-	public $providerId;
+	public int $providerId;
 
 	/**
 	 * The optional name of the tournament.
@@ -56,5 +56,5 @@ class TournamentRegistrationParameters extends ApiObject
 	 *
 	 * @var string $name
 	 */
-	public $name;
+	public string $name;
 }

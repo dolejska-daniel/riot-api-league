@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright (C) 2016-2020  Daniel Dolejška
+ * Copyright (C) 2016-2023  Daniel Dolejška
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -52,47 +52,5 @@ class MatchEndpointTest extends RiotAPITestCase
 		$result = @$this->leagueApi->getMatch((string)$match_id);
 
 		$this->assertEquals($match_id, $result->gameId);
-	}
-
-	public function testGetTournamentMatch()
-	{
-		$this->markTestIncomplete('No DummyData for this call yet.');
-
-		//  Get library processed results
-		/** @var Objects\MatchDto $result */
-		$result = $this->leagueApi->getMatchByTournamentCode(2641970449, '239d180f-fb8a-439e-85d9-95142e10b4f5');
-
-		$this->assertTrue(true);
-	}
-
-	public function testGetTournamentMatchIds()
-	{
-		$this->markTestIncomplete('No DummyData for this call yet.');
-
-		//  Get library processed results
-		/** @var array $result */
-		$result = $this->leagueApi->getMatchIdsByTournamentCode('239d180f-fb8a-439e-85d9-95142e10b4f5');
-
-		$this->assertTrue(true);
-	}
-
-	public function testGetMatchlist()
-	{
-		//  Get library processed results
-		/** @var Objects\MatchlistDto $result */
-		$result = @$this->leagueApi->getMatchlistByAccount("tGSPHbasiCOgRM_MuovMKfXw7oh6pfXmGiPDnXcxJDohrQ");
-
-		$this->assertTrue(true);
-	}
-
-	public function testGetMatchTimeline()
-	{
-        $this->markTestIncomplete('getMatchTimeLine is deprecated.');
-		$match_id = 1730730260;
-		//  Get library processed results
-		/** @var Objects\MatchTimelineDto $result */
-		$result = @$this->leagueApi->getMatchTimeline($match_id);
-
-		$this->assertTrue(true);
 	}
 }

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright (C) 2016-2021  Daniel Dolejška
+ * Copyright (C) 2016-2023  Daniel Dolejška
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -48,7 +48,7 @@ class TournamentCodeParameters extends ApiObject
 	 *
 	 * @var string[] $allowedSummonerIds
 	 */
-	public $allowedSummonerIds;
+	public array $allowedSummonerIds;
 
 	/**
 	 * Optional string that may contain any data in any format, if specified
@@ -60,7 +60,7 @@ class TournamentCodeParameters extends ApiObject
 	 *
 	 * @var string $metadata
 	 */
-	public $metadata;
+	public string $metadata;
 
 	/**
 	 * The team size of the game. Valid values are 1-5.
@@ -71,7 +71,7 @@ class TournamentCodeParameters extends ApiObject
 	 *
 	 * @var int $teamSize
 	 */
-	public $teamSize;
+	public int $teamSize;
 
 	/**
 	 * The pick type of the game. (Legal values: BLIND_PICK, DRAFT_MODE,
@@ -83,7 +83,7 @@ class TournamentCodeParameters extends ApiObject
 	 *
 	 * @var string $pickType
 	 */
-	public $pickType;
+	public string $pickType;
 
 	/**
 	 * The map type of the game. (Legal values: SUMMONERS_RIFT,
@@ -95,7 +95,7 @@ class TournamentCodeParameters extends ApiObject
 	 *
 	 * @var string $mapType
 	 */
-	public $mapType;
+	public string $mapType;
 
 	/**
 	 * The spectator type of the game. (Legal values: NONE, LOBBYONLY, ALL).
@@ -106,5 +106,5 @@ class TournamentCodeParameters extends ApiObject
 	 *
 	 * @var string $spectatorType
 	 */
-	public $spectatorType;
+	public string $spectatorType;
 }

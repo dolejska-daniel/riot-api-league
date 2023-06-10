@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright (C) 2016-2021  Daniel Dolejška
+ * Copyright (C) 2016-2023  Daniel Dolejška
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -38,7 +38,7 @@ class ChampionInfo extends ApiObject
 	 *
 	 * @var int $maxNewPlayerLevel
 	 */
-	public $maxNewPlayerLevel;
+	public int $maxNewPlayerLevel;
 
 	/**
 	 * Available when received from:
@@ -46,7 +46,7 @@ class ChampionInfo extends ApiObject
 	 *
 	 * @var int[] $freeChampionIdsForNewPlayers
 	 */
-	public $freeChampionIdsForNewPlayers;
+	public array $freeChampionIdsForNewPlayers;
 
 	/**
 	 * Available when received from:
@@ -54,5 +54,5 @@ class ChampionInfo extends ApiObject
 	 *
 	 * @var int[] $freeChampionIds
 	 */
-	public $freeChampionIds;
+	public array $freeChampionIds;
 }

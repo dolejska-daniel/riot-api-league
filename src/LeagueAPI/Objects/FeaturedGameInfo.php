@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright (C) 2016-2021  Daniel Dolejška
+ * Copyright (C) 2016-2023  Daniel Dolejška
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -43,7 +43,7 @@ class FeaturedGameInfo extends ApiObjectIterable
 	 *
 	 * @var string $gameMode
 	 */
-	public $gameMode;
+	public string $gameMode;
 
 	/**
 	 * The amount of time in seconds that has passed since the game started.
@@ -53,7 +53,7 @@ class FeaturedGameInfo extends ApiObjectIterable
 	 *
 	 * @var int $gameLength
 	 */
-	public $gameLength;
+	public int $gameLength;
 
 	/**
 	 * The ID of the map.
@@ -63,7 +63,7 @@ class FeaturedGameInfo extends ApiObjectIterable
 	 *
 	 * @var int $mapId
 	 */
-	public $mapId;
+	public int $mapId;
 
 	/**
 	 * The game type (Legal values: CUSTOM_GAME, MATCHED_GAME, TUTORIAL_GAME).
@@ -73,7 +73,7 @@ class FeaturedGameInfo extends ApiObjectIterable
 	 *
 	 * @var string $gameType
 	 */
-	public $gameType;
+	public string $gameType;
 
 	/**
 	 * Banned champion information.
@@ -83,7 +83,7 @@ class FeaturedGameInfo extends ApiObjectIterable
 	 *
 	 * @var BannedChampion[] $bannedChampions
 	 */
-	public $bannedChampions;
+	public array $bannedChampions;
 
 	/**
 	 * The ID of the game.
@@ -93,7 +93,7 @@ class FeaturedGameInfo extends ApiObjectIterable
 	 *
 	 * @var int $gameId
 	 */
-	public $gameId;
+	public int $gameId;
 
 	/**
 	 * The observer information.
@@ -103,7 +103,7 @@ class FeaturedGameInfo extends ApiObjectIterable
 	 *
 	 * @var Observer $observers
 	 */
-	public $observers;
+	public Observer $observers;
 
 	/**
 	 * The queue type (queue types are documented on the Game Constants page).
@@ -113,7 +113,7 @@ class FeaturedGameInfo extends ApiObjectIterable
 	 *
 	 * @var int $gameQueueConfigId
 	 */
-	public $gameQueueConfigId;
+	public int $gameQueueConfigId;
 
 	/**
 	 * The game start time represented in epoch milliseconds.
@@ -123,7 +123,7 @@ class FeaturedGameInfo extends ApiObjectIterable
 	 *
 	 * @var int $gameStartTime
 	 */
-	public $gameStartTime;
+	public int $gameStartTime;
 
 	/**
 	 * The participant information.
@@ -133,7 +133,7 @@ class FeaturedGameInfo extends ApiObjectIterable
 	 *
 	 * @var Participant[] $participants
 	 */
-	public $participants;
+	public array $participants;
 
 	/**
 	 * The ID of the platform on which the game is being played.
@@ -143,5 +143,5 @@ class FeaturedGameInfo extends ApiObjectIterable
 	 *
 	 * @var string $platformId
 	 */
-	public $platformId;
+	public string $platformId;
 }

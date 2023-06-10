@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright (C) 2016-2021  Daniel Dolejška
+ * Copyright (C) 2016-2023  Daniel Dolejška
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -38,7 +38,7 @@ class PlatformDataDto extends ApiObject
 	 *
 	 * @var string $id
 	 */
-	public $id;
+	public string $id;
 
 	/**
 	 * Available when received from:
@@ -46,7 +46,7 @@ class PlatformDataDto extends ApiObject
 	 *
 	 * @var string $name
 	 */
-	public $name;
+	public string $name;
 
 	/**
 	 * Available when received from:
@@ -54,7 +54,7 @@ class PlatformDataDto extends ApiObject
 	 *
 	 * @var string[] $locales
 	 */
-	public $locales;
+	public array $locales;
 
 	/**
 	 * Available when received from:
@@ -62,7 +62,7 @@ class PlatformDataDto extends ApiObject
 	 *
 	 * @var StatusDto[] $maintenances
 	 */
-	public $maintenances;
+	public array $maintenances;
 
 	/**
 	 * Available when received from:
@@ -70,5 +70,5 @@ class PlatformDataDto extends ApiObject
 	 *
 	 * @var StatusDto[] $incidents
 	 */
-	public $incidents;
+	public array $incidents;
 }

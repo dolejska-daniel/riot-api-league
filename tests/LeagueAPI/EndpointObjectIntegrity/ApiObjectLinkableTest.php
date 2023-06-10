@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright (C) 2016-2020  Daniel Dolejška
+ * Copyright (C) 2016-2023  Daniel Dolejška
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -66,6 +66,6 @@ class ApiObjectLinkableTest extends RiotAPITestCase
 
 	public function testInvalidLinkableProperty()
 	{
-		$this->assertFalse(ApiObjectLinkable::getLinkablePropertyData("INVALID_PROPERTY"));
+		$this->assertNull(ApiObjectLinkable::getLinkablePropertyData("INVALID_PROPERTY"));
 	}
 }

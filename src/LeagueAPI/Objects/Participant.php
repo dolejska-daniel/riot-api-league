@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright (C) 2016-2021  Daniel Dolejška
+ * Copyright (C) 2016-2023  Daniel Dolejška
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -42,7 +42,7 @@ class Participant extends ApiObjectLinkable
 	 *
 	 * @var bool $bot
 	 */
-	public $bot;
+	public bool $bot;
 
 	/**
 	 * The ID of the second summoner spell used by this participant.
@@ -52,7 +52,7 @@ class Participant extends ApiObjectLinkable
 	 *
 	 * @var int $spell2Id
 	 */
-	public $spell2Id;
+	public int $spell2Id;
 
 	/**
 	 * The ID of the profile icon used by this participant.
@@ -62,7 +62,7 @@ class Participant extends ApiObjectLinkable
 	 *
 	 * @var int $profileIconId
 	 */
-	public $profileIconId;
+	public int $profileIconId;
 
 	/**
 	 * The summoner name of this participant.
@@ -72,7 +72,7 @@ class Participant extends ApiObjectLinkable
 	 *
 	 * @var string $summonerName
 	 */
-	public $summonerName;
+	public string $summonerName;
 
 	/**
 	 * The ID of the champion played by this participant.
@@ -82,7 +82,7 @@ class Participant extends ApiObjectLinkable
 	 *
 	 * @var int $championId
 	 */
-	public $championId;
+	public int $championId;
 
 	/**
 	 * The team ID of this participant, indicating the participant's team.
@@ -92,7 +92,7 @@ class Participant extends ApiObjectLinkable
 	 *
 	 * @var int $teamId
 	 */
-	public $teamId;
+	public int $teamId;
 
 	/**
 	 * The ID of the first summoner spell used by this participant.
@@ -102,5 +102,5 @@ class Participant extends ApiObjectLinkable
 	 *
 	 * @var int $spell1Id
 	 */
-	public $spell1Id;
+	public int $spell1Id;
 }

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright (C) 2016-2021  Daniel Dolejška
+ * Copyright (C) 2016-2023  Daniel Dolejška
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -21,34 +21,15 @@ namespace RiotAPI\LeagueAPI\Objects;
 
 
 /**
- *   Class RuneDto
+ *   Class Level
  *
  * Used in:
- *   match (v4)
- *     - @see LeagueAPI::getMatchByTournamentCode
- *       @link https://developer.riotgames.com/apis#match-v4/GET_getMatchByTournamentCode
- *     - @see LeagueAPI::getMatch
- *       @link https://developer.riotgames.com/apis#match-v4/GET_getMatch
+ *   lol-challenges (v1)
+ *     - @see LeagueAPI::getChallengePercentiles
+ *       @link https://developer.riotgames.com/apis#lol-challenges-v1/GET_getChallengePercentiles
  *
  * @package RiotAPI\LeagueAPI\Objects
  */
-class RuneDto extends ApiObject
+class Level extends ApiObject
 {
-	/**
-	 * Available when received from:
-	 *   - @see LeagueAPI::getMatchByTournamentCode
-	 *   - @see LeagueAPI::getMatch
-	 *
-	 * @var int $runeId
-	 */
-	public $runeId;
-
-	/**
-	 * Available when received from:
-	 *   - @see LeagueAPI::getMatchByTournamentCode
-	 *   - @see LeagueAPI::getMatch
-	 *
-	 * @var int $rank
-	 */
-	public $rank;
 }

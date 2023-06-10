@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright (C) 2016-2021  Daniel Dolejška
+ * Copyright (C) 2016-2023  Daniel Dolejška
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -40,7 +40,7 @@ class GameCustomizationObject extends ApiObject
 	 *
 	 * @var string $category
 	 */
-	public $category;
+	public string $category;
 
 	/**
 	 * Game Customization content.
@@ -50,5 +50,5 @@ class GameCustomizationObject extends ApiObject
 	 *
 	 * @var string $content
 	 */
-	public $content;
+	public string $content;
 }

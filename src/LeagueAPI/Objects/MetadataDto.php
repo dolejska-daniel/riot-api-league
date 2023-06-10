@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright (C) 2016-2021  Daniel Dolejška
+ * Copyright (C) 2016-2023  Daniel Dolejška
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -33,26 +33,6 @@ namespace RiotAPI\LeagueAPI\Objects;
 class MetadataDto extends ApiObject
 {
 	/**
-	 * Match data version.
-	 *
-	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
-	 *
-	 * @var string $data_version
-	 */
-	public $data_version;
-
-	/**
-	 * Match id.
-	 *
-	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
-	 *
-	 * @var string $match_id
-	 */
-	public $match_id;
-
-	/**
 	 * A list of participant PUUIDs.
 	 *
 	 * Available when received from:
@@ -60,5 +40,25 @@ class MetadataDto extends ApiObject
 	 *
 	 * @var string[] $participants
 	 */
-	public $participants;
+	public array $participants;
+
+	/**
+	 * Match data version.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *
+	 * @var string $dataVersion
+	 */
+	public string $dataVersion;
+
+	/**
+	 * Match id.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *
+	 * @var string $matchId
+	 */
+	public string $matchId;
 }

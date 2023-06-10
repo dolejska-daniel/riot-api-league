@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright (C) 2016-2021  Daniel Dolejška
+ * Copyright (C) 2016-2023  Daniel Dolejška
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -42,7 +42,7 @@ class CurrentGameInfo extends ApiObjectIterable
 	 *
 	 * @var int $gameId
 	 */
-	public $gameId;
+	public int $gameId;
 
 	/**
 	 * The game type.
@@ -52,7 +52,7 @@ class CurrentGameInfo extends ApiObjectIterable
 	 *
 	 * @var string $gameType
 	 */
-	public $gameType;
+	public string $gameType;
 
 	/**
 	 * The game start time represented in epoch milliseconds.
@@ -62,7 +62,7 @@ class CurrentGameInfo extends ApiObjectIterable
 	 *
 	 * @var int $gameStartTime
 	 */
-	public $gameStartTime;
+	public int $gameStartTime;
 
 	/**
 	 * The ID of the map.
@@ -72,7 +72,7 @@ class CurrentGameInfo extends ApiObjectIterable
 	 *
 	 * @var int $mapId
 	 */
-	public $mapId;
+	public int $mapId;
 
 	/**
 	 * The amount of time in seconds that has passed since the game started.
@@ -82,7 +82,7 @@ class CurrentGameInfo extends ApiObjectIterable
 	 *
 	 * @var int $gameLength
 	 */
-	public $gameLength;
+	public int $gameLength;
 
 	/**
 	 * The ID of the platform on which the game is being played.
@@ -92,7 +92,7 @@ class CurrentGameInfo extends ApiObjectIterable
 	 *
 	 * @var string $platformId
 	 */
-	public $platformId;
+	public string $platformId;
 
 	/**
 	 * The game mode.
@@ -102,7 +102,7 @@ class CurrentGameInfo extends ApiObjectIterable
 	 *
 	 * @var string $gameMode
 	 */
-	public $gameMode;
+	public string $gameMode;
 
 	/**
 	 * Banned champion information.
@@ -112,7 +112,7 @@ class CurrentGameInfo extends ApiObjectIterable
 	 *
 	 * @var BannedChampion[] $bannedChampions
 	 */
-	public $bannedChampions;
+	public array $bannedChampions;
 
 	/**
 	 * The queue type (queue types are documented on the Game Constants page).
@@ -122,7 +122,7 @@ class CurrentGameInfo extends ApiObjectIterable
 	 *
 	 * @var int $gameQueueConfigId
 	 */
-	public $gameQueueConfigId;
+	public int $gameQueueConfigId;
 
 	/**
 	 * The observer information.
@@ -132,7 +132,7 @@ class CurrentGameInfo extends ApiObjectIterable
 	 *
 	 * @var Observer $observers
 	 */
-	public $observers;
+	public Observer $observers;
 
 	/**
 	 * The participant information.
@@ -142,5 +142,5 @@ class CurrentGameInfo extends ApiObjectIterable
 	 *
 	 * @var CurrentGameParticipant[] $participants
 	 */
-	public $participants;
+	public array $participants;
 }

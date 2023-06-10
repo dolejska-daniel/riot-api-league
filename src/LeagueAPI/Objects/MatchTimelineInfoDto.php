@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright (C) 2016-2021  Daniel Dolejška
+ * Copyright (C) 2016-2022  Daniel Dolejška
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -19,42 +19,47 @@
 
 namespace RiotAPI\LeagueAPI\Objects;
 
-
 /**
- *   Class TeamBansDto
+ *   Class MatchTimelineInfoDto
  *
  * Used in:
- *   match (v4)
- *     - @see LeagueAPI::getMatchByTournamentCode
- *       @link https://developer.riotgames.com/apis#match-v4/GET_getMatchByTournamentCode
- *     - @see LeagueAPI::getMatch
- *       @link https://developer.riotgames.com/apis#match-v4/GET_getMatch
- *
- * @linkable getStaticChampion($championId)
+ *   match (v5)
+ *     - @see LeagueAPI::getTimeline
+ *       @link https://developer.riotgames.com/apis#match-v5/GET_getTimeline
  *
  * @package RiotAPI\LeagueAPI\Objects
  */
-class TeamBansDto extends ApiObjectLinkable
+class MatchTimelineInfoDto extends ApiObject
 {
 	/**
-	 * Banned championId.
-	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatchByTournamentCode
-	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getTimeline
 	 *
-	 * @var int $championId
+	 * @var int $frameInterval
 	 */
-	public $championId;
+	public int $frameInterval;
 
 	/**
-	 * Turn during which the champion was banned.
-	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatchByTournamentCode
-	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getTimeline
 	 *
-	 * @var int $pickTurn
+	 * @var MatchFrameDto[] $frames
 	 */
-	public $pickTurn;
+	public array $frames;
+
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getTimeline
+	 *
+	 * @var int $gameId
+	 */
+	public int $gameId;
+
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getTimeline
+	 *
+	 * @var MatchParticipantDto[] $participants
+	 */
+	public array $participants;
 }

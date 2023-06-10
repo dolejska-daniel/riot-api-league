@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright (C) 2016-2021  Daniel Dolejška
+ * Copyright (C) 2016-2022  Daniel Dolejška
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -36,7 +36,7 @@ class MatchFrameDto extends ApiObject
 	 * Available when received from:
 	 *   - @see LeagueAPI::getMatchTimeline
 	 *
-	 * @var String, MatchParticipantFrameDto[] $participantFrames
+	 * @var MatchParticipantFrameDto[] $participantFrames
 	 */
 	public $participantFrames;
 

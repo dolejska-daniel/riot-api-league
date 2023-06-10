@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright (C) 2016-2021  Daniel Dolejška
+ * Copyright (C) 2016-2023  Daniel Dolejška
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -38,7 +38,7 @@ class BanDto extends ApiObject
 	 *
 	 * @var int $championId
 	 */
-	public $championId;
+	public int $championId;
 
 	/**
 	 * Available when received from:
@@ -46,5 +46,5 @@ class BanDto extends ApiObject
 	 *
 	 * @var int $pickTurn
 	 */
-	public $pickTurn;
+	public int $pickTurn;
 }

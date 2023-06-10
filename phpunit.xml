@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<phpunit
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.3/phpunit.xsd"
-        bootstrap="phpunit.php"
-        colors="true"
-        beStrictAboutOutputDuringTests="true"
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/10.2/phpunit.xsd"
+         bootstrap="vendor/autoload.php"
+         colors="true"
+         beStrictAboutOutputDuringTests="true"
+         cacheDirectory=".phpunit.cache"
 >
     <testsuites>
         <testsuite name="LeagueAPI:Definition_Tests">
@@ -17,18 +17,17 @@
             <directory>tests/LeagueAPI/EndpointObjectIntegrity/</directory>
         </testsuite>
     </testsuites>
-
-    <coverage cacheDirectory="build/cache/phpunit_coverage"
-              processUncoveredFiles="true"
-              ignoreDeprecatedCodeUnits="true"
-              disableCodeCoverageIgnore="true"
-    >
+    <php>
+        <env name="IS_UNIT_TESTING" value="1"/>
+    </php>
+    <coverage ignoreDeprecatedCodeUnits="true"
+              disableCodeCoverageIgnore="true"/>
+    <source>
         <include>
-            <directory suffix=".php">src/LeagueAPI</directory>
+            <directory>src/LeagueAPI</directory>
         </include>
-
         <exclude>
-            <directory suffix=".php">vendor</directory>
+            <directory>vendor</directory>
         </exclude>
-    </coverage>
+    </source>
 </phpunit>

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright (C) 2016-2020  Daniel Dolejška
+ * Copyright (C) 2016-2023  Daniel Dolejška
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -98,7 +98,7 @@ class SummonerEndpointTest extends RiotAPITestCase
 		$this->assertIsInt($result->revisionDate);
 	}
 
-	public function emptySummonerNameProvider(): array
+	public static function emptySummonerNameProvider(): array
 	{
 		return [
 			'Empty string' => [

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright (C) 2016-2021  Daniel Dolejška
+ * Copyright (C) 2016-2023  Daniel Dolejška
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -21,53 +21,38 @@ namespace RiotAPI\LeagueAPI\Objects;
 
 
 /**
- *   Class MatchlistDto
+ *   Class ApexPlayerInfoDto
  *
  * Used in:
- *   match (v4)
- *     - @see LeagueAPI::getMatchlist
- *       @link https://developer.riotgames.com/apis#match-v4/GET_getMatchlist
- *
- * @iterable $matches
+ *   lol-challenges (v1)
+ *     - @see LeagueAPI::getChallengeLeaderboards
+ *       @link https://developer.riotgames.com/apis#lol-challenges-v1/GET_getChallengeLeaderboards
  *
  * @package RiotAPI\LeagueAPI\Objects
  */
-class MatchlistDto extends ApiObjectIterable
+class ApexPlayerInfoDto extends ApiObject
 {
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatchlist
+	 *   - @see LeagueAPI::getChallengeLeaderboards
 	 *
-	 * @var int $startIndex
+	 * @var string $puuid
 	 */
-	public $startIndex;
-
-	/**
-	 * There is a known issue that this field doesn't correctly return the
-	 * total number of games that match the parameters of the request. Please
-	 * paginate using beginIndex until you reach the end of a player's
-	 * matchlist.
-	 *
-	 * Available when received from:
-	 *   - @see LeagueAPI::getMatchlist
-	 *
-	 * @var int $totalGames
-	 */
-	public $totalGames;
+	public string $puuid;
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatchlist
+	 *   - @see LeagueAPI::getChallengeLeaderboards
 	 *
-	 * @var int $endIndex
+	 * @var float $value
 	 */
-	public $endIndex;
+	public float $value;
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatchlist
+	 *   - @see LeagueAPI::getChallengeLeaderboards
 	 *
-	 * @var MatchReferenceDto[] $matches
+	 * @var int $position
 	 */
-	public $matches;
+	public int $position;
 }

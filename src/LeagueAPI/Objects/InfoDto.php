@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright (C) 2016-2021  Daniel Dolejška
+ * Copyright (C) 2016-2023  Daniel Dolejška
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -33,24 +33,47 @@ namespace RiotAPI\LeagueAPI\Objects;
 class InfoDto extends ApiObject
 {
 	/**
-	 * Unix timestamp for when the game is created (i.e., the loading screen).
+	 * Unix timestamp for when the game is created on the game server (i.e.,
+	 * the loading screen).
 	 *
 	 * Available when received from:
 	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $gameCreation
 	 */
-	public $gameCreation;
+	public int $gameCreation;
 
 	/**
-	 * Game length in milliseconds.
+	 * Prior to patch 11.20, this field returns the game length in
+	 * milliseconds calculated from gameEndTimestamp - gameStartTimestamp.
+	 * Post patch 11.20, this field returns the max timePlayed of any
+	 * participant in the game in seconds, which makes the behavior of this
+	 * field consistent with that of match-v4. The best way to handling the
+	 * change in this field is to treat the value as milliseconds if the
+	 * gameEndTimestamp field isn't in the response and to treat the value as
+	 * seconds if gameEndTimestamp is in the response.
 	 *
 	 * Available when received from:
 	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $gameDuration
 	 */
-	public $gameDuration;
+	public int $gameDuration;
+
+	/**
+	 * Unix timestamp for when match ends on the game server. This timestamp
+	 * can occasionally be significantly longer than when the match "ends".
+	 * The most reliable way of determining the timestamp for the end of the
+	 * match would be to add the max time played of any participant to the
+	 * gameStartTimestamp. This field was added to match-v5 in patch 11.20 on
+	 * Oct 5th, 2021.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *
+	 * @var int $gameEndTimestamp
+	 */
+	public int $gameEndTimestamp;
 
 	/**
 	 * Available when received from:
@@ -58,7 +81,7 @@ class InfoDto extends ApiObject
 	 *
 	 * @var int $gameId
 	 */
-	public $gameId;
+	public int $gameId;
 
 	/**
 	 * Refer to the Game Constants documentation.
@@ -68,7 +91,7 @@ class InfoDto extends ApiObject
 	 *
 	 * @var string $gameMode
 	 */
-	public $gameMode;
+	public string $gameMode;
 
 	/**
 	 * Available when received from:
@@ -76,17 +99,17 @@ class InfoDto extends ApiObject
 	 *
 	 * @var string $gameName
 	 */
-	public $gameName;
+	public string $gameName;
 
 	/**
-	 * Unix timestamp for when match actually starts.
+	 * Unix timestamp for when match starts on the game server.
 	 *
 	 * Available when received from:
 	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $gameStartTimestamp
 	 */
-	public $gameStartTimestamp;
+	public int $gameStartTimestamp;
 
 	/**
 	 * Available when received from:
@@ -94,7 +117,7 @@ class InfoDto extends ApiObject
 	 *
 	 * @var string $gameType
 	 */
-	public $gameType;
+	public string $gameType;
 
 	/**
 	 * The first two parts can be used to determine the patch a game was
@@ -105,7 +128,7 @@ class InfoDto extends ApiObject
 	 *
 	 * @var string $gameVersion
 	 */
-	public $gameVersion;
+	public string $gameVersion;
 
 	/**
 	 * Refer to the Game Constants documentation.
@@ -115,7 +138,7 @@ class InfoDto extends ApiObject
 	 *
 	 * @var int $mapId
 	 */
-	public $mapId;
+	public int $mapId;
 
 	/**
 	 * Available when received from:
@@ -123,7 +146,7 @@ class InfoDto extends ApiObject
 	 *
 	 * @var ParticipantDto[] $participants
 	 */
-	public $participants;
+	public array $participants;
 
 	/**
 	 * Platform where the match was played.
@@ -133,7 +156,7 @@ class InfoDto extends ApiObject
 	 *
 	 * @var string $platformId
 	 */
-	public $platformId;
+	public string $platformId;
 
 	/**
 	 * Refer to the Game Constants documentation.
@@ -143,7 +166,7 @@ class InfoDto extends ApiObject
 	 *
 	 * @var int $queueId
 	 */
-	public $queueId;
+	public int $queueId;
 
 	/**
 	 * Available when received from:
@@ -151,15 +174,16 @@ class InfoDto extends ApiObject
 	 *
 	 * @var TeamDto[] $teams
 	 */
-	public $teams;
+	public array $teams;
 
 	/**
-	 * Tournament code used to generate the match.
+	 * Tournament code used to generate the match. This field was added to
+	 * match-v5 in patch 11.13 on June 23rd, 2021.
 	 *
 	 * Available when received from:
 	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var string $tournamentCode
 	 */
-	public $tournamentCode;
+	public string $tournamentCode;
 }

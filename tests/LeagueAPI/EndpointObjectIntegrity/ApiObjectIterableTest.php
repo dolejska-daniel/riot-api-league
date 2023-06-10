@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright (C) 2016-2020  Daniel Dolejška
+ * Copyright (C) 2016-2023  Daniel Dolejška
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -36,7 +36,7 @@ class BaseObjectIterable extends Objects\ApiObjectIterable
 
 class ApiObjectIterableTest extends RiotAPITestCase
 {
-	public static $data = [
+	public static array $data = [
 		'data' => [
 			'd', 'u', 'm', 'm', 'y', '_', 'd', 'a', 't', 'a'
 		],
@@ -46,9 +46,12 @@ class ApiObjectIterableTest extends RiotAPITestCase
 	{
 		$obj = new BaseObjectIterable(self::$data, null);
 
-		$this->assertSame('u', $obj->next());
+		$this->assertSame('d', $obj->current());
+		$this->assertSame(0, $obj->key());
 		$obj->rewind();
-		$this->assertSame('u', $obj->next());
+		$obj->next();
+		$this->assertSame('u', $obj->current());
+		$this->assertSame(1, $obj->key());
 	}
 
 	public function testCurrent()
@@ -73,8 +76,10 @@ class ApiObjectIterableTest extends RiotAPITestCase
 	{
 		$obj = new BaseObjectIterable(self::$data, null);
 
-		$this->assertSame('u', $obj->next());
-		$this->assertSame('m', $obj->next());
+		$obj->next();
+		$this->assertSame('u', $obj->current());
+		$obj->next();
+		$this->assertSame('m', $obj->current());
 	}
 
 	public function testValid()
@@ -82,7 +87,8 @@ class ApiObjectIterableTest extends RiotAPITestCase
 		$obj = new BaseObjectIterable(self::$data, null);
 
 		$this->assertTrue($obj->valid());
-		while ($obj->next() !== false);
+		while ($obj->valid())
+			$obj->next();
 		$this->assertFalse($obj->valid());
 	}
 }

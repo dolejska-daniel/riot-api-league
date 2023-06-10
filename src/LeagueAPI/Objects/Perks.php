@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright (C) 2016-2021  Daniel Dolejška
+ * Copyright (C) 2016-2023  Daniel Dolejška
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -40,9 +40,9 @@ class Perks extends ApiObjectIterable
 	 * Available when received from:
 	 *   - @see LeagueAPI::getCurrentGameInfoBySummoner
 	 *
-	 * @var int[] $perkIds
+	 * @var int[]|null $perkIds
 	 */
-	public $perkIds;
+	public array|null $perkIds = null;
 
 	/**
 	 * Primary runes path.
@@ -52,7 +52,7 @@ class Perks extends ApiObjectIterable
 	 *
 	 * @var int $perkStyle
 	 */
-	public $perkStyle;
+	public int $perkStyle;
 
 	/**
 	 * Secondary runes path.
@@ -62,5 +62,5 @@ class Perks extends ApiObjectIterable
 	 *
 	 * @var int $perkSubStyle
 	 */
-	public $perkSubStyle;
+	public int $perkSubStyle;
 }

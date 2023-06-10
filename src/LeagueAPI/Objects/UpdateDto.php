@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright (C) 2016-2021  Daniel Dolejška
+ * Copyright (C) 2016-2023  Daniel Dolejška
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -38,7 +38,7 @@ class UpdateDto extends ApiObject
 	 *
 	 * @var int $id
 	 */
-	public $id;
+	public int $id;
 
 	/**
 	 * Available when received from:
@@ -46,7 +46,7 @@ class UpdateDto extends ApiObject
 	 *
 	 * @var string $author
 	 */
-	public $author;
+	public string $author;
 
 	/**
 	 * Available when received from:
@@ -54,7 +54,7 @@ class UpdateDto extends ApiObject
 	 *
 	 * @var bool $publish
 	 */
-	public $publish;
+	public bool $publish;
 
 	/**
 	 * (Legal values: riotclient, riotstatus, game).
@@ -64,7 +64,7 @@ class UpdateDto extends ApiObject
 	 *
 	 * @var string[] $publish_locations
 	 */
-	public $publish_locations;
+	public array $publish_locations;
 
 	/**
 	 * Available when received from:
@@ -72,7 +72,7 @@ class UpdateDto extends ApiObject
 	 *
 	 * @var ContentDto[] $translations
 	 */
-	public $translations;
+	public array $translations;
 
 	/**
 	 * Available when received from:
@@ -80,7 +80,7 @@ class UpdateDto extends ApiObject
 	 *
 	 * @var string $created_at
 	 */
-	public $created_at;
+	public string $created_at;
 
 	/**
 	 * Available when received from:
@@ -88,5 +88,5 @@ class UpdateDto extends ApiObject
 	 *
 	 * @var string $updated_at
 	 */
-	public $updated_at;
+	public string $updated_at;
 }

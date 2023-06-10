@@ -21,94 +21,27 @@ namespace RiotAPI\LeagueAPI\Objects;
 
 
 /**
- *   Class MatchParticipantFrameDto
+ *   Class ParticipantTimelineDto
  *
  * Used in:
- *   match (v4)
- *     - @see LeagueAPI::getMatchTimeline
- *       @link https://developer.riotgames.com/apis#match-v4/GET_getMatchTimeline
+ *   match (v5)
+ *     - @see LeagueAPI::getTimeline
+ *       @link https://developer.riotgames.com/apis#match-v5/GET_getTimeline
  *
  * @package RiotAPI\LeagueAPI\Objects
  */
 class MatchParticipantFrameDto extends ApiObject
 {
-	/**
-	 * Available when received from:
-	 *   - @see LeagueAPI::getMatchTimeline
-	 *
-	 * @var int $participantId
-	 */
-	public $participantId;
-
-	/**
-	 * Available when received from:
-	 *   - @see LeagueAPI::getMatchTimeline
-	 *
-	 * @var int $minionsKilled
-	 */
-	public $minionsKilled;
-
-	/**
-	 * Available when received from:
-	 *   - @see LeagueAPI::getMatchTimeline
-	 *
-	 * @var int $teamScore
-	 */
-	public $teamScore;
-
-	/**
-	 * Available when received from:
-	 *   - @see LeagueAPI::getMatchTimeline
-	 *
-	 * @var int $dominionScore
-	 */
-	public $dominionScore;
-
-	/**
-	 * Available when received from:
-	 *   - @see LeagueAPI::getMatchTimeline
-	 *
-	 * @var int $totalGold
-	 */
-	public $totalGold;
-
-	/**
-	 * Available when received from:
-	 *   - @see LeagueAPI::getMatchTimeline
-	 *
-	 * @var int $level
-	 */
-	public $level;
-
-	/**
-	 * Available when received from:
-	 *   - @see LeagueAPI::getMatchTimeline
-	 *
-	 * @var int $xp
-	 */
-	public $xp;
-
-	/**
-	 * Available when received from:
-	 *   - @see LeagueAPI::getMatchTimeline
-	 *
-	 * @var int $currentGold
-	 */
-	public $currentGold;
-
-	/**
-	 * Available when received from:
-	 *   - @see LeagueAPI::getMatchTimeline
-	 *
-	 * @var MatchPositionDto $position
-	 */
-	public $position;
-
-	/**
-	 * Available when received from:
-	 *   - @see LeagueAPI::getMatchTimeline
-	 *
-	 * @var int $jungleMinionsKilled
-	 */
-	public $jungleMinionsKilled;
+	public MatchChampionStatsDto $championStats;
+	public int $currentGold;
+	public DamageStatsDto $damageStats;
+	public int $goldPerSecond;
+	public int $jungleMinionsKilled;
+	public int $level;
+	public int $minionsKilled;
+	public int $participantId;
+	public MatchPositionDto $position;
+	public int $timeEnemySpentControlled;
+	public int $totalGold;
+	public int $xp;
 }

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright (C) 2016-2021  Daniel Dolejška
+ * Copyright (C) 2016-2023  Daniel Dolejška
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -38,7 +38,7 @@ class ObjectivesDto extends ApiObject
 	 *
 	 * @var ObjectiveDto $baron
 	 */
-	public $baron;
+	public ObjectiveDto $baron;
 
 	/**
 	 * Available when received from:
@@ -46,7 +46,7 @@ class ObjectivesDto extends ApiObject
 	 *
 	 * @var ObjectiveDto $champion
 	 */
-	public $champion;
+	public ObjectiveDto $champion;
 
 	/**
 	 * Available when received from:
@@ -54,7 +54,7 @@ class ObjectivesDto extends ApiObject
 	 *
 	 * @var ObjectiveDto $dragon
 	 */
-	public $dragon;
+	public ObjectiveDto $dragon;
 
 	/**
 	 * Available when received from:
@@ -62,7 +62,7 @@ class ObjectivesDto extends ApiObject
 	 *
 	 * @var ObjectiveDto $inhibitor
 	 */
-	public $inhibitor;
+	public ObjectiveDto $inhibitor;
 
 	/**
 	 * Available when received from:
@@ -70,7 +70,7 @@ class ObjectivesDto extends ApiObject
 	 *
 	 * @var ObjectiveDto $riftHerald
 	 */
-	public $riftHerald;
+	public ObjectiveDto $riftHerald;
 
 	/**
 	 * Available when received from:
@@ -78,5 +78,5 @@ class ObjectivesDto extends ApiObject
 	 *
 	 * @var ObjectiveDto $tower
 	 */
-	public $tower;
+	public ObjectiveDto $tower;
 }

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright (C) 2016-2021  Daniel Dolejška
+ * Copyright (C) 2016-2023  Daniel Dolejška
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -38,7 +38,7 @@ class StatusDto extends ApiObject
 	 *
 	 * @var int $id
 	 */
-	public $id;
+	public int $id;
 
 	/**
 	 * (Legal values: scheduled, in_progress, complete).
@@ -46,9 +46,9 @@ class StatusDto extends ApiObject
 	 * Available when received from:
 	 *   - @see LeagueAPI::getPlatformData
 	 *
-	 * @var string $maintenance_status
+	 * @var string|null $maintenance_status
 	 */
-	public $maintenance_status;
+	public string|null $maintenance_status = null;
 
 	/**
 	 * (Legal values: info, warning, critical).
@@ -58,7 +58,7 @@ class StatusDto extends ApiObject
 	 *
 	 * @var string $incident_severity
 	 */
-	public $incident_severity;
+	public string $incident_severity;
 
 	/**
 	 * Available when received from:
@@ -66,7 +66,7 @@ class StatusDto extends ApiObject
 	 *
 	 * @var ContentDto[] $titles
 	 */
-	public $titles;
+	public array $titles;
 
 	/**
 	 * Available when received from:
@@ -74,7 +74,7 @@ class StatusDto extends ApiObject
 	 *
 	 * @var UpdateDto[] $updates
 	 */
-	public $updates;
+	public array $updates;
 
 	/**
 	 * Available when received from:
@@ -82,23 +82,23 @@ class StatusDto extends ApiObject
 	 *
 	 * @var string $created_at
 	 */
-	public $created_at;
+	public string $created_at;
 
 	/**
 	 * Available when received from:
 	 *   - @see LeagueAPI::getPlatformData
 	 *
-	 * @var string $archive_at
+	 * @var string|null $archive_at
 	 */
-	public $archive_at;
+	public string|null $archive_at = null;
 
 	/**
 	 * Available when received from:
 	 *   - @see LeagueAPI::getPlatformData
 	 *
-	 * @var string $updated_at
+	 * @var string|null $updated_at
 	 */
-	public $updated_at;
+	public string|null $updated_at = null;
 
 	/**
 	 * (Legal values: windows, macos, android, ios, ps4, xbone, switch).
@@ -108,5 +108,5 @@ class StatusDto extends ApiObject
 	 *
 	 * @var string[] $platforms
 	 */
-	public $platforms;
+	public array $platforms;
 }

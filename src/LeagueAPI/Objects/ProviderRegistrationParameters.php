@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright (C) 2016-2021  Daniel Dolejška
+ * Copyright (C) 2016-2023  Daniel Dolejška
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -45,7 +45,7 @@ class ProviderRegistrationParameters extends ApiObject
 	 *
 	 * @var string $region
 	 */
-	public $region;
+	public string $region;
 
 	/**
 	 * The provider's callback URL to which tournament game results in this
@@ -59,5 +59,5 @@ class ProviderRegistrationParameters extends ApiObject
 	 *
 	 * @var string $url
 	 */
-	public $url;
+	public string $url;
 }

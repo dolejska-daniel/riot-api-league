@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright (C) 2016-2021  Daniel Dolejška
+ * Copyright (C) 2016-2023  Daniel Dolejška
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -38,7 +38,7 @@ class PerkStyleSelectionDto extends ApiObject
 	 *
 	 * @var int $perk
 	 */
-	public $perk;
+	public int $perk;
 
 	/**
 	 * Available when received from:
@@ -46,7 +46,7 @@ class PerkStyleSelectionDto extends ApiObject
 	 *
 	 * @var int $var1
 	 */
-	public $var1;
+	public int $var1;
 
 	/**
 	 * Available when received from:
@@ -54,7 +54,7 @@ class PerkStyleSelectionDto extends ApiObject
 	 *
 	 * @var int $var2
 	 */
-	public $var2;
+	public int $var2;
 
 	/**
 	 * Available when received from:
@@ -62,5 +62,5 @@ class PerkStyleSelectionDto extends ApiObject
 	 *
 	 * @var int $var3
 	 */
-	public $var3;
+	public int $var3;
 }

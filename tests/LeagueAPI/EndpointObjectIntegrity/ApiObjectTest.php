@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright (C) 2016-2020  Daniel Dolejška
+ * Copyright (C) 2016-2023  Daniel Dolejška
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -19,50 +19,98 @@
 
 declare(strict_types=1);
 
-use RiotAPI\Tests\RiotAPITestCase;
+use RiotAPI\Base\Exceptions\GeneralException;
 use RiotAPI\LeagueAPI\Objects;
+use RiotAPI\Tests\RiotAPITestCase;
 
-class BaseObject extends Objects\ApiObject {}
+class SpecialClass extends Objects\ApiObject
+{
+    public int $a;
 
+    public string $b;
+
+    public ?SpecialClass $c;
+}
 
 class ApiObjectTest extends RiotAPITestCase
 {
-	public function testGetIterablePropertyName()
-	{
-		$propName = Objects\ApiObject::getIterablePropertyName('/** @iterable $property */');
-		$this->assertSame('property', $propName);
-	}
+    public function testGetIterablePropertyName()
+    {
+        $propName = Objects\ApiObject::getIterablePropertyName('/** @iterable $property */');
+        $this->assertSame('property', $propName);
+    }
 
-	public function testGetIterablePropertyName_False()
-	{
-		$propName = Objects\ApiObject::getIterablePropertyName('/** @no-iterable-here */');
-		$this->assertFalse($propName);
-	}
+    public function testGetIterablePropertyName_False()
+    {
+        $propName = Objects\ApiObject::getIterablePropertyName('/** @no-iterable-here */');
+        $this->assertNull($propName);
+    }
 
-	public function testGetPropertyDataType()
-	{
-		$dataType = Objects\ApiObject::getPropertyDataType('/** @var SpecialClass $property */');
-		$this->assertEquals('SpecialClass', $dataType->class);
-		$this->assertEquals(false, $dataType->isArray);
-	}
+    /** @var SpecialClass $customDataType */
+    public SpecialClass $customDataType;
 
-	public function testGetPropertyDataType_Array()
-	{
-		$dataType = Objects\ApiObject::getPropertyDataType('/** @var SpecialClass[] $property */');
-		$this->assertEquals('SpecialClass', $dataType->class);
-		$this->assertEquals(true, $dataType->isArray);
-	}
+    public function testGetPropertyDataType()
+    {
+        $property = new ReflectionProperty($this, "customDataType");
+        $dataType = Objects\ApiObject::getPropertyDataType($property);
+        $this->assertEquals('SpecialClass', $dataType->class);
+        $this->assertFalse($dataType->isArray);
+    }
 
-	public function testGetPropertyDataType_False()
-	{
-		$dataType = Objects\ApiObject::getPropertyDataType('/** @var int $property */');
-		$this->assertFalse($dataType);
-	}
+    public SpecialClass $customDataTypeWithoutComment;
 
-	public function testGetData()
-	{
-		$array = [ 'd', 'u', 'm', 'm', 'y', '_', 'd', 'a', 't', 'a' ];
-		$obj = new BaseObject($array, null);
-		$this->assertSame($array, $obj->getData());
-	}
+    public function testGetPropertyDataType_WithoutComment()
+    {
+        $property = new ReflectionProperty($this, "customDataTypeWithoutComment");
+        $dataType = Objects\ApiObject::getPropertyDataType($property);
+        $this->assertEquals('SpecialClass', $dataType->class);
+        $this->assertFalse($dataType->isArray);
+    }
+
+    /** @var SpecialClass[] $customDataTypeArray */
+    public array $customDataTypeArray;
+
+    public function testGetPropertyDataType_Array()
+    {
+        $property = new ReflectionProperty($this, "customDataTypeArray");
+        $dataType = Objects\ApiObject::getPropertyDataType($property);
+        $this->assertEquals('SpecialClass', $dataType->class);
+        $this->assertTrue($dataType->isArray);
+    }
+
+    /** @var int $simpleDataType */
+    public int $simpleDataType;
+
+    public function testGetPropertyDataType_False()
+    {
+        $property = new ReflectionProperty($this, "simpleDataType");
+        $dataType = Objects\ApiObject::getPropertyDataType($property);
+        $this->assertNull($dataType);
+    }
+
+    public function testGetData()
+    {
+        $array = [
+            "a" => 1,
+            "b" => "hello",
+            "c" => null,
+        ];
+        $obj = new SpecialClass($array, null);
+        $this->assertSame($array, $obj->getData());
+        $this->assertEquals($obj->a, $array["a"]);
+        $this->assertEquals($obj->b, $array["b"]);
+        $this->assertEquals($obj->c, $array["c"]);
+    }
+
+    public function testGetData_MissingProperty()
+    {
+        $this->expectException(GeneralException::class);
+        $this->expectExceptionMessage("Failed processing property x of SpecialClass");
+
+        $array = [
+            "x" => 1,
+        ];
+        new SpecialClass($array, null);
+    }
+
 }

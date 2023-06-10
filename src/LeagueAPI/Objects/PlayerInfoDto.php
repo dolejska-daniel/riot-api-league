@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright (C) 2016-2021  Daniel Dolejška
+ * Copyright (C) 2016-2023  Daniel Dolejška
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -21,38 +21,46 @@ namespace RiotAPI\LeagueAPI\Objects;
 
 
 /**
- *   Class ParticipantIdentityDto
+ *   Class PlayerInfoDto
  *
  * Used in:
- *   match (v4)
- *     - @see LeagueAPI::getMatchByTournamentCode
- *       @link https://developer.riotgames.com/apis#match-v4/GET_getMatchByTournamentCode
- *     - @see LeagueAPI::getMatch
- *       @link https://developer.riotgames.com/apis#match-v4/GET_getMatch
+ *   lol-challenges (v1)
+ *     - @see LeagueAPI::getPlayerData
+ *       @link https://developer.riotgames.com/apis#lol-challenges-v1/GET_getPlayerData
  *
  * @package RiotAPI\LeagueAPI\Objects
  */
-class ParticipantIdentityDto extends ApiObject
+class PlayerInfoDto extends ApiObject
 {
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatchByTournamentCode
-	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getPlayerData
 	 *
-	 * @var int $participantId
+	 * @var ChallengeInfo[] $challenges
 	 */
-	public $participantId;
+	public array $challenges;
 
 	/**
-	 * Player information not included in the response for custom matches.
-	 * Custom matches are considered private unless a tournament code was used
-	 * to create the match.
-	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatchByTournamentCode
-	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getPlayerData
 	 *
-	 * @var PlayerDto $player
+	 * @var PlayerClientPreferences $preferences
 	 */
-	public $player;
+	public PlayerClientPreferences $preferences;
+
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getPlayerData
+	 *
+	 * @var ChallengePoints $totalPoints
+	 */
+	public ChallengePoints $totalPoints;
+
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getPlayerData
+	 *
+	 * @var String, ChallengePoints[] $categoryPoints
+	 */
+	public array $categoryPoints;
 }

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright (C) 2016-2020  Daniel Dolejška
+ * Copyright (C) 2016-2023  Daniel Dolejška
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -20,6 +20,7 @@
 namespace RiotAPI\LeagueAPI\Extensions;
 
 use RiotAPI\Base\BaseAPI;
+use RiotAPI\Base\Exceptions\SettingsException;
 use RiotAPI\Base\Objects\IApiObject;
 use RiotAPI\Base\Objects\IApiObjectExtension;
 
@@ -38,20 +39,21 @@ use RiotAPI\LeagueAPI\LeagueAPI;
  */
 class StaticReforgedRunePathListExtension implements IApiObjectExtension
 {
-	/** @var StaticReforgedRunePathList $object */
-	protected $object;
-
-	/** @var array $rune_list */
-	protected $rune_list = [];
+	protected StaticReforgedRunePathList $object;
+	protected array $rune_list = [];
 
 	/**
 	 *   StaticReforgedRunePathListExtension constructor.
 	 *
-	 * @param IApiObject|StaticReforgedRunePathList $apiObject
-	 * @param LeagueAPI                               $api
+	 * @param IApiObject $apiObject
+	 * @param LeagueAPI $api
+	 * @throws SettingsException
 	 */
 	public function __construct(IApiObject $apiObject, BaseAPI $api)
 	{
+		if (!$apiObject instanceof StaticReforgedRunePathList)
+			throw new SettingsException("Tried extending " . get_class($apiObject) . " with " . get_class($this));
+
 		$this->object = $apiObject;
 
 		/** @var StaticReforgedRunePathDto $path */

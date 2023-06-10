@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright (C) 2016-2021  Daniel Dolejška
+ * Copyright (C) 2016-2023  Daniel Dolejška
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -24,9 +24,6 @@ namespace RiotAPI\LeagueAPI\Objects;
  *   Class TeamDto
  *
  * Used in:
- *   clash (v1)
- *     - @see LeagueAPI::getTeamById
- *       @link https://developer.riotgames.com/apis#clash-v1/GET_getTeamById
  *   match (v5)
  *     - @see LeagueAPI::getMatch
  *       @link https://developer.riotgames.com/apis#match-v5/GET_getMatch
@@ -35,103 +32,35 @@ namespace RiotAPI\LeagueAPI\Objects;
  */
 class TeamDto extends ApiObject
 {
-	/**
-	 * Available when received from:
-	 *   - @see LeagueAPI::getTeamById
-	 *
-	 * @var string $id
-	 */
-	public $id;
+    /**
+     * Available when received from:
+     *   - @see LeagueAPI::getMatch
+     *
+     * @var BanDto[] $bans
+     */
+    public array $bans;
 
-	/**
-	 * Available when received from:
-	 *   - @see LeagueAPI::getTeamById
-	 *
-	 * @var int $tournamentId
-	 */
-	public $tournamentId;
+    /**
+     * Available when received from:
+     *   - @see LeagueAPI::getMatch
+     *
+     * @var ObjectivesDto $objectives
+     */
+    public ObjectivesDto $objectives;
 
-	/**
-	 * Available when received from:
-	 *   - @see LeagueAPI::getTeamById
-	 *
-	 * @var string $name
-	 */
-	public $name;
+    /**
+     * Available when received from:
+     *   - @see LeagueAPI::getMatch
+     *
+     * @var int $teamId
+     */
+    public int $teamId;
 
-	/**
-	 * Available when received from:
-	 *   - @see LeagueAPI::getTeamById
-	 *
-	 * @var int $iconId
-	 */
-	public $iconId;
-
-	/**
-	 * Available when received from:
-	 *   - @see LeagueAPI::getTeamById
-	 *
-	 * @var int $tier
-	 */
-	public $tier;
-
-	/**
-	 * Summoner ID of the team captain.
-	 *
-	 * Available when received from:
-	 *   - @see LeagueAPI::getTeamById
-	 *
-	 * @var string $captain
-	 */
-	public $captain;
-
-	/**
-	 * Available when received from:
-	 *   - @see LeagueAPI::getTeamById
-	 *
-	 * @var string $abbreviation
-	 */
-	public $abbreviation;
-
-	/**
-	 * Team members.
-	 *
-	 * Available when received from:
-	 *   - @see LeagueAPI::getTeamById
-	 *
-	 * @var PlayerDto[] $players
-	 */
-	public $players;
-
-	/**
-	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
-	 *
-	 * @var BanDto[] $bans
-	 */
-	public $bans;
-
-	/**
-	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
-	 *
-	 * @var ObjectivesDto $objectives
-	 */
-	public $objectives;
-
-	/**
-	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
-	 *
-	 * @var int $teamId
-	 */
-	public $teamId;
-
-	/**
-	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
-	 *
-	 * @var bool $win
-	 */
-	public $win;
+    /**
+     * Available when received from:
+     *   - @see LeagueAPI::getMatch
+     *
+     * @var bool $win
+     */
+    public bool $win;
 }

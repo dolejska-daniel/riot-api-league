@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright (C) 2016-2021  Daniel Dolejška
+ * Copyright (C) 2016-2023  Daniel Dolejška
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -44,7 +44,17 @@ class TournamentCodeUpdateParameters extends ApiObject
 	 *
 	 * @var string[] $allowedSummonerIds
 	 */
-	public $allowedSummonerIds;
+	public array $allowedSummonerIds;
+
+    /**
+     * The team size of the game. Valid values are 1-5.
+     *
+     * Available when received from:
+     *   - @see LeagueAPI::updateCode
+     *
+     * @var int $teamSize
+     */
+    public int $teamSize;
 
 	/**
 	 * The pick type (Legal values: BLIND_PICK, DRAFT_MODE, ALL_RANDOM,
@@ -55,7 +65,7 @@ class TournamentCodeUpdateParameters extends ApiObject
 	 *
 	 * @var string $pickType
 	 */
-	public $pickType;
+	public string $pickType;
 
 	/**
 	 * The map type (Legal values: SUMMONERS_RIFT, TWISTED_TREELINE,
@@ -66,7 +76,7 @@ class TournamentCodeUpdateParameters extends ApiObject
 	 *
 	 * @var string $mapType
 	 */
-	public $mapType;
+	public string $mapType;
 
 	/**
 	 * The spectator type (Legal values: NONE, LOBBYONLY, ALL).
@@ -76,5 +86,5 @@ class TournamentCodeUpdateParameters extends ApiObject
 	 *
 	 * @var string $spectatorType
 	 */
-	public $spectatorType;
+	public string $spectatorType;
 }

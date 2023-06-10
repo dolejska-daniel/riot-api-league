@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright (C) 2016-2020  Daniel Dolejška
+ * Copyright (C) 2016-2023  Daniel Dolejška
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -48,68 +48,12 @@ class MatchEndpointObjectIntegrityTest extends RiotAPITestCase
 	 */
 	public function testGetMatch(LeagueAPI $api )
 	{
-        $this->markTestIncomplete('No DummyData for this call yet.');
-
 		//  Get library processed results
-		/** @var Objects\MatchDto $result */
-		$result = $api->getMatch((string)1594938572);
+		$result = $api->getMatch("EUN1_3088226589");
 		//  Get raw result
 		$rawResult = $api->getResult();
 
 		$this->checkObjectPropertiesAndDataValidity($result, $rawResult, Objects\MatchDto::class);
-	}
-
-	/**
-	 * @depends testInit
-	 *
-	 * @param LeagueAPI $api
-	 */
-	public function testGetTournamentMatch(LeagueAPI $api )
-	{
-		$this->markTestIncomplete('No DummyData for this call yet.');
-
-		//  Get library processed results
-		/** @var Objects\MatchDto $result */
-		$result = $api->getMatchByTournamentCode(2641970449, '239d180f-fb8a-439e-85d9-95142e10b4f5');
-		//  Get raw result
-		$rawResult = $api->getResult();
-
-		$this->checkObjectPropertiesAndDataValidity($result, $rawResult, Objects\MatchDto::class);
-	}
-
-	/**
-	 * @depends testInit
-	 *
-	 * @param LeagueAPI $api
-	 */
-	public function testGetTournamentMatchIds(LeagueAPI $api )
-	{
-		$this->markTestIncomplete('No DummyData for this call yet.');
-
-		//  Get library processed results
-		/** @var array $result */
-		$result = $api->getMatchIdsByTournamentCode('239d180f-fb8a-439e-85d9-95142e10b4f5');
-		//  Get raw result
-		$rawResult = $api->getResult();
-
-		$this->assertSame($rawResult, $result, 'Data do not match original request result data!');
-	}
-
-	/**
-	 * @depends testInit
-	 *
-	 * @param LeagueAPI $api
-	 */
-	public function testGetMatchlist(LeagueAPI $api )
-	{
-		$accountId = "tGSPHbasiCOgRM_MuovMKfXw7oh6pfXmGiPDnXcxJDohrQ";
-		//  Get library processed results
-		/** @var Objects\MatchlistDto $result */
-		$result = @$api->getMatchlistByAccount($accountId);
-		//  Get raw result
-		$rawResult = $api->getResult();
-
-		$this->checkObjectPropertiesAndDataValidity($result, $rawResult, Objects\MatchlistDto::class);
 	}
 
 	/**
@@ -119,14 +63,26 @@ class MatchEndpointObjectIntegrityTest extends RiotAPITestCase
 	 */
 	public function testGetMatchTimeline(LeagueAPI $api )
 	{
-        $this->markTestIncomplete('No DummyData for this call yet.');
-
 		//  Get library processed results
-		/** @var Objects\MatchTimelineDto $result */
-		$result = @$api->getMatchTimeline(1730730260);
+		$result = $api->getTimeline("EUN1_3088226589");
 		//  Get raw result
 		$rawResult = $api->getResult();
 
 		$this->checkObjectPropertiesAndDataValidity($result, $rawResult, Objects\MatchTimelineDto::class);
+	}
+
+	/**
+	 * @depends testInit
+	 *
+	 * @param LeagueAPI $api
+	 */
+	public function testGetMatchIdsByPUUID(LeagueAPI $api )
+	{
+		//  Get library processed results
+		$result = $api->getMatchIdsByPUUID("G0Cd8_hTJZGGhM6MAsC5O-w7mGoNaYrpp9NdLrnTfTjhhcswKm0zVeaAfnv1e8TBlbro6apgnsW_YA");
+		//  Get raw result
+		$rawResult = $api->getResult();
+
+		$this->assertEquals($rawResult, $result);
 	}
 }

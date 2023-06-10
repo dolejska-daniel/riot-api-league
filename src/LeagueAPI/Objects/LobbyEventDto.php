@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright (C) 2016-2021  Daniel Dolejška
+ * Copyright (C) 2016-2023  Daniel Dolejška
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -42,9 +42,9 @@ class LobbyEventDto extends ApiObject
 	 *   - @see LeagueAPI::getLobbyEventsByCode
 	 *   - @see LeagueAPI::getLobbyEventsByCode
 	 *
-	 * @var string $summonerId
+	 * @var string|null $summonerId
 	 */
-	public $summonerId;
+	public string|null $summonerId = null;
 
 	/**
 	 * The type of event that was triggered.
@@ -55,7 +55,7 @@ class LobbyEventDto extends ApiObject
 	 *
 	 * @var string $eventType
 	 */
-	public $eventType;
+	public string $eventType;
 
 	/**
 	 * Timestamp from the event.
@@ -66,5 +66,5 @@ class LobbyEventDto extends ApiObject
 	 *
 	 * @var string $timestamp
 	 */
-	public $timestamp;
+	public string $timestamp;
 }

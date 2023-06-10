@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright (C) 2016-2020  Daniel Dolejška
+ * Copyright (C) 2016-2023  Daniel Dolejška
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -31,7 +31,7 @@ class StatusEndpointObjectIntegrityTest extends RiotAPITestCase
 	{
 		$api = new LeagueAPI([
 			LeagueAPI::SET_KEY             => RiotAPITestCase::getApiKey(),
-			LeagueAPI::SET_REGION          => Region::EUROPE_EAST,
+			LeagueAPI::SET_REGION          => Region::BRASIL,
 			LeagueAPI::SET_USE_DUMMY_DATA  => true,
 			LeagueAPI::SET_SAVE_DUMMY_DATA => getenv('SAVE_DUMMY_DATA') ?? false,
 		]);

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright (C) 2016-2021  Daniel Dolejška
+ * Copyright (C) 2016-2023  Daniel Dolejška
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -25,71 +25,73 @@ namespace RiotAPI\LeagueAPI\Objects;
  *
  * Used in:
  *   league (v4)
- *     - @see LeagueAPI::getLeagueById
- *       @link https://developer.riotgames.com/apis#league-v4/GET_getLeagueById
- *     - @see LeagueAPI::getGrandmasterLeague
- *       @link https://developer.riotgames.com/apis#league-v4/GET_getGrandmasterLeague
  *     - @see LeagueAPI::getChallengerLeague
  *       @link https://developer.riotgames.com/apis#league-v4/GET_getChallengerLeague
+ *     - @see LeagueAPI::getGrandmasterLeague
+ *       @link https://developer.riotgames.com/apis#league-v4/GET_getGrandmasterLeague
+ *     - @see LeagueAPI::getLeagueById
+ *       @link https://developer.riotgames.com/apis#league-v4/GET_getLeagueById
  *     - @see LeagueAPI::getMasterLeague
  *       @link https://developer.riotgames.com/apis#league-v4/GET_getMasterLeague
  *
+ * @iterable $entries
+ *
  * @package RiotAPI\LeagueAPI\Objects
  */
-class LeagueListDto extends ApiObject
+class LeagueListDto extends ApiObjectIterable
 {
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getLeagueById
-	 *   - @see LeagueAPI::getGrandmasterLeague
 	 *   - @see LeagueAPI::getChallengerLeague
+	 *   - @see LeagueAPI::getGrandmasterLeague
+	 *   - @see LeagueAPI::getLeagueById
 	 *   - @see LeagueAPI::getMasterLeague
 	 *
 	 * @var string $leagueId
 	 */
-	public $leagueId;
+	public string $leagueId;
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getLeagueById
-	 *   - @see LeagueAPI::getGrandmasterLeague
 	 *   - @see LeagueAPI::getChallengerLeague
+	 *   - @see LeagueAPI::getGrandmasterLeague
+	 *   - @see LeagueAPI::getLeagueById
 	 *   - @see LeagueAPI::getMasterLeague
 	 *
-	 * @var LeagueItemDTO[] $entries
+	 * @var LeagueItemDto[] $entries
 	 */
-	public $entries;
+	public array $entries;
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getLeagueById
-	 *   - @see LeagueAPI::getGrandmasterLeague
 	 *   - @see LeagueAPI::getChallengerLeague
+	 *   - @see LeagueAPI::getGrandmasterLeague
+	 *   - @see LeagueAPI::getLeagueById
 	 *   - @see LeagueAPI::getMasterLeague
 	 *
 	 * @var string $tier
 	 */
-	public $tier;
+	public string $tier;
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getLeagueById
-	 *   - @see LeagueAPI::getGrandmasterLeague
 	 *   - @see LeagueAPI::getChallengerLeague
+	 *   - @see LeagueAPI::getGrandmasterLeague
+	 *   - @see LeagueAPI::getLeagueById
 	 *   - @see LeagueAPI::getMasterLeague
 	 *
 	 * @var string $name
 	 */
-	public $name;
+	public string $name;
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getLeagueById
-	 *   - @see LeagueAPI::getGrandmasterLeague
 	 *   - @see LeagueAPI::getChallengerLeague
+	 *   - @see LeagueAPI::getGrandmasterLeague
+	 *   - @see LeagueAPI::getLeagueById
 	 *   - @see LeagueAPI::getMasterLeague
 	 *
 	 * @var string $queue
 	 */
-	public $queue;
+	public string $queue;
 }

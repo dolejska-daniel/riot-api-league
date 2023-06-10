@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright (C) 2016-2020  Daniel Dolejška
+ * Copyright (C) 2016-2023  Daniel Dolejška
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -64,7 +64,7 @@ class LeagueEndpointObjectIntegrityTest extends RiotAPITestCase
 	 */
 	public function testGetLeagueEntriesForSummoner(LeagueAPI $api )
 	{
-		$summonerId = "KnNZNuEVZ5rZry3IyWwYSVuikRe0y3qTWSkr1wxcmV5CLJ8";
+		$summonerId = "yt5GeZST3hksZkzb8Pbbm9dmGlpDZEmkLBbS7kuqPBpeY5s";
 		//  Get library processed results
 		/** @var Objects\LeagueEntryDto[] $result */
 		$result = $api->getLeagueEntriesForSummoner($summonerId);
@@ -119,7 +119,7 @@ class LeagueEndpointObjectIntegrityTest extends RiotAPITestCase
 	{
 		//  Get library processed results
 		/** @var Objects\LeagueListDto $result */
-		$result = $api->getLeagueChallenger('RANKED_SOLO_5x5');
+		$result = $api->getLeagueMaster('RANKED_SOLO_5x5');
 		//  Get raw result
 		$rawResult = $api->getResult();
 

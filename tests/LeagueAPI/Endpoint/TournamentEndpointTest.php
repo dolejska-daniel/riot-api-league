@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright (C) 2016-2020  Daniel Dolejška
+ * Copyright (C) 2016-2023  Daniel Dolejška
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -188,8 +188,8 @@ class TournamentEndpointTest extends RiotAPITestCase
 		$this->expectExceptionMessage("Value of pick type (pickType) is invalid.");
 
 		$codeParams = new Objects\TournamentCodeUpdateParameters([
-			'allowedParticipants' => implode(',', [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ]),
-			'mapType'             => 'SUMMONERS_RIFT',
+            'allowedSummonerIds' => [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ],
+            'mapType'             => 'SUMMONERS_RIFT',
 			'pickType'            => 'THIS_IS_INVALID_PICK_TYPE',
 			'spectatorType'       => 'ALL',
 			'teamSize'            => 5
@@ -210,7 +210,7 @@ class TournamentEndpointTest extends RiotAPITestCase
 		$this->expectExceptionMessage("Value of map type (mapType) is invalid.");
 
 		$codeParams = new Objects\TournamentCodeUpdateParameters([
-			'allowedParticipants' => implode(',', [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ]),
+            'allowedSummonerIds' => [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ],
 			'mapType'             => 'THIS_IS_INVALID_MAP_TYPE',
 			'pickType'            => 'ALL_RANDOM',
 			'spectatorType'       => 'ALL',
@@ -232,7 +232,7 @@ class TournamentEndpointTest extends RiotAPITestCase
 		$this->expectExceptionMessage("Value of spectator type (spectatorType) is invalid.");
 
 		$codeParams = new Objects\TournamentCodeUpdateParameters([
-			'allowedParticipants' => implode(',', [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ]),
+            'allowedSummonerIds' => [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ],
 			'mapType'             => 'SUMMONERS_RIFT',
 			'pickType'            => 'ALL_RANDOM',
 			'spectatorType'       => 'THIS_IS_INVALID_SPECTATOR_TYPE',
