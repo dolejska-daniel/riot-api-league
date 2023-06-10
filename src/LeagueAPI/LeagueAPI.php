@@ -162,7 +162,8 @@ class LeagueAPI extends BaseAPI
 		self::RESOURCE_TOURNAMENT_STUB,
 	];
 
-	public function _setupCacheCalls() {
+	public function _setupCacheCalls(): void
+    {
 		if ($this->isSettingSet($this::SET_CACHE_CALLS_LENGTH) == false)
 		{
 			//  Value is not set, setting default values
