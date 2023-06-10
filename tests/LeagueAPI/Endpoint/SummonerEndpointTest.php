@@ -98,7 +98,7 @@ class SummonerEndpointTest extends RiotAPITestCase
 		$this->assertIsInt($result->revisionDate);
 	}
 
-	public function emptySummonerNameProvider(): array
+	public static function emptySummonerNameProvider(): array
 	{
 		return [
 			'Empty string' => [

@@ -31,7 +31,7 @@ class StatusEndpointObjectIntegrityTest extends RiotAPITestCase
 	{
 		$api = new LeagueAPI([
 			LeagueAPI::SET_KEY             => RiotAPITestCase::getApiKey(),
-			LeagueAPI::SET_REGION          => Region::EUROPE_EAST,
+			LeagueAPI::SET_REGION          => Region::BRASIL,
 			LeagueAPI::SET_USE_DUMMY_DATA  => true,
 			LeagueAPI::SET_SAVE_DUMMY_DATA => getenv('SAVE_DUMMY_DATA') ?? false,
 		]);
