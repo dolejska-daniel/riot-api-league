@@ -42,7 +42,7 @@ class LobbyEventDtoWrapper extends ApiObjectIterable
 	 *   - @see LeagueAPI::getLobbyEventsByCode
 	 *   - @see LeagueAPI::getLobbyEventsByCode
 	 *
-	 * @var LobbyEventDTO[] $eventList
+	 * @var LobbyEventDto[] $eventList
 	 */
 	public array $eventList;
 }

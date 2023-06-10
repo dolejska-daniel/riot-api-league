@@ -58,7 +58,7 @@ class LeagueListDto extends ApiObjectIterable
 	 *   - @see LeagueAPI::getChallengerLeague
 	 *   - @see LeagueAPI::getGrandmasterLeague
 	 *
-	 * @var LeagueItemDTO[] $entries
+	 * @var LeagueItemDto[] $entries
 	 */
 	public array $entries;
 
