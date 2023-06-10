@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright (C) 2016-2022  Daniel Dolejška
+ * Copyright (C) 2016-2023  Daniel Dolejška
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -25,14 +25,14 @@ namespace RiotAPI\LeagueAPI\Objects;
  *
  * Used in:
  *   league (v4)
- *     - @see LeagueAPI::getMasterLeague
- *       @link https://developer.riotgames.com/apis#league-v4/GET_getMasterLeague
- *     - @see LeagueAPI::getLeagueById
- *       @link https://developer.riotgames.com/apis#league-v4/GET_getLeagueById
  *     - @see LeagueAPI::getChallengerLeague
  *       @link https://developer.riotgames.com/apis#league-v4/GET_getChallengerLeague
  *     - @see LeagueAPI::getGrandmasterLeague
  *       @link https://developer.riotgames.com/apis#league-v4/GET_getGrandmasterLeague
+ *     - @see LeagueAPI::getLeagueById
+ *       @link https://developer.riotgames.com/apis#league-v4/GET_getLeagueById
+ *     - @see LeagueAPI::getMasterLeague
+ *       @link https://developer.riotgames.com/apis#league-v4/GET_getMasterLeague
  *
  * @package RiotAPI\LeagueAPI\Objects
  */
@@ -40,10 +40,10 @@ class LeagueItemDto extends ApiObject
 {
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMasterLeague
-	 *   - @see LeagueAPI::getLeagueById
 	 *   - @see LeagueAPI::getChallengerLeague
 	 *   - @see LeagueAPI::getGrandmasterLeague
+	 *   - @see LeagueAPI::getLeagueById
+	 *   - @see LeagueAPI::getMasterLeague
 	 *
 	 * @var bool $freshBlood
 	 */
@@ -53,10 +53,10 @@ class LeagueItemDto extends ApiObject
 	 * Winning team on Summoners Rift.
 	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMasterLeague
-	 *   - @see LeagueAPI::getLeagueById
 	 *   - @see LeagueAPI::getChallengerLeague
 	 *   - @see LeagueAPI::getGrandmasterLeague
+	 *   - @see LeagueAPI::getLeagueById
+	 *   - @see LeagueAPI::getMasterLeague
 	 *
 	 * @var int $wins
 	 */
@@ -64,10 +64,10 @@ class LeagueItemDto extends ApiObject
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMasterLeague
-	 *   - @see LeagueAPI::getLeagueById
 	 *   - @see LeagueAPI::getChallengerLeague
 	 *   - @see LeagueAPI::getGrandmasterLeague
+	 *   - @see LeagueAPI::getLeagueById
+	 *   - @see LeagueAPI::getMasterLeague
 	 *
 	 * @var string $summonerName
 	 */
@@ -75,21 +75,21 @@ class LeagueItemDto extends ApiObject
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMasterLeague
-	 *   - @see LeagueAPI::getLeagueById
 	 *   - @see LeagueAPI::getChallengerLeague
 	 *   - @see LeagueAPI::getGrandmasterLeague
+	 *   - @see LeagueAPI::getLeagueById
+	 *   - @see LeagueAPI::getMasterLeague
 	 *
-	 * @var MiniSeriesDTO|null $miniSeries
+	 * @var MiniSeriesDto|null $miniSeries
 	 */
-	public ?MiniSeriesDTO $miniSeries = null;
+	public ?MiniSeriesDto $miniSeries = null;
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMasterLeague
-	 *   - @see LeagueAPI::getLeagueById
 	 *   - @see LeagueAPI::getChallengerLeague
 	 *   - @see LeagueAPI::getGrandmasterLeague
+	 *   - @see LeagueAPI::getLeagueById
+	 *   - @see LeagueAPI::getMasterLeague
 	 *
 	 * @var bool $inactive
 	 */
@@ -97,10 +97,10 @@ class LeagueItemDto extends ApiObject
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMasterLeague
-	 *   - @see LeagueAPI::getLeagueById
 	 *   - @see LeagueAPI::getChallengerLeague
 	 *   - @see LeagueAPI::getGrandmasterLeague
+	 *   - @see LeagueAPI::getLeagueById
+	 *   - @see LeagueAPI::getMasterLeague
 	 *
 	 * @var bool $veteran
 	 */
@@ -108,10 +108,10 @@ class LeagueItemDto extends ApiObject
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMasterLeague
-	 *   - @see LeagueAPI::getLeagueById
 	 *   - @see LeagueAPI::getChallengerLeague
 	 *   - @see LeagueAPI::getGrandmasterLeague
+	 *   - @see LeagueAPI::getLeagueById
+	 *   - @see LeagueAPI::getMasterLeague
 	 *
 	 * @var bool $hotStreak
 	 */
@@ -119,10 +119,10 @@ class LeagueItemDto extends ApiObject
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMasterLeague
-	 *   - @see LeagueAPI::getLeagueById
 	 *   - @see LeagueAPI::getChallengerLeague
 	 *   - @see LeagueAPI::getGrandmasterLeague
+	 *   - @see LeagueAPI::getLeagueById
+	 *   - @see LeagueAPI::getMasterLeague
 	 *
 	 * @var string $rank
 	 */
@@ -130,10 +130,10 @@ class LeagueItemDto extends ApiObject
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMasterLeague
-	 *   - @see LeagueAPI::getLeagueById
 	 *   - @see LeagueAPI::getChallengerLeague
 	 *   - @see LeagueAPI::getGrandmasterLeague
+	 *   - @see LeagueAPI::getLeagueById
+	 *   - @see LeagueAPI::getMasterLeague
 	 *
 	 * @var int $leaguePoints
 	 */
@@ -143,10 +143,10 @@ class LeagueItemDto extends ApiObject
 	 * Losing team on Summoners Rift.
 	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMasterLeague
-	 *   - @see LeagueAPI::getLeagueById
 	 *   - @see LeagueAPI::getChallengerLeague
 	 *   - @see LeagueAPI::getGrandmasterLeague
+	 *   - @see LeagueAPI::getLeagueById
+	 *   - @see LeagueAPI::getMasterLeague
 	 *
 	 * @var int $losses
 	 */
@@ -156,10 +156,10 @@ class LeagueItemDto extends ApiObject
 	 * Player's encrypted summonerId.
 	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMasterLeague
-	 *   - @see LeagueAPI::getLeagueById
 	 *   - @see LeagueAPI::getChallengerLeague
 	 *   - @see LeagueAPI::getGrandmasterLeague
+	 *   - @see LeagueAPI::getLeagueById
+	 *   - @see LeagueAPI::getMasterLeague
 	 *
 	 * @var string $summonerId
 	 */

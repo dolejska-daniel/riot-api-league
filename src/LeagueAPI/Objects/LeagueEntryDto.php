@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright (C) 2016-2022  Daniel Dolejška
+ * Copyright (C) 2016-2023  Daniel Dolejška
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -28,10 +28,10 @@ namespace RiotAPI\LeagueAPI\Objects;
  *     - @see LeagueAPI::getLeagueEntries
  *       @link https://developer.riotgames.com/apis#league-exp-v4/GET_getLeagueEntries
  *   league (v4)
- *     - @see LeagueAPI::getLeagueEntriesForSummoner
- *       @link https://developer.riotgames.com/apis#league-v4/GET_getLeagueEntriesForSummoner
  *     - @see LeagueAPI::getLeagueEntries
  *       @link https://developer.riotgames.com/apis#league-v4/GET_getLeagueEntries
+ *     - @see LeagueAPI::getLeagueEntriesForSummoner
+ *       @link https://developer.riotgames.com/apis#league-v4/GET_getLeagueEntriesForSummoner
  *
  * @package RiotAPI\LeagueAPI\Objects
  */
@@ -40,8 +40,8 @@ class LeagueEntryDto extends ApiObject
 	/**
 	 * Available when received from:
 	 *   - @see LeagueAPI::getLeagueEntries
-	 *   - @see LeagueAPI::getLeagueEntriesForSummoner
 	 *   - @see LeagueAPI::getLeagueEntries
+	 *   - @see LeagueAPI::getLeagueEntriesForSummoner
 	 *
 	 * @var string $leagueId
 	 */
@@ -52,8 +52,8 @@ class LeagueEntryDto extends ApiObject
 	 *
 	 * Available when received from:
 	 *   - @see LeagueAPI::getLeagueEntries
-	 *   - @see LeagueAPI::getLeagueEntriesForSummoner
 	 *   - @see LeagueAPI::getLeagueEntries
+	 *   - @see LeagueAPI::getLeagueEntriesForSummoner
 	 *
 	 * @var string $summonerId
 	 */
@@ -62,8 +62,8 @@ class LeagueEntryDto extends ApiObject
 	/**
 	 * Available when received from:
 	 *   - @see LeagueAPI::getLeagueEntries
-	 *   - @see LeagueAPI::getLeagueEntriesForSummoner
 	 *   - @see LeagueAPI::getLeagueEntries
+	 *   - @see LeagueAPI::getLeagueEntriesForSummoner
 	 *
 	 * @var string $summonerName
 	 */
@@ -72,8 +72,8 @@ class LeagueEntryDto extends ApiObject
 	/**
 	 * Available when received from:
 	 *   - @see LeagueAPI::getLeagueEntries
-	 *   - @see LeagueAPI::getLeagueEntriesForSummoner
 	 *   - @see LeagueAPI::getLeagueEntries
+	 *   - @see LeagueAPI::getLeagueEntriesForSummoner
 	 *
 	 * @var string $queueType
 	 */
@@ -82,8 +82,8 @@ class LeagueEntryDto extends ApiObject
 	/**
 	 * Available when received from:
 	 *   - @see LeagueAPI::getLeagueEntries
-	 *   - @see LeagueAPI::getLeagueEntriesForSummoner
 	 *   - @see LeagueAPI::getLeagueEntries
+	 *   - @see LeagueAPI::getLeagueEntriesForSummoner
 	 *
 	 * @var string $tier
 	 */
@@ -94,8 +94,8 @@ class LeagueEntryDto extends ApiObject
 	 *
 	 * Available when received from:
 	 *   - @see LeagueAPI::getLeagueEntries
-	 *   - @see LeagueAPI::getLeagueEntriesForSummoner
 	 *   - @see LeagueAPI::getLeagueEntries
+	 *   - @see LeagueAPI::getLeagueEntriesForSummoner
 	 *
 	 * @var string $rank
 	 */
@@ -104,8 +104,8 @@ class LeagueEntryDto extends ApiObject
 	/**
 	 * Available when received from:
 	 *   - @see LeagueAPI::getLeagueEntries
-	 *   - @see LeagueAPI::getLeagueEntriesForSummoner
 	 *   - @see LeagueAPI::getLeagueEntries
+	 *   - @see LeagueAPI::getLeagueEntriesForSummoner
 	 *
 	 * @var int $leaguePoints
 	 */
@@ -116,8 +116,8 @@ class LeagueEntryDto extends ApiObject
 	 *
 	 * Available when received from:
 	 *   - @see LeagueAPI::getLeagueEntries
-	 *   - @see LeagueAPI::getLeagueEntriesForSummoner
 	 *   - @see LeagueAPI::getLeagueEntries
+	 *   - @see LeagueAPI::getLeagueEntriesForSummoner
 	 *
 	 * @var int $wins
 	 */
@@ -129,8 +129,8 @@ class LeagueEntryDto extends ApiObject
 	 *
 	 * Available when received from:
 	 *   - @see LeagueAPI::getLeagueEntries
-	 *   - @see LeagueAPI::getLeagueEntriesForSummoner
 	 *   - @see LeagueAPI::getLeagueEntries
+	 *   - @see LeagueAPI::getLeagueEntriesForSummoner
 	 *
 	 * @var int $losses
 	 */
@@ -139,8 +139,8 @@ class LeagueEntryDto extends ApiObject
 	/**
 	 * Available when received from:
 	 *   - @see LeagueAPI::getLeagueEntries
-	 *   - @see LeagueAPI::getLeagueEntriesForSummoner
 	 *   - @see LeagueAPI::getLeagueEntries
+	 *   - @see LeagueAPI::getLeagueEntriesForSummoner
 	 *
 	 * @var bool $hotStreak
 	 */
@@ -149,8 +149,8 @@ class LeagueEntryDto extends ApiObject
 	/**
 	 * Available when received from:
 	 *   - @see LeagueAPI::getLeagueEntries
-	 *   - @see LeagueAPI::getLeagueEntriesForSummoner
 	 *   - @see LeagueAPI::getLeagueEntries
+	 *   - @see LeagueAPI::getLeagueEntriesForSummoner
 	 *
 	 * @var bool $veteran
 	 */
@@ -159,8 +159,8 @@ class LeagueEntryDto extends ApiObject
 	/**
 	 * Available when received from:
 	 *   - @see LeagueAPI::getLeagueEntries
-	 *   - @see LeagueAPI::getLeagueEntriesForSummoner
 	 *   - @see LeagueAPI::getLeagueEntries
+	 *   - @see LeagueAPI::getLeagueEntriesForSummoner
 	 *
 	 * @var bool $freshBlood
 	 */
@@ -169,8 +169,8 @@ class LeagueEntryDto extends ApiObject
 	/**
 	 * Available when received from:
 	 *   - @see LeagueAPI::getLeagueEntries
-	 *   - @see LeagueAPI::getLeagueEntriesForSummoner
 	 *   - @see LeagueAPI::getLeagueEntries
+	 *   - @see LeagueAPI::getLeagueEntriesForSummoner
 	 *
 	 * @var bool $inactive
 	 */
@@ -179,10 +179,10 @@ class LeagueEntryDto extends ApiObject
 	/**
 	 * Available when received from:
 	 *   - @see LeagueAPI::getLeagueEntries
-	 *   - @see LeagueAPI::getLeagueEntriesForSummoner
 	 *   - @see LeagueAPI::getLeagueEntries
+	 *   - @see LeagueAPI::getLeagueEntriesForSummoner
 	 *
-	 * @var MiniSeriesDTO|null $miniSeries
+	 * @var MiniSeriesDto|null $miniSeries
 	 */
-	public ?MiniSeriesDTO $miniSeries = null;
+	public ?MiniSeriesDto $miniSeries = null;
 }

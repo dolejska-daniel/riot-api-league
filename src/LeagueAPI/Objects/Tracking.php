@@ -21,44 +21,17 @@ namespace RiotAPI\LeagueAPI\Objects;
 
 
 /**
- *   Class MetadataDto
+ *   Class Tracking
  *
  * Used in:
- *   match (v5)
- *     - @see LeagueAPI::getMatch
- *       @link https://developer.riotgames.com/apis#match-v5/GET_getMatch
+ *   lol-challenges (v1)
+ *     - @see LeagueAPI::getAllChallengeConfigs
+ *       @link https://developer.riotgames.com/apis#lol-challenges-v1/GET_getAllChallengeConfigs
+ *     - @see LeagueAPI::getChallengeConfigs
+ *       @link https://developer.riotgames.com/apis#lol-challenges-v1/GET_getChallengeConfigs
  *
  * @package RiotAPI\LeagueAPI\Objects
  */
-class MetadataDto extends ApiObject
+class Tracking extends ApiObject
 {
-	/**
-	 * A list of participant PUUIDs.
-	 *
-	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
-	 *
-	 * @var string[] $participants
-	 */
-	public array $participants;
-
-	/**
-	 * Match data version.
-	 *
-	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
-	 *
-	 * @var string $dataVersion
-	 */
-	public string $dataVersion;
-
-	/**
-	 * Match id.
-	 *
-	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
-	 *
-	 * @var string $matchId
-	 */
-	public string $matchId;
-}
+	}

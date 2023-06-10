@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright (C) 2016-2022  Daniel Dolejška
+ * Copyright (C) 2016-2023  Daniel Dolejška
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -172,7 +172,7 @@ class InfoDto extends ApiObject
 	 * Available when received from:
 	 *   - @see LeagueAPI::getMatch
 	 *
-	 * @var MatchTeamDto[] $teams
+	 * @var TeamDto[] $teams
 	 */
 	public array $teams;
 

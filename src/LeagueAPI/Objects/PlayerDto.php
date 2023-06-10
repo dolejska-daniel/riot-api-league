@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright (C) 2016-2022  Daniel Dolejška
+ * Copyright (C) 2016-2023  Daniel Dolejška
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -29,6 +29,8 @@ namespace RiotAPI\LeagueAPI\Objects;
  *       @link https://developer.riotgames.com/apis#clash-v1/GET_getTeamById
  *     - @see LeagueAPI::getPlayersBySummoner
  *       @link https://developer.riotgames.com/apis#clash-v1/GET_getPlayersBySummoner
+ *     - @see LeagueAPI::getPlayersByPUUID
+ *       @link https://developer.riotgames.com/apis#clash-v1/GET_getPlayersByPUUID
  *
  * @package RiotAPI\LeagueAPI\Objects
  */
@@ -38,6 +40,7 @@ class PlayerDto extends ApiObject
 	 * Available when received from:
 	 *   - @see LeagueAPI::getTeamById
 	 *   - @see LeagueAPI::getPlayersBySummoner
+	 *   - @see LeagueAPI::getPlayersByPUUID
 	 *
 	 * @var string $summonerId
 	 */
@@ -46,6 +49,7 @@ class PlayerDto extends ApiObject
 	/**
 	 * Available when received from:
 	 *   - @see LeagueAPI::getPlayersBySummoner
+	 *   - @see LeagueAPI::getPlayersByPUUID
 	 *
 	 * @var string $teamId
 	 */
@@ -57,6 +61,7 @@ class PlayerDto extends ApiObject
 	 * Available when received from:
 	 *   - @see LeagueAPI::getTeamById
 	 *   - @see LeagueAPI::getPlayersBySummoner
+	 *   - @see LeagueAPI::getPlayersByPUUID
 	 *
 	 * @var string $position
 	 */
@@ -68,6 +73,7 @@ class PlayerDto extends ApiObject
 	 * Available when received from:
 	 *   - @see LeagueAPI::getTeamById
 	 *   - @see LeagueAPI::getPlayersBySummoner
+	 *   - @see LeagueAPI::getPlayersByPUUID
 	 *
 	 * @var string $role
 	 */

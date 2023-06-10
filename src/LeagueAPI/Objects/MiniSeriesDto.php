@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright (C) 2016-2022  Daniel Dolejška
+ * Copyright (C) 2016-2023  Daniel Dolejška
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -30,16 +30,16 @@ namespace RiotAPI\LeagueAPI\Objects;
  *   league (v4)
  *     - @see LeagueAPI::getChallengerLeague
  *       @link https://developer.riotgames.com/apis#league-v4/GET_getChallengerLeague
- *     - @see LeagueAPI::getLeagueById
- *       @link https://developer.riotgames.com/apis#league-v4/GET_getLeagueById
- *     - @see LeagueAPI::getGrandmasterLeague
- *       @link https://developer.riotgames.com/apis#league-v4/GET_getGrandmasterLeague
  *     - @see LeagueAPI::getMasterLeague
  *       @link https://developer.riotgames.com/apis#league-v4/GET_getMasterLeague
- *     - @see LeagueAPI::getLeagueEntriesForSummoner
- *       @link https://developer.riotgames.com/apis#league-v4/GET_getLeagueEntriesForSummoner
  *     - @see LeagueAPI::getLeagueEntries
  *       @link https://developer.riotgames.com/apis#league-v4/GET_getLeagueEntries
+ *     - @see LeagueAPI::getGrandmasterLeague
+ *       @link https://developer.riotgames.com/apis#league-v4/GET_getGrandmasterLeague
+ *     - @see LeagueAPI::getLeagueById
+ *       @link https://developer.riotgames.com/apis#league-v4/GET_getLeagueById
+ *     - @see LeagueAPI::getLeagueEntriesForSummoner
+ *       @link https://developer.riotgames.com/apis#league-v4/GET_getLeagueEntriesForSummoner
  *
  * @package RiotAPI\LeagueAPI\Objects
  */
@@ -49,11 +49,11 @@ class MiniSeriesDto extends ApiObject
 	 * Available when received from:
 	 *   - @see LeagueAPI::getLeagueEntries
 	 *   - @see LeagueAPI::getChallengerLeague
-	 *   - @see LeagueAPI::getLeagueById
-	 *   - @see LeagueAPI::getGrandmasterLeague
 	 *   - @see LeagueAPI::getMasterLeague
-	 *   - @see LeagueAPI::getLeagueEntriesForSummoner
 	 *   - @see LeagueAPI::getLeagueEntries
+	 *   - @see LeagueAPI::getGrandmasterLeague
+	 *   - @see LeagueAPI::getLeagueById
+	 *   - @see LeagueAPI::getLeagueEntriesForSummoner
 	 *
 	 * @var int $losses
 	 */
@@ -63,11 +63,11 @@ class MiniSeriesDto extends ApiObject
 	 * Available when received from:
 	 *   - @see LeagueAPI::getLeagueEntries
 	 *   - @see LeagueAPI::getChallengerLeague
-	 *   - @see LeagueAPI::getLeagueById
-	 *   - @see LeagueAPI::getGrandmasterLeague
 	 *   - @see LeagueAPI::getMasterLeague
-	 *   - @see LeagueAPI::getLeagueEntriesForSummoner
 	 *   - @see LeagueAPI::getLeagueEntries
+	 *   - @see LeagueAPI::getGrandmasterLeague
+	 *   - @see LeagueAPI::getLeagueById
+	 *   - @see LeagueAPI::getLeagueEntriesForSummoner
 	 *
 	 * @var string $progress
 	 */
@@ -77,11 +77,11 @@ class MiniSeriesDto extends ApiObject
 	 * Available when received from:
 	 *   - @see LeagueAPI::getLeagueEntries
 	 *   - @see LeagueAPI::getChallengerLeague
-	 *   - @see LeagueAPI::getLeagueById
-	 *   - @see LeagueAPI::getGrandmasterLeague
 	 *   - @see LeagueAPI::getMasterLeague
-	 *   - @see LeagueAPI::getLeagueEntriesForSummoner
 	 *   - @see LeagueAPI::getLeagueEntries
+	 *   - @see LeagueAPI::getGrandmasterLeague
+	 *   - @see LeagueAPI::getLeagueById
+	 *   - @see LeagueAPI::getLeagueEntriesForSummoner
 	 *
 	 * @var int $target
 	 */
@@ -91,11 +91,11 @@ class MiniSeriesDto extends ApiObject
 	 * Available when received from:
 	 *   - @see LeagueAPI::getLeagueEntries
 	 *   - @see LeagueAPI::getChallengerLeague
-	 *   - @see LeagueAPI::getLeagueById
-	 *   - @see LeagueAPI::getGrandmasterLeague
 	 *   - @see LeagueAPI::getMasterLeague
-	 *   - @see LeagueAPI::getLeagueEntriesForSummoner
 	 *   - @see LeagueAPI::getLeagueEntries
+	 *   - @see LeagueAPI::getGrandmasterLeague
+	 *   - @see LeagueAPI::getLeagueById
+	 *   - @see LeagueAPI::getLeagueEntriesForSummoner
 	 *
 	 * @var int $wins
 	 */

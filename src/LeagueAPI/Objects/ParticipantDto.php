@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright (C) 2016-2022  Daniel Dolejška
+ * Copyright (C) 2016-2023  Daniel Dolejška
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -56,7 +56,15 @@ class ParticipantDto extends ApiObjectLinkable
 	 *
 	 * @var int $bountyLevel
 	 */
-	public int $bountyLevel;
+    public int $bountyLevel;
+
+    /**
+     * Available when received from:
+     *   - @see LeagueAPI::getMatch
+     *
+     * @var array $challenges
+     */
+	public array $challenges = [];
 
 	/**
 	 * Available when received from:
@@ -898,6 +906,4 @@ class ParticipantDto extends ApiObjectLinkable
 	 * @var bool $win
 	 */
 	public bool $win;
-
-    public array $challenges;
 }

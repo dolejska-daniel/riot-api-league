@@ -21,44 +21,38 @@ namespace RiotAPI\LeagueAPI\Objects;
 
 
 /**
- *   Class MetadataDto
+ *   Class ApexPlayerInfoDto
  *
  * Used in:
- *   match (v5)
- *     - @see LeagueAPI::getMatch
- *       @link https://developer.riotgames.com/apis#match-v5/GET_getMatch
+ *   lol-challenges (v1)
+ *     - @see LeagueAPI::getChallengeLeaderboards
+ *       @link https://developer.riotgames.com/apis#lol-challenges-v1/GET_getChallengeLeaderboards
  *
  * @package RiotAPI\LeagueAPI\Objects
  */
-class MetadataDto extends ApiObject
+class ApexPlayerInfoDto extends ApiObject
 {
 	/**
-	 * A list of participant PUUIDs.
-	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getChallengeLeaderboards
 	 *
-	 * @var string[] $participants
+	 * @var string $puuid
 	 */
-	public array $participants;
+	public string $puuid;
 
 	/**
-	 * Match data version.
-	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getChallengeLeaderboards
 	 *
-	 * @var string $dataVersion
+	 * @var float $value
 	 */
-	public string $dataVersion;
+	public float $value;
 
 	/**
-	 * Match id.
-	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getChallengeLeaderboards
 	 *
-	 * @var string $matchId
+	 * @var int $position
 	 */
-	public string $matchId;
+	public int $position;
 }

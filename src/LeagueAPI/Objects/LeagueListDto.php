@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright (C) 2016-2022  Daniel Dolejška
+ * Copyright (C) 2016-2023  Daniel Dolejška
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -25,14 +25,14 @@ namespace RiotAPI\LeagueAPI\Objects;
  *
  * Used in:
  *   league (v4)
- *     - @see LeagueAPI::getMasterLeague
- *       @link https://developer.riotgames.com/apis#league-v4/GET_getMasterLeague
- *     - @see LeagueAPI::getLeagueById
- *       @link https://developer.riotgames.com/apis#league-v4/GET_getLeagueById
  *     - @see LeagueAPI::getChallengerLeague
  *       @link https://developer.riotgames.com/apis#league-v4/GET_getChallengerLeague
  *     - @see LeagueAPI::getGrandmasterLeague
  *       @link https://developer.riotgames.com/apis#league-v4/GET_getGrandmasterLeague
+ *     - @see LeagueAPI::getLeagueById
+ *       @link https://developer.riotgames.com/apis#league-v4/GET_getLeagueById
+ *     - @see LeagueAPI::getMasterLeague
+ *       @link https://developer.riotgames.com/apis#league-v4/GET_getMasterLeague
  *
  * @iterable $entries
  *
@@ -42,10 +42,10 @@ class LeagueListDto extends ApiObjectIterable
 {
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMasterLeague
-	 *   - @see LeagueAPI::getLeagueById
 	 *   - @see LeagueAPI::getChallengerLeague
 	 *   - @see LeagueAPI::getGrandmasterLeague
+	 *   - @see LeagueAPI::getLeagueById
+	 *   - @see LeagueAPI::getMasterLeague
 	 *
 	 * @var string $leagueId
 	 */
@@ -53,10 +53,10 @@ class LeagueListDto extends ApiObjectIterable
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMasterLeague
-	 *   - @see LeagueAPI::getLeagueById
 	 *   - @see LeagueAPI::getChallengerLeague
 	 *   - @see LeagueAPI::getGrandmasterLeague
+	 *   - @see LeagueAPI::getLeagueById
+	 *   - @see LeagueAPI::getMasterLeague
 	 *
 	 * @var LeagueItemDto[] $entries
 	 */
@@ -64,10 +64,10 @@ class LeagueListDto extends ApiObjectIterable
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMasterLeague
-	 *   - @see LeagueAPI::getLeagueById
 	 *   - @see LeagueAPI::getChallengerLeague
 	 *   - @see LeagueAPI::getGrandmasterLeague
+	 *   - @see LeagueAPI::getLeagueById
+	 *   - @see LeagueAPI::getMasterLeague
 	 *
 	 * @var string $tier
 	 */
@@ -75,10 +75,10 @@ class LeagueListDto extends ApiObjectIterable
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMasterLeague
-	 *   - @see LeagueAPI::getLeagueById
 	 *   - @see LeagueAPI::getChallengerLeague
 	 *   - @see LeagueAPI::getGrandmasterLeague
+	 *   - @see LeagueAPI::getLeagueById
+	 *   - @see LeagueAPI::getMasterLeague
 	 *
 	 * @var string $name
 	 */
@@ -86,10 +86,10 @@ class LeagueListDto extends ApiObjectIterable
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMasterLeague
-	 *   - @see LeagueAPI::getLeagueById
 	 *   - @see LeagueAPI::getChallengerLeague
 	 *   - @see LeagueAPI::getGrandmasterLeague
+	 *   - @see LeagueAPI::getLeagueById
+	 *   - @see LeagueAPI::getMasterLeague
 	 *
 	 * @var string $queue
 	 */
