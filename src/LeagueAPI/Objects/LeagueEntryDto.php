@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright (C) 2016-2021  Daniel Dolejška
+ * Copyright (C) 2016-2022  Daniel Dolejška
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -45,7 +45,7 @@ class LeagueEntryDto extends ApiObject
 	 *
 	 * @var string $leagueId
 	 */
-	public $leagueId;
+	public string $leagueId;
 
 	/**
 	 * Player's summonerId (Encrypted).
@@ -57,7 +57,7 @@ class LeagueEntryDto extends ApiObject
 	 *
 	 * @var string $summonerId
 	 */
-	public $summonerId;
+	public string $summonerId;
 
 	/**
 	 * Available when received from:
@@ -67,7 +67,7 @@ class LeagueEntryDto extends ApiObject
 	 *
 	 * @var string $summonerName
 	 */
-	public $summonerName;
+	public string $summonerName;
 
 	/**
 	 * Available when received from:
@@ -77,7 +77,7 @@ class LeagueEntryDto extends ApiObject
 	 *
 	 * @var string $queueType
 	 */
-	public $queueType;
+	public string $queueType;
 
 	/**
 	 * Available when received from:
@@ -87,7 +87,7 @@ class LeagueEntryDto extends ApiObject
 	 *
 	 * @var string $tier
 	 */
-	public $tier;
+	public string $tier;
 
 	/**
 	 * The player's division within a tier.
@@ -99,7 +99,7 @@ class LeagueEntryDto extends ApiObject
 	 *
 	 * @var string $rank
 	 */
-	public $rank;
+	public string $rank;
 
 	/**
 	 * Available when received from:
@@ -109,7 +109,7 @@ class LeagueEntryDto extends ApiObject
 	 *
 	 * @var int $leaguePoints
 	 */
-	public $leaguePoints;
+	public int $leaguePoints;
 
 	/**
 	 * Winning team on Summoners Rift. First placement in Teamfight Tactics.
@@ -121,7 +121,7 @@ class LeagueEntryDto extends ApiObject
 	 *
 	 * @var int $wins
 	 */
-	public $wins;
+	public int $wins;
 
 	/**
 	 * Losing team on Summoners Rift. Second through eighth placement in
@@ -134,7 +134,7 @@ class LeagueEntryDto extends ApiObject
 	 *
 	 * @var int $losses
 	 */
-	public $losses;
+	public int $losses;
 
 	/**
 	 * Available when received from:
@@ -144,7 +144,7 @@ class LeagueEntryDto extends ApiObject
 	 *
 	 * @var bool $hotStreak
 	 */
-	public $hotStreak;
+	public bool $hotStreak;
 
 	/**
 	 * Available when received from:
@@ -154,7 +154,7 @@ class LeagueEntryDto extends ApiObject
 	 *
 	 * @var bool $veteran
 	 */
-	public $veteran;
+	public bool $veteran;
 
 	/**
 	 * Available when received from:
@@ -164,7 +164,7 @@ class LeagueEntryDto extends ApiObject
 	 *
 	 * @var bool $freshBlood
 	 */
-	public $freshBlood;
+	public bool $freshBlood;
 
 	/**
 	 * Available when received from:
@@ -174,7 +174,7 @@ class LeagueEntryDto extends ApiObject
 	 *
 	 * @var bool $inactive
 	 */
-	public $inactive;
+	public bool $inactive;
 
 	/**
 	 * Available when received from:
@@ -182,7 +182,7 @@ class LeagueEntryDto extends ApiObject
 	 *   - @see LeagueAPI::getLeagueEntriesForSummoner
 	 *   - @see LeagueAPI::getLeagueEntries
 	 *
-	 * @var MiniSeriesDTO $miniSeries
+	 * @var MiniSeriesDTO|null $miniSeries
 	 */
-	public $miniSeries;
+	public ?MiniSeriesDTO $miniSeries = null;
 }

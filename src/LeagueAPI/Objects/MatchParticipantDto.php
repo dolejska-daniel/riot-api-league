@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright (C) 2016-2021  Daniel Dolejška
+ * Copyright (C) 2016-2022  Daniel Dolejška
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -21,38 +21,30 @@ namespace RiotAPI\LeagueAPI\Objects;
 
 
 /**
- *   Class ParticipantIdentityDto
+ *   Class MatchParticipantDto
  *
  * Used in:
- *   match (v4)
- *     - @see LeagueAPI::getMatchByTournamentCode
- *       @link https://developer.riotgames.com/apis#match-v4/GET_getMatchByTournamentCode
- *     - @see LeagueAPI::getMatch
- *       @link https://developer.riotgames.com/apis#match-v4/GET_getMatch
+ *   match (v5)
+ *     - @see LeagueAPI::getTimeline
+ *       @link https://developer.riotgames.com/apis#match-v5/GET_getTimeline
  *
  * @package RiotAPI\LeagueAPI\Objects
  */
-class ParticipantIdentityDto extends ApiObject
+class MatchParticipantDto extends ApiObject
 {
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatchByTournamentCode
-	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getTimeline
 	 *
 	 * @var int $participantId
 	 */
-	public $participantId;
+	public int $participantId;
 
 	/**
-	 * Player information not included in the response for custom matches.
-	 * Custom matches are considered private unless a tournament code was used
-	 * to create the match.
-	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatchByTournamentCode
-	 *   - @see LeagueAPI::getMatch
+	 *   - @see LeagueAPI::getTimeline
 	 *
-	 * @var PlayerDto $player
+	 * @var string $puuid
 	 */
-	public $player;
+	public string $puuid;
 }

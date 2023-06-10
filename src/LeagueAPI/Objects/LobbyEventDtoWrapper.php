@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright (C) 2016-2021  Daniel Dolejška
+ * Copyright (C) 2016-2022  Daniel Dolejška
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -31,9 +31,11 @@ namespace RiotAPI\LeagueAPI\Objects;
  *     - @see LeagueAPI::getLobbyEventsByCode
  *       @link https://developer.riotgames.com/apis#tournament-v4/GET_getLobbyEventsByCode
  *
+ * @iterable $eventList
+ *
  * @package RiotAPI\LeagueAPI\Objects
  */
-class LobbyEventDtoWrapper extends ApiObject
+class LobbyEventDtoWrapper extends ApiObjectIterable
 {
 	/**
 	 * Available when received from:
@@ -42,5 +44,5 @@ class LobbyEventDtoWrapper extends ApiObject
 	 *
 	 * @var LobbyEventDTO[] $eventList
 	 */
-	public $eventList;
+	public array $eventList;
 }

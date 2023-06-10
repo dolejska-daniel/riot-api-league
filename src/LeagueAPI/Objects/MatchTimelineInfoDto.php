@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright (C) 2016-2021  Daniel Dolejška
+ * Copyright (C) 2016-2022  Daniel Dolejška
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -19,55 +19,47 @@
 
 namespace RiotAPI\LeagueAPI\Objects;
 
-
 /**
- *   Class MatchlistDto
+ *   Class MatchTimelineInfoDto
  *
  * Used in:
- *   match (v4)
- *     - @see LeagueAPI::getMatchlist
- *       @link https://developer.riotgames.com/apis#match-v4/GET_getMatchlist
- *
- * @iterable $matches
+ *   match (v5)
+ *     - @see LeagueAPI::getTimeline
+ *       @link https://developer.riotgames.com/apis#match-v5/GET_getTimeline
  *
  * @package RiotAPI\LeagueAPI\Objects
  */
-class MatchlistDto extends ApiObjectIterable
+class MatchTimelineInfoDto extends ApiObject
 {
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatchlist
+	 *   - @see LeagueAPI::getTimeline
 	 *
-	 * @var int $startIndex
+	 * @var int $frameInterval
 	 */
-	public $startIndex;
-
-	/**
-	 * There is a known issue that this field doesn't correctly return the
-	 * total number of games that match the parameters of the request. Please
-	 * paginate using beginIndex until you reach the end of a player's
-	 * matchlist.
-	 *
-	 * Available when received from:
-	 *   - @see LeagueAPI::getMatchlist
-	 *
-	 * @var int $totalGames
-	 */
-	public $totalGames;
+	public int $frameInterval;
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatchlist
+	 *   - @see LeagueAPI::getTimeline
 	 *
-	 * @var int $endIndex
+	 * @var MatchFrameDto[] $frames
 	 */
-	public $endIndex;
+	public array $frames;
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatchlist
+	 *   - @see LeagueAPI::getTimeline
 	 *
-	 * @var MatchReferenceDto[] $matches
+	 * @var int $gameId
 	 */
-	public $matches;
+	public int $gameId;
+
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getTimeline
+	 *
+	 * @var MatchParticipantDto[] $participants
+	 */
+	public array $participants;
 }

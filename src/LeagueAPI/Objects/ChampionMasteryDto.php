@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright (C) 2016-2021  Daniel Dolejška
+ * Copyright (C) 2016-2022  Daniel Dolejška
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -46,7 +46,7 @@ class ChampionMasteryDto extends ApiObjectLinkable
 	 *
 	 * @var int $championPointsUntilNextLevel
 	 */
-	public $championPointsUntilNextLevel;
+	public int $championPointsUntilNextLevel;
 
 	/**
 	 * Is chest granted for this champion or not in current season.
@@ -57,7 +57,7 @@ class ChampionMasteryDto extends ApiObjectLinkable
 	 *
 	 * @var bool $chestGranted
 	 */
-	public $chestGranted;
+	public bool $chestGranted;
 
 	/**
 	 * Champion ID for this entry.
@@ -68,7 +68,7 @@ class ChampionMasteryDto extends ApiObjectLinkable
 	 *
 	 * @var int $championId
 	 */
-	public $championId;
+	public int $championId;
 
 	/**
 	 * Last time this champion was played by this player - in Unix
@@ -80,7 +80,7 @@ class ChampionMasteryDto extends ApiObjectLinkable
 	 *
 	 * @var int $lastPlayTime
 	 */
-	public $lastPlayTime;
+	public int $lastPlayTime;
 
 	/**
 	 * Champion level for specified player and champion combination.
@@ -91,7 +91,7 @@ class ChampionMasteryDto extends ApiObjectLinkable
 	 *
 	 * @var int $championLevel
 	 */
-	public $championLevel;
+	public int $championLevel;
 
 	/**
 	 * Summoner ID for this entry. (Encrypted).
@@ -102,7 +102,7 @@ class ChampionMasteryDto extends ApiObjectLinkable
 	 *
 	 * @var string $summonerId
 	 */
-	public $summonerId;
+	public string $summonerId;
 
 	/**
 	 * Total number of champion points for this player and champion
@@ -114,7 +114,7 @@ class ChampionMasteryDto extends ApiObjectLinkable
 	 *
 	 * @var int $championPoints
 	 */
-	public $championPoints;
+	public int $championPoints;
 
 	/**
 	 * Number of points earned since current level has been achieved.
@@ -125,7 +125,7 @@ class ChampionMasteryDto extends ApiObjectLinkable
 	 *
 	 * @var int $championPointsSinceLastLevel
 	 */
-	public $championPointsSinceLastLevel;
+	public int $championPointsSinceLastLevel;
 
 	/**
 	 * The token earned for this champion at the current championLevel. When
@@ -137,5 +137,5 @@ class ChampionMasteryDto extends ApiObjectLinkable
 	 *
 	 * @var int $tokensEarned
 	 */
-	public $tokensEarned;
+	public int $tokensEarned;
 }

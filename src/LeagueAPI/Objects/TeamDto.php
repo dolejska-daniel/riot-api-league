@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright (C) 2016-2021  Daniel Dolejška
+ * Copyright (C) 2016-2022  Daniel Dolejška
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -41,7 +41,7 @@ class TeamDto extends ApiObject
 	 *
 	 * @var string $id
 	 */
-	public $id;
+	public string $id;
 
 	/**
 	 * Available when received from:
@@ -49,7 +49,7 @@ class TeamDto extends ApiObject
 	 *
 	 * @var int $tournamentId
 	 */
-	public $tournamentId;
+	public int $tournamentId;
 
 	/**
 	 * Available when received from:
@@ -57,7 +57,7 @@ class TeamDto extends ApiObject
 	 *
 	 * @var string $name
 	 */
-	public $name;
+	public string $name;
 
 	/**
 	 * Available when received from:
@@ -65,7 +65,7 @@ class TeamDto extends ApiObject
 	 *
 	 * @var int $iconId
 	 */
-	public $iconId;
+	public int $iconId;
 
 	/**
 	 * Available when received from:
@@ -73,7 +73,7 @@ class TeamDto extends ApiObject
 	 *
 	 * @var int $tier
 	 */
-	public $tier;
+	public int $tier;
 
 	/**
 	 * Summoner ID of the team captain.
@@ -83,7 +83,7 @@ class TeamDto extends ApiObject
 	 *
 	 * @var string $captain
 	 */
-	public $captain;
+	public string $captain;
 
 	/**
 	 * Available when received from:
@@ -91,7 +91,7 @@ class TeamDto extends ApiObject
 	 *
 	 * @var string $abbreviation
 	 */
-	public $abbreviation;
+	public string $abbreviation;
 
 	/**
 	 * Team members.
@@ -101,37 +101,5 @@ class TeamDto extends ApiObject
 	 *
 	 * @var PlayerDto[] $players
 	 */
-	public $players;
-
-	/**
-	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
-	 *
-	 * @var BanDto[] $bans
-	 */
-	public $bans;
-
-	/**
-	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
-	 *
-	 * @var ObjectivesDto $objectives
-	 */
-	public $objectives;
-
-	/**
-	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
-	 *
-	 * @var int $teamId
-	 */
-	public $teamId;
-
-	/**
-	 * Available when received from:
-	 *   - @see LeagueAPI::getMatch
-	 *
-	 * @var bool $win
-	 */
-	public $win;
+	public array $players;
 }

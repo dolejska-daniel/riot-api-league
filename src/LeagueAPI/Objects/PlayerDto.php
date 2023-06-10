@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright (C) 2016-2021  Daniel Dolejška
+ * Copyright (C) 2016-2022  Daniel Dolejška
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -29,11 +29,6 @@ namespace RiotAPI\LeagueAPI\Objects;
  *       @link https://developer.riotgames.com/apis#clash-v1/GET_getTeamById
  *     - @see LeagueAPI::getPlayersBySummoner
  *       @link https://developer.riotgames.com/apis#clash-v1/GET_getPlayersBySummoner
- *   match (v4)
- *     - @see LeagueAPI::getMatchByTournamentCode
- *       @link https://developer.riotgames.com/apis#match-v4/GET_getMatchByTournamentCode
- *     - @see LeagueAPI::getMatch
- *       @link https://developer.riotgames.com/apis#match-v4/GET_getMatch
  *
  * @package RiotAPI\LeagueAPI\Objects
  */
@@ -43,12 +38,10 @@ class PlayerDto extends ApiObject
 	 * Available when received from:
 	 *   - @see LeagueAPI::getTeamById
 	 *   - @see LeagueAPI::getPlayersBySummoner
-	 *   - @see LeagueAPI::getMatchByTournamentCode
-	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var string $summonerId
 	 */
-	public $summonerId;
+	public string $summonerId;
 
 	/**
 	 * Available when received from:
@@ -56,7 +49,7 @@ class PlayerDto extends ApiObject
 	 *
 	 * @var string $teamId
 	 */
-	public $teamId;
+	public string $teamId;
 
 	/**
 	 * (Legal values: UNSELECTED, FILL, TOP, JUNGLE, MIDDLE, BOTTOM, UTILITY).
@@ -67,7 +60,7 @@ class PlayerDto extends ApiObject
 	 *
 	 * @var string $position
 	 */
-	public $position;
+	public string $position;
 
 	/**
 	 * (Legal values: CAPTAIN, MEMBER).
@@ -78,76 +71,5 @@ class PlayerDto extends ApiObject
 	 *
 	 * @var string $role
 	 */
-	public $role;
-
-	/**
-	 * Available when received from:
-	 *   - @see LeagueAPI::getMatchByTournamentCode
-	 *   - @see LeagueAPI::getMatch
-	 *
-	 * @var int $profileIcon
-	 */
-	public $profileIcon;
-
-	/**
-	 * Player's original accountId.
-	 *
-	 * Available when received from:
-	 *   - @see LeagueAPI::getMatchByTournamentCode
-	 *   - @see LeagueAPI::getMatch
-	 *
-	 * @var string $accountId
-	 */
-	public $accountId;
-
-	/**
-	 * Available when received from:
-	 *   - @see LeagueAPI::getMatchByTournamentCode
-	 *   - @see LeagueAPI::getMatch
-	 *
-	 * @var string $matchHistoryUri
-	 */
-	public $matchHistoryUri;
-
-	/**
-	 * Player's current accountId when the match was played.
-	 *
-	 * Available when received from:
-	 *   - @see LeagueAPI::getMatchByTournamentCode
-	 *   - @see LeagueAPI::getMatch
-	 *
-	 * @var string $currentAccountId
-	 */
-	public $currentAccountId;
-
-	/**
-	 * Player's current platformId when the match was played.
-	 *
-	 * Available when received from:
-	 *   - @see LeagueAPI::getMatchByTournamentCode
-	 *   - @see LeagueAPI::getMatch
-	 *
-	 * @var string $currentPlatformId
-	 */
-	public $currentPlatformId;
-
-	/**
-	 * Available when received from:
-	 *   - @see LeagueAPI::getMatchByTournamentCode
-	 *   - @see LeagueAPI::getMatch
-	 *
-	 * @var string $summonerName
-	 */
-	public $summonerName;
-
-	/**
-	 * Player's original platformId.
-	 *
-	 * Available when received from:
-	 *   - @see LeagueAPI::getMatchByTournamentCode
-	 *   - @see LeagueAPI::getMatch
-	 *
-	 * @var string $platformId
-	 */
-	public $platformId;
+	public string $role;
 }

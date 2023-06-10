@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright (C) 2016-2021  Daniel Dolejška
+ * Copyright (C) 2016-2022  Daniel Dolejška
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -24,11 +24,6 @@ namespace RiotAPI\LeagueAPI\Objects;
  *   Class ParticipantDto
  *
  * Used in:
- *   match (v4)
- *     - @see LeagueAPI::getMatchByTournamentCode
- *       @link https://developer.riotgames.com/apis#match-v4/GET_getMatchByTournamentCode
- *     - @see LeagueAPI::getMatch
- *       @link https://developer.riotgames.com/apis#match-v4/GET_getMatch
  *   match (v5)
  *     - @see LeagueAPI::getMatch
  *       @link https://developer.riotgames.com/apis#match-v5/GET_getMatch
@@ -41,126 +36,11 @@ class ParticipantDto extends ApiObjectLinkable
 {
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatchByTournamentCode
-	 *   - @see LeagueAPI::getMatch
-	 *   - @see LeagueAPI::getMatch
-	 *
-	 * @var int $participantId
-	 */
-	public $participantId;
-
-	/**
-	 * Available when received from:
-	 *   - @see LeagueAPI::getMatchByTournamentCode
-	 *   - @see LeagueAPI::getMatch
-	 *   - @see LeagueAPI::getMatch
-	 *
-	 * @var int $championId
-	 */
-	public $championId;
-
-	/**
-	 * List of legacy Rune information. Not included for matches played with
-	 * Runes Reforged.
-	 *
-	 * Available when received from:
-	 *   - @see LeagueAPI::getMatchByTournamentCode
-	 *   - @see LeagueAPI::getMatch
-	 *
-	 * @var RuneDto[] $runes
-	 */
-	public $runes;
-
-	/**
-	 * Participant statistics.
-	 *
-	 * Available when received from:
-	 *   - @see LeagueAPI::getMatchByTournamentCode
-	 *   - @see LeagueAPI::getMatch
-	 *
-	 * @var ParticipantStatsDto $stats
-	 */
-	public $stats;
-
-	/**
-	 * 100 for blue side. 200 for red side.
-	 *
-	 * Available when received from:
-	 *   - @see LeagueAPI::getMatchByTournamentCode
-	 *   - @see LeagueAPI::getMatch
-	 *   - @see LeagueAPI::getMatch
-	 *
-	 * @var int $teamId
-	 */
-	public $teamId;
-
-	/**
-	 * Participant timeline data.
-	 *
-	 * Available when received from:
-	 *   - @see LeagueAPI::getMatchByTournamentCode
-	 *   - @see LeagueAPI::getMatch
-	 *
-	 * @var ParticipantTimelineDto $timeline
-	 */
-	public $timeline;
-
-	/**
-	 * First Summoner Spell id.
-	 *
-	 * Available when received from:
-	 *   - @see LeagueAPI::getMatchByTournamentCode
-	 *   - @see LeagueAPI::getMatch
-	 *
-	 * @var int $spell1Id
-	 */
-	public $spell1Id;
-
-	/**
-	 * Second Summoner Spell id.
-	 *
-	 * Available when received from:
-	 *   - @see LeagueAPI::getMatchByTournamentCode
-	 *   - @see LeagueAPI::getMatch
-	 *
-	 * @var int $spell2Id
-	 */
-	public $spell2Id;
-
-	/**
-	 * Highest ranked tier achieved for the previous season in a specific
-	 * subset of queueIds, if any, otherwise null. Used to display border in
-	 * game loading screen. Please refer to the Ranked Info documentation.
-	 * (Legal values: CHALLENGER, MASTER, DIAMOND, PLATINUM, GOLD, SILVER,
-	 * BRONZE, UNRANKED).
-	 *
-	 * Available when received from:
-	 *   - @see LeagueAPI::getMatchByTournamentCode
-	 *   - @see LeagueAPI::getMatch
-	 *
-	 * @var string $highestAchievedSeasonTier
-	 */
-	public $highestAchievedSeasonTier;
-
-	/**
-	 * List of legacy Mastery information. Not included for matches played
-	 * with Runes Reforged.
-	 *
-	 * Available when received from:
-	 *   - @see LeagueAPI::getMatchByTournamentCode
-	 *   - @see LeagueAPI::getMatch
-	 *
-	 * @var MasteryDto[] $masteries
-	 */
-	public $masteries;
-
-	/**
-	 * Available when received from:
 	 *   - @see LeagueAPI::getMatch
 	 *
 	 * @var int $assists
 	 */
-	public $assists;
+	public int $assists;
 
 	/**
 	 * Available when received from:
@@ -168,7 +48,7 @@ class ParticipantDto extends ApiObjectLinkable
 	 *
 	 * @var int $baronKills
 	 */
-	public $baronKills;
+	public int $baronKills;
 
 	/**
 	 * Available when received from:
@@ -176,7 +56,7 @@ class ParticipantDto extends ApiObjectLinkable
 	 *
 	 * @var int $bountyLevel
 	 */
-	public $bountyLevel;
+	public int $bountyLevel;
 
 	/**
 	 * Available when received from:
@@ -184,7 +64,7 @@ class ParticipantDto extends ApiObjectLinkable
 	 *
 	 * @var int $champExperience
 	 */
-	public $champExperience;
+	public int $champExperience;
 
 	/**
 	 * Available when received from:
@@ -192,7 +72,19 @@ class ParticipantDto extends ApiObjectLinkable
 	 *
 	 * @var int $champLevel
 	 */
-	public $champLevel;
+	public int $champLevel;
+
+	/**
+	 * Prior to patch 11.4, on Feb 18th, 2021, this field returned invalid
+	 * championIds. We recommend determining the champion based on the
+	 * championName field for matches played prior to patch 11.4.
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *
+	 * @var int $championId
+	 */
+	public int $championId;
 
 	/**
 	 * Available when received from:
@@ -200,7 +92,7 @@ class ParticipantDto extends ApiObjectLinkable
 	 *
 	 * @var string $championName
 	 */
-	public $championName;
+	public string $championName;
 
 	/**
 	 * This field is currently only utilized for Kayn's transformations.
@@ -211,7 +103,7 @@ class ParticipantDto extends ApiObjectLinkable
 	 *
 	 * @var int $championTransform
 	 */
-	public $championTransform;
+	public int $championTransform;
 
 	/**
 	 * Available when received from:
@@ -219,7 +111,7 @@ class ParticipantDto extends ApiObjectLinkable
 	 *
 	 * @var int $consumablesPurchased
 	 */
-	public $consumablesPurchased;
+	public int $consumablesPurchased;
 
 	/**
 	 * Available when received from:
@@ -227,7 +119,7 @@ class ParticipantDto extends ApiObjectLinkable
 	 *
 	 * @var int $damageDealtToBuildings
 	 */
-	public $damageDealtToBuildings;
+	public int $damageDealtToBuildings;
 
 	/**
 	 * Available when received from:
@@ -235,7 +127,7 @@ class ParticipantDto extends ApiObjectLinkable
 	 *
 	 * @var int $damageDealtToObjectives
 	 */
-	public $damageDealtToObjectives;
+	public int $damageDealtToObjectives;
 
 	/**
 	 * Available when received from:
@@ -243,7 +135,7 @@ class ParticipantDto extends ApiObjectLinkable
 	 *
 	 * @var int $damageDealtToTurrets
 	 */
-	public $damageDealtToTurrets;
+	public int $damageDealtToTurrets;
 
 	/**
 	 * Available when received from:
@@ -251,7 +143,7 @@ class ParticipantDto extends ApiObjectLinkable
 	 *
 	 * @var int $damageSelfMitigated
 	 */
-	public $damageSelfMitigated;
+	public int $damageSelfMitigated;
 
 	/**
 	 * Available when received from:
@@ -259,7 +151,7 @@ class ParticipantDto extends ApiObjectLinkable
 	 *
 	 * @var int $deaths
 	 */
-	public $deaths;
+	public int $deaths;
 
 	/**
 	 * Available when received from:
@@ -267,7 +159,7 @@ class ParticipantDto extends ApiObjectLinkable
 	 *
 	 * @var int $detectorWardsPlaced
 	 */
-	public $detectorWardsPlaced;
+	public int $detectorWardsPlaced;
 
 	/**
 	 * Available when received from:
@@ -275,7 +167,7 @@ class ParticipantDto extends ApiObjectLinkable
 	 *
 	 * @var int $doubleKills
 	 */
-	public $doubleKills;
+	public int $doubleKills;
 
 	/**
 	 * Available when received from:
@@ -283,7 +175,7 @@ class ParticipantDto extends ApiObjectLinkable
 	 *
 	 * @var int $dragonKills
 	 */
-	public $dragonKills;
+	public int $dragonKills;
 
 	/**
 	 * Available when received from:
@@ -291,7 +183,7 @@ class ParticipantDto extends ApiObjectLinkable
 	 *
 	 * @var bool $firstBloodAssist
 	 */
-	public $firstBloodAssist;
+	public bool $firstBloodAssist;
 
 	/**
 	 * Available when received from:
@@ -299,7 +191,7 @@ class ParticipantDto extends ApiObjectLinkable
 	 *
 	 * @var bool $firstBloodKill
 	 */
-	public $firstBloodKill;
+	public bool $firstBloodKill;
 
 	/**
 	 * Available when received from:
@@ -307,7 +199,7 @@ class ParticipantDto extends ApiObjectLinkable
 	 *
 	 * @var bool $firstTowerAssist
 	 */
-	public $firstTowerAssist;
+	public bool $firstTowerAssist;
 
 	/**
 	 * Available when received from:
@@ -315,7 +207,7 @@ class ParticipantDto extends ApiObjectLinkable
 	 *
 	 * @var bool $firstTowerKill
 	 */
-	public $firstTowerKill;
+	public bool $firstTowerKill;
 
 	/**
 	 * Available when received from:
@@ -323,7 +215,7 @@ class ParticipantDto extends ApiObjectLinkable
 	 *
 	 * @var bool $gameEndedInEarlySurrender
 	 */
-	public $gameEndedInEarlySurrender;
+	public bool $gameEndedInEarlySurrender;
 
 	/**
 	 * Available when received from:
@@ -331,7 +223,7 @@ class ParticipantDto extends ApiObjectLinkable
 	 *
 	 * @var bool $gameEndedInSurrender
 	 */
-	public $gameEndedInSurrender;
+	public bool $gameEndedInSurrender;
 
 	/**
 	 * Available when received from:
@@ -339,7 +231,7 @@ class ParticipantDto extends ApiObjectLinkable
 	 *
 	 * @var int $goldEarned
 	 */
-	public $goldEarned;
+	public int $goldEarned;
 
 	/**
 	 * Available when received from:
@@ -347,7 +239,7 @@ class ParticipantDto extends ApiObjectLinkable
 	 *
 	 * @var int $goldSpent
 	 */
-	public $goldSpent;
+	public int $goldSpent;
 
 	/**
 	 * Both individualPosition and teamPosition are computed by the game
@@ -364,7 +256,7 @@ class ParticipantDto extends ApiObjectLinkable
 	 *
 	 * @var string $individualPosition
 	 */
-	public $individualPosition;
+	public string $individualPosition;
 
 	/**
 	 * Available when received from:
@@ -372,7 +264,7 @@ class ParticipantDto extends ApiObjectLinkable
 	 *
 	 * @var int $inhibitorKills
 	 */
-	public $inhibitorKills;
+	public int $inhibitorKills;
 
 	/**
 	 * Available when received from:
@@ -380,7 +272,7 @@ class ParticipantDto extends ApiObjectLinkable
 	 *
 	 * @var int $inhibitorTakedowns
 	 */
-	public $inhibitorTakedowns;
+	public int $inhibitorTakedowns;
 
 	/**
 	 * Available when received from:
@@ -388,7 +280,7 @@ class ParticipantDto extends ApiObjectLinkable
 	 *
 	 * @var int $inhibitorsLost
 	 */
-	public $inhibitorsLost;
+	public int $inhibitorsLost;
 
 	/**
 	 * Available when received from:
@@ -396,7 +288,7 @@ class ParticipantDto extends ApiObjectLinkable
 	 *
 	 * @var int $item0
 	 */
-	public $item0;
+	public int $item0;
 
 	/**
 	 * Available when received from:
@@ -404,7 +296,7 @@ class ParticipantDto extends ApiObjectLinkable
 	 *
 	 * @var int $item1
 	 */
-	public $item1;
+	public int $item1;
 
 	/**
 	 * Available when received from:
@@ -412,7 +304,7 @@ class ParticipantDto extends ApiObjectLinkable
 	 *
 	 * @var int $item2
 	 */
-	public $item2;
+	public int $item2;
 
 	/**
 	 * Available when received from:
@@ -420,7 +312,7 @@ class ParticipantDto extends ApiObjectLinkable
 	 *
 	 * @var int $item3
 	 */
-	public $item3;
+	public int $item3;
 
 	/**
 	 * Available when received from:
@@ -428,7 +320,7 @@ class ParticipantDto extends ApiObjectLinkable
 	 *
 	 * @var int $item4
 	 */
-	public $item4;
+	public int $item4;
 
 	/**
 	 * Available when received from:
@@ -436,7 +328,7 @@ class ParticipantDto extends ApiObjectLinkable
 	 *
 	 * @var int $item5
 	 */
-	public $item5;
+	public int $item5;
 
 	/**
 	 * Available when received from:
@@ -444,7 +336,7 @@ class ParticipantDto extends ApiObjectLinkable
 	 *
 	 * @var int $item6
 	 */
-	public $item6;
+	public int $item6;
 
 	/**
 	 * Available when received from:
@@ -452,7 +344,7 @@ class ParticipantDto extends ApiObjectLinkable
 	 *
 	 * @var int $itemsPurchased
 	 */
-	public $itemsPurchased;
+	public int $itemsPurchased;
 
 	/**
 	 * Available when received from:
@@ -460,7 +352,7 @@ class ParticipantDto extends ApiObjectLinkable
 	 *
 	 * @var int $killingSprees
 	 */
-	public $killingSprees;
+	public int $killingSprees;
 
 	/**
 	 * Available when received from:
@@ -468,7 +360,7 @@ class ParticipantDto extends ApiObjectLinkable
 	 *
 	 * @var int $kills
 	 */
-	public $kills;
+	public int $kills;
 
 	/**
 	 * Available when received from:
@@ -476,7 +368,7 @@ class ParticipantDto extends ApiObjectLinkable
 	 *
 	 * @var string $lane
 	 */
-	public $lane;
+	public string $lane;
 
 	/**
 	 * Available when received from:
@@ -484,7 +376,7 @@ class ParticipantDto extends ApiObjectLinkable
 	 *
 	 * @var int $largestCriticalStrike
 	 */
-	public $largestCriticalStrike;
+	public int $largestCriticalStrike;
 
 	/**
 	 * Available when received from:
@@ -492,7 +384,7 @@ class ParticipantDto extends ApiObjectLinkable
 	 *
 	 * @var int $largestKillingSpree
 	 */
-	public $largestKillingSpree;
+	public int $largestKillingSpree;
 
 	/**
 	 * Available when received from:
@@ -500,7 +392,7 @@ class ParticipantDto extends ApiObjectLinkable
 	 *
 	 * @var int $largestMultiKill
 	 */
-	public $largestMultiKill;
+	public int $largestMultiKill;
 
 	/**
 	 * Available when received from:
@@ -508,7 +400,7 @@ class ParticipantDto extends ApiObjectLinkable
 	 *
 	 * @var int $longestTimeSpentLiving
 	 */
-	public $longestTimeSpentLiving;
+	public int $longestTimeSpentLiving;
 
 	/**
 	 * Available when received from:
@@ -516,7 +408,7 @@ class ParticipantDto extends ApiObjectLinkable
 	 *
 	 * @var int $magicDamageDealt
 	 */
-	public $magicDamageDealt;
+	public int $magicDamageDealt;
 
 	/**
 	 * Available when received from:
@@ -524,7 +416,7 @@ class ParticipantDto extends ApiObjectLinkable
 	 *
 	 * @var int $magicDamageDealtToChampions
 	 */
-	public $magicDamageDealtToChampions;
+	public int $magicDamageDealtToChampions;
 
 	/**
 	 * Available when received from:
@@ -532,7 +424,7 @@ class ParticipantDto extends ApiObjectLinkable
 	 *
 	 * @var int $magicDamageTaken
 	 */
-	public $magicDamageTaken;
+	public int $magicDamageTaken;
 
 	/**
 	 * Available when received from:
@@ -540,7 +432,7 @@ class ParticipantDto extends ApiObjectLinkable
 	 *
 	 * @var int $neutralMinionsKilled
 	 */
-	public $neutralMinionsKilled;
+	public int $neutralMinionsKilled;
 
 	/**
 	 * Available when received from:
@@ -548,7 +440,7 @@ class ParticipantDto extends ApiObjectLinkable
 	 *
 	 * @var int $nexusKills
 	 */
-	public $nexusKills;
+	public int $nexusKills;
 
 	/**
 	 * Available when received from:
@@ -556,7 +448,7 @@ class ParticipantDto extends ApiObjectLinkable
 	 *
 	 * @var int $nexusTakedowns
 	 */
-	public $nexusTakedowns;
+	public int $nexusTakedowns;
 
 	/**
 	 * Available when received from:
@@ -564,7 +456,7 @@ class ParticipantDto extends ApiObjectLinkable
 	 *
 	 * @var int $nexusLost
 	 */
-	public $nexusLost;
+	public int $nexusLost;
 
 	/**
 	 * Available when received from:
@@ -572,7 +464,7 @@ class ParticipantDto extends ApiObjectLinkable
 	 *
 	 * @var int $objectivesStolen
 	 */
-	public $objectivesStolen;
+	public int $objectivesStolen;
 
 	/**
 	 * Available when received from:
@@ -580,7 +472,15 @@ class ParticipantDto extends ApiObjectLinkable
 	 *
 	 * @var int $objectivesStolenAssists
 	 */
-	public $objectivesStolenAssists;
+	public int $objectivesStolenAssists;
+
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *
+	 * @var int $participantId
+	 */
+	public int $participantId;
 
 	/**
 	 * Available when received from:
@@ -588,7 +488,7 @@ class ParticipantDto extends ApiObjectLinkable
 	 *
 	 * @var int $pentaKills
 	 */
-	public $pentaKills;
+	public int $pentaKills;
 
 	/**
 	 * Available when received from:
@@ -596,7 +496,7 @@ class ParticipantDto extends ApiObjectLinkable
 	 *
 	 * @var PerksDto $perks
 	 */
-	public $perks;
+	public PerksDto $perks;
 
 	/**
 	 * Available when received from:
@@ -604,7 +504,7 @@ class ParticipantDto extends ApiObjectLinkable
 	 *
 	 * @var int $physicalDamageDealt
 	 */
-	public $physicalDamageDealt;
+	public int $physicalDamageDealt;
 
 	/**
 	 * Available when received from:
@@ -612,7 +512,7 @@ class ParticipantDto extends ApiObjectLinkable
 	 *
 	 * @var int $physicalDamageDealtToChampions
 	 */
-	public $physicalDamageDealtToChampions;
+	public int $physicalDamageDealtToChampions;
 
 	/**
 	 * Available when received from:
@@ -620,7 +520,7 @@ class ParticipantDto extends ApiObjectLinkable
 	 *
 	 * @var int $physicalDamageTaken
 	 */
-	public $physicalDamageTaken;
+	public int $physicalDamageTaken;
 
 	/**
 	 * Available when received from:
@@ -628,7 +528,7 @@ class ParticipantDto extends ApiObjectLinkable
 	 *
 	 * @var int $profileIcon
 	 */
-	public $profileIcon;
+	public int $profileIcon;
 
 	/**
 	 * Available when received from:
@@ -636,7 +536,7 @@ class ParticipantDto extends ApiObjectLinkable
 	 *
 	 * @var string $puuid
 	 */
-	public $puuid;
+	public string $puuid;
 
 	/**
 	 * Available when received from:
@@ -644,7 +544,7 @@ class ParticipantDto extends ApiObjectLinkable
 	 *
 	 * @var int $quadraKills
 	 */
-	public $quadraKills;
+	public int $quadraKills;
 
 	/**
 	 * Available when received from:
@@ -652,7 +552,7 @@ class ParticipantDto extends ApiObjectLinkable
 	 *
 	 * @var string $riotIdName
 	 */
-	public $riotIdName;
+	public string $riotIdName;
 
 	/**
 	 * Available when received from:
@@ -660,7 +560,7 @@ class ParticipantDto extends ApiObjectLinkable
 	 *
 	 * @var string $riotIdTagline
 	 */
-	public $riotIdTagline;
+	public string $riotIdTagline;
 
 	/**
 	 * Available when received from:
@@ -668,7 +568,7 @@ class ParticipantDto extends ApiObjectLinkable
 	 *
 	 * @var string $role
 	 */
-	public $role;
+	public string $role;
 
 	/**
 	 * Available when received from:
@@ -676,7 +576,7 @@ class ParticipantDto extends ApiObjectLinkable
 	 *
 	 * @var int $sightWardsBoughtInGame
 	 */
-	public $sightWardsBoughtInGame;
+	public int $sightWardsBoughtInGame;
 
 	/**
 	 * Available when received from:
@@ -684,7 +584,7 @@ class ParticipantDto extends ApiObjectLinkable
 	 *
 	 * @var int $spell1Casts
 	 */
-	public $spell1Casts;
+	public int $spell1Casts;
 
 	/**
 	 * Available when received from:
@@ -692,7 +592,7 @@ class ParticipantDto extends ApiObjectLinkable
 	 *
 	 * @var int $spell2Casts
 	 */
-	public $spell2Casts;
+	public int $spell2Casts;
 
 	/**
 	 * Available when received from:
@@ -700,7 +600,7 @@ class ParticipantDto extends ApiObjectLinkable
 	 *
 	 * @var int $spell3Casts
 	 */
-	public $spell3Casts;
+	public int $spell3Casts;
 
 	/**
 	 * Available when received from:
@@ -708,7 +608,7 @@ class ParticipantDto extends ApiObjectLinkable
 	 *
 	 * @var int $spell4Casts
 	 */
-	public $spell4Casts;
+	public int $spell4Casts;
 
 	/**
 	 * Available when received from:
@@ -716,7 +616,7 @@ class ParticipantDto extends ApiObjectLinkable
 	 *
 	 * @var int $summoner1Casts
 	 */
-	public $summoner1Casts;
+	public int $summoner1Casts;
 
 	/**
 	 * Available when received from:
@@ -724,7 +624,7 @@ class ParticipantDto extends ApiObjectLinkable
 	 *
 	 * @var int $summoner1Id
 	 */
-	public $summoner1Id;
+	public int $summoner1Id;
 
 	/**
 	 * Available when received from:
@@ -732,7 +632,7 @@ class ParticipantDto extends ApiObjectLinkable
 	 *
 	 * @var int $summoner2Casts
 	 */
-	public $summoner2Casts;
+	public int $summoner2Casts;
 
 	/**
 	 * Available when received from:
@@ -740,7 +640,7 @@ class ParticipantDto extends ApiObjectLinkable
 	 *
 	 * @var int $summoner2Id
 	 */
-	public $summoner2Id;
+	public int $summoner2Id;
 
 	/**
 	 * Available when received from:
@@ -748,7 +648,7 @@ class ParticipantDto extends ApiObjectLinkable
 	 *
 	 * @var string $summonerId
 	 */
-	public $summonerId;
+	public string $summonerId;
 
 	/**
 	 * Available when received from:
@@ -756,7 +656,7 @@ class ParticipantDto extends ApiObjectLinkable
 	 *
 	 * @var int $summonerLevel
 	 */
-	public $summonerLevel;
+	public int $summonerLevel;
 
 	/**
 	 * Available when received from:
@@ -764,7 +664,7 @@ class ParticipantDto extends ApiObjectLinkable
 	 *
 	 * @var string $summonerName
 	 */
-	public $summonerName;
+	public string $summonerName;
 
 	/**
 	 * Available when received from:
@@ -772,7 +672,15 @@ class ParticipantDto extends ApiObjectLinkable
 	 *
 	 * @var bool $teamEarlySurrendered
 	 */
-	public $teamEarlySurrendered;
+	public bool $teamEarlySurrendered;
+
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *
+	 * @var int $teamId
+	 */
+	public int $teamId;
 
 	/**
 	 * Both individualPosition and teamPosition are computed by the game
@@ -789,7 +697,7 @@ class ParticipantDto extends ApiObjectLinkable
 	 *
 	 * @var string $teamPosition
 	 */
-	public $teamPosition;
+	public string $teamPosition;
 
 	/**
 	 * Available when received from:
@@ -797,7 +705,7 @@ class ParticipantDto extends ApiObjectLinkable
 	 *
 	 * @var int $timeCCingOthers
 	 */
-	public $timeCCingOthers;
+	public int $timeCCingOthers;
 
 	/**
 	 * Available when received from:
@@ -805,7 +713,7 @@ class ParticipantDto extends ApiObjectLinkable
 	 *
 	 * @var int $timePlayed
 	 */
-	public $timePlayed;
+	public int $timePlayed;
 
 	/**
 	 * Available when received from:
@@ -813,7 +721,7 @@ class ParticipantDto extends ApiObjectLinkable
 	 *
 	 * @var int $totalDamageDealt
 	 */
-	public $totalDamageDealt;
+	public int $totalDamageDealt;
 
 	/**
 	 * Available when received from:
@@ -821,7 +729,7 @@ class ParticipantDto extends ApiObjectLinkable
 	 *
 	 * @var int $totalDamageDealtToChampions
 	 */
-	public $totalDamageDealtToChampions;
+	public int $totalDamageDealtToChampions;
 
 	/**
 	 * Available when received from:
@@ -829,7 +737,7 @@ class ParticipantDto extends ApiObjectLinkable
 	 *
 	 * @var int $totalDamageShieldedOnTeammates
 	 */
-	public $totalDamageShieldedOnTeammates;
+	public int $totalDamageShieldedOnTeammates;
 
 	/**
 	 * Available when received from:
@@ -837,7 +745,7 @@ class ParticipantDto extends ApiObjectLinkable
 	 *
 	 * @var int $totalDamageTaken
 	 */
-	public $totalDamageTaken;
+	public int $totalDamageTaken;
 
 	/**
 	 * Available when received from:
@@ -845,7 +753,7 @@ class ParticipantDto extends ApiObjectLinkable
 	 *
 	 * @var int $totalHeal
 	 */
-	public $totalHeal;
+	public int $totalHeal;
 
 	/**
 	 * Available when received from:
@@ -853,7 +761,7 @@ class ParticipantDto extends ApiObjectLinkable
 	 *
 	 * @var int $totalHealsOnTeammates
 	 */
-	public $totalHealsOnTeammates;
+	public int $totalHealsOnTeammates;
 
 	/**
 	 * Available when received from:
@@ -861,7 +769,7 @@ class ParticipantDto extends ApiObjectLinkable
 	 *
 	 * @var int $totalMinionsKilled
 	 */
-	public $totalMinionsKilled;
+	public int $totalMinionsKilled;
 
 	/**
 	 * Available when received from:
@@ -869,7 +777,7 @@ class ParticipantDto extends ApiObjectLinkable
 	 *
 	 * @var int $totalTimeCCDealt
 	 */
-	public $totalTimeCCDealt;
+	public int $totalTimeCCDealt;
 
 	/**
 	 * Available when received from:
@@ -877,7 +785,7 @@ class ParticipantDto extends ApiObjectLinkable
 	 *
 	 * @var int $totalTimeSpentDead
 	 */
-	public $totalTimeSpentDead;
+	public int $totalTimeSpentDead;
 
 	/**
 	 * Available when received from:
@@ -885,7 +793,7 @@ class ParticipantDto extends ApiObjectLinkable
 	 *
 	 * @var int $totalUnitsHealed
 	 */
-	public $totalUnitsHealed;
+	public int $totalUnitsHealed;
 
 	/**
 	 * Available when received from:
@@ -893,7 +801,7 @@ class ParticipantDto extends ApiObjectLinkable
 	 *
 	 * @var int $tripleKills
 	 */
-	public $tripleKills;
+	public int $tripleKills;
 
 	/**
 	 * Available when received from:
@@ -901,7 +809,7 @@ class ParticipantDto extends ApiObjectLinkable
 	 *
 	 * @var int $trueDamageDealt
 	 */
-	public $trueDamageDealt;
+	public int $trueDamageDealt;
 
 	/**
 	 * Available when received from:
@@ -909,7 +817,7 @@ class ParticipantDto extends ApiObjectLinkable
 	 *
 	 * @var int $trueDamageDealtToChampions
 	 */
-	public $trueDamageDealtToChampions;
+	public int $trueDamageDealtToChampions;
 
 	/**
 	 * Available when received from:
@@ -917,7 +825,7 @@ class ParticipantDto extends ApiObjectLinkable
 	 *
 	 * @var int $trueDamageTaken
 	 */
-	public $trueDamageTaken;
+	public int $trueDamageTaken;
 
 	/**
 	 * Available when received from:
@@ -925,7 +833,7 @@ class ParticipantDto extends ApiObjectLinkable
 	 *
 	 * @var int $turretKills
 	 */
-	public $turretKills;
+	public int $turretKills;
 
 	/**
 	 * Available when received from:
@@ -933,7 +841,7 @@ class ParticipantDto extends ApiObjectLinkable
 	 *
 	 * @var int $turretTakedowns
 	 */
-	public $turretTakedowns;
+	public int $turretTakedowns;
 
 	/**
 	 * Available when received from:
@@ -941,7 +849,7 @@ class ParticipantDto extends ApiObjectLinkable
 	 *
 	 * @var int $turretsLost
 	 */
-	public $turretsLost;
+	public int $turretsLost;
 
 	/**
 	 * Available when received from:
@@ -949,7 +857,7 @@ class ParticipantDto extends ApiObjectLinkable
 	 *
 	 * @var int $unrealKills
 	 */
-	public $unrealKills;
+	public int $unrealKills;
 
 	/**
 	 * Available when received from:
@@ -957,7 +865,7 @@ class ParticipantDto extends ApiObjectLinkable
 	 *
 	 * @var int $visionScore
 	 */
-	public $visionScore;
+	public int $visionScore;
 
 	/**
 	 * Available when received from:
@@ -965,7 +873,7 @@ class ParticipantDto extends ApiObjectLinkable
 	 *
 	 * @var int $visionWardsBoughtInGame
 	 */
-	public $visionWardsBoughtInGame;
+	public int $visionWardsBoughtInGame;
 
 	/**
 	 * Available when received from:
@@ -973,7 +881,7 @@ class ParticipantDto extends ApiObjectLinkable
 	 *
 	 * @var int $wardsKilled
 	 */
-	public $wardsKilled;
+	public int $wardsKilled;
 
 	/**
 	 * Available when received from:
@@ -981,7 +889,7 @@ class ParticipantDto extends ApiObjectLinkable
 	 *
 	 * @var int $wardsPlaced
 	 */
-	public $wardsPlaced;
+	public int $wardsPlaced;
 
 	/**
 	 * Available when received from:
@@ -989,5 +897,7 @@ class ParticipantDto extends ApiObjectLinkable
 	 *
 	 * @var bool $win
 	 */
-	public $win;
+	public bool $win;
+
+    public array $challenges;
 }

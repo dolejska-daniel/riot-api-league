@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright (C) 2016-2021  Daniel Dolejška
+ * Copyright (C) 2016-2022  Daniel Dolejška
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -25,12 +25,12 @@ namespace RiotAPI\LeagueAPI\Objects;
  *
  * Used in:
  *   clash (v1)
- *     - @see LeagueAPI::getTournamentByTeam
- *       @link https://developer.riotgames.com/apis#clash-v1/GET_getTournamentByTeam
- *     - @see LeagueAPI::getTournaments
- *       @link https://developer.riotgames.com/apis#clash-v1/GET_getTournaments
  *     - @see LeagueAPI::getTournamentById
  *       @link https://developer.riotgames.com/apis#clash-v1/GET_getTournamentById
+ *     - @see LeagueAPI::getTournaments
+ *       @link https://developer.riotgames.com/apis#clash-v1/GET_getTournaments
+ *     - @see LeagueAPI::getTournamentByTeam
+ *       @link https://developer.riotgames.com/apis#clash-v1/GET_getTournamentByTeam
  *
  * @package RiotAPI\LeagueAPI\Objects
  */
@@ -38,41 +38,41 @@ class TournamentPhaseDto extends ApiObject
 {
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getTournamentByTeam
-	 *   - @see LeagueAPI::getTournaments
 	 *   - @see LeagueAPI::getTournamentById
+	 *   - @see LeagueAPI::getTournaments
+	 *   - @see LeagueAPI::getTournamentByTeam
 	 *
 	 * @var int $id
 	 */
-	public $id;
+	public int $id;
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getTournamentByTeam
-	 *   - @see LeagueAPI::getTournaments
 	 *   - @see LeagueAPI::getTournamentById
+	 *   - @see LeagueAPI::getTournaments
+	 *   - @see LeagueAPI::getTournamentByTeam
 	 *
 	 * @var int $registrationTime
 	 */
-	public $registrationTime;
+	public int $registrationTime;
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getTournamentByTeam
-	 *   - @see LeagueAPI::getTournaments
 	 *   - @see LeagueAPI::getTournamentById
+	 *   - @see LeagueAPI::getTournaments
+	 *   - @see LeagueAPI::getTournamentByTeam
 	 *
 	 * @var int $startTime
 	 */
-	public $startTime;
+	public int $startTime;
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getTournamentByTeam
-	 *   - @see LeagueAPI::getTournaments
 	 *   - @see LeagueAPI::getTournamentById
+	 *   - @see LeagueAPI::getTournaments
+	 *   - @see LeagueAPI::getTournamentByTeam
 	 *
 	 * @var bool $cancelled
 	 */
-	public $cancelled;
+	public bool $cancelled;
 }

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright (C) 2016-2021  Daniel Dolejška
+ * Copyright (C) 2016-2022  Daniel Dolejška
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -21,34 +21,46 @@ namespace RiotAPI\LeagueAPI\Objects;
 
 
 /**
- *   Class RuneDto
+ *   Class MatchTeamDto
  *
  * Used in:
- *   match (v4)
- *     - @see LeagueAPI::getMatchByTournamentCode
- *       @link https://developer.riotgames.com/apis#match-v4/GET_getMatchByTournamentCode
+ *   match (v5)
  *     - @see LeagueAPI::getMatch
- *       @link https://developer.riotgames.com/apis#match-v4/GET_getMatch
+ *       @link https://developer.riotgames.com/apis#match-v5/GET_getMatch
  *
  * @package RiotAPI\LeagueAPI\Objects
  */
-class RuneDto extends ApiObject
+class MatchTeamDto extends ApiObject
 {
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatchByTournamentCode
 	 *   - @see LeagueAPI::getMatch
 	 *
-	 * @var int $runeId
+	 * @var BanDto[] $bans
 	 */
-	public $runeId;
+	public array $bans;
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getMatchByTournamentCode
 	 *   - @see LeagueAPI::getMatch
 	 *
-	 * @var int $rank
+	 * @var ObjectivesDto $objectives
 	 */
-	public $rank;
+	public ObjectivesDto $objectives;
+
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *
+	 * @var int $teamId
+	 */
+	public int $teamId;
+
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *
+	 * @var bool $win
+	 */
+	public bool $win;
 }
