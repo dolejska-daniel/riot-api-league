@@ -25,11 +25,11 @@ namespace RiotAPI\LeagueAPI\Objects;
  *
  * Used in:
  *   clash (v1)
- *     - @see LeagueAPI::getTeamById
+ *     - @see LeagueAPI::getTournamentTeamById
  *       @link https://developer.riotgames.com/apis#clash-v1/GET_getTeamById
- *     - @see LeagueAPI::getPlayersBySummoner
+ *     - @see LeagueAPI::getTournamentPlayersBySummoner
  *       @link https://developer.riotgames.com/apis#clash-v1/GET_getPlayersBySummoner
- *     - @see LeagueAPI::getPlayersByPUUID
+ *     - @see LeagueAPI::getTournamentPlayersByPUUID
  *       @link https://developer.riotgames.com/apis#clash-v1/GET_getPlayersByPUUID
  *
  * @package RiotAPI\LeagueAPI\Objects
@@ -38,9 +38,9 @@ class PlayerDto extends ApiObject
 {
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getTeamById
-	 *   - @see LeagueAPI::getPlayersBySummoner
-	 *   - @see LeagueAPI::getPlayersByPUUID
+	 *   - @see LeagueAPI::getTournamentTeamById
+	 *   - @see LeagueAPI::getTournamentPlayersBySummoner
+	 *   - @see LeagueAPI::getTournamentPlayersByPUUID
 	 *
 	 * @var string $summonerId
 	 */
@@ -48,8 +48,8 @@ class PlayerDto extends ApiObject
 
 	/**
 	 * Available when received from:
-	 *   - @see LeagueAPI::getPlayersBySummoner
-	 *   - @see LeagueAPI::getPlayersByPUUID
+	 *   - @see LeagueAPI::getTournamentPlayersBySummoner
+	 *   - @see LeagueAPI::getTournamentPlayersByPUUID
 	 *
 	 * @var string $teamId
 	 */
@@ -59,9 +59,9 @@ class PlayerDto extends ApiObject
 	 * (Legal values: UNSELECTED, FILL, TOP, JUNGLE, MIDDLE, BOTTOM, UTILITY).
 	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getTeamById
-	 *   - @see LeagueAPI::getPlayersBySummoner
-	 *   - @see LeagueAPI::getPlayersByPUUID
+	 *   - @see LeagueAPI::getTournamentTeamById
+	 *   - @see LeagueAPI::getTournamentPlayersBySummoner
+	 *   - @see LeagueAPI::getTournamentPlayersByPUUID
 	 *
 	 * @var string $position
 	 */
@@ -71,9 +71,9 @@ class PlayerDto extends ApiObject
 	 * (Legal values: CAPTAIN, MEMBER).
 	 *
 	 * Available when received from:
-	 *   - @see LeagueAPI::getTeamById
-	 *   - @see LeagueAPI::getPlayersBySummoner
-	 *   - @see LeagueAPI::getPlayersByPUUID
+	 *   - @see LeagueAPI::getTournamentTeamById
+	 *   - @see LeagueAPI::getTournamentPlayersBySummoner
+	 *   - @see LeagueAPI::getTournamentPlayersByPUUID
 	 *
 	 * @var string $role
 	 */

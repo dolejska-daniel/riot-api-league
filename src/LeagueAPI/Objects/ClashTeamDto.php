@@ -7,7 +7,7 @@ namespace RiotAPI\LeagueAPI\Objects;
  *
  * Used in:
  *   clash (v1)
- *     - @see LeagueAPI::getTeamById
+ *     - @see LeagueAPI::getTournamentTeamById
  * @link https://developer.riotgames.com/apis#clash-v1/GET_getTeamById
  *
  * @package RiotAPI\LeagueAPI\Objects
@@ -16,7 +16,7 @@ class ClashTeamDto extends ApiObject
 {
     /**
      * Available when received from:
-     *   - @see LeagueAPI::getTeamById
+     *   - @see LeagueAPI::getTournamentTeamById
      *
      * @var string $id
      */
@@ -24,7 +24,7 @@ class ClashTeamDto extends ApiObject
 
     /**
      * Available when received from:
-     *   - @see LeagueAPI::getTeamById
+     *   - @see LeagueAPI::getTournamentTeamById
      *
      * @var int $tournamentId
      */
@@ -32,7 +32,7 @@ class ClashTeamDto extends ApiObject
 
     /**
      * Available when received from:
-     *   - @see LeagueAPI::getTeamById
+     *   - @see LeagueAPI::getTournamentTeamById
      *
      * @var string $name
      */
@@ -40,7 +40,7 @@ class ClashTeamDto extends ApiObject
 
     /**
      * Available when received from:
-     *   - @see LeagueAPI::getTeamById
+     *   - @see LeagueAPI::getTournamentTeamById
      *
      * @var int $iconId
      */
@@ -48,7 +48,7 @@ class ClashTeamDto extends ApiObject
 
     /**
      * Available when received from:
-     *   - @see LeagueAPI::getTeamById
+     *   - @see LeagueAPI::getTournamentTeamById
      *
      * @var int $tier
      */
@@ -58,7 +58,7 @@ class ClashTeamDto extends ApiObject
      * Summoner ID of the team captain.
      *
      * Available when received from:
-     *   - @see LeagueAPI::getTeamById
+     *   - @see LeagueAPI::getTournamentTeamById
      *
      * @var string $captain
      */
@@ -66,7 +66,7 @@ class ClashTeamDto extends ApiObject
 
     /**
      * Available when received from:
-     *   - @see LeagueAPI::getTeamById
+     *   - @see LeagueAPI::getTournamentTeamById
      *
      * @var string $abbreviation
      */
@@ -76,7 +76,7 @@ class ClashTeamDto extends ApiObject
      * Team members.
      *
      * Available when received from:
-     *   - @see LeagueAPI::getTeamById
+     *   - @see LeagueAPI::getTournamentTeamById
      *
      * @var PlayerDto[] $players
      */

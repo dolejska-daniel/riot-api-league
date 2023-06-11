@@ -570,7 +570,7 @@ class LeagueAPI extends BaseAPI
      *
      * @link https://developer.riotgames.com/apis#clash-v1/GET_getPlayersByPUUID
      */
-    public function getPlayersByPUUID(string $encrypted_puuid): ?array
+    public function getTournamentPlayersByPUUID(string $encrypted_puuid): ?array
     {
         $resultPromise = $this->setEndpoint("/lol/clash/" . self::RESOURCE_CLASH_VERSION . "/players/by-puuid/$encrypted_puuid")
             ->setResource(self::RESOURCE_CLASH, "/players/by-puuid/%s")
@@ -602,7 +602,7 @@ class LeagueAPI extends BaseAPI
      *
      * @link https://developer.riotgames.com/apis#clash-v1/GET_getPlayersBySummoner
      */
-    public function getPlayersBySummoner(string $summoner_id): ?array
+    public function getTournamentPlayersBySummoner(string $summoner_id): ?array
     {
         $resultPromise = $this->setEndpoint("/lol/clash/" . self::RESOURCE_CLASH_VERSION . "/players/by-summoner/$summoner_id")
             ->setResource(self::RESOURCE_CLASH, "/players/by-summoner/%s")
@@ -624,7 +624,7 @@ class LeagueAPI extends BaseAPI
      *
      * @param string $team_id
      *
-     * @return Objects\TeamDto|null
+     * @return Objects\ClashTeamDto|null
      *
      * @throws SettingsException
      * @throws RequestException
@@ -634,14 +634,14 @@ class LeagueAPI extends BaseAPI
      *
      * @link https://developer.riotgames.com/apis#clash-v1/GET_getTeamById
      */
-    public function getTeamById(string $team_id): ?Objects\TeamDto
+    public function getTournamentTeamById(string $team_id): ?Objects\ClashTeamDto
     {
         $resultPromise = $this->setEndpoint("/lol/clash/" . self::RESOURCE_CLASH_VERSION . "/teams/$team_id")
             ->setResource(self::RESOURCE_CLASH, "/teams/%s")
             ->makeCall();
 
         return $this->resolveOrEnqueuePromise($resultPromise, function(array $result) {
-            return new Objects\TeamDto($result, $this);
+            return new Objects\ClashTeamDto($result, $this);
         });
     }
 
@@ -722,7 +722,7 @@ class LeagueAPI extends BaseAPI
      *
      * @link https://developer.riotgames.com/apis#clash-v1/GET_getTournamentById
      */
-    public function getTournamentById(int $tournament_id): ?array
+    public function getTournamentById(int $tournament_id): ?Objects\TournamentDto
     {
         $resultPromise = $this->setEndpoint("/lol/clash/" . self::RESOURCE_CLASH_VERSION . "/tournaments/$tournament_id")
             ->setResource(self::RESOURCE_CLASH, "/tournaments/%d")
