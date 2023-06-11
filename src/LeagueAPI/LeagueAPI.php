@@ -347,6 +347,197 @@ class LeagueAPI extends BaseAPI
 	}
 
 
+    /**
+     * ==================================================================dd=
+     *     Clash Endpoint Methods
+     *     @link https://developer.riotgames.com/apis#clash-v1
+     * ==================================================================dd=
+     **/
+    const RESOURCE_CLASH = '1497:clash';
+    const RESOURCE_CLASH_VERSION = 'v1';
+
+    /**
+     *   Get players by PUUID.
+     *
+     * @cli-name get-players-by-puuid
+     * @cli-namespace clash
+     *
+     * @param string $encrypted_puuid
+     *
+     * @return Objects\PlayerDto[]|null
+     *
+     * @throws SettingsException
+     * @throws RequestException
+     * @throws ServerException
+     * @throws ServerLimitException
+     * @throws GeneralException
+     *
+     * @link https://developer.riotgames.com/apis#clash-v1/GET_getPlayersByPUUID
+     */
+    public function getPlayersByPUUID(string $encrypted_puuid): ?array
+    {
+        $resultPromise = $this->setEndpoint("/lol/clash/" . self::RESOURCE_CLASH_VERSION . "/players/by-puuid/$encrypted_puuid")
+            ->setResource(self::RESOURCE_CLASH, "/players/by-puuid/%s")
+            ->makeCall();
+
+        return $this->resolveOrEnqueuePromise($resultPromise, function(array $result) {
+            foreach ($result as $playerDtoData)
+                $r[] = new Objects\PlayerDto($playerDtoData, $this);
+
+            return $r ?? [];
+        });
+    }
+
+    /**
+     *   Get players by summoner ID.
+     *
+     * @cli-name get-players-by-summoner
+     * @cli-namespace clash
+     *
+     * @param string $summoner_id
+     *
+     * @return Objects\PlayerDto[]|null
+     *
+     * @throws SettingsException
+     * @throws RequestException
+     * @throws ServerException
+     * @throws ServerLimitException
+     * @throws GeneralException
+     *
+     * @link https://developer.riotgames.com/apis#clash-v1/GET_getPlayersBySummoner
+     */
+    public function getPlayersBySummoner(string $summoner_id): ?array
+    {
+        $resultPromise = $this->setEndpoint("/lol/clash/" . self::RESOURCE_CLASH_VERSION . "/players/by-summoner/$summoner_id")
+            ->setResource(self::RESOURCE_CLASH, "/players/by-summoner/%s")
+            ->makeCall();
+
+        return $this->resolveOrEnqueuePromise($resultPromise, function(array $result) {
+            foreach ($result as $playerDtoData)
+                $r[] = new Objects\PlayerDto($playerDtoData, $this);
+
+            return $r ?? [];
+        });
+    }
+
+    /**
+     *   Get team by ID.
+     *
+     * @cli-name get-team-by-id
+     * @cli-namespace clash
+     *
+     * @param string $team_id
+     *
+     * @return Objects\TeamDto|null
+     *
+     * @throws SettingsException
+     * @throws RequestException
+     * @throws ServerException
+     * @throws ServerLimitException
+     * @throws GeneralException
+     *
+     * @link https://developer.riotgames.com/apis#clash-v1/GET_getTeamById
+     */
+    public function getTeamById(string $team_id): ?Objects\TeamDto
+    {
+        $resultPromise = $this->setEndpoint("/lol/clash/" . self::RESOURCE_CLASH_VERSION . "/teams/$team_id")
+            ->setResource(self::RESOURCE_CLASH, "/teams/%s")
+            ->makeCall();
+
+        return $this->resolveOrEnqueuePromise($resultPromise, function(array $result) {
+            return new Objects\TeamDto($result, $this);
+        });
+    }
+
+    /**
+     *   Get all active or upcoming tournaments.
+     *
+     * @cli-name get-tournaments
+     * @cli-namespace clash
+     *
+     * @return Objects\TournamentDto[]|null
+     *
+     * @throws SettingsException
+     * @throws RequestException
+     * @throws ServerException
+     * @throws ServerLimitException
+     * @throws GeneralException
+     *
+     * @link https://developer.riotgames.com/apis#clash-v1/GET_getTournaments
+     */
+    public function getTournaments(): ?array
+    {
+        $resultPromise = $this->setEndpoint("/lol/clash/" . self::RESOURCE_CLASH_VERSION . "/tournaments")
+            ->setResource(self::RESOURCE_CLASH, "/tournaments")
+            ->makeCall();
+
+        return $this->resolveOrEnqueuePromise($resultPromise, function(array $result) {
+            foreach ($result as $tournamentDtoData)
+                $r[] = new Objects\TournamentDto($tournamentDtoData, $this);
+
+            return $r ?? [];
+        });
+    }
+
+    /**
+     *   Get tournament by team ID.
+     *
+     * @cli-name get-tournament-by-team
+     * @cli-namespace clash
+     *
+     * @param string $team_id
+     *
+     * @return Objects\TournamentDto|null
+     *
+     * @throws SettingsException
+     * @throws RequestException
+     * @throws ServerException
+     * @throws ServerLimitException
+     * @throws GeneralException
+     *
+     * @link https://developer.riotgames.com/apis#clash-v1/GET_getTournamentByTeam
+     */
+    public function getTournamentByTeam(string $team_id): ?array
+    {
+        $resultPromise = $this->setEndpoint("/lol/clash/" . self::RESOURCE_CLASH_VERSION . "/tournaments/by-team/$team_id")
+            ->setResource(self::RESOURCE_CLASH, "/tournaments/by-team/%s")
+            ->makeCall();
+
+        return $this->resolveOrEnqueuePromise($resultPromise, function(array $result) {
+            return new Objects\TournamentDto($result, $this);
+        });
+    }
+
+    /**
+     *   Get tournament by ID.
+     *
+     * @cli-name get-tournament-by-id
+     * @cli-namespace clash
+     *
+     * @param int $tournament_id
+     *
+     * @return Objects\TournamentDto|null
+     *
+     * @throws SettingsException
+     * @throws RequestException
+     * @throws ServerException
+     * @throws ServerLimitException
+     * @throws GeneralException
+     *
+     * @link https://developer.riotgames.com/apis#clash-v1/GET_getTournamentById
+     */
+    public function getTournamentById(int $tournament_id): ?array
+    {
+        $resultPromise = $this->setEndpoint("/lol/clash/" . self::RESOURCE_CLASH_VERSION . "/tournaments/$tournament_id")
+            ->setResource(self::RESOURCE_CLASH, "/tournaments/%d")
+            ->makeCall();
+
+        return $this->resolveOrEnqueuePromise($resultPromise, function(array $result) {
+            return new Objects\TournamentDto($result, $this);
+        });
+    }
+
+
 	/**
 	 * ==================================================================dd=
 	 *     Spectator Endpoint Methods
