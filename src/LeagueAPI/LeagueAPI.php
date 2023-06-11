@@ -742,20 +742,6 @@ class LeagueAPI extends BaseAPI
 	const RESOURCE_SPECTATOR_VERSION = 'v4';
 
 	/**
-	 * @throws ServerException
-	 * @throws ServerLimitException
-	 * @throws SettingsException
-	 * @throws RequestException
-	 * @throws GeneralException
-	 * @throws ReflectionException
-	 */
-	public function getCurrentGameInfo(string $encrypted_summoner_id): ?Objects\CurrentGameInfo
-	{
-		user_error("The LeagueAPI::getCurrentGameInfo will be soon removed in favour of LeagueAPI::getCurrentGameInfoBySummoner.", E_USER_DEPRECATED);
-		return $this->getCurrentGameInfoBySummoner($encrypted_summoner_id);
-	}
-
-	/**
 	 *   Get current game information for the given summoner ID.
 	 *
 	 * @cli-name get-current-game-info
@@ -1838,44 +1824,6 @@ class LeagueAPI extends BaseAPI
 
 		return $this->resolveOrEnqueuePromise($resultPromise, function(array $result) {
 			return new Objects\SummonerDto($result, $this);
-		});
-	}
-
-	/**
-	 * ==================================================================dd=
-	 *     Third Party Code Endpoint Methods
-	 *     @link https://developer.riotgames.com/apis#third-party-code-v4
-	 * ==================================================================dd=
-	 **/
-	const RESOURCE_THIRD_PARTY_CODE = '1426:third-party-code';
-	const RESOURCE_THIRD_PARTY_CODE_VERSION = 'v4';
-
-	/**
-	 *   Get third party code for given summoner ID.
-	 *
-	 * @cli-name get-by-summoner-id
-	 * @cli-namespace third-party-code
-	 *
-	 * @param string $encrypted_summoner_id
-	 *
-	 * @return string|null
-	 *
-	 * @throws SettingsException
-	 * @throws RequestException
-	 * @throws ServerException
-	 * @throws ServerLimitException
-	 * @throws GeneralException
-	 *
-	 * @link https://developer.riotgames.com/apis#third-party-code-v4/GET_getThirdPartyCodeBySummonerId
-	 */
-	public function getThirdPartyCodeBySummonerId( string $encrypted_summoner_id ): ?string
-	{
-		$resultPromise = $this->setEndpoint("/lol/platform/" . self::RESOURCE_THIRD_PARTY_CODE_VERSION . "/third-party-code/by-summoner/$encrypted_summoner_id")
-			->setResource(self::RESOURCE_THIRD_PARTY_CODE, "/third-party-code/by-summoner/%s")
-			->makeCall();
-
-		return $this->resolveOrEnqueuePromise($resultPromise, function(string $result) {
-			return $result;
 		});
 	}
 
