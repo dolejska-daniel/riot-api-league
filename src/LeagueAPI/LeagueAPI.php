@@ -89,6 +89,13 @@ class LeagueAPI extends BaseAPI
 			"tutorial",
 		];
 
+	const
+		CHALLENGES_ALLOWED_LEVELS = [
+			"MASTER",
+			"GRANDMASTER",
+			"CHALLENGER",
+		];
+
 	/**
 	 * Constants required for tournament API calls.
 	 */
@@ -150,6 +157,8 @@ class LeagueAPI extends BaseAPI
 	protected array $resources = [
 		self::RESOURCE_CHAMPION,
 		self::RESOURCE_CHAMPIONMASTERY,
+		self::RESOURCE_CHALLENGES,
+		self::RESOURCE_CLASH,
 		self::RESOURCE_LEAGUE,
 		self::RESOURCE_LEAGUE_EXP,
 		self::RESOURCE_STATICDATA,
@@ -157,7 +166,6 @@ class LeagueAPI extends BaseAPI
 		self::RESOURCE_MATCH,
 		self::RESOURCE_SPECTATOR,
 		self::RESOURCE_SUMMONER,
-		self::RESOURCE_THIRD_PARTY_CODE,
 		self::RESOURCE_TOURNAMENT,
 		self::RESOURCE_TOURNAMENT_STUB,
 	];
@@ -169,16 +177,17 @@ class LeagueAPI extends BaseAPI
 			//  Value is not set, setting default values
 			$this->setSetting($this::SET_CACHE_CALLS_LENGTH, [
 				self::RESOURCE_CHAMPION         => 60 * 10,
-				self::RESOURCE_CHAMPIONMASTERY  => 60 * 60,
+                self::RESOURCE_CHAMPIONMASTERY  => 60 * 60,
+				self::RESOURCE_CHALLENGES       => 60 * 10,
+				self::RESOURCE_CLASH            => 60,
 				self::RESOURCE_LEAGUE           => 60 * 10,
-				self::RESOURCE_MATCH            => 0,
-				self::RESOURCE_SPECTATOR        => 0,
+				self::RESOURCE_MATCH            => 60,
+				self::RESOURCE_SPECTATOR        => 60,
 				self::RESOURCE_STATICDATA       => 60 * 60 * 24,
 				self::RESOURCE_STATUS           => 60,
 				self::RESOURCE_SUMMONER         => 60 * 60,
-				self::RESOURCE_THIRD_PARTY_CODE => 0,
-				self::RESOURCE_TOURNAMENT       => 0,
-				self::RESOURCE_TOURNAMENT_STUB  => 0,
+				self::RESOURCE_TOURNAMENT       => 60,
+				self::RESOURCE_TOURNAMENT_STUB  => 60,
 			]);
 		}
 		else
@@ -347,6 +356,384 @@ class LeagueAPI extends BaseAPI
 	}
 
 
+    /**
+     * ==================================================================dd=
+     *     Challenges Endpoint Methods
+     *     @link https://developer.riotgames.com/apis#lol-challenges-v1
+     * ==================================================================dd=
+     **/
+    const RESOURCE_CHALLENGES = '1539:challenges';
+    const RESOURCE_CHALLENGES_VERSION = 'v1';
+
+    /**
+     *   List of all basic challenge configuration information (includes all translations for names and descriptions).
+     *
+     * @cli-name get-all-challenge-configs
+     * @cli-namespace challenges
+     *
+     * @return Objects\ChallengeConfigInfoDto[]|null
+     *
+     * @throws SettingsException
+     * @throws RequestException
+     * @throws ServerException
+     * @throws ServerLimitException
+     * @throws GeneralException
+     *
+     * @link https://developer.riotgames.com/apis#lol-challenges-v1/GET_getAllChallengeConfigs
+     */
+    public function getAllChallengeConfigs(): ?array
+    {
+        $resultPromise = $this->setEndpoint("/lol/challenges/" . self::RESOURCE_CHALLENGES_VERSION . "/challenges/config")
+            ->setResource(self::RESOURCE_CHALLENGES, "/challenges/config")
+            ->makeCall();
+
+        return $this->resolveOrEnqueuePromise($resultPromise, function(array $result) {
+            foreach ($result as $challengeCigInfoDtoData)
+                $r[] = new Objects\ChallengeConfigInfoDto($challengeCigInfoDtoData, $this);
+
+            return $r ?? [];
+        });
+    }
+
+    /**
+     *   Map of level to percentile of players who have achieved it - keys:
+     * ChallengeId -> Season -> Level -> percentile of players who achieved it.
+     *
+     * @cli-name get-all-challenge-percentiles
+     * @cli-namespace challenges
+     *
+     * @return array|null
+     *
+     * @throws SettingsException
+     * @throws RequestException
+     * @throws ServerException
+     * @throws ServerLimitException
+     * @throws GeneralException
+     *
+     * @link https://developer.riotgames.com/apis#lol-challenges-v1/GET_getAllChallengePercentiles
+     */
+    public function getAllChallengePercentiles(): ?array
+    {
+        $resultPromise = $this->setEndpoint("/lol/challenges/" . self::RESOURCE_CHALLENGES_VERSION . "/challenges/percentiles")
+            ->setResource(self::RESOURCE_CHALLENGES, "/challenges/percentiles")
+            ->makeCall();
+
+        return $this->resolveOrEnqueuePromise($resultPromise, function(array $result) {
+            return $result;
+        });
+    }
+
+    /**
+     *   Get challenge configuration (REST).
+     *
+     * @cli-name get-challenge-config-by-id
+     * @cli-namespace challenges
+     *
+     * @param int $challenge_id
+     *
+     * @return Objects\ChallengeConfigInfoDto|null
+     *
+     * @throws GeneralException
+     * @throws RequestException
+     * @throws ServerException
+     * @throws ServerLimitException
+     * @throws SettingsException
+     * @link https://developer.riotgames.com/apis#lol-challenges-v1/GET_getChallengeConfigs
+     */
+    public function getChallengeConfigById(int $challenge_id): ?array
+    {
+        $resultPromise = $this->setEndpoint("/lol/challenges/" . self::RESOURCE_CHALLENGES_VERSION . "/challenges/$challenge_id/config")
+            ->setResource(self::RESOURCE_CHALLENGES, "/challenges/%d/config")
+            ->makeCall();
+
+        return $this->resolveOrEnqueuePromise($resultPromise, function(array $result) {
+            return new Objects\ChallengeConfigInfoDto($result, $this);
+        });
+    }
+
+    /**
+     *   Return top players for each level. Level must be MASTER, GRANDMASTER or CHALLENGER.
+     *
+     * @cli-name get-challenge-leaderboards
+     * @cli-namespace challenges
+     *
+     * @return Objects\ApexPlayerInfoDto[]|null
+     *
+     * @throws SettingsException
+     * @throws RequestException
+     * @throws ServerException
+     * @throws ServerLimitException
+     * @throws GeneralException
+     *
+     * @link https://developer.riotgames.com/apis#lol-challenges-v1/GET_getChallengeLeaderboards
+     */
+    public function getChallengeLeaderboards(int $challenge_id, string $level): ?array
+    {
+        if (!in_array($level, self::CHALLENGES_ALLOWED_LEVELS))
+            throw new RequestParameterException('Value of level is invalid. Allowed values: ' . implode(', ', self::CHALLENGES_ALLOWED_LEVELS));
+
+        $resultPromise = $this->setEndpoint("/lol/challenges/" . self::RESOURCE_CHALLENGES_VERSION . "/challenges/$challenge_id/leaderboards/by-level/$level")
+            ->setResource(self::RESOURCE_CHALLENGES, "/challenges/%d/leaderboards/by-level/%s")
+            ->makeCall();
+
+        return $this->resolveOrEnqueuePromise($resultPromise, function(array $result) {
+            foreach ($result as $apexPlayerInfoDtoData)
+                $r[] = new Objects\ApexPlayerInfoDto($apexPlayerInfoDtoData, $this);
+
+            return $r ?? [];
+        });
+    }
+
+    /**
+     *   Map of level to percentile of players who have achieved it.
+     *
+     * @cli-name get-challenge-percentiles
+     * @cli-namespace challenges
+     *
+     * @param int $challenge_id
+     *
+     * @return array|null
+     *
+     * @throws GeneralException
+     * @throws RequestException
+     * @throws ServerException
+     * @throws ServerLimitException
+     * @throws SettingsException
+     *
+     * @link https://developer.riotgames.com/apis#lol-challenges-v1/GET_getChallengePercentiles
+     */
+    public function getChallengePercentiles(int $challenge_id): ?array
+    {
+        $resultPromise = $this->setEndpoint("/lol/challenges/" . self::RESOURCE_CHALLENGES_VERSION . "/challenges/$challenge_id/percentiles")
+            ->setResource(self::RESOURCE_CHALLENGES, "/challenges/%d/percentiles")
+            ->makeCall();
+
+        return $this->resolveOrEnqueuePromise($resultPromise, function(array $result) {
+            return $result;
+        });
+    }
+
+    /**
+     *   Returns player information with list of all progressed challenges (REST).
+     *
+     * @cli-name get-challenge-config-by-id
+     * @cli-namespace challenges
+     *
+     * @param string $puuid
+     *
+     * @return Objects\PlayerInfoDto|null
+     *
+     * @throws GeneralException
+     * @throws RequestException
+     * @throws ServerException
+     * @throws ServerLimitException
+     * @throws SettingsException
+     *
+     * @link https://developer.riotgames.com/apis#lol-challenges-v1/GET_getPlayerData
+     */
+    public function getPlayerData(string $puuid): ?array
+    {
+        $resultPromise = $this->setEndpoint("/lol/challenges/" . self::RESOURCE_CHALLENGES_VERSION . "/player-data/$puuid")
+            ->setResource(self::RESOURCE_CHALLENGES, "/player-data/%s")
+            ->makeCall();
+
+        return $this->resolveOrEnqueuePromise($resultPromise, function(array $result) {
+            return new Objects\PlayerInfoDto($result, $this);
+        });
+    }
+
+
+    /**
+     * ==================================================================dd=
+     *     Clash Endpoint Methods
+     *     @link https://developer.riotgames.com/apis#clash-v1
+     * ==================================================================dd=
+     **/
+    const RESOURCE_CLASH = '1497:clash';
+    const RESOURCE_CLASH_VERSION = 'v1';
+
+    /**
+     *   Get players by PUUID.
+     *
+     * @cli-name get-players-by-puuid
+     * @cli-namespace clash
+     *
+     * @param string $encrypted_puuid
+     *
+     * @return Objects\PlayerDto[]|null
+     *
+     * @throws SettingsException
+     * @throws RequestException
+     * @throws ServerException
+     * @throws ServerLimitException
+     * @throws GeneralException
+     *
+     * @link https://developer.riotgames.com/apis#clash-v1/GET_getPlayersByPUUID
+     */
+    public function getPlayersByPUUID(string $encrypted_puuid): ?array
+    {
+        $resultPromise = $this->setEndpoint("/lol/clash/" . self::RESOURCE_CLASH_VERSION . "/players/by-puuid/$encrypted_puuid")
+            ->setResource(self::RESOURCE_CLASH, "/players/by-puuid/%s")
+            ->makeCall();
+
+        return $this->resolveOrEnqueuePromise($resultPromise, function(array $result) {
+            foreach ($result as $playerDtoData)
+                $r[] = new Objects\PlayerDto($playerDtoData, $this);
+
+            return $r ?? [];
+        });
+    }
+
+    /**
+     *   Get players by summoner ID.
+     *
+     * @cli-name get-players-by-summoner
+     * @cli-namespace clash
+     *
+     * @param string $summoner_id
+     *
+     * @return Objects\PlayerDto[]|null
+     *
+     * @throws SettingsException
+     * @throws RequestException
+     * @throws ServerException
+     * @throws ServerLimitException
+     * @throws GeneralException
+     *
+     * @link https://developer.riotgames.com/apis#clash-v1/GET_getPlayersBySummoner
+     */
+    public function getPlayersBySummoner(string $summoner_id): ?array
+    {
+        $resultPromise = $this->setEndpoint("/lol/clash/" . self::RESOURCE_CLASH_VERSION . "/players/by-summoner/$summoner_id")
+            ->setResource(self::RESOURCE_CLASH, "/players/by-summoner/%s")
+            ->makeCall();
+
+        return $this->resolveOrEnqueuePromise($resultPromise, function(array $result) {
+            foreach ($result as $playerDtoData)
+                $r[] = new Objects\PlayerDto($playerDtoData, $this);
+
+            return $r ?? [];
+        });
+    }
+
+    /**
+     *   Get team by ID.
+     *
+     * @cli-name get-team-by-id
+     * @cli-namespace clash
+     *
+     * @param string $team_id
+     *
+     * @return Objects\TeamDto|null
+     *
+     * @throws SettingsException
+     * @throws RequestException
+     * @throws ServerException
+     * @throws ServerLimitException
+     * @throws GeneralException
+     *
+     * @link https://developer.riotgames.com/apis#clash-v1/GET_getTeamById
+     */
+    public function getTeamById(string $team_id): ?Objects\TeamDto
+    {
+        $resultPromise = $this->setEndpoint("/lol/clash/" . self::RESOURCE_CLASH_VERSION . "/teams/$team_id")
+            ->setResource(self::RESOURCE_CLASH, "/teams/%s")
+            ->makeCall();
+
+        return $this->resolveOrEnqueuePromise($resultPromise, function(array $result) {
+            return new Objects\TeamDto($result, $this);
+        });
+    }
+
+    /**
+     *   Get all active or upcoming tournaments.
+     *
+     * @cli-name get-tournaments
+     * @cli-namespace clash
+     *
+     * @return Objects\TournamentDto[]|null
+     *
+     * @throws SettingsException
+     * @throws RequestException
+     * @throws ServerException
+     * @throws ServerLimitException
+     * @throws GeneralException
+     *
+     * @link https://developer.riotgames.com/apis#clash-v1/GET_getTournaments
+     */
+    public function getTournaments(): ?array
+    {
+        $resultPromise = $this->setEndpoint("/lol/clash/" . self::RESOURCE_CLASH_VERSION . "/tournaments")
+            ->setResource(self::RESOURCE_CLASH, "/tournaments")
+            ->makeCall();
+
+        return $this->resolveOrEnqueuePromise($resultPromise, function(array $result) {
+            foreach ($result as $tournamentDtoData)
+                $r[] = new Objects\TournamentDto($tournamentDtoData, $this);
+
+            return $r ?? [];
+        });
+    }
+
+    /**
+     *   Get tournament by team ID.
+     *
+     * @cli-name get-tournament-by-team
+     * @cli-namespace clash
+     *
+     * @param string $team_id
+     *
+     * @return Objects\TournamentDto|null
+     *
+     * @throws SettingsException
+     * @throws RequestException
+     * @throws ServerException
+     * @throws ServerLimitException
+     * @throws GeneralException
+     *
+     * @link https://developer.riotgames.com/apis#clash-v1/GET_getTournamentByTeam
+     */
+    public function getTournamentByTeam(string $team_id): ?array
+    {
+        $resultPromise = $this->setEndpoint("/lol/clash/" . self::RESOURCE_CLASH_VERSION . "/tournaments/by-team/$team_id")
+            ->setResource(self::RESOURCE_CLASH, "/tournaments/by-team/%s")
+            ->makeCall();
+
+        return $this->resolveOrEnqueuePromise($resultPromise, function(array $result) {
+            return new Objects\TournamentDto($result, $this);
+        });
+    }
+
+    /**
+     *   Get tournament by ID.
+     *
+     * @cli-name get-tournament-by-id
+     * @cli-namespace clash
+     *
+     * @param int $tournament_id
+     *
+     * @return Objects\TournamentDto|null
+     *
+     * @throws SettingsException
+     * @throws RequestException
+     * @throws ServerException
+     * @throws ServerLimitException
+     * @throws GeneralException
+     *
+     * @link https://developer.riotgames.com/apis#clash-v1/GET_getTournamentById
+     */
+    public function getTournamentById(int $tournament_id): ?array
+    {
+        $resultPromise = $this->setEndpoint("/lol/clash/" . self::RESOURCE_CLASH_VERSION . "/tournaments/$tournament_id")
+            ->setResource(self::RESOURCE_CLASH, "/tournaments/%d")
+            ->makeCall();
+
+        return $this->resolveOrEnqueuePromise($resultPromise, function(array $result) {
+            return new Objects\TournamentDto($result, $this);
+        });
+    }
+
+
 	/**
 	 * ==================================================================dd=
 	 *     Spectator Endpoint Methods
@@ -355,20 +742,6 @@ class LeagueAPI extends BaseAPI
 	 **/
 	const RESOURCE_SPECTATOR = '1419:spectator';
 	const RESOURCE_SPECTATOR_VERSION = 'v4';
-
-	/**
-	 * @throws ServerException
-	 * @throws ServerLimitException
-	 * @throws SettingsException
-	 * @throws RequestException
-	 * @throws GeneralException
-	 * @throws ReflectionException
-	 */
-	public function getCurrentGameInfo(string $encrypted_summoner_id): ?Objects\CurrentGameInfo
-	{
-		user_error("The LeagueAPI::getCurrentGameInfo will be soon removed in favour of LeagueAPI::getCurrentGameInfoBySummoner.", E_USER_DEPRECATED);
-		return $this->getCurrentGameInfoBySummoner($encrypted_summoner_id);
-	}
 
 	/**
 	 *   Get current game information for the given summoner ID.
@@ -1453,44 +1826,6 @@ class LeagueAPI extends BaseAPI
 
 		return $this->resolveOrEnqueuePromise($resultPromise, function(array $result) {
 			return new Objects\SummonerDto($result, $this);
-		});
-	}
-
-	/**
-	 * ==================================================================dd=
-	 *     Third Party Code Endpoint Methods
-	 *     @link https://developer.riotgames.com/apis#third-party-code-v4
-	 * ==================================================================dd=
-	 **/
-	const RESOURCE_THIRD_PARTY_CODE = '1426:third-party-code';
-	const RESOURCE_THIRD_PARTY_CODE_VERSION = 'v4';
-
-	/**
-	 *   Get third party code for given summoner ID.
-	 *
-	 * @cli-name get-by-summoner-id
-	 * @cli-namespace third-party-code
-	 *
-	 * @param string $encrypted_summoner_id
-	 *
-	 * @return string|null
-	 *
-	 * @throws SettingsException
-	 * @throws RequestException
-	 * @throws ServerException
-	 * @throws ServerLimitException
-	 * @throws GeneralException
-	 *
-	 * @link https://developer.riotgames.com/apis#third-party-code-v4/GET_getThirdPartyCodeBySummonerId
-	 */
-	public function getThirdPartyCodeBySummonerId( string $encrypted_summoner_id ): ?string
-	{
-		$resultPromise = $this->setEndpoint("/lol/platform/" . self::RESOURCE_THIRD_PARTY_CODE_VERSION . "/third-party-code/by-summoner/$encrypted_summoner_id")
-			->setResource(self::RESOURCE_THIRD_PARTY_CODE, "/third-party-code/by-summoner/%s")
-			->makeCall();
-
-		return $this->resolveOrEnqueuePromise($resultPromise, function(string $result) {
-			return $result;
 		});
 	}
 
