@@ -89,6 +89,13 @@ class LeagueAPI extends BaseAPI
 			"tutorial",
 		];
 
+	const
+		CHALLENGES_ALLOWED_LEVELS = [
+			"MASTER",
+			"GRANDMASTER",
+			"CHALLENGER",
+		];
+
 	/**
 	 * Constants required for tournament API calls.
 	 */
@@ -345,6 +352,193 @@ class LeagueAPI extends BaseAPI
 			return $result;
 		});
 	}
+
+
+    /**
+     * ==================================================================dd=
+     *     Challenges Endpoint Methods
+     *     @link https://developer.riotgames.com/apis#lol-challenges-v1
+     * ==================================================================dd=
+     **/
+    const RESOURCE_CHALLENGES = '1539:challenges';
+    const RESOURCE_CHALLENGES_VERSION = 'v1';
+
+    /**
+     *   List of all basic challenge configuration information (includes all translations for names and descriptions).
+     *
+     * @cli-name get-all-challenge-configs
+     * @cli-namespace challenges
+     *
+     * @return Objects\ChallengeConfigInfoDto[]|null
+     *
+     * @throws SettingsException
+     * @throws RequestException
+     * @throws ServerException
+     * @throws ServerLimitException
+     * @throws GeneralException
+     *
+     * @link https://developer.riotgames.com/apis#lol-challenges-v1/GET_getAllChallengeConfigs
+     */
+    public function getAllChallengeConfigs(): ?array
+    {
+        $resultPromise = $this->setEndpoint("/lol/challenges/" . self::RESOURCE_CHALLENGES_VERSION . "/challenges/config")
+            ->setResource(self::RESOURCE_CHALLENGES, "/challenges/config")
+            ->makeCall();
+
+        return $this->resolveOrEnqueuePromise($resultPromise, function(array $result) {
+            foreach ($result as $challengeCigInfoDtoData)
+                $r[] = new Objects\ChallengeConfigInfoDto($challengeCigInfoDtoData, $this);
+
+            return $r ?? [];
+        });
+    }
+
+    /**
+     *   Map of level to percentile of players who have achieved it - keys:
+     * ChallengeId -> Season -> Level -> percentile of players who achieved it.
+     *
+     * @cli-name get-all-challenge-percentiles
+     * @cli-namespace challenges
+     *
+     * @return array|null
+     *
+     * @throws SettingsException
+     * @throws RequestException
+     * @throws ServerException
+     * @throws ServerLimitException
+     * @throws GeneralException
+     *
+     * @link https://developer.riotgames.com/apis#lol-challenges-v1/GET_getAllChallengePercentiles
+     */
+    public function getAllChallengePercentiles(): ?array
+    {
+        $resultPromise = $this->setEndpoint("/lol/challenges/" . self::RESOURCE_CHALLENGES_VERSION . "/challenges/percentiles")
+            ->setResource(self::RESOURCE_CHALLENGES, "/challenges/percentiles")
+            ->makeCall();
+
+        return $this->resolveOrEnqueuePromise($resultPromise, function(array $result) {
+            return $result;
+        });
+    }
+
+    /**
+     *   Get challenge configuration (REST).
+     *
+     * @cli-name get-challenge-config-by-id
+     * @cli-namespace challenges
+     *
+     * @param int $challenge_id
+     *
+     * @return Objects\ChallengeConfigInfoDto|null
+     *
+     * @throws GeneralException
+     * @throws RequestException
+     * @throws ServerException
+     * @throws ServerLimitException
+     * @throws SettingsException
+     * @link https://developer.riotgames.com/apis#lol-challenges-v1/GET_getChallengeConfigs
+     */
+    public function getChallengeConfigById(int $challenge_id): ?array
+    {
+        $resultPromise = $this->setEndpoint("/lol/challenges/" . self::RESOURCE_CHALLENGES_VERSION . "/challenges/$challenge_id/config")
+            ->setResource(self::RESOURCE_CHALLENGES, "/challenges/%d/config")
+            ->makeCall();
+
+        return $this->resolveOrEnqueuePromise($resultPromise, function(array $result) {
+            return new Objects\ChallengeConfigInfoDto($result, $this);
+        });
+    }
+
+    /**
+     *   Return top players for each level. Level must be MASTER, GRANDMASTER or CHALLENGER.
+     *
+     * @cli-name get-challenge-leaderboards
+     * @cli-namespace challenges
+     *
+     * @return Objects\ApexPlayerInfoDto[]|null
+     *
+     * @throws SettingsException
+     * @throws RequestException
+     * @throws ServerException
+     * @throws ServerLimitException
+     * @throws GeneralException
+     *
+     * @link https://developer.riotgames.com/apis#lol-challenges-v1/GET_getChallengeLeaderboards
+     */
+    public function getChallengeLeaderboards(int $challenge_id, string $level): ?array
+    {
+        if (!in_array($level, self::CHALLENGES_ALLOWED_LEVELS))
+            throw new RequestParameterException('Value of level is invalid. Allowed values: ' . implode(', ', self::CHALLENGES_ALLOWED_LEVELS));
+
+        $resultPromise = $this->setEndpoint("/lol/challenges/" . self::RESOURCE_CHALLENGES_VERSION . "/challenges/$challenge_id/leaderboards/by-level/$level")
+            ->setResource(self::RESOURCE_CHALLENGES, "/challenges/%d/leaderboards/by-level/%s")
+            ->makeCall();
+
+        return $this->resolveOrEnqueuePromise($resultPromise, function(array $result) {
+            foreach ($result as $apexPlayerInfoDtoData)
+                $r[] = new Objects\ApexPlayerInfoDto($apexPlayerInfoDtoData, $this);
+
+            return $r ?? [];
+        });
+    }
+
+    /**
+     *   Map of level to percentile of players who have achieved it.
+     *
+     * @cli-name get-challenge-percentiles
+     * @cli-namespace challenges
+     *
+     * @param int $challenge_id
+     *
+     * @return array|null
+     *
+     * @throws GeneralException
+     * @throws RequestException
+     * @throws ServerException
+     * @throws ServerLimitException
+     * @throws SettingsException
+     *
+     * @link https://developer.riotgames.com/apis#lol-challenges-v1/GET_getChallengePercentiles
+     */
+    public function getChallengePercentiles(int $challenge_id): ?array
+    {
+        $resultPromise = $this->setEndpoint("/lol/challenges/" . self::RESOURCE_CHALLENGES_VERSION . "/challenges/$challenge_id/percentiles")
+            ->setResource(self::RESOURCE_CHALLENGES, "/challenges/%d/percentiles")
+            ->makeCall();
+
+        return $this->resolveOrEnqueuePromise($resultPromise, function(array $result) {
+            return $result;
+        });
+    }
+
+    /**
+     *   Returns player information with list of all progressed challenges (REST).
+     *
+     * @cli-name get-challenge-config-by-id
+     * @cli-namespace challenges
+     *
+     * @param string $puuid
+     *
+     * @return Objects\PlayerInfoDto|null
+     *
+     * @throws GeneralException
+     * @throws RequestException
+     * @throws ServerException
+     * @throws ServerLimitException
+     * @throws SettingsException
+     *
+     * @link https://developer.riotgames.com/apis#lol-challenges-v1/GET_getPlayerData
+     */
+    public function getPlayerData(string $puuid): ?array
+    {
+        $resultPromise = $this->setEndpoint("/lol/challenges/" . self::RESOURCE_CHALLENGES_VERSION . "/player-data/$puuid")
+            ->setResource(self::RESOURCE_CHALLENGES, "/player-data/%s")
+            ->makeCall();
+
+        return $this->resolveOrEnqueuePromise($resultPromise, function(array $result) {
+            return new Objects\PlayerInfoDto($result, $this);
+        });
+    }
 
 
     /**
