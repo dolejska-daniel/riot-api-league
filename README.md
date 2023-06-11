@@ -1,8 +1,8 @@
 # RiotAPI PHP wrapper for League of Legends
 > Version v2.0.0
 
-[![Build Status](https://img.shields.io/travis/dolejska-daniel/riot-api-league/master)](https://travis-ci.com/dolejska-daniel/riot-api-league)
-[![Test Coverage](https://img.shields.io/codeclimate/coverage/dolejska-daniel/riot-api-league?logo=code-climate)](https://codeclimate.com/github/dolejska-daniel/riot-api-league/coverage)
+[![PHP Composer](https://github.com/dolejska-daniel/riot-api-league/actions/workflows/php.yaml/badge.svg)](https://github.com/dolejska-daniel/riot-api-league/actions/workflows/php.yaml)
+[![codecov](https://codecov.io/gh/dolejska-daniel/riot-api-league/branch/master/graph/badge.svg?token=ISDABEKKEN)](https://codecov.io/gh/dolejska-daniel/riot-api-league)
 [![Packagist](https://img.shields.io/packagist/dm/dolejska-daniel/riot-api-league)](https://packagist.org/packages/dolejska-daniel/riot-api-league)
 [![Packagist](https://img.shields.io/packagist/l/dolejska-daniel/riot-api-league)](https://packagist.org/packages/dolejska-daniel/riot-api-league)
 ![Packagist PHP Version Support](https://img.shields.io/packagist/php-v/dolejska-daniel/riot-api-league)
@@ -67,24 +67,25 @@ For additional information about downloading and initial setup, please see [the 
 Below you can find table of implemented API resources and the version in which these are currently implemented.
 Please refer to [wiki pages](https://github.com/dolejska-daniel/riot-api-league/wiki/Resources-and-endpoints) for additional information about endpoints and resources.
 
-| Resource         | Status |
-| ---------------- | ------ |
-| [Champion](https://github.com/dolejska-daniel/riot-api-league/wiki/Resources-and-endpoints#champion-) | ![Champion resource implemented version](https://img.shields.io/badge/implemented_version-v3-brightgreen.svg) |
-| [Champion Mastery](https://github.com/dolejska-daniel/riot-api-league/wiki/Resources-and-endpoints#champion-mastery-) | ![Champion Mastery resource implemented version](https://img.shields.io/badge/implemented_version-v4-brightgreen.svg) |
-| Clash | ![Clash resource implemented version](https://img.shields.io/badge/implemented_version-not_yet_implemented-orange.svg) |
-| [League](https://github.com/dolejska-daniel/riot-api-league/wiki/Resources-and-endpoints#league-) | ![League resource implemented version](https://img.shields.io/badge/implemented_version-v4-brightgreen.svg) |
-| [League Exp](https://github.com/dolejska-daniel/riot-api-league/wiki/Resources-and-endpoints#league-exp-) | ![League Exp resource implemented version](https://img.shields.io/badge/implemented_version-v4-brightgreen.svg) |
-| Masteries | ![Masteries resource implemented version](https://img.shields.io/badge/implemented_version-deprecated-gray.svg) |
-| [Match](https://github.com/dolejska-daniel/riot-api-league/wiki/Resources-and-endpoints#match-) | ![Match resource implemented version](https://img.shields.io/badge/implemented_version-v4-yellow.svg) |
-| Runes | ![Runes resource implemented version](https://img.shields.io/badge/implemented_version-deprecated-gray.svg) |
-| [Spectator](https://github.com/dolejska-daniel/riot-api-league/wiki/Resources-and-endpoints#spectator-) | ![Spectator resource implemented version](https://img.shields.io/badge/implemented_version-v4-brightgreen.svg) |
-| [Static Data](https://github.com/dolejska-daniel/riot-api-league/wiki/Resources-and-endpoints#static-data-) | ![Static Data resource implemented version](https://img.shields.io/badge/implemented_version-_working-brightgreen.svg) |
-| Stats | ![Stats endpoint implemented version](https://img.shields.io/badge/implemented_version-deprecated-gray.svg) |
-| [Status](https://github.com/dolejska-daniel/riot-api-league/wiki/Resources-and-endpoints#status-) | ![Status resource implemented version](https://img.shields.io/badge/implemented_version-v4-brightgreen.svg) |
-| [Summoner](https://github.com/dolejska-daniel/riot-api-league/wiki/Resources-and-endpoints#summoner-) | ![Summoner resource implemented version](https://img.shields.io/badge/implemented_version-v4-brightgreen.svg) |
-| [Third Party Code](https://github.com/dolejska-daniel/riot-api-league/wiki/LeagueAPI%3A-Resources-and-endpoints#third-party-code-) | ![Third Party Code endpoint implemented version](https://img.shields.io/badge/implemented_version-v4-brightgreen.svg) |
-| [Tournament](https://github.com/dolejska-daniel/riot-api-league/wiki/Resources-and-endpoints#tournament---tournament-stub-) | ![Tournament resource implemented version](https://img.shields.io/badge/implemented_version-v4-brightgreen.svg) |
-| [Tournament Stub](https://github.com/dolejska-daniel/riot-api-league/wiki/Resources-and-endpoints#tournament---tournament-stub-) | ![Tournament Stub resource implemented version](https://img.shields.io/badge/implemented_version-v4-brightgreen.svg) |
+| Resource                                                                                                                         | Status                                                                                                                 |
+|----------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------|
+| [Champion](https://github.com/dolejska-daniel/riot-api-league/wiki/Resources-and-endpoints#champion-)                            | ![Champion resource implemented version](https://img.shields.io/badge/implemented_version-v3-brightgreen.svg)          |
+| [Champion Mastery](https://github.com/dolejska-daniel/riot-api-league/wiki/Resources-and-endpoints#champion-mastery-)            | ![Champion Mastery resource implemented version](https://img.shields.io/badge/implemented_version-v4-brightgreen.svg)  |
+| Challenges                                                                                                                       | ![Challenges resource implemented version](https://img.shields.io/badge/implemented_version-v1-brightgreen.svg)        |
+| Clash                                                                                                                            | ![Clash resource implemented version](https://img.shields.io/badge/implemented_version-v1-brightgreen.svg)             |
+| [League](https://github.com/dolejska-daniel/riot-api-league/wiki/Resources-and-endpoints#league-)                                | ![League resource implemented version](https://img.shields.io/badge/implemented_version-v4-brightgreen.svg)            |
+| [League Exp](https://github.com/dolejska-daniel/riot-api-league/wiki/Resources-and-endpoints#league-exp-)                        | ![League Exp resource implemented version](https://img.shields.io/badge/implemented_version-v4-brightgreen.svg)        |
+| Masteries                                                                                                                        | ![Masteries resource implemented version](https://img.shields.io/badge/implemented_version-deprecated-gray.svg)        |
+| [Match](https://github.com/dolejska-daniel/riot-api-league/wiki/Resources-and-endpoints#match-)                                  | ![Match resource implemented version](https://img.shields.io/badge/implemented_version-v5-brightgreen.svg)             |
+| Runes                                                                                                                            | ![Runes resource implemented version](https://img.shields.io/badge/implemented_version-deprecated-gray.svg)            |
+| [Spectator](https://github.com/dolejska-daniel/riot-api-league/wiki/Resources-and-endpoints#spectator-)                          | ![Spectator resource implemented version](https://img.shields.io/badge/implemented_version-v4-brightgreen.svg)         |
+| [Static Data](https://github.com/dolejska-daniel/riot-api-league/wiki/Resources-and-endpoints#static-data-)                      | ![Static Data resource implemented version](https://img.shields.io/badge/implemented_version-_working-brightgreen.svg) |
+| Stats                                                                                                                            | ![Stats endpoint implemented version](https://img.shields.io/badge/implemented_version-deprecated-gray.svg)            |
+| [Status](https://github.com/dolejska-daniel/riot-api-league/wiki/Resources-and-endpoints#status-)                                | ![Status resource implemented version](https://img.shields.io/badge/implemented_version-v4-brightgreen.svg)            |
+| [Summoner](https://github.com/dolejska-daniel/riot-api-league/wiki/Resources-and-endpoints#summoner-)                            | ![Summoner resource implemented version](https://img.shields.io/badge/implemented_version-v4-brightgreen.svg)          |
+| Third Party Code                                                                                                                 | ![Third Party Code endpoint implemented version](https://img.shields.io/badge/implemented_version-deprecated-gray.svg)  |
+| [Tournament](https://github.com/dolejska-daniel/riot-api-league/wiki/Resources-and-endpoints#tournament---tournament-stub-)      | ![Tournament resource implemented version](https://img.shields.io/badge/implemented_version-v4-brightgreen.svg)        |
+| [Tournament Stub](https://github.com/dolejska-daniel/riot-api-league/wiki/Resources-and-endpoints#tournament---tournament-stub-) | ![Tournament Stub resource implemented version](https://img.shields.io/badge/implemented_version-v4-brightgreen.svg)   |
 
 
 ## [Initializing the library](https://github.com/dolejska-daniel/riot-api-league/wiki/How-to-begin)
