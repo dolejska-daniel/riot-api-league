@@ -157,6 +157,8 @@ class LeagueAPI extends BaseAPI
 	protected array $resources = [
 		self::RESOURCE_CHAMPION,
 		self::RESOURCE_CHAMPIONMASTERY,
+		self::RESOURCE_CHALLENGES,
+		self::RESOURCE_CLASH,
 		self::RESOURCE_LEAGUE,
 		self::RESOURCE_LEAGUE_EXP,
 		self::RESOURCE_STATICDATA,
@@ -164,7 +166,6 @@ class LeagueAPI extends BaseAPI
 		self::RESOURCE_MATCH,
 		self::RESOURCE_SPECTATOR,
 		self::RESOURCE_SUMMONER,
-		self::RESOURCE_THIRD_PARTY_CODE,
 		self::RESOURCE_TOURNAMENT,
 		self::RESOURCE_TOURNAMENT_STUB,
 	];
@@ -176,16 +177,17 @@ class LeagueAPI extends BaseAPI
 			//  Value is not set, setting default values
 			$this->setSetting($this::SET_CACHE_CALLS_LENGTH, [
 				self::RESOURCE_CHAMPION         => 60 * 10,
-				self::RESOURCE_CHAMPIONMASTERY  => 60 * 60,
+                self::RESOURCE_CHAMPIONMASTERY  => 60 * 60,
+				self::RESOURCE_CHALLENGES       => 60 * 10,
+				self::RESOURCE_CLASH            => 60,
 				self::RESOURCE_LEAGUE           => 60 * 10,
-				self::RESOURCE_MATCH            => 0,
-				self::RESOURCE_SPECTATOR        => 0,
+				self::RESOURCE_MATCH            => 60,
+				self::RESOURCE_SPECTATOR        => 60,
 				self::RESOURCE_STATICDATA       => 60 * 60 * 24,
 				self::RESOURCE_STATUS           => 60,
 				self::RESOURCE_SUMMONER         => 60 * 60,
-				self::RESOURCE_THIRD_PARTY_CODE => 0,
-				self::RESOURCE_TOURNAMENT       => 0,
-				self::RESOURCE_TOURNAMENT_STUB  => 0,
+				self::RESOURCE_TOURNAMENT       => 60,
+				self::RESOURCE_TOURNAMENT_STUB  => 60,
 			]);
 		}
 		else
