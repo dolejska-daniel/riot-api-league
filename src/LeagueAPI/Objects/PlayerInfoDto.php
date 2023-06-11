@@ -36,7 +36,7 @@ class PlayerInfoDto extends ApiObject
 	 * Available when received from:
 	 *   - @see LeagueAPI::getPlayerData
 	 *
-	 * @var ChallengeInfo[] $challenges
+	 * @var ChallengeInfoDto[] $challenges
 	 */
 	public array $challenges;
 
@@ -44,23 +44,23 @@ class PlayerInfoDto extends ApiObject
 	 * Available when received from:
 	 *   - @see LeagueAPI::getPlayerData
 	 *
-	 * @var PlayerClientPreferences $preferences
+	 * @var PlayerClientPreferencesDto $preferences
 	 */
-	public PlayerClientPreferences $preferences;
+	public PlayerClientPreferencesDto $preferences;
 
 	/**
 	 * Available when received from:
 	 *   - @see LeagueAPI::getPlayerData
 	 *
-	 * @var ChallengePoints $totalPoints
+	 * @var ChallengePointsDto $totalPoints
 	 */
-	public ChallengePoints $totalPoints;
+	public ChallengePointsDto $totalPoints;
 
 	/**
 	 * Available when received from:
 	 *   - @see LeagueAPI::getPlayerData
 	 *
-	 * @var String, ChallengePoints[] $categoryPoints
+	 * @var ChallengePointsDto[] $categoryPoints
 	 */
 	public array $categoryPoints;
 }

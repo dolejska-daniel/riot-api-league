@@ -440,7 +440,7 @@ class LeagueAPI extends BaseAPI
      * @throws SettingsException
      * @link https://developer.riotgames.com/apis#lol-challenges-v1/GET_getChallengeConfigs
      */
-    public function getChallengeConfigById(int $challenge_id): ?array
+    public function getChallengeConfigById(int $challenge_id): ?Objects\ChallengeConfigInfoDto
     {
         $resultPromise = $this->setEndpoint("/lol/challenges/" . self::RESOURCE_CHALLENGES_VERSION . "/challenges/$challenge_id/config")
             ->setResource(self::RESOURCE_CHALLENGES, "/challenges/%d/config")
@@ -531,7 +531,7 @@ class LeagueAPI extends BaseAPI
      *
      * @link https://developer.riotgames.com/apis#lol-challenges-v1/GET_getPlayerData
      */
-    public function getPlayerData(string $puuid): ?array
+    public function getPlayerData(string $puuid): ?Objects\PlayerInfoDto
     {
         $resultPromise = $this->setEndpoint("/lol/challenges/" . self::RESOURCE_CHALLENGES_VERSION . "/player-data/$puuid")
             ->setResource(self::RESOURCE_CHALLENGES, "/player-data/%s")

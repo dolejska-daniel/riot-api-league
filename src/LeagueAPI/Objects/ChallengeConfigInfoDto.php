@@ -48,7 +48,7 @@ class ChallengeConfigInfoDto extends ApiObject
 	 *   - @see LeagueAPI::getAllChallengeConfigs
 	 *   - @see LeagueAPI::getChallengeConfigs
 	 *
-	 * @var String, string][] $localizedNames
+	 * @var string[] $localizedNames
 	 */
 	public array $localizedNames;
 
@@ -57,36 +57,36 @@ class ChallengeConfigInfoDto extends ApiObject
 	 *   - @see LeagueAPI::getAllChallengeConfigs
 	 *   - @see LeagueAPI::getChallengeConfigs
 	 *
-	 * @var State $state
+	 * @var string $state
 	 */
-	public State $state;
+	public string $state;
 
 	/**
 	 * Available when received from:
 	 *   - @see LeagueAPI::getAllChallengeConfigs
 	 *   - @see LeagueAPI::getChallengeConfigs
 	 *
-	 * @var Tracking $tracking
+	 * @var string|null $tracking
 	 */
-	public Tracking $tracking;
+	public ?string $tracking = null;
 
 	/**
 	 * Available when received from:
 	 *   - @see LeagueAPI::getAllChallengeConfigs
 	 *   - @see LeagueAPI::getChallengeConfigs
 	 *
-	 * @var int $startTimestamp
+	 * @var int|null $startTimestamp
 	 */
-	public int $startTimestamp;
+	public ?int $startTimestamp = null;
 
 	/**
 	 * Available when received from:
 	 *   - @see LeagueAPI::getAllChallengeConfigs
 	 *   - @see LeagueAPI::getChallengeConfigs
 	 *
-	 * @var int $endTimestamp
+	 * @var int|null $endTimestamp
 	 */
-	public int $endTimestamp;
+	public ?int $endTimestamp = null;
 
 	/**
 	 * Available when received from:
@@ -102,7 +102,7 @@ class ChallengeConfigInfoDto extends ApiObject
 	 *   - @see LeagueAPI::getAllChallengeConfigs
 	 *   - @see LeagueAPI::getChallengeConfigs
 	 *
-	 * @var String, double[] $thresholds
+	 * @var double[] $thresholds
 	 */
 	public array $thresholds;
 }

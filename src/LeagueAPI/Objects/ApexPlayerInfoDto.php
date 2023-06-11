@@ -44,9 +44,9 @@ class ApexPlayerInfoDto extends ApiObject
 	 * Available when received from:
 	 *   - @see LeagueAPI::getChallengeLeaderboards
 	 *
-	 * @var float $value
+	 * @var int $value
 	 */
-	public float $value;
+	public int $value;
 
 	/**
 	 * Available when received from:
