@@ -1090,4 +1090,12 @@ class ParticipantDto extends ApiObjectLinkable
      * @var int|null $totalEnemyJungleMinionsKilled
      */
     public ?int $totalEnemyJungleMinionsKilled = null;
+
+    /**
+     * Available when received from:
+     *   - @see LeagueAPI::getMatch
+     *
+     * @var int|null $placement
+     */
+    public ?int $placement = null;
 }
