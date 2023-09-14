@@ -906,4 +906,196 @@ class ParticipantDto extends ApiObjectLinkable
 	 * @var bool $win
 	 */
 	public bool $win;
+
+    /**
+     * Available when received from:
+     *   - @see LeagueAPI::getMatch
+     *
+     * @var int|null $allInPings
+     */
+    public ?int $allInPings = null;
+
+    /**
+     * Available when received from:
+     *   - @see LeagueAPI::getMatch
+     *
+     * @var int|null $assistMePings
+     */
+    public ?int $assistMePings = null;
+
+    /**
+     * Available when received from:
+     *   - @see LeagueAPI::getMatch
+     *
+     * @var int|null $assistMePings
+     */
+    public ?int $baitPings = null;
+
+    /**
+     * Available when received from:
+     *   - @see LeagueAPI::getMatch
+     *
+     * @var int|null $basicPings
+     */
+    public ?int $basicPings = null;
+
+    /**
+     * Available when received from:
+     *   - @see LeagueAPI::getMatch
+     *
+     * @var int|null $assistMePings
+     */
+    public ?int $commandPings = null;
+
+    /**
+     * Available when received from:
+     *   - @see LeagueAPI::getMatch
+     *
+     * @var int|null $dangerPings
+     */
+    public ?int $dangerPings = null;
+
+    /**
+     * Available when received from:
+     *   - @see LeagueAPI::getMatch
+     *
+     * @var int|null $enemyMissingPings
+     */
+    public ?int $enemyMissingPings = null;
+
+    /**
+     * Available when received from:
+     *   - @see LeagueAPI::getMatch
+     *
+     * @var int|null $enemyVisionPings
+     */
+    public ?int $enemyVisionPings = null;
+
+    /**
+     * Available when received from:
+     *   - @see LeagueAPI::getMatch
+     *
+     * @var int|null $getBackPings
+     */
+    public ?int $getBackPings = null;
+
+    /**
+     * Available when received from:
+     *   - @see LeagueAPI::getMatch
+     *
+     * @var int|null $holdPings
+     */
+    public ?int $holdPings = null;
+
+    /**
+     * Available when received from:
+     *   - @see LeagueAPI::getMatch
+     *
+     * @var int|null $needVisionPings
+     */
+    public ?int $needVisionPings = null;
+
+    /**
+     * Available when received from:
+     *   - @see LeagueAPI::getMatch
+     *
+     * @var int|null $onMyWayPings
+     */
+    public ?int $onMyWayPings = null;
+
+    /**
+     * Available when received from:
+     *   - @see LeagueAPI::getMatch
+     *
+     * @var int|null $pushPings
+     */
+    public ?int $pushPings = null;
+
+    /**
+     * Available when received from:
+     *   - @see LeagueAPI::getMatch
+     *
+     * @var int|null $visionClearedPings
+     */
+    public ?int $visionClearedPings = null;
+
+    /**
+     * Available when received from:
+     *   - @see LeagueAPI::getMatch
+     *
+     * @var bool|null $eligibleForProgression
+     */
+    public ?bool $eligibleForProgression = null;
+
+    /**
+     * Available when received from:
+     *   - @see LeagueAPI::getMatch
+     *
+     * @var int|null $playerAugment1
+     */
+    public ?int $playerAugment1 = null;
+
+    /**
+     * Available when received from:
+     *   - @see LeagueAPI::getMatch
+     *
+     * @var int|null $playerAugment2
+     */
+    public ?int $playerAugment2 = null;
+
+    /**
+     * Available when received from:
+     *   - @see LeagueAPI::getMatch
+     *
+     * @var int|null $playerAugment3
+     */
+    public ?int $playerAugment3 = null;
+
+    /**
+     * Available when received from:
+     *   - @see LeagueAPI::getMatch
+     *
+     * @var int|null $playerAugment4
+     */
+    public ?int $playerAugment4 = null;
+
+    /**
+     * Available when received from:
+     *   - @see LeagueAPI::getMatch
+     *
+     * @var int|null $playerSubteamId
+     */
+    public ?int $playerSubteamId = null;
+
+    /**
+     * Available when received from:
+     *   - @see LeagueAPI::getMatch
+     *
+     * @var int|null $subteamPlacement
+     */
+    public ?int $subteamPlacement = null;
+
+    /**
+     * Available when received from:
+     *   - @see LeagueAPI::getMatch
+     *
+     * @var int|null $totalAllyJungleMinionsKilled
+     */
+    public ?int $totalAllyJungleMinionsKilled = null;
+
+    /**
+     * Available when received from:
+     *   - @see LeagueAPI::getMatch
+     *
+     * @var int|null $totalEnemyJungleMinionsKilled
+     */
+    public ?int $totalEnemyJungleMinionsKilled = null;
+
+    /**
+     * Available when received from:
+     *   - @see LeagueAPI::getMatch
+     *
+     * @var int|null $placement
+     */
+    public ?int $placement = null;
 }
