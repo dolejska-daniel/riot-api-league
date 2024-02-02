@@ -35,4 +35,7 @@ class StaticGroupDto extends ApiObject
 
 	/** @var string $key */
 	public $key;
+
+	/** @var string $id */
+	public $id;
 }
