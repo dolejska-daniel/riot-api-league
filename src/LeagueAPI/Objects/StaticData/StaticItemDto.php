@@ -95,4 +95,7 @@ class StaticItemDto extends ApiObject
 
 	/** @var int $stacks */
 	public $stacks;
+
+	/** @var string $requiredAlly */
+	public $requiredAlly;
 }

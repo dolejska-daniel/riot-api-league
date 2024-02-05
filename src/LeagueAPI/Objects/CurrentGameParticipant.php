@@ -133,4 +133,13 @@ class CurrentGameParticipant extends ApiObjectLinkable
 	 * @var GameCustomizationObject[] $gameCustomizationObjects
 	 */
 	public array $gameCustomizationObjects;
+
+	/**
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getCurrentGameInfoBySummoner
+	 *
+	 * @var string $puuid
+	 */
+	public string $puuid;
 }

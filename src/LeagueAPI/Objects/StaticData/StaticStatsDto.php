@@ -89,4 +89,7 @@ class StaticStatsDto extends ApiObject
 
 	/** @var double $critperlevel */
 	public $critperlevel;
+
+	/** @var double $attackspeed */
+	public $attackspeed;
 }
