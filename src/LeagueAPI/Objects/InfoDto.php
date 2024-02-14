@@ -39,6 +39,17 @@ class InfoDto extends ApiObject
 	 * Available when received from:
 	 *   - @see LeagueAPI::getMatch
 	 *
+	 * @var string $gameCreation
+	 */
+	public string $endOfGameResult;
+
+	/**
+	 * Unix timestamp for when the game is created on the game server (i.e.,
+	 * the loading screen).
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *
 	 * @var int $gameCreation
 	 */
 	public int $gameCreation;
