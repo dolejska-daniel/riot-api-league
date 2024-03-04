@@ -56,7 +56,7 @@ This file contains only general introduction to library features.
 The easiest way to download and use this library is via [Composer](https://getcomposer.org/).
 If you are not using Composer yet, you should start **right now**!
 
-While having Composer installed on your machine it takes only `composer require "dolejska-daniel/riot-api-league:^1"` command to get the library ready to roll!
+While having Composer installed on your machine it takes only `composer require "dolejska-daniel/riot-api-league:^2"` command to get the library ready to roll!
 
 For additional information about downloading and initial setup, please see [the wiki pages](https://github.com/dolejska-daniel/riot-api-league/wiki/Home#downloading).
 
@@ -72,7 +72,7 @@ Please refer to [wiki pages](https://github.com/dolejska-daniel/riot-api-league/
 | [Champion](https://github.com/dolejska-daniel/riot-api-league/wiki/Resources-and-endpoints#champion-)                            | ![Champion resource implemented version](https://img.shields.io/badge/implemented_version-v3-brightgreen.svg)          |
 | [Champion Mastery](https://github.com/dolejska-daniel/riot-api-league/wiki/Resources-and-endpoints#champion-mastery-)            | ![Champion Mastery resource implemented version](https://img.shields.io/badge/implemented_version-v4-brightgreen.svg)  |
 | Challenges                                                                                                                       | ![Challenges resource implemented version](https://img.shields.io/badge/implemented_version-v1-brightgreen.svg)        |
-| Clash                                                                                                                            | ![Clash resource implemented version](https://img.shields.io/badge/implemented_version-v1-brightgreen.svg)             |
+| Clash                                                                                                                            | ![Clash resource implemented version](https://img.shields.io/badge/implemented_version-v-brightgreen.svg)             |
 | [League](https://github.com/dolejska-daniel/riot-api-league/wiki/Resources-and-endpoints#league-)                                | ![League resource implemented version](https://img.shields.io/badge/implemented_version-v4-brightgreen.svg)            |
 | [League Exp](https://github.com/dolejska-daniel/riot-api-league/wiki/Resources-and-endpoints#league-exp-)                        | ![League Exp resource implemented version](https://img.shields.io/badge/implemented_version-v4-brightgreen.svg)        |
 | Masteries                                                                                                                        | ![Masteries resource implemented version](https://img.shields.io/badge/implemented_version-deprecated-gray.svg)        |
