@@ -1202,4 +1202,188 @@ class ParticipantDto extends ApiObjectLinkable
 	 * @var bool $win
 	 */
 	public bool $win;
+
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *
+	 * @var int $allInPings
+	 */
+	public int $allInPings;
+
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *
+	 * @var int $assistMePings
+	 */
+	public int $assistMePings;
+
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *
+	 * @var int $baitPings
+	 */
+	public int $baitPings;
+
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *
+	 * @var int $basicPings
+	 */
+	public int $basicPings;
+
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *
+	 * @var int $commandPings
+	 */
+	public int $commandPings;
+
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *
+	 * @var int $dangerPings
+	 */
+	public int $dangerPings;
+
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *
+	 * @var int $enemyMissingPings
+	 */
+	public int $enemyMissingPings;
+
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *
+	 * @var int $enemyVisionPings
+	 */
+	public int $enemyVisionPings;
+
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *
+	 * @var int $getBackPings
+	 */
+	public int $getBackPings;
+
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *
+	 * @var int $holdPings
+	 */
+	public int $holdPings;
+
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *
+	 * @var int $needVisionPings
+	 */
+	public int $needVisionPings;
+
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *
+	 * @var int $onMyWayPings
+	 */
+	public int $onMyWayPings;
+
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *
+	 * @var int $pushPings
+	 */
+	public int $pushPings;
+
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *
+	 * @var int $visionClearedPings
+	 */
+	public int $visionClearedPings;
+
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *
+	 * @var bool $eligibleForProgression
+	 */
+	public bool $eligibleForProgression;
+
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *
+	 * @var int $totalAllyJungleMinionsKilled
+	 */
+	public int $totalAllyJungleMinionsKilled;
+
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *
+	 * @var int $totalEnemyJungleMinionsKilled
+	 */
+	public int $totalEnemyJungleMinionsKilled;
+
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *
+	 * @var int $playerSubteamId
+	 */
+	public int $playerSubteamId;
+
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *
+	 * @var int $subteamPlacement
+	 */
+	public int $subteamPlacement;
+
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *
+	 * @var int $playerAugment1
+	 */
+	public int $playerAugment1;
+
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *
+	 * @var int $playerAugment2
+	 */
+	public int $playerAugment2;
+
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *
+	 * @var int $playerAugment3
+	 */
+	public int $playerAugment3;
+
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *
+	 * @var int $playerAugment4
+	 */
+	public int $playerAugment4;
 }
