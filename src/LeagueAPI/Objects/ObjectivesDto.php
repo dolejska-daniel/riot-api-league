@@ -79,4 +79,12 @@ class ObjectivesDto extends ApiObject
 	 * @var ObjectiveDto $tower
 	 */
 	public ObjectiveDto $tower;
+
+	/**
+	 * Available when received from:
+	 *   - @see LeagueAPI::getMatch
+	 *
+	 * @var ObjectiveDto $horde
+	 */
+	public ObjectiveDto $horde;
 }
