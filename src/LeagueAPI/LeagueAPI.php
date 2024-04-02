@@ -1,7 +1,7 @@
 <?php /** @noinspection PhpInternalEntityUsedInspection */
 
 /**
- * Copyright (C) 2016-2023  Daniel Dolejška
+ * Copyright (C) 2016-2024  Daniel Dolejška
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -268,7 +268,7 @@ class LeagueAPI extends BaseAPI
 	 * @cli-name get-mastery
 	 * @cli-namespace champion-mastery
 	 *
-	 * @param string $encrypted_summoner_id
+	 * @param string $encrypted_puuid
 	 * @param int $champion_id
 	 *
 	 * @return Objects\ChampionMasteryDto|null
@@ -281,10 +281,10 @@ class LeagueAPI extends BaseAPI
 	 *
 	 * @link https://developer.riotgames.com/apis#champion-mastery-v4/GET_getChampionMastery
 	 */
-	public function getChampionMastery( string $encrypted_summoner_id, int $champion_id ): ?Objects\ChampionMasteryDto
+	public function getChampionMastery( string $encrypted_puuid, int $champion_id ): ?Objects\ChampionMasteryDto
 	{
-		$resultPromise = $this->setEndpoint("/lol/champion-mastery/" . self::RESOURCE_CHAMPIONMASTERY_VERSION . "/champion-masteries/by-summoner/$encrypted_summoner_id/by-champion/$champion_id")
-			->setResource(self::RESOURCE_CHAMPIONMASTERY, "/champion-masteries/by-summoner/%s/by-champion/%s")
+		$resultPromise = $this->setEndpoint("/lol/champion-mastery/" . self::RESOURCE_CHAMPIONMASTERY_VERSION . "/champion-masteries/by-puuid/$encrypted_puuid/by-champion/$champion_id")
+			->setResource(self::RESOURCE_CHAMPIONMASTERY, "/champion-masteries/by-puuid/%s/by-champion/%s")
 			->makeCall();
 
 		return $this->resolveOrEnqueuePromise($resultPromise, function(array $result) {
@@ -299,7 +299,7 @@ class LeagueAPI extends BaseAPI
 	 * @cli-name get-masteries
 	 * @cli-namespace champion-mastery
 	 *
-	 * @param string $encrypted_summoner_id
+	 * @param string $encrypted_puuid
 	 *
 	 * @return Objects\ChampionMasteryDto[]|null
 	 *
@@ -311,10 +311,10 @@ class LeagueAPI extends BaseAPI
 	 *
 	 * @link https://developer.riotgames.com/apis#champion-mastery-v4/GET_getAllChampionMasteries
 	 */
-	public function getChampionMasteries( string $encrypted_summoner_id ): ?array
+	public function getChampionMasteries( string $encrypted_puuid ): ?array
 	{
-		$resultPromise = $this->setEndpoint("/lol/champion-mastery/" . self::RESOURCE_CHAMPIONMASTERY_VERSION . "/champion-masteries/by-summoner/$encrypted_summoner_id")
-			->setResource(self::RESOURCE_CHAMPIONMASTERY, "/champion-masteries/by-summoner/%s")
+		$resultPromise = $this->setEndpoint("/lol/champion-mastery/" . self::RESOURCE_CHAMPIONMASTERY_VERSION . "/champion-masteries/by-puuid/$encrypted_puuid")
+			->setResource(self::RESOURCE_CHAMPIONMASTERY, "/champion-masteries/by-puuid/%s")
 			->makeCall();
 
 		return $this->resolveOrEnqueuePromise($resultPromise, function(array $result) {
@@ -332,7 +332,7 @@ class LeagueAPI extends BaseAPI
 	 * @cli-name get-mastery-score
 	 * @cli-namespace champion-mastery
 	 *
-	 * @param string $encrypted_summoner_id
+	 * @param string $encrypted_puuid
 	 *
 	 * @return int|null
 	 *
@@ -344,10 +344,10 @@ class LeagueAPI extends BaseAPI
 	 *
 	 * @link https://developer.riotgames.com/apis#champion-mastery-v4/GET_getChampionMasteryScore
 	 */
-	public function getChampionMasteryScore( string $encrypted_summoner_id ): ?int
+	public function getChampionMasteryScore( string $encrypted_puuid ): ?int
 	{
-		$resultPromise = $this->setEndpoint("/lol/champion-mastery/" . self::RESOURCE_CHAMPIONMASTERY_VERSION . "/scores/by-summoner/$encrypted_summoner_id")
-			->setResource(self::RESOURCE_CHAMPIONMASTERY, "/scores/by-summoner/%s")
+		$resultPromise = $this->setEndpoint("/lol/champion-mastery/" . self::RESOURCE_CHAMPIONMASTERY_VERSION . "/scores/by-puuid/$encrypted_puuid")
+			->setResource(self::RESOURCE_CHAMPIONMASTERY, "/scores/by-puuid/%s")
 			->makeCall();
 
 		return $this->resolveOrEnqueuePromise($resultPromise, function(int $result) {
