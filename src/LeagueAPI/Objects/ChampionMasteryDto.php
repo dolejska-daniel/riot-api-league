@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright (C) 2016-2023  Daniel Dolejška
+ * Copyright (C) 2016-2024  Daniel Dolejška
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -160,4 +160,19 @@ class ChampionMasteryDto extends ApiObjectLinkable
 	 * @var int $tokensEarned
 	 */
 	public int $tokensEarned;
+ 
+	/**
+	 * PUUID for this entry. (Encrypted).
+	 *
+	 * Available when received from:
+	 *   - @see LeagueAPI::getAllChampionMasteries
+	 *   - @see LeagueAPI::getAllChampionMasteriesByPUUID
+	 *   - @see LeagueAPI::getChampionMastery
+	 *   - @see LeagueAPI::getTopChampionMasteries
+	 *
+	 * @var string $puuid
+	 */
+	public string $puuid;
+
+	
 }
